@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jeonguggu</groupId>
 	<artifactId>matnam</artifactId>
-	<name>Team_project</name>
+	<name>Matnam</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -115,8 +115,8 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
-		
+		</dependency>   
+		     
 		<!-- mybatis s 2022.02.13 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -231,7 +231,6 @@
 			<version>3.8</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-		
 		
 	</dependencies>
     <build>
