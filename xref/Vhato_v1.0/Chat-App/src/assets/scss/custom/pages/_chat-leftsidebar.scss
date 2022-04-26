@@ -1,0 +1,233 @@
+// 
+// chat-leftsidebar.scss
+//
+
+
+.chat-leftsidebar {
+    height: calc(100vh - 60px);;
+    position: relative;
+    background-color: $sidebar-sub-bg;
+    // box-shadow: $sidebar-shadow;
+    border-right: 1px solid $border-color;
+    z-index: 100;
+
+    @media (min-width: 992px) {
+        min-width: 320px;
+        max-width: 320px;
+        height: 100vh;
+    }
+
+    .user-status-box {
+        background-color: $light;
+        padding: 8px;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 16px;
+        display: block;
+
+        .chat-user-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+.chat-room-list {
+    max-height: calc(100vh - 126px);
+
+    @media (max-width: 991.98px) {
+        height: calc(100vh - 190px);
+    }
+}
+
+.chat-group-list {
+    height: calc(100vh - 140px);
+    @media (max-width: 991.98px) {
+        height: calc(100vh - 198px);
+    }
+}
+
+.chat-list {
+    margin: 0;
+
+    li {
+        &.active {
+            a {
+                background-color: var(--#{$variable-prefix}light);
+
+                span.avatar-title {
+                    color: $white !important;
+                    &.bg-light{
+                        background-color: rgba($light, 0.25) !important;
+                    }
+                }
+            }
+        }
+
+        > a {
+            display: block;
+            padding: 10px 24px;
+            color: $headings-color;
+            transition: all 0.4s;
+            font-size: 14px;
+
+            .chat-username {
+                font-weight: 500;
+            }
+        }
+
+        .chat-user-message {
+            font-size: 14px;
+        }
+
+        &.typing {
+            .chat-user-message {
+                color: rgba(var(--bs-primary-rgb), 1);
+                font-weight: $font-weight-medium;
+
+                .dot {
+                    background-color: rgba(var(--bs-primary-rgb), 1);
+                }
+            }
+        }
+
+        .unread-message {
+            position: absolute;
+            display: inline-block;  
+            right: 24px/*rtl:auto*/;
+            left: auto/*rtl:0*/;
+            top: 33px;
+
+            .badge {
+                line-height: 16px;
+                font-weight: $font-weight-semibold;
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+.chat-user-img {
+    position: relative;
+
+    .avatar-xs {
+        height: 2.2rem;
+        width: 2.2rem;
+    }
+
+    .user-status {
+        width: 10px;
+        height: 10px;
+        background-color: $gray-500;
+        border-radius: 50%;
+        border: 2px solid $card-bg;
+        position: absolute;
+        right: 0;
+        left: auto;
+        bottom: 0;
+    }
+
+    &.online {
+        .user-status {
+            background-color: $success;
+        }
+    }
+
+    &.away {
+        .user-status {
+            background-color: $warning;
+        }
+    }
+}
+
+//Search
+ 
+.search-panel{
+    .form-control {
+        position: relative;
+        padding-left: 42px;    
+    }
+    .btn {
+        position: absolute;
+        left: 1rem;
+        top: 6px;
+        z-index: 5;
+    }
+}
+
+
+// contact list
+
+.contact-list {
+    li {
+        cursor: pointer;
+        padding: 8px 24px;
+    }
+}
+
+.contact-list-title{
+    padding: 6px 24px;
+    color: rgba(var(--bs-primary-rgb), 1);
+    background-color: $card-bg;
+    font-weight: $font-weight-medium;
+    position: relative;
+    font-size: 12px;
+    position: sticky;
+    top: 0;
+    &:after{
+        content: "";
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 50px;
+        right: 0;
+        background-color: $border-color;
+    }
+}
+
+// Calls
+
+.chat-call-list, .chat-bookmark-list{
+    max-height: calc(100vh - 120px);
+
+    @media (max-width: 991.98px) {
+        height: calc(100vh - 125px);
+    }
+    li{
+        position: relative;
+        padding: 10px 24px;
+        border-bottom: 1px solid $border-color;
+
+        &:last-child{
+            border-bottom: 0;
+        }
+    }
+}
+
+
+// settings
+
+
+.profile-user {
+    position: relative;
+    display: inline-block;
+
+    .profile-photo-edit {
+        position: absolute;
+        right: 0/*rtl:auto*/;
+        left: auto/*rtl:0*/;
+        bottom: 0;
+        cursor: pointer;
+    }
+
+    .user-profile-img{
+        object-fit: cover;
+    }
+
+    .profile-img-file-input{
+        display: none;
+    }
+}

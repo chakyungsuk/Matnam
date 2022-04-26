@@ -1,0 +1,16 @@
+//
+// accordion.scss
+//
+
+[data-layout-mode="dark"] {
+    .accordion-button {
+        &::after {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+        &:not(.collapsed) { 
+            &::after {
+                filter: invert(1) grayscale(100%) brightness(200%);
+            }
+        }
+    }
+}
