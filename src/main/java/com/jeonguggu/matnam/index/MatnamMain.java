@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MatnamMain {
 	
 	@RequestMapping(value = "/index/matnamMain")
-	public String Select() {
+	public String matnamMain() {
 		
 		return "/user/index/matnamMain";
 	}
