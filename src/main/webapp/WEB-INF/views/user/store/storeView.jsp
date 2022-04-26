@@ -19,24 +19,24 @@
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/user/image/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="${pageContext.request.contextPath}/resources/user/image/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="${pageContext.request.contextPath}/resources/user/image/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="${pageContext.request.contextPath}/resources/user/image/apple-touch-icon-144x144-precomposed.png">
     
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
     <!-- BASE CSS -->
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/menu.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/elegant_font/elegant_font.min.css" rel="stylesheet">
-    <link href="css/fontello/css/fontello.min.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
-    <link href="css/pop_up.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/user/css/animate.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/user/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/user/css/menu.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/user/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/user/css/responsive.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/user/css/elegant_font/elegant_font.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/user/css/fontello/css/fontello.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/user/css/magnific-popup.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/user/css/pop_up.css" rel="stylesheet">
     
     <!-- Radio and check inputs -->
     <link href="css/skins/square/grey.css" rel="stylesheet">
@@ -580,16 +580,16 @@
 	<!-- End Search Menu -->
     
 <!-- COMMON SCRIPTS -->
-<script src="js/jquery-3.6.0.min.js"></script>
-<script src="js/common_scripts_min.js"></script>
-<script src="js/functions.js"></script>
-<script src="assets/validate.js"></script>
+<script src="${pageContext.request.contextPath}/resources/user/js/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/user/js/common_scripts_min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/user/js/functions.js"></script>
+<!-- <script src="assets/validate.js"></script> -->
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="http://maps.googleapis.com/maps/api/js"></script>
-<script src="js/map.js"></script>
-<script src="js/infobox.js"></script>
-<script src="js/ion.rangeSlider.js"></script>
+<script src="${pageContext.request.contextPath}/resources/user/js/map.js"></script>
+<script src="${pageContext.request.contextPath}/resources/user/js/infobox.js"></script>
+<script src="${pageContext.request.contextPath}/resources/user/js/ion.rangeSlider.js"></script>
 <script>
     $(function () {
 		 'use strict';
