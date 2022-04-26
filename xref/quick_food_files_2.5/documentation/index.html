@@ -1,0 +1,508 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+		pre,code { font-family:"Consolas", Courier New, Courier, monospace; padding:15px; background:#f7f7f7; margin:0px 0px 18px; border:1px solid #e5e5e5; line-height:18px; color:#000 }
+code { padding:0px 3px; background-image:none; background:#f5f5f5; border:none }
+pre { white-space:pre-wrap; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	  <h3 class="center alt"> Documentation by &ldquo;Ansonika&rdquo; v2.5</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;QUICKFOOD - HTML Site template&rdquo;</h1>
+		
+		<div class="borderTop">
+		  <div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 5 December 2015<br>
+                    Last update: 14 January 2022<br>
+					By: Ansonika</strong>
+			  </p>
+	    </div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my theme.  If you are happy with the theme, please <strong>TAKE A MOMENT TO RATE IT</strong> from your DOWNLOADS PAGE.
+Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files, Structure and basic modifications</a></li>
+<li><a href="#php">PHP contact form, newsltetter form and plan a visit form</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#credits">Sources and Credit</a></li>
+            <li><a href="#updates">Updates</a></li>
+		</ol>
+	 
+        <hr>
+       
+      
+  <h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+	  <p> This theme has a fixed centered layout 1170px. It's based on Boostrap framework grid 4x. It 's ULTRA RESPONSIVE!!
+	  </p>
+<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS Files Structure and basic modfication</strong> - <a href="#toc">top</a>	  </h3>
+	  <p>The css files are inside the css folder (minified versions included) .To modify colors, typografy, button style ecc....find the realtive comment line in style.css. Below how the file is organized:</p>
+<p>1. SITE STRUCTURE and TYPOGRAPHY<br>
+  - 1.1 Typography<br>
+  - 1.2 Buttons<br>
+  - 1.3 Structure</p>
+<p>2. CONTENT<br>
+  - 2.1 Home all versions<br>
+  - 2.2 List page<br>
+  - 2.3 Restaurant menu<br>
+  - 2.4  Order process<br>
+  - 2.5 Restaurant detail page<br>
+  - 2.6 About<br>
+  - 2.7 Contacts</p>
+<p>3. COMMON<br>
+  3.1 Preloader<br>
+  3.2 Parallax bg<br>
+  3.4 Login/Register modals<br>
+  3.5 Spacing<br>
+  3.6  Map<br>
+  3.7 Password strength<br>
+  3.8 Input form style<br>
+  3.9 Collapse<br>
+  3.10 Tabs<br>
+  3.11 Tooltips<br>
+  3.12 Blockquote</p>
+
+<p><strong>Change the logo<br>
+</strong>To change the logo, simply use your PNG24 file a or start with the psd provided. The items by defualt comes with 2 logo versions: one normal and the other one for mobiles Below how is coded. We suggest to use logo with max height 25/30px.</p>
+<pre>&lt;a href=&quot;index.html&quot; id=&quot;logo&quot;&gt;<br>&lt;img src=&quot;img/logo.png&quot; width=&quot;190&quot; height=&quot;23&quot; alt=&quot;&quot; class=&quot;d-none d-sm-block&quot;&gt;<br>&lt;img src=&quot;img/logo_mobile.png&quot; width=&quot;59&quot; height=&quot;23&quot; alt=&quot;&quot; class=&quot;d-block d-sm-none&quot;&gt;
+&lt;/a&gt;</pre>
+
+
+
+
+<p><strong>Set up  site launch page located in coming_soon folder</strong><br>
+  Open functions.js and find this line of code:</p>
+<pre><strong>SET THE DATE</strong><br>Open site_launch/js/functions.js and find this line.<br><br>var target = new Date(&quot;July 15 2014 13:30:00 GMT+0100&quot;); //replace with YOUR DATE
+
+<strong>SET NEWSLETTER EMAIL</strong><br>Open site_launch/assets/newsletter.php and find this commented code.<br><br>//$address = &quot;your email address&quot;;<br>$address = &quot;test@domain.com&quot;;<br></pre>
+
+<p><strong>How MAPS works</strong><br>
+  Open js/map.js and find this line of code:</p>
+<pre>Let's take as example the map used in list_page.html. Open js/map.js.
+
+'American': [<br>			{<br>name: 'Angus Steak House',<br>		location_latitude: 48.873792, <br>		location_longitude: 2.295028,<br>		map_image_url: 'img/thumb_restaurant_map.png',<br>		name_point: 'Angus Steak House',<br>		type_point: 'American/Mexican',<br>		description_point:'135 Newtownards Road, Belfast, BT4&lt;br&gt;&lt;strong&gt;Opening time&lt;/strong&gt;: 09am-10pm.',<br>				url_point: 'detail_page.html'<br>			},
+
+American= restaurant category
+location_latitude= the latitude of Arc de Triomphe<br>location_longitude= the longitude of Arc de Triomphe<br>name_point= the title in info box,
+map_image_url: the thumbnail inside the infobox<br>description_point= description<br>type_point= restaurant type<br>url_point= the link in the button
+
+The marker/pins are located in img/pins folder (psd included). Each pin name have to match with the restaurant 
+category name. In this case for example is Historic.png...so automatically every point in the same 
+category has the same pin/marker.<br>
+</pre>
+<strong>COMMON ISSUE ON GOOGLE MAP</strong> (if the Google map works locally but does not works once the site will be online)<br>
+  <pre>In some cases Google requires an api key for the Google map.
+<br>You can create your own "Standard api key" here <br>by clicking on &quot;GET KEY&quot; BUTTON (on Authentication for the standard API—API keys section), <br>and follow the steps.
+<a href="https://developers.google.com/maps/documentation/javascript/get-api-key#key" target="_blank">https://developers.google.com/maps/documentation/javascript/get-api-key#key</a>
+
+Here some additionale info on how to create an API KEY <a href="http://thegrue.org/google-map-javascript-api-key/">http://thegrue.org/google-map-javascript-api-key/</a><br><br>Then replace at the bottom of every page that use Google map, this line<br>
+&lt;script src=&quot;http://maps.googleapis.com/maps/api/js&quot;&gt;&lt;/script&gt; OR 
+&lt;script type="text/javascript" src="<a target="_blank" href="http://maps.googleapis.com/maps/api/js?sensor=false">http://maps.googleapis.com/maps/api/js?sensor=false</a>"&gt;&lt;/script&gt;<br><br>with your api key included, like the example below<br>&lt;script src="<a target="_blank" href="http://maps.googleapis.com/maps/api/js?key=AIzaSyAaO0WhIut5GCNr9y8xTA36EPj87NEHptM">http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY</a>"&gt;&lt;/script&gt;
+
+Note: if you apply the api key, on your local computer the map does not load.<br>You shoul upload on your host. So we suggest to apply this changes after your<br>complete to edit the template.
+</pre>
+<p><strong>Home with video header (fallback with a background image in tablets and mobile)</strong><br>
+</p>
+<pre>1)Save you mp4 and ogv video in the video folder.The name of the files must match the datasource tag:<br>
+Example<br>data-teaser-source=&quot;video/intro&quot; (folder/name_files)=<br>intro.mp4<br>intro.ogv<br><br>2) To change the fallback background image (on tablets and mobiles the video bg is not supported)<br> open responsive.css an find this class<br><br>.hero_video {
+background: #333 url(../img/sub_header_home.jpg);
+background-size:cover; 
+background-position: center center
+}<br></pre>
+
+<p><strong>Home with text rotator</strong><br>
+</p>
+<pre>Taking as reference index_4.html, simply add your rotate words separated by commas like the example below:
+ &lt;h1&gt;Order &lt;strong id=&quot;js-rotating&quot;&gt;Takeaway,Delivery,Quick&lt;/strong&gt; Food&lt;/h1&gt;<br></pre>
+ 
+ <p><strong>Home with Cookie bar</strong><br>
+ </p>
+<pre>1) At the top of your page add the relative css<br>&lt;!-- SPECIFIC CSS --&gt;<br>&lt;link href=&quot;css/jquery.cookiebar.css&quot; rel=&quot;stylesheet&quot;&gt;
+<br>2) At the bottom of the page add these scripts<br>&lt;!-- SPECIFIC SCRIPTS --&gt;<br>&lt;script src=&quot;js/jquery.cookiebar.js&quot;&gt;&lt;/script&gt;<br>    &lt;script&gt;<br>		$(document).ready(function(){<br>		'use strict';<br>		 $.cookieBar({<br>			fixed: true<br>		});<br>		});<br>	&lt;/script&gt;
+
+3)In js/jquery.cookiebar.js you can change the default settings:<br>
+to set the link to the &quot;Pricavy policy&quot; page, set your link path here: policyURL: '#',<br>message: 'We use cookies to track usage and preferences.', //Message displayed on bar
+</pre>
+
+<p><strong>How to use the icon font libraries</strong><br>
+</p>
+<pre>1) Choose the icon from these pages 
+icon-pack-1.html
+icon-pack-2.html
+
+2) Copy an paste the class name…for example from here icon-pack-2.html
+<i class="pe-7s-album"></i>&lt;i class=&quot;arrow_left&quot;&gt;&lt;/i&gt;
+<i class="arrow_up"></i>
+
+3) You can change the size via style inline
+<i class="arrow_up" style="font-size:18px"></i>&lt;i class=&quot;arrow_left&quot; style=&quot;font-size:18px&quot;&gt;&lt;/i&gt;
+</pre>
+
+<p><strong>How to change the default color scheme
+</strong></p>
+<pre>The item come with a css/color_scheme.css as an example of other color scheme. You can edit this file with your color scheme, then
+
+1) or you add this file in the head of the page as last css file
+2) copy and paste the styles present in css/color_scheme.css into css/custom.css in order to avoid to edit every page (quicker solution)</pre>
+
+<p><strong>THE GRID</strong><br> 
+Please refer to this <a href="http://getbootstrap.com/">documentation Boostrap</a></p>
+    
+      <hr>
+<br>
+      <h3 id="php"><strong>C) PHP files: Newsletter subscription form, Leave a review form, Newsletter in site launch</strong> - <a href="#php">top</a></h3>
+      <p>All the files you need are located in assets folder(for the coming soon is coming_soon/assets). Below an example taken from newsletter.php; all the files are well commented<strong>.<br>
+      </strong><br>
+        <img src="assets/images/mail.png" alt="" width="548" height="160" style="border:1px solid #ccc;">      </p>
+      </p>
+      <p><strong>Common issues<br>
+        </strong>f you doesn't recieve the email please first check:<br>
+      1) Your spam folder<br>
+      2) If you hosting requires special settings<br>
+      3) If your email  has to be managed from the same hosting provider<br>
+      4) Set the permission of the asset folder on your host to 755 your FTP client<br>
+      5) SMTP authentication is not supported
+      </p>
+      </p>
+      <hr>
+<h3 id="javascript"><strong>D) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+	  <p>This theme use These Javascript (minified versions included). i've included the common theme scripts in a single file for a fast edit and load.</p>
+      <p><strong>common_scripts.js content:
+      </strong>
+      <ul>
+      <li>Boostrap.js</li>
+      <li>Parallax.js</li>
+      <li>Menu script</li>
+      <li>Magnifc-popup.js</li>
+      <li>Wow.js</li>
+      <li>Icheck.min.js (Radio/Checkboxes styles)</li>
+       <li>Pw_strenght.js check (For Register modal)</li>
+      </ul>
+<hr>
+		
+		<h3 id="credits"><strong>E) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+	  <p>I've used the following images, icons or other files as listed.
+		
+	  <ul>
+        <li><a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a></li>
+        <li><a href="http://fontello.com/">Fontello</a></li>
+        <li><a href="http://gsgd.co.uk/sandbox/jquery/easing/">Jquery easing</a></li>
+        <li><a href="http://nicinabox.com/superslides/">Background images slider</a></li>        
+        <li><a href="https://github.com/fronteed/iCheck/">iCheck for styling checkbox and radio buttons</a></li>
+        <li><a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific popup</a></li>
+        <li><a href="http://mynameismatthieu.com/WOW">Wow</a></li>
+        <li><a href="http://daneden.github.io/animate.css/">Animate.css</a></li>
+        <li><a href="http://pixelcog.github.io/parallax.js/">Parallax</a></li>
+        <li><a href="http://jquery.com/">Jquery</a></li>
+        <li><a href="http://morphext.fyianlai.com/">Text rotator</a></li>
+        <li><a href="http://www.primebox.co.uk/projects/jquery-cookiebar/">Jquery Cookie bar</a></li>
+        <li><a href="https://github.com/mathiasbynens/jquery-placeholder">Jquery Placeholder</a></li>
+        <li><a href="https://github.com/WeCodePixels/theia-sticky-sidebar">Sticky sidebar</a></li>
+        <li><a href="https://modernizr.com/">Modernizr</a></li>
+        <li><a href="https://www.elegantthemes.com/blog/resources/elegant-icon-font">Elegant icon font</a></li>
+         <li><a href="http://fontello.com/">Fontello icon font</a></li>
+         <li><a href="http://bqworks.com/slider-pro/">Slider Pro plugin</a></li>
+	  </ul>
+		<p>Images are not included.</p>
+<hr>
+ <h3 id="updates"><strong>F) Updates</strong> - <a href="#toc">top</a></h3>
+ <p>V.2.5 (14 January 2022)</p>
+      <ul>
+      <li>Updated documentation</li>
+      </ul>
+      
+ <p>V.2.4 (17 August 2021)</p>
+      <ul>
+      <li>Updated jQuery version (Update with this line on every footer pages &lt;script src=&quot;js/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;)</li>
+      <li>Removed Category mobile menu in detail_page.html (Remove from the footer page these 2 lines&lt;script  src=&quot;js/cat_nav_mobile.js&quot;&gt;&lt;/script&gt;<br>
+        &lt;script&gt;$('#cat_nav').mobileMenu();&lt;/script&gt; </li>
+      </ul>
+      
+ <p>V.2.3 (18 February 2021)</p>
+      <ul>
+      <li>Updated Documentation</li>
+      </ul>
+<p>V.2.2 (16 September 2020)</p>
+      <ul>
+      <li>Updated Bootstrap Library</li>
+      <li>Updated jQuery Version</li>
+      <li>Removed html5 placeholder (for IE8/9) no longer necessary</li>
+      <li>Updated iCheck Plugin that have an issue on IOS13</li>
+      <li>Update Google font link</li>
+      <li>Added Button show/hide map text replace</li>
+      <li>Update The wysiwyg editor in admin page with a new one</li>
+      </ul>
+      <pre>HOW TO UPDATE FROM PREVIOUS VERSION
+
+1) Updated Bootstrap Library from BS3 to BS4
+a) Update the following files: css/bootstrap.css, css/bootstrap.min.css, js/bootstrap.js, js/bootstrap.min.js, js/common_scripts.js,js/common_scripts_min.js, js/functions.js.
+b) Update some classes in the html and the &quot;meta&quot; in the head of the page. Unfortunately there's no easy way to update the theme to BS4 other than doing it manually. 
+The differences, are explained in <a href="https://www.quackit.com/bootstrap/bootstrap_4/differences_between_bootstrap_3_and_bootstrap_4.cfm">this link</a> or <a href="http://upgrade-bootstrap.bootply.com/">here</a> in the left column .	Mainly are in the grid classes, responsive images, visibility classes, accordions.  
+We suggest to use this tool <a href="https://www.diffchecker.com/">https://www.diffchecker.com/</a> and compare the html files with the new ones.
+c) Update css/style.css, css/admin.css, css/blog.css or compare using this tool <a href="https://www.diffchecker.com/">https://www.diffchecker.com/</a> (we applied very minor changes)
+
+2) Update the script on footer page to &lt;script src="<a target="_blank" href="js/jquery-3.5.1.min.js" rel="noreferrer noopener">js/jquery-3.5.1.min.js</a>"&gt;&lt;/script&gt; + js/functions.js + js/pop_up_func.js
+(some events has changed. for example $(window).scroll(function () &gt; $(window).on('scroll', function ()... etc)
+
+3) Update the following files: js/common_scripts.js,js/common_scripts_min.js, js/functions.js.
+
+4) Update the following files: js/common_scripts.js, js/common_scripts_min.js
+
+5) Update the link in the head of the pages
+
+6) Update the following files: js/functions.js, in particular the section /* Button show/hide map */
+
+7) Copy and paste the &quot;editor&quot; folder locate in js folder and in admin.html footer change the script
+      </pre>
+<p>V.2.1 (5 May 2020)</p>
+      <ul>
+      <li>Updated documentation</li>
+      </ul>
+      <p>V.2.0 (11 December 2018)</p>
+        <ul>
+        <li>Removed @import </li>
+        <li>Fixed an issue related to the page scroll on faq.html + detail_page.html</li>
+        <li>Fixed and issue related to the parallax header in RTL version</li>
+        </ul>
+        <p>V.1.9 (19 September 2018)</p>
+        <ul>
+        <li>Updated the Parallax script</li>
+        <li>Updated the Sticky Sidebar Script</li>
+        </ul>
+        <p>V.1.8 (26 June 2017)</p>
+        <ul>
+        <li>Fixed an issue related to the Drop down menu order options in detail_page.html (Detect the viewport to avoid load partially out of screen).</li>
+        </ul>
+        <p>V.1.8 (26 June 2017)</p>
+        <ul>
+        <li>Fixed an issue relate to the Drop down menu order options in detail_page.html (Detect the viewport to avoid load partially out of screen).</li>
+        </ul>
+<p>V.1.7 (28 Feb 2017)</p>
+        <ul>
+        <li>Fixed an issue related to the Coming soon page (files to update: coming_soon/style.css, coming_soon/index.html, coming_soon/assets/newsletter.php)</li>
+        </ul>
+          <p>V.1.6 (5 December 2016)</p>
+        <ul>
+        <li>Added search modal for internal pages</li>
+        <li>Update to last Jquery version</li>
+        <li>Updated to Bootstrap 3.7</li>
+        <li>Added thumbs on restaurant menu</li>
+        <li>Set the opacity of the header images via css (homepages excluded)</li>
+         <li>Added item order options (when you click plus button)</li>
+        <li>Added RTL version</li>
+        <li>Added Admin section</li>
+        <li>Added 2 new pages: Submit Drivers or Restaurants</li>
+         <li><a href="#updates">How to update from previous version</a></li>
+</ul>
+         <p>V.1.5 (22 November 2016)</p>
+        <ul>
+        <li>Added map listing</li>
+        <li>Added Date/time picker</li>
+        <li>Fixed an issue on filters collapse on mobiles (update function.js)</li>
+        <li>Change the color scheme easly: view css/base.css how to do</li>
+</ul>
+         <p>V.1.4 (26 July 2016)</p>
+        <ul>
+        <li>Updated documentation on how to fix for possible coming issue related on Google map.</li>
+        </ul>
+      <p>V.1.3 (09 June 2016)</p>
+        <ul>
+        	<li>Added 14 PSD layered of the item in psd/layouts folder.</li>
+        </ul>
+         <p>V.1.2 (26 Feb 2016)</p>
+        <ul>
+        	<li>Improved the fixed sidebar with another script (the previous had an issue if you refresh page when the sidebar is in the middle of the page)</li>
+            <li>Updated the parallax script</li>
+            <a href="#updates">How to update from previous versions</a>
+        </ul>
+        <p>V.1.1 (7 January 2016)</p>
+        <ul>
+        	<li>Added a grid list version</li>
+            <li>Added a gallery to the restaurant detail page</li>
+            <li>Fix a small issue for the "leave a review" form in the restaurant detail page</li>
+            <li>Added a blog section</li>
+            <li>Added a load more button in list/grid page</li>
+            <a href="#updates">How to update from previous versions</a>
+        </ul>
+        <hr>
+ <h4><strong>Version 2.1</strong></h4>
+ <pre>Updated documentation</pre>
+<h4><strong>Version 2.0</strong></h4>
+ <pre>1) Removed @import (from March/April 2019 will no longer supported by Google Chrome Browser)
+
+How to update from previous version:
+
+in the head of every page please replace this line:
+
+&lt;!-- BASE CSS --&gt;<br>&lt;link href=&quot;css/base.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+with
+&lt;!-- BASE CSS --&gt;<br>&lt;link href=&quot;css/animate.min.css&quot; rel=&quot;stylesheet&quot;&gt;<br>&lt;link href=&quot;css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;<br>&lt;link href=&quot;css/menu.css&quot; rel=&quot;stylesheet&quot;&gt;<br>&lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;<br>&lt;link href=&quot;css/responsive.css&quot; rel=&quot;stylesheet&quot;&gt;<br>&lt;link href=&quot;css/elegant_font/elegant_font.min.css&quot; rel=&quot;stylesheet&quot;&gt;<br>&lt;link href=&quot;css/fontello/css/fontello.min.css&quot; rel=&quot;stylesheet&quot;&gt;<br>&lt;link href=&quot;css/magnific-popup.css&quot; rel=&quot;stylesheet&quot;&gt;<br>&lt;link href=&quot;css/pop_up.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+Same changes for the RTL version; for any doubt takes as reference the head of the updated pages.
+
+2) Fixed an issue related to the page scroll on faq.html
+Please replace the script &lt;!-- SMOOTH SCROLL --&gt; on footer page
+
+3) Fixed and issue related to the parallax header in RTL version
+Please update js/common_scripts_min.js
+ </pre>
+<h4><strong>Version 1.9</strong></h4>
+ <pre>- Updated the Parallax script<br>- Updated the Sticky Sidebar Script
+
+How to update from previous version:
+1) Update common_scripts.js
+2) Update footer scripts for the following pages:
+- cart.html
+- cart_2.html
+- cart_detapicker.html
+- detail_page.html
+- faq.html
+
+Example of the new footer scripts
+&lt;script src=&quot;js/ResizeSensor.min.js&quot;&gt;&lt;/script&gt;<br>&lt;script src=&quot;js/theia-sticky-sidebar.min.js&quot;&gt;&lt;/script&gt;<br>&lt;script&gt;<br>    jQuery('#sidebar').theiaStickySidebar({<br>      additionalMarginTop: 80<br>    });<br>&lt;/script&gt;
+
+3) Update the js files in js folder: theia-sticky-sidebar.min.js, <br>theia-sticky-sidebar.js, (new) ResizeSensor.min.js, (new)ResizeSensor.js
+
+Of course same for the RTL version
+</pre>
+<h4><strong>Vesion 1.8</strong></h4>
+ <pre>
+How to update from previous version:
+1) In style.css update this class .dropdown-options .dropdown-menu <br>aprox line 2366 + add the new styles under the comment <br>/*Drop-down menu options position */
+
+2) In js/functions.js update the script under the comment<br>&lt;!-- Drop down menu options--&gt;	</pre>
+<h4><strong>Vesion 1.6</strong></h4>
+<pre>ADMIN SECTION: copy the following files<br>1) admin.html
+2) fonts folder in main root folder<br>3) css/admin.css<br>4) css/dropzone.css<br>5) css/bootstrap3-wysihtml5.min.css
+6) js/bootstrap3-wysihtml5.min.js
+7) js/tabs.js<br>8) js/dropzone.js
+
+UPDATE JQUERY VERSION
+1) change the script name in the pages
+2) copy js/jquery-2.2.4.min.js
+
+UPDATE BOOTSTRAP VERSION
+1) update js/common_scripts.js
+2) update css/bootsrap.min.css
+
+SEARCH MODAL
+1) copy the html from the pages
+2) copy the css in style.css/responsive.css section &quot;4.5 Search modal&quot;
+3) update js/common_scripts.js
+
+MENU ORDER OPTIONS DROP DOWN AND THUMBS
+1) update js/functions.js (at the end there is a new script)
+2) copy the css in style.css/responsive.css section &quot;4.6 Restaurant menu&quot;
+3) copy the images
+
+SET THE OPACITY of the header images via css (homepages excluded)
+1) from style.css update the id selector #subheader
+
+THE 2 NEW PAGES (submit drivers or restaurant)
+1) copy the images
+2) copy the css in style.css/responsive.css section &quot;4.7 Work with us section&quot;  </pre>
+ <h4><strong>Vesion 1.2</strong></h4>
+ <pre>1) Update the parallax script<br>Update the js/common_script_min.js file 
+
+2) Udpate the fixed sidebar<br>2.1 Copy and paste into your js folder the new script theia-sticky-sidebar.js<br>2.2 At the bottom of the html pages(detail_page, cart, cart_2, faq) remove the old code<br><br>
+
+&lt;script src=&quot;js/jquery.pin.min.js&quot;&gt;&lt;/script&gt;<br>&lt;script&gt;
+$(&quot;#cart_box&quot;).pin({padding: {top: 80, bottom: 25},minWidth: 1100, containerSelector: &quot;#container_pin&quot;})
+&lt;/script&gt;
+
+and add the new one
+<br>&lt;script src=&quot;js/theia-sticky-sidebar.js&quot;&gt;&lt;/script&gt;<br>&lt;script type=&quot;text/javascript&quot;&gt;<br>    jQuery('#sidebar').theiaStickySidebar({<br>      additionalMarginTop: 80<br>    });<br>&lt;/script&gt;
+<br>3.1 Wrapp the pinned element with &lt;div class=&quot;theiaStickySidebar&quot;&gt;...&lt;/div&gt; + add to the parent top #sidebar.<br>Example:<br>&lt;div class=&quot;col-md-3&quot; id=&quot;sidebar&quot;&gt;<br> &lt;div class=&quot;theiaStickySidebar&quot;&gt;
+	.....
+&lt;/div&gt;
+&lt;/div&gt;</pre>
+ <h4><strong>Vesion 1.1</strong></h4>
+ <pre>
+1) Grid version +  general updates + load more button
+Copy all new css form style.css/resposnive.css under the comment UPDATES or v.1.1 
+
+2) Blog section
+Copy the new pages + images + css/blog.css
+
+3) Gallery in restaurant detail page
+3.1 Copy the html from the page (the css in the head of the page + script call on bottom
+3.2 Copy the images from img folder (slider_single_restaurant folder)
+3.3 Copy the css slider-pro.min.css/slider-pro.css + images folder in css folder <br>+ js/jquery.sliderPro.min.js js/jquery.sliderPro.js
+
+4) Fix the issue in leave a review form (the name of the restaurant does not come in the email)<br>Open assets/validate.js and add this line restaurant_name: $('#restaurant_name').val(), like ex. below
+$.post(action, {<br>restaurant_name: $('#restaurant_name').val(),<br>name_review: $('#name_review').val(),<br>email_review: $('#email_review').val(),<br>...<br>},
+
+and in the html page change this line<br>&lt;input name=&quot;restaurant_name&quot; id=&quot;restaurant_name&quot; type=&quot;text&quot; value=&quot;Mexican Taco Mex&quot; hidden=&quot;&quot;&gt;
+into
+&lt;input name=&quot;restaurant_name&quot; id=&quot;restaurant_name&quot; type=&quot;hidden&quot; value=&quot;Mexican Taco Mex&quot;&gt;	</pre>
+<hr>
+<h3>Maybe you are interested in</h3>
+<p><a href="https://1.envato.market/EkmV9"><img src="assets/images/01-fooyes-delivery-takeaway-food-template.jpg" width="590" height="300"></a></p>
+
+<p><a href="https://1.envato.market/dA652"><img src="assets/images/01-foogra-restaurants-directory-listings-template (1).jpg" width="590" height="300"></a></p>
+<p><a href="https://1.envato.market/xv2eA"><img src="assets/images/01-sparker-directory-listings-template.jpg" width="590" height="300"></a></p>
+<p><a href="https://1.envato.market/DmbYj"><img src="assets/images/01-panagea-tours-hotels-restaurants-listing.jpg" width="590" height="300"></a></p>
+<p><a href="https://themeforest.net/item/citytours-city-tours-tour-tickets-and-guides/10715647?ref=ansonika"><img src="assets/images/01-citytours-travel-hotel-tour-template.__large_preview.jpg" width="590" height="300"></a></p>
+
+
+
+<p><strong><br>
+    <img src="assets/images/avatar.jpg" width="80" height="80"><br>
+	  <br>
+    Once again, thank you so much for purchasing this theme. Please take a moment to rate it from your Downloads page.</strong><br> 
+		  
+<h3>Need support?</h3>
+For support contact me using the form on my profile page with subject <strong>[ThemeForest Support]  Template name</strong>, or via support tab on the item page. You will receive an answer within 24-48 hours (working days)  GMT  +1.
+<ul>
+<li>I only provide support for fixing bugs or small issues on my items.</li>
+<li>I don't provide free support for additional custom modifications to the items.</li>
+<li>Please provide your site link, screenshots and other information about your issue.</li>
+</ul>
+
+<h3>Need customization or availability for freelance projects?</h3>
+Just send an email via profile page form; please don't forget to specify:
+<ul>
+<li>if you are a company, agency or private user</li>
+<li>all the information about your projects, needs, site urls, project sheet, etc..</li>
+<li>from which country you are</li>
+<li>if you have a deadline</li>
+<li>if you have basic knowledge of  HTML , CSS, JS,  PHP</li>
+</ul>
+<a href="http://themeforest.net/item/quickfood-delivery-or-takeaway-food-template/13958100/support"><strong>Themeforest Support Policy</strong></a>
+<p class="append-bottom alt large"><strong>Ansonika</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+
+</body>
+</html>
