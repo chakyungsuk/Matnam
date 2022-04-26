@@ -1,0 +1,211 @@
+// 
+// _buttons.scss
+// 
+
+button,a {
+  outline: none !important;
+}
+
+.btn-dark, .btn-secondary{
+  color: $gray-200 !important;
+}
+
+.btn-outline-light{
+  color: $gray-900;
+}
+
+.btn-primary{
+  background-color: rgba(var(--bs-primary-rgb), 0.9);
+  border-color: rgba(var(--bs-primary-rgb), 0.9);
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: rgba(var(--bs-primary-rgb), 1);
+        border-color: rgba(var(--bs-primary-rgb), 1);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 $btn-focus-width rgba(var(--bs-primary-rgb), 1);
+  }
+}
+
+//
+// Soft Buttons
+// 
+
+@mixin button-variant-soft($bg) {
+  color: $bg;
+  background-color: rgba($bg, 0.1);
+  border-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active{
+      color: $white;
+      background-color: $bg;
+  }
+
+  &:focus {
+      box-shadow: 0 0 0 $btn-focus-width rgba($bg, 0.5);
+  }
+}
+
+@each $color,
+$value in $theme-colors {
+  .btn-soft-#{$color} {
+      @include button-variant-soft($value);
+  }
+}
+
+.btn-soft-primary{
+  color: rgba(var(--bs-primary-rgb), 1);
+  background-color: rgba(var(--bs-primary-rgb), 0.1);
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $white;
+        background-color: rgba(var(--bs-primary-rgb), 1);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 $btn-focus-width rgba(var(--bs-primary-rgb), 0.5);
+  }
+}
+
+// Soft Light button
+.btn-soft-light {
+  color: $gray-600;
+
+  &:hover,
+  &:focus,
+  &:active {
+      color: $gray-800;
+  }
+}
+
+// theme dark
+[data-layout-mode="dark"]{
+    .btn-light{
+        color: var(--#{$variable-prefix}dark);
+        background-color: var(--#{$variable-prefix}light);
+        border-color: var(--#{$variable-prefix}light);
+        &:hover{
+            color: var(--#{$variable-prefix}dark);
+            background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+            border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+        }
+    }
+
+    .btn-check:focus+.btn-light,
+    .btn-check:focus+.btn-outline-light,
+    .btn-check:focus+.btn-soft-light,
+    .btn-light:focus,
+    .btn-outline-light:focus,
+    .btn-soft-light:focus{
+        color: var(--#{$variable-prefix}dark);
+        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+        border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+    }
+
+    .btn-check:active+.btn-light,
+    .btn-check:active+.btn-outline-light,
+    .btn-check:active+.btn-soft-light,
+    .btn-check:checked+.btn-light,
+    .btn-check:checked+.btn-outline-light,
+    .btn-check:checked+.btn-soft-light,
+    .btn-light.active, .btn-light:active,
+    .btn-outline-light.active, .btn-outline-light:active,
+    .btn-soft-light.active, .btn-soft-light:active,
+    .show>.btn-light.dropdown-toggle,
+    .show>.btn-outline-light.dropdown-toggle,
+    .show>.btn-soft-light.dropdown-toggle{
+        color: var(--#{$variable-prefix}dark);
+        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+        border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+    }
+
+    // dark
+
+    .btn-dark{
+        color: var(--#{$variable-prefix}light);
+        background-color: var(--#{$variable-prefix}dark);
+        border-color: var(--#{$variable-prefix}dark);
+        &:hover{
+            color: var(--#{$variable-prefix}light);
+            background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+            border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+        }
+    }
+
+    .btn-check:focus+.btn-dark, 
+    .btn-check:focus+.btn-outline-dark,
+    .btn-check:focus+.btn-soft-dark,
+    .btn-dark:focus,
+    .btn-outline-dark:focus,
+    .btn-soft-dark:focus{
+        color: var(--#{$variable-prefix}light);
+        background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+        border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+    }
+
+    .btn-check:active+.btn-dark,
+    .btn-check:active+.btn-outline-dark,
+    .btn-check:active+.btn-soft-dark,
+    .btn-check:checked+.btn-dark,
+    .btn-check:checked+.btn-outline-dark,
+    .btn-check:checked+.btn-soft-dark,
+    .btn-dark.active, .btn-dark:active,
+    .btn-outline-dark.active, .btn-outline-dark:active,
+    .btn-soft-dark.active, .btn-soft-dark:active,
+    .show>.btn-dark.dropdown-toggle,
+    .show>.btn-outline-dark.dropdown-toggle,
+    .show>.btn-soft-dark.dropdown-toggle{
+        color: var(--#{$variable-prefix}light);
+        background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+        border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+    }
+
+    // outline
+
+    .btn-outline-light{
+        color: var(--#{$variable-prefix}dark);
+        border-color: var(--#{$variable-prefix}light);
+        &:hover{
+            color: var(--#{$variable-prefix}dark);
+            background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+            border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+        }
+    }
+
+    .btn-outline-dark{
+        color: var(--#{$variable-prefix}dark);
+        border-color: var(--#{$variable-prefix}dark);
+        &:hover{
+            color: var(--#{$variable-prefix}light);
+            background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+            border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+        }
+    }
+
+    // soft
+
+    .btn-soft-light{
+        color: var(--#{$variable-prefix}dark);
+        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.1);
+        &:hover{
+            color: var(--#{$variable-prefix}dark);
+            background-color: var(--#{$variable-prefix}light);
+        }
+    }
+
+    .btn-soft-dark{
+        color: var(--#{$variable-prefix}dark);
+        background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.1);
+        &:hover{
+            color: var(--#{$variable-prefix}light);
+            background-color: var(--#{$variable-prefix}dark);
+        }
+    }
+}

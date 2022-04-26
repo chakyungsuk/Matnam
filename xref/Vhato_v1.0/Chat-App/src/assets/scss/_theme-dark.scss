@@ -1,0 +1,70 @@
+
+[data-layout-mode="dark"]{
+
+  // Color system - Dark Mode only
+  $gray-100: #1a1d21;
+  $gray-200: #212529;
+  $gray-300: #2a2f34;
+  $gray-400: #878a99;
+  $gray-500: #adb5bd;
+  $gray-600: #bfc8e2;
+  $gray-700: #ced4da;
+  $gray-800: #eff2f7;
+  $gray-900: #f3f6f9;
+
+  $grays: (
+      "100": $gray-100,
+      "200": $gray-200,
+      "300": $gray-300,
+      "400": $gray-400,
+      "500": $gray-500,
+      "600": $gray-600,
+      "700": $gray-700,
+      "800": $gray-800,
+      "900": $gray-900
+  );
+
+  // Prefix for :root CSS variables
+  @each $color, $value in $grays {
+      --#{$variable-prefix}gray-#{$color}: #{$value};
+  }
+  --#{$variable-prefix}body-bg :  #{$gray-100};
+  --#{$variable-prefix}body-color: #{$gray-800};
+  --#{$variable-prefix}body-color-rgb: #{to-rgb($gray-700)};
+
+  //dropdown
+   --#{$variable-prefix}dropdown-link-hover-color: #{$gray-700};
+  --#{$variable-prefix}dropdown-link-hover-bg:  #{lighten($gray-200, 3%)}; 
+
+  // component variable
+  --#{$variable-prefix}light: #{$gray-300};
+  --#{$variable-prefix}light-rgb: #{to-rgb($gray-300)};
+  --#{$variable-prefix}dark: #{$gray-800};
+  --#{$variable-prefix}dark-rgb: #{to-rgb($gray-800)};
+
+  //sidebar
+  --#{$variable-prefix}sidebar-bg:                      #{$gray-100};
+  --#{$variable-prefix}chat-primary-bg:                 #{$gray-300};
+  --#{$variable-prefix}sidebar-shadow:                  0 2px 4px #{lighten($gray-300, 6%)};
+
+   // modal
+  --#{$variable-prefix}modal-bg: #{$gray-200};
+
+  // Border variable
+  --#{$variable-prefix}border-color: #{lighten($gray-300, 6%)};
+
+  --#{$variable-prefix}auth-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1021%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(0%2c 0%2c 0%2c 1)'%3e%3c/rect%3e%3cpath d='M252 401L649 4' stroke-width='6' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M1409 19L1037 391' stroke-width='8' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M631 97L811 -83' stroke-width='8' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1064 322L1420 -34' stroke-width='10' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M139 292L-55 486' stroke-width='6' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M421 51L108 364' stroke-width='10' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M871 353L1042 182' stroke-width='8' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M203 289L355 137' stroke-width='8' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M499 13L279 233' stroke-width='8' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M882 272L1209 -55' stroke-width='10' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M656 540L945 251' stroke-width='8' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M545 261L127 679' stroke-width='8' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1197 557L1425 329' stroke-width='6' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M778 49L520 307' stroke-width='6' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M160 106L-65 331' stroke-width='8' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M737 225L420 542' stroke-width='6' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1239 264L1380 123' stroke-width='6' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1390 230L1084 536' stroke-width='8' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M850 476L1206 120' stroke-width='6' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M917 115L566 466' stroke-width='6' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M757 103L904 -44' stroke-width='10' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M819 372L672 519' stroke-width='8' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M296 5L577 -276' stroke-width='10' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M619 424L979 64' stroke-width='6' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M71 133L-254 458' stroke-width='10' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M1416 65L1186 295' stroke-width='8' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M60 188L264 -16' stroke-width='6' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1431 528L1221 738' stroke-width='10' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M358 92L776 -326' stroke-width='8' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M632 510L262 880' stroke-width='6' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M442 76L677 -159' stroke-width='8' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M238 47L71 214' stroke-width='8' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1108 534L1469 173' stroke-width='8' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M189 446L-131 766' stroke-width='10' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M165 395L581 -21' stroke-width='10' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M278 349L-129 756' stroke-width='6' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M255 96L670 -319' stroke-width='6' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1242 69L1557 -246' stroke-width='10' stroke='url(%23SvgjsLinearGradient1023)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1236 80L928 388' stroke-width='10' stroke='url(%23SvgjsLinearGradient1022)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1021'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='100%25' y1='0%25' x2='0%25' y2='100%25' id='SvgjsLinearGradient1022'%3e%3cstop stop-color='rgba(247%2c 246%2c 246%2c 0)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(247%2c 246%2c 246%2c 0.1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient1023'%3e%3cstop stop-color='rgba(247%2c 246%2c 246%2c 0)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(247%2c 246%2c 246%2c 0.1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+
+  //form
+  --#{$variable-prefix}input-bg: #{$gray-200};
+  --#{$variable-prefix}input-border: #{lighten($gray-300, 6%)};
+  --#{$variable-prefix}input-focus-border: #{lighten($gray-300, 6%)};
+  --#{$variable-prefix}input-disabled-bg: #{$gray-200};
+
+  // card
+  --#{$variable-prefix}card-bg: #{$gray-200};
+  --#{$variable-prefix}card-cap-bg: #{$gray-200};
+
+  //heading 
+  --#{$variable-prefix}heading-color: $gray-800;
+}
