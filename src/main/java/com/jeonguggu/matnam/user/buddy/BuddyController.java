@@ -11,5 +11,16 @@ public class BuddyController {
 		
 		return "/user/area/Select";
 	}
+
+	@RequestMapping(value = "/user/userFriendRequest")
+	public String userFriendRequest() {
+		
+		return "/user/buddy/userFriendRequest";
+	}
 	
+	@RequestMapping(value = "/user/friendSelect")
+	public String friendSelect() {
+		
+		return "/user/buddy/friendSelect";
+	}
 }

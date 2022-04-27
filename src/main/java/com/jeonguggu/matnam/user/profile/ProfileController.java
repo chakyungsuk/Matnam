@@ -23,9 +23,33 @@ public class ProfileController {
 		return "/user/member/loginForm";
 	}
 	
-	@RequestMapping(value = "/user/signupForm")
-	public String signupForm() {
+	@RequestMapping(value = "/user/userForm")
+	public String userForm() {
 		
-		return "/user/member/signupForm";
+		return "/user/member/userForm";
 	}
+	
+	@RequestMapping(value = "/user/userEdit")
+	public String userEdit() {
+		
+		return "/user/member/userEdit";
+	}
+	
+	@RequestMapping(value = "/user/profileView")
+	public String profileView() {
+		
+		return "/user/member/profileView";
+	}
+	
+	@RequestMapping(value = "/user/profileEdit")
+	public String profileEdit() {
+		
+		return "/user/member/profileEdit";
+	}
+	
+//	@RequestMapping(value = "/top")
+//	public String top() {
+//		
+//		return "/user/include/top";
+//	}
 }

@@ -61,6 +61,14 @@
 		a:link{
 			color: black;
 		}
+		div.vertical-line{
+	      width: 1px; /* Line width */
+	      background-color: gray; /* Line color */
+	      height: 100%; /* Override in-line if you want specific height. */
+	      /* float: left; */ /* Causes the line to float to left of content.
+	        You can instead use position:absolute or display:inline-block
+	        if this fits better with your design */
+	    }
     </style> 
 </head>
 
@@ -107,46 +115,16 @@
 	</div><!-- End Map -->
 
 <!-- Content ================================================== -->
-
 	<div class="container margin_60_35">
 	    <div class="row">
-	        <div class="col-lg-3">
+	        <div class="col-lg-2">
 	        </div><!-- End col -->
-	        <div class="col-lg-6">
-	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">로그인</h2>
-	                <div class="form-group">
-	                    <label>아이디</label>
-	                    <input type="text" class="form-control" id="firstname_order" name="firstname_order" placeholder="아이디">
-	                </div>
-	                <div class="form-group">
-	                    <label>비밀번호</label>
-	                    <input type="password" class="form-control" id="lastname_order" name="lastname_order" placeholder="비밀번호">
-	                </div>
-	                <div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							로그인 상태 유지
-						</label>
-					</div>
-					<div style="text-align: center; padding:10px; "> 
-	                	<a class="btn_1" href="" style="width:200px;">로그인</a>
-	                </div>
-	                <div style="text-align: center; padding:10px;">
-	                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
-	                </div> 
-	                <div class="row align-items-center" style="margin-left:68px; margin-top:10px;">  
-	                	<div class="col-auto">
-		                	<a href="" class="login_text" style="color: black;">아이디 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto"> 
-	                		<a href="" class="login_text" style="color: black;">비밀번호 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto">
-	                		<a href="" class="login_text" style="color: black;">회원가입</a>
-	                	</div> 
-	                </div>
-	            </div><!-- End box_style_1 -->
+	        <div class="col-lg-8">
+	        	<div class="box_style_2" id="order_process">
+	                <h2 class="inner" style="text-align: center;">친구목록 <a href="" style="float:right;"><h6><span class="badge bg-primary">차단관리</span></h6></a></h2>
+				</div>
+				
+	            
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->

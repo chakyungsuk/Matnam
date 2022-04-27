@@ -114,37 +114,27 @@
 	        </div><!-- End col -->
 	        <div class="col-lg-6">
 	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">로그인</h2>
-	                <div class="form-group">
-	                    <label>아이디</label>
-	                    <input type="text" class="form-control" id="firstname_order" name="firstname_order" placeholder="아이디">
+	                <h2 class="inner" style="text-align: center;">프로필 관리</h2>
+	                <div style="text-align: center;">
+						<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+							<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+							<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+						</svg>
 	                </div>
-	                <div class="form-group">
-	                    <label>비밀번호</label>
-	                    <input type="password" class="form-control" id="lastname_order" name="lastname_order" placeholder="비밀번호">
+	                <div>
+		                <div class="mx-auto col-sm-9 col-md-9 my-5">
+		                	<div class="row">
+			                	<h4 class="col-10" style="font-weight:900;">소개 메세지</h4>
+								<a class="col-1" href="profileEdit"><h6><span class="badge bg-primary">프로필 수정</span></h6></a>
+		                	</div> 
+		                	<h5>맛을 모르는 자, 일하지 말라</h5>
+	                	</div>  
 	                </div>
-	                <div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							로그인 상태 유지
-						</label>
-					</div>
 					<div style="text-align: center; padding:10px; "> 
-	                	<a class="btn_1" href="" style="width:200px;">로그인</a>
+	                	<a class="btn_1" href="userEdit" style="width:200px;">개인정보 변경</a>
 	                </div>
-	                <div style="text-align: center; padding:10px;">
-	                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
-	                </div> 
-	                <div class="row align-items-center" style="margin-left:68px; margin-top:10px;">  
-	                	<div class="col-auto">
-		                	<a href="" class="login_text" style="color: black;">아이디 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto"> 
-	                		<a href="" class="login_text" style="color: black;">비밀번호 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto">
-	                		<a href="" class="login_text" style="color: black;">회원가입</a>
-	                	</div> 
+					<div style="text-align: center; padding:10px; "> 
+	                	<a class="btn_1" href="userFriendRequest" style="width:200px;">친구 관리</a>
 	                </div>
 	            </div><!-- End box_style_1 -->
 	        </div><!-- End col -->

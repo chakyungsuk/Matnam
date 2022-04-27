@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
@@ -33,10 +35,17 @@
     <!-- Radio and check inputs -->
     <link href="/resources/user/css/skins/square/grey.css" rel="stylesheet">
     <link href="/resources/user/css/ion.rangeSlider.css" rel="stylesheet">
-    <link href="/resources/user/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" >
+    <link href="/resources/user/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
-    <link href="/resources/user/css/custom.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"	crossorigin="anonymous">
+    
+    <style>
+	#tools {
+	}
+    
+    </style>
+
 </head>
 
 <body>
@@ -55,13 +64,13 @@
     <header>
     <div class="container-fluid">
         <div class="row">
-            <div class="col--md-4 col-sm-4 col-4">
+            <div class="col-md-4 col-sm-4 col-4">
                 <a href="index.html" id="logo">
                     <img src="img/logo.png" width="190" height="23" alt="" class="d-none d-sm-block">
                     <img src="img/logo_mobile.png" width="59" height="23" alt="" class="d-block d-sm-none">
                 </a>
             </div>
-            <nav class="col--md-8 col-sm-8 col-8">
+            <nav class="col-md-8 col-sm-8 col-8">
             <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
             <div class="main-menu">
                 <div id="header_menu">
@@ -123,28 +132,16 @@
     </header>
     <!-- End Header =============================================== -->
 
-    <!-- SubHeader =============================================== -->
-    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
-        <div id="subheader">
-            <div id="sub_content">
-                <h1>24 results in your zone</h1>
-                <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
-            </div><!-- End sub_content -->
-        </div><!-- End subheader -->
-    </section><!-- End section -->
-    <!-- End SubHeader ============================================ -->
-
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li><a href="#0">Home</a></li>
-                <li><a href="#0">Category</a></li>
-                <li>Page active</li>
-            </ul>
-            <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
-        </div>
-    </div><!-- Position -->
-    
+	<!-- SubHeader =============================================== -->
+	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
+	    <div id="subheader">
+	        <div id="sub_content">
+	            <h1>24 results in your zone</h1>
+	            <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+	        </div><!-- End sub_content -->
+	    </div><!-- End subheader -->
+	</section><!-- End section -->
+	<!-- End SubHeader ============================================ -->
     <div class="collapse" id="collapseMap">
 		<div id="map" class="map"></div>
 	</div><!-- End Map -->
@@ -162,39 +159,39 @@
 				<div class="collapse show" id="collapseFilters">
 					<div class="filter_type">
                     	<h6>Distance</h6>
-                        <input type="text" id="range" value="" name="range">
-						<h6>Type</h6>
-						<ul>
-							<li><label><input type="checkbox" checked class="icheck">All <small>(49)</small></label></li>
-							<li><label><input type="checkbox" class="icheck">American <small>(12)</small></label><i class="color_1"></i></li>
-							<li><label><input type="checkbox" class="icheck">Chinese <small>(5)</small></label><i class="color_2"></i></li>
-							<li><label><input type="checkbox" class="icheck">Hamburger <small>(7)</small></label><i class="color_3"></i></li>
-							<li><label><input type="checkbox" class="icheck">Fish <small>(1)</small></label><i class="color_4"></i></li>
-							<li><label><input type="checkbox" class="icheck">Mexican <small>(49)</small></label><i class="color_5"></i></li>
-							<li><label><input type="checkbox" class="icheck">Pizza <small>(22)</small></label><i class="color_6"></i></li>
-							<li><label><input type="checkbox" class="icheck">Sushi <small>(43)</small></label><i class="color_7"></i></li>
-						</ul>
+                        <input type="text" id="range" value="" name="range">						
 					</div>
 					<div class="filter_type">
 						<h6>Rating</h6>
 						<ul>
-							<li><label><input type="checkbox" class="icheck"><span class="rating">
-							<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
-							</span></label></li>
-							<li><label><input type="checkbox" class="icheck"><span class="rating">
-							<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</span></label></li>
-							<li><label><input type="checkbox" class="icheck"><span class="rating">
-							<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i>
-							</span></label></li>
-							<li><label><input type="checkbox" class="icheck"><span class="rating">
-							<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i>
-							</span></label></li>
-							<li><label><input type="checkbox" class="icheck"><span class="rating">
-							<i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i>
-							</span></label></li>
+							<li><label><input type="checkbox" class="icheck">
+							<i class="icon_heart" style="color:red;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i>
+							</label></li>
+							<li><label><input type="checkbox" class="icheck">
+							<i class="icon_heart" style="color:red;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i>
+							</label></li>
+							<li><label><input type="checkbox" class="icheck">
+							<i class="icon_heart" style="color:red;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i>
+							</label></li>
+							<li><label><input type="checkbox" class="icheck">
+							<i class="icon_heart" style="color:red;"></i><i class="icon_heart" style="color:red; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i>
+							</label></li>
+							<li><label><input type="checkbox" class="icheck">
+							<i class="icon_heart" style="color:red;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i>
+							</label></li>
 						</ul>
 					</div>
+					<div class="filter_type">
+						<h6>친구목록</h6>
+						<ul>
+							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>김승태</li>
+							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>차경석</li>
+							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>한예린</li>
+							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>강현준</li>
+							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>홍길동</li>
+							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>아무개</li>
+						</ul>
+					</div>					
 					<div class="filter_type">
 						<h6>Options</h6>
 						<ul class="nomargin">
@@ -208,175 +205,178 @@
 			</div><!--End filters col-->
 		</div><!--End col-md -->
         
-		<div class="col-lg-9">
-        
-            <div id="tools">
+		<div class="col-lg-9">  
+			<div id="tools" style="border:none">
 				<div class="row">
-					<div class="col-md-3 col-sm-4 col-5">
-						<div class="styled-select">
-							<select name="sort_rating" id="sort_rating">
-								<option value="" selected>Sort by ranking</option>
-								<option value="lower">Lowest ranking</option>
-								<option value="higher">Highest ranking</option>
-							</select>
+					<div class="col-3">
+						<select class="form-select" aria-label="Default select example">
+							<option selected>Open this select menu</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						</select>
+					</div>							
+					<div class="col-3">
+						<select class="form-select" aria-label="Default select example">
+							<option selected>Open this select menu</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						</select>
+					</div>							
+					<div class="col-3">
+						<select class="form-select" aria-label="Default select example">
+							<option selected>Open this select menu</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						</select>											
+					</div>					
+					<div class="col-3" style="text-align:center;">
+						<a href="detail_page.html" class="btn_1" style="text-align:center;">검색<i class="icon-search"></i></a>
+						<a href="detail_page.html" class="btn_1" style="text-align:center;">초기화<i class="icon-refresh"></i></a>	
+					</div>					
+				</div>					
+        	</div>	
+			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="desc">
+							<div class="rating">
+								<i class="icon_heart" style="color:red;"></i> x 37
+							</div>
+							<div class="thumb_strip">
+								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
+							</div>
+							<h3>차경석 님</h3>
+							<div class="type">
+								15세 / 남성
+							</div>
+							<div class="location">
+								경기도 고양시 일산서구 주엽2동 222-2222
+							</div>
+							<ul>
+								<li>서울<i class="icon_check_alt2 ok"></i></li>
+								<li>일식<i class="icon_check_alt2 ok"></i></li>
+							</ul>
+						</div>
+					</div>					 
+					<div class="col-md-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">친구요청</a>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-9 col-sm-8 col-7">
-						<a href="list_page.html" class="bt_filters"><i class="icon-list"></i></a>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->
+            
+			<div class="strip_list wow fadeIn" data-wow-delay="0.2s">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="desc">
+							<div class="rating">
+								<i class="icon_heart" style="color:red;"></i> x 65
+							</div>
+							<div class="thumb_strip">
+								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
+							</div>
+							<h3>한예린 님</h3>
+							<div class="type">
+								26세 / 여성
+							</div>
+							<div class="location">
+								경기도 고양시 일산서구 주엽2동 222-2222
+							</div>
+							<ul>
+								<li>서울<i class="icon_check_alt2 ok"></i></li>
+								<li>양식<i class="icon_check_alt2 ok"></i></li>
+								<li>중식<i class="icon_check_alt2 ok"></i></li>
+							</ul>
+						</div>
 					</div>
-				</div>
-			</div><!--End tools -->
-        
-        	<div class="row">
-            	<div class="col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="ribbon_1">Popular</div>
-                    	<div class="desc">
-							<div class="thumb_strip">
-								<img src="img/thumb_restaurant.jpg" alt="">
+					<div class="col-md-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">친구요청</a>
 							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</div>
-							<h3>Taco Mexican</h3>
-							<div class="type">
-								Mexican / American
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
 						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->
-               <div class="col-md-6 wow zoomIn" data-wow-delay="0.2s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="ribbon_1">Popular</div>
-                    	<div class="desc">
-							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_2.jpg" alt="">
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</div>
-							<h3>Naples Pizza</h3>
-							<div class="type">
-								Italian / Pizza
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->                
-            </div><!-- End row-->
+					</div>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->
             
-            <div class="row">
-            	<div class="col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="ribbon_1">Popular</div>
-                    	<div class="desc">
+			<div class="strip_list wow fadeIn" data-wow-delay="0.3s">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="desc">
 							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_3.jpg" alt="">
+								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
 							</div>
 							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+								<i class="icon_heart" style="color:red;"></i> x 22
 							</div>
-							<h3>Japan Food</h3>
+							<h3>김승태 님</h3>
 							<div class="type">
-								Sushi / Japanese
+								45세 / 남성
 							</div>
 							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
+								경기도 고양시 일산서구 주엽2동 222-2222
 							</div>
 							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
+								<li>서울<i class="icon_check_alt2 ok"></i></li>
+								<li>일산<i class="icon_check_alt2 ok"></i></li>
+								<li>양식<i class="icon_check_alt2 ok"></i></li>
+								<li>한식<i class="icon_check_alt2 ok"></i></li>
+								<li>일식<i class="icon_check_alt2 ok"></i></li>
 							</ul>
 						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->
-                <div class="col-md-6 wow zoomIn" data-wow-delay="0.4s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="desc">
-							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_4.jpg" alt="">
+					</div>
+					<div class="col-md-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">친구요청</a>
 							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</div>
-							<h3>Sushi Gold</h3>
-							<div class="type">
-								Sushi / Japanese
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
 						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->                
-            </div><!-- End row-->
+					</div>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->            
             
-            <div class="row">
-            	<div class="col-md-6 wow zoomIn" data-wow-delay="0.5s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="desc">
+			<div class="strip_list wow fadeIn" data-wow-delay="0.4s">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="desc">
 							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_5.jpg" alt="">
+								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
 							</div>
 							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+								<i class="icon_heart" style="color:red;"></i> x 27
 							</div>
-							<h3>Dragon Tower</h3>
+							<h3>강현준 님</h3>
 							<div class="type">
-								Chinese / Thai
+								29세 / 남성
 							</div>
 							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
+								경기도 고양시 일산서구 주엽2동 222-2222
 							</div>
 							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
+								<li>서울<i class="icon_check_alt2 ok"></i></li>
+								<li>일산<i class="icon_check_alt2 ok"></i></li>
+								<li>양식<i class="icon_check_alt2 ok"></i></li>
+								<li>한식<i class="icon_check_alt2 ok"></i></li>
 							</ul>
 						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->
-                <div class="col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="desc">
-							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_6.jpg" alt="">
+					</div>
+					<div class="col-md-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">친구요청</a>
 							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</div>
-							<h3>China Food</h3>
-							<div class="type">
-								Chinese / Vietnam
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
 						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->                
-            </div><!-- End row-->
-            <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>           
+					</div>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->
+            
+            <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>  
 		</div><!-- End col-md-9-->
         
 	</div><!-- End row -->
@@ -384,81 +384,81 @@
 <!-- End Content =============================================== -->
 
 <!-- Footer ================================================== -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h3>Secure payments with</h3>
-                <p>
-                    <img src="img/cards.png" alt="" class="img-fluid">
-                </p>
-            </div>
-            <div class="col-md-3">
-                <h3>About</h3>
-                <ul>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="faq.html">Faq</a></li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                    <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
-                    <li><a href="#0" data-toggle="modal" data-target="#register">Register</a></li>
-                    <li><a href="#0">Terms and conditions</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3" id="newsletter">
-                <h3>Newsletter</h3>
-                <p>
-                    Join our newsletter to keep be informed about offers and news.
-                </p>
-                <div id="message-newsletter_2">
-                </div>
-                <form method="post" action="assets/newsletter.php" name="newsletter_2" id="newsletter_2">
-                    <div class="form-group">
-                        <input name="email_newsletter_2" id="email_newsletter_2" type="email" value="" placeholder="Your mail" class="form-control">
-                    </div>
-                    <input type="submit" value="Subscribe" class="btn_1" id="submit-newsletter_2">
-                </form>
-            </div>
-            <div class="col-md-2">
-                <h3>Settings</h3>
-                <div class="styled-select">
-                    <select name="lang" id="lang">
-                        <option value="English" selected>English</option>
-                        <option value="French">French</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="Russian">Russian</option>
-                    </select>
-                </div>
-                <div class="styled-select">
-                    <select name="currency" id="currency">
-                        <option value="USD" selected>USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="RUB">RUB</option>
-                    </select>
-                </div>
-            </div>
-        </div><!-- End row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div id="social_footer">
-                    <ul>
-                        <li><a href="#0"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#0"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#0"><i class="icon-google"></i></a></li>
-                        <li><a href="#0"><i class="icon-instagram"></i></a></li>
-                        <li><a href="#0"><i class="icon-pinterest"></i></a></li>
-                        <li><a href="#0"><i class="icon-vimeo"></i></a></li>
-                        <li><a href="#0"><i class="icon-youtube-play"></i></a></li>
-                    </ul>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Secure payments with</h3>
                     <p>
-                        � Quick Food 2021
+                        <img src="img/cards.png" alt="" class="img-fluid">
                     </p>
                 </div>
-            </div>
-        </div><!-- End row -->
-    </div><!-- End container -->
-</footer>
-<!-- End Footer =============================================== -->
+                <div class="col-md-3">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="faq.html">Faq</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
+                        <li><a href="#0" data-toggle="modal" data-target="#register">Register</a></li>
+                        <li><a href="#0">Terms and conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3" id="newsletter">
+                    <h3>Newsletter</h3>
+                    <p>
+                        Join our newsletter to keep be informed about offers and news.
+                    </p>
+                    <div id="message-newsletter_2">
+                    </div>
+                    <form method="post" action="assets/newsletter.php" name="newsletter_2" id="newsletter_2">
+                        <div class="form-group">
+                            <input name="email_newsletter_2" id="email_newsletter_2" type="email" value="" placeholder="Your mail" class="form-control">
+                        </div>
+                        <input type="submit" value="Subscribe" class="btn_1" id="submit-newsletter_2">
+                    </form>
+                </div>
+                <div class="col-md-2">
+                    <h3>Settings</h3>
+                    <div class="styled-select">
+                        <select name="lang" id="lang">
+                            <option value="English" selected>English</option>
+                            <option value="French">French</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Russian">Russian</option>
+                        </select>
+                    </div>
+                    <div class="styled-select">
+                        <select name="currency" id="currency">
+                            <option value="USD" selected>USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="RUB">RUB</option>
+                        </select>
+                    </div>
+                </div>
+            </div><!-- End row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="social_footer">
+                        <ul>
+                            <li><a href="#0"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#0"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#0"><i class="icon-google"></i></a></li>
+                            <li><a href="#0"><i class="icon-instagram"></i></a></li>
+                            <li><a href="#0"><i class="icon-pinterest"></i></a></li>
+                            <li><a href="#0"><i class="icon-vimeo"></i></a></li>
+                            <li><a href="#0"><i class="icon-youtube-play"></i></a></li>
+                        </ul>
+                        <p>
+                            © Quick Food 2021
+                        </p>
+                    </div>
+                </div>
+            </div><!-- End row -->
+        </div><!-- End container -->
+    </footer>
+    <!-- End Footer =============================================== -->
 
 <div class="layer"></div><!-- Mobile menu overlay mask -->
     

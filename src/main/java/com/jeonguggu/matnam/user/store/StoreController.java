@@ -16,5 +16,13 @@ public class StoreController {
 		return "user/store/storeView";
 		
 	}
+	@RequestMapping(value = "user/storeDetail")
+	public String storeDetail() throws Exception {
+		
+		
+		
+		return "user/store/storeDetail";
+		
+	}
 
 }

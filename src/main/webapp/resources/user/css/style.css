@@ -502,7 +502,7 @@ footer .styled-select {
 	border:0;
 	width:25px;
 	height:25px;
-	background: url(../img/search.svg) no-repeat center right;
+	background: url(/resources/user/image/search.svg) no-repeat center right;
 	cursor:pointer;
 }
 #custom-search-input input.btn_search:focus, #custom-search-input .search-query:focus{outline:none;}
