@@ -292,7 +292,7 @@
             <a href="list_page.html">View all Restaurants</a>
         </div>End container
     </div>End hight_light -->
-    <section class="parallax-window" data-parallax="scroll" data-image-src="/resources/user/image/carousel-3.jpg" data-natural-width="1200" data-natural-height="700">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="/resources/user/image/carousel-3.jpg" data-natural-width="1200" data-natural-height="600">
         <div class="parallax-content">
             <div class="sub_content" style="color: orange;">
                 <i class="icon_mug"></i>
@@ -314,8 +314,7 @@
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <a class="box_work" href="submit_restaurant.html">
-                    <img src="/resources/user/image/testimonial-2.jpg"
-					width="848" height="480" alt="" class="img-fluid">
+                    <img src="/resources/user/image/testimonial-2.jpg" width="848" height="480" alt="" class="img-fluid">
 					<h3>고기맨<span>서울특별시 강북구	</span></h3>
                     <p>해산물 못 먹어요 고기만 좋아하는사람 연락주세용 ~</p>
                     <div class="btn_1">Read more</div>

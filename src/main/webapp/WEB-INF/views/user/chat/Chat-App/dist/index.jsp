@@ -28,6 +28,7 @@
     <!-- App Css-->
     <link href="/resources/chat/dist/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+	
 </head>
 
 <body>
@@ -643,7 +644,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/image-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/image-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">Image-001.jpg</a></h5>
@@ -672,7 +673,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/link-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/link-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">Images</a></h5>
@@ -701,7 +702,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/link-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/link-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">Bg Gradient</a></h5>
@@ -730,7 +731,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/image-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/image-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">Image-012.jpg</a></h5>
@@ -759,7 +760,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/zip-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/zip-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">analytics dashboard.zip</a></h5>
@@ -788,7 +789,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/image-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/image-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">Image-031.jpg</a></h5>
@@ -846,7 +847,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/zip-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/zip-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">Widgets.zip</a></h5>
@@ -875,7 +876,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/image-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/image-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">logo-light.png</a></h5>
@@ -904,7 +905,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/image-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/image-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">Image-2.jpg</a></h5>
@@ -933,7 +934,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/zip-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/zip-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 mb-1"><a href="#" class="text-truncate p-0">Landing-A.zip</a></h5>
@@ -973,7 +974,7 @@
                 <!-- Start Settings content -->
                 <div>
                     <div class="user-profile-img">
-                        <img src="assets/images/small/img-4.jpg" class="profile-img profile-foreground-img" style="height: 160px;"
+                        <img src="/resources/chat/dist/assets/images/small/img-4.jpg" class="profile-img profile-foreground-img" style="height: 160px;"
                             alt="">
                         <div class="overlay-content">
                             <div>
@@ -1788,7 +1789,7 @@
 
                 <div class="p-3 border-bottom">
                     <div class="user-profile-img">
-                        <img src="assets/images/users/avatar-2.jpg" class="profile-img rounded" alt="">
+                        <img src="/resources/chat/dist/assets/images/users/avatar-2.jpg" class="profile-img rounded" alt="">
                         <div class="overlay-content rounded">
                             <div class="user-chat-nav p-2">
                                 <div class="d-flex w-100">
@@ -1998,7 +1999,7 @@
                                 <div class="col-lg-4 col-6">
                                     <div class="position-relative rounded overflow-hidden">
                                         <a href="javascript:void(0);" class="d-block">
-                                            <img src="assets/images/small/img-6.jpg" alt="media img" class="img-fluid rounded">
+                                            <img src="/resources/chat/dist/assets/images/small/img-6.jpg" alt="media img" class="img-fluid rounded">
 
                                             <div class="bg-overlay"></div>
                                             <div class="position-absolute top-50 start-50 text-white translate-middle fs-16">
@@ -2060,7 +2061,7 @@
                                 <div class="card-body p-2">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 ms-1 me-3">
-                                            <img src="assets/images/image-file.png" alt="" class="avatar-xs">
+                                            <img src="/resources/chat/dist/assets/images/image-file.png" alt="" class="avatar-xs">
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden">
                                             <h5 class="fs-14 text-truncate mb-1">Image-1.jpg</h5>
@@ -2135,7 +2136,7 @@
                             <div class="card p-2 border border-dashed mb-0">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/zip-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/zip-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 text-truncate mb-1">Landing-A.zip</h5>
@@ -2713,7 +2714,7 @@
                             <li>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 ms-1 me-3">
-                                        <img src="assets/images/link-file.png" alt="" class="avatar-xs">
+                                        <img src="/resources/chat/dist/assets/images/link-file.png" alt="" class="avatar-xs">
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
                                         <h5 class="fs-14 text-truncate mb-1"><a href="#" class="p-0">Bg Pattern</a></h5>
@@ -3580,7 +3581,7 @@
 <!-- end  layout wrapper -->
 
 <!-- Style switcher -->
-<div id="style-switcher">
+<!-- <div id="style-switcher">
     <ul class="list-unstyled mb-0 vstack gap-2">
         <li>
             <a data-bs-toggle="offcanvas" href="#theme-settings-offcanvas"
@@ -3591,7 +3592,7 @@
                     class="ri-shopping-bag-3-line"></i></a>
         </li>
     </ul>
-</div>
+</div> -->
 <!-- end switcher-->
 
 
@@ -3717,8 +3718,8 @@
 
 <!-- JAVASCRIPT -->
 <script src="/resources/chat/dist/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/libs/simplebar/simplebar.min.js"></script>
-<script src="assets/libs/node-waves/waves.min.js"></script>
+<script src="/resources/chat/dist/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="/resources/chat/dist/assets/libs/node-waves/waves.min.js"></script>
 
 <!-- Modern colorpicker bundle -->
 <script src="/resources/chat/dist/assets/libs/@simonwep/pickr/pickr.min.js"></script>
