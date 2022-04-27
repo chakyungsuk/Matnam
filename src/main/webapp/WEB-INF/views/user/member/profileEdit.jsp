@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +43,25 @@
 
     <!-- YOUR CUSTOM CSS -->
     <link href="/resources/user/css/custom.css" rel="stylesheet">
+    <style type="text/css">
+    	.login_search:before {
+		  content: "";
+		  display: block;
+		  float: left;
+		  margin-right: 28px; 
+		  width: 1px;
+		  height: 16px;
+		  background: #000000; 
+		} 
+		
+		.login_text a:link{
+			color: black;
+		} 
+		
+		a:link{
+			color: black;
+		}
+    </style> 
 </head>
 
 <body>
@@ -52,75 +77,7 @@
     </div><!-- End Preload -->
 
     <!-- Header ================================================== -->
-    <header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col--md-4 col-sm-4 col-4">
-                <a href="index.html" id="logo">
-                    <img src="img/logo.png" width="190" height="23" alt="" class="d-none d-sm-block">
-                    <img src="img/logo_mobile.png" width="59" height="23" alt="" class="d-block d-sm-none">
-                </a>
-            </div>
-            <nav class="col--md-8 col-sm-8 col-8">
-            <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
-            <div class="main-menu">
-                <div id="header_menu">
-                    <img src="img/logo.png" width="190" height="23" alt="">
-                </div>
-                <a href="#" class="open_close" id="close_in"><i class="icon_close"></i></a>
-                 <ul>
-                    <li class="submenu">
-                    <a href="javascript:void(0);" class="show-submenu">Home<i class="icon-down-open-mini"></i></a>
-                    <ul>
-                        <li><a href="index.html">Home Video background</a></li>
-                        <li><a href="index_2.html">Home Static image</a></li>
-                        <li><a href="index_3.html">Home Text rotator</a></li>
-                        <li><a href="index_8.html">Home Layer slider</a></li>
-                        <li><a href="index_4.html">Home Cookie bar</a></li>
-                        <li><a href="index_5.html">Home Popup</a></li>
-                        <li><a href="index_7.html">Top Menu version 2</a></li>
-                    </ul>
-                    </li>
-                    <li class="submenu">
-                    <a href="javascript:void(0);" class="show-submenu">Restaurants<i class="icon-down-open-mini"></i></a>
-                    <ul>
-                        <li><a href="list_page.html">Row listing</a></li>
-                        <li><a href="grid_list.html">Grid listing</a></li>
-                        <li><a href="map_listing.html">Map listing</a></li>
-                        <li><a href="detail_page.html">Restaurant Menu</a></li>
-                        <li><a href="submit_restaurant.html">Submit Restaurant</a></li>
-                        <li><a href="cart.html">Order step 1</a></li>
-                        <li><a href="cart_2.html">Order step 2</a></li>
-                        <li><a href="cart_3.html">Order step 3</a></li>
-                        <li><a href="cart_datepicker.html">Order Date/Time picker</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="faq.html">Faq</a></li>
-                    <li class="submenu">
-                    <a href="javascript:void(0);" class="show-submenu">Pages<i class="icon-down-open-mini"></i></a>
-                    <ul>
-                        <li><a href="RTL_version/index.html">RTL version</a></li>
-                        <li><a href="admin.html">Admin section</a></li>
-                        <li><a href="submit_driver.html">Submit Driver</a></li>
-                        <li><a href="#0" data-toggle="modal" data-target="#login_2">User Login</a></li>
-                        <li><a href="#0" data-toggle="modal" data-target="#register">User Register</a></li>
-                        <li><a href="detail_page_2.html">Restaurant detail page</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contacts.html">Contacts</a></li>
-                        <li><a href="coming_soon/index.html">Coming soon page</a></li>
-                        <li><a href="icon_pack_1.html">Icon pack 1</a></li>
-                        <li><a href="icon_pack_2.html">Icon pack 2</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
-                    <li><a href="#0">Purchase this template</a></li>
-                </ul>
-            </div><!-- End main-menu -->
-            </nav>
-        </div><!-- End row -->
-    </div><!-- End container -->
-    </header>
+    <%@include file="../include/top.jsp"%>
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
@@ -150,6 +107,40 @@
 	</div><!-- End Map -->
 
 <!-- Content ================================================== -->
+
+	<div class="container margin_60_35">
+	    <div class="row">
+	        <div class="col-lg-3">
+	        </div><!-- End col -->
+	        <div class="col-lg-6">
+	            <div class="box_style_2" id="order_process">
+	                <h2 class="inner" style="text-align: center;">프로필 수정</h2>
+	                <div>
+		                <div style="text-align: center;">
+							<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+							</svg>
+		                </div>
+		                <h6 style="text-align: center;"><span class="badge bg-primary">사진 수정</span></h6>
+	                </div>
+	                <div>
+		                <div class="mx-auto col-sm-9 col-md-9 my-5">
+		                	 <div class="form-group">
+			                    <label>소개 메세지</label>
+			                    <input type="text" id="email_booking_2" name="email_order" class="form-control" placeholder="맛을 모르는 자, 일하지 말라">
+			                </div>
+	                	</div>  
+	                </div>
+					<div style="text-align: center; padding:10px; "> 
+	                	<a class="btn_1" href="profileView" style="width:200px;">수정</a>
+	                </div>
+	            </div><!-- End box_style_1 -->
+	        </div><!-- End col -->
+	        
+	    </div><!-- End row -->
+	</div><!-- End container -->
+
 
 <!-- End Content =============================================== -->
 
@@ -221,7 +212,7 @@
                         <li><a href="#0"><i class="icon-youtube-play"></i></a></li>
                     </ul>
                     <p>
-                        � Quick Food 2021
+                        © Quick Food 2021
                     </p>
                 </div>
             </div>

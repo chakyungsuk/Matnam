@@ -61,6 +61,14 @@
 		a:link{
 			color: black;
 		}
+		div.vertical-line{
+	      width: 1px; /* Line width */
+	      background-color: gray; /* Line color */
+	      height: 100%; /* Override in-line if you want specific height. */
+	      /* float: left; */ /* Causes the line to float to left of content.
+	        You can instead use position:absolute or display:inline-block
+	        if this fits better with your design */
+	    }
     </style> 
 </head>
 
@@ -110,43 +118,58 @@
 
 	<div class="container margin_60_35">
 	    <div class="row">
-	        <div class="col-lg-3">
+	        <div class="col-lg-2">
 	        </div><!-- End col -->
-	        <div class="col-lg-6">
-	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">로그인</h2>
-	                <div class="form-group">
-	                    <label>아이디</label>
-	                    <input type="text" class="form-control" id="firstname_order" name="firstname_order" placeholder="아이디">
-	                </div>
-	                <div class="form-group">
-	                    <label>비밀번호</label>
-	                    <input type="password" class="form-control" id="lastname_order" name="lastname_order" placeholder="비밀번호">
-	                </div>
-	                <div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							로그인 상태 유지
-						</label>
+	        <div class="col-lg-8">
+	        	<div class="box_style_2" id="order_process">
+	                <h2 class="inner" style="text-align: center;">친구요청 확인</h2>
+		            <div class="row">
+						<div class="col">
+							<div style="text-align: center;">
+								<label>받은 친구 요청</label>
+							</div>
+							<div class="row">
+								<div class="col-2" style="margin-top:5px;">
+									<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+										<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+										<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+									</svg>
+								</div>
+								<div class="col-8">
+									<label>고구마</label><br>
+									<span>저랑 밥취향이 맞는 것 같아요! 친구해요!</span>
+								</div>
+								<div class="col-1">
+									<a href=""><h6><span class="badge bg-primary">수락</span></h6></a>
+									<a href=""><h6><span class="badge bg-secondary">거절</span></h6></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-auto">
+							<div class="vertical-line"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+						</div>
+						<div class="col">
+							<div style="text-align: center;">
+								<label>보낸 친구 요청</label>
+							</div>
+							<div class="row">
+								<div class="col-2" style="margin-top:5px;">
+									<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+										<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+										<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+									</svg>
+								</div>
+								<div class="col-7">
+									<label>갈치</label><br>
+									<span>생선구이 짱</span>
+								</div>
+								<div class="col-2">
+									<a href=""><h6><span class="badge bg-secondary">요청취소</span></h6></a>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div style="text-align: center; padding:10px; "> 
-	                	<a class="btn_1" href="" style="width:200px;">로그인</a>
-	                </div>
-	                <div style="text-align: center; padding:10px;">
-	                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
-	                </div> 
-	                <div class="row align-items-center" style="margin-left:68px; margin-top:10px;">  
-	                	<div class="col-auto">
-		                	<a href="" class="login_text" style="color: black;">아이디 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto"> 
-	                		<a href="" class="login_text" style="color: black;">비밀번호 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto">
-	                		<a href="" class="login_text" style="color: black;">회원가입</a>
-	                	</div> 
-	                </div>
-	            </div><!-- End box_style_1 -->
+				</div>
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->

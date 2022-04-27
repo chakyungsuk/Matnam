@@ -43,25 +43,6 @@
 
     <!-- YOUR CUSTOM CSS -->
     <link href="/resources/user/css/custom.css" rel="stylesheet">
-    <style type="text/css">
-    	.login_search:before {
-		  content: "";
-		  display: block;
-		  float: left;
-		  margin-right: 28px; 
-		  width: 1px;
-		  height: 16px;
-		  background: #000000; 
-		} 
-		
-		.login_text a:link{
-			color: black;
-		} 
-		
-		a:link{
-			color: black;
-		}
-    </style> 
 </head>
 
 <body>
@@ -114,44 +95,82 @@
 	        </div><!-- End col -->
 	        <div class="col-lg-6">
 	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">로그인</h2>
+	                <h2 class="inner" style="text-align: center;">개인정보 변경</h2>
 	                <div class="form-group">
 	                    <label>아이디</label>
-	                    <input type="text" class="form-control" id="firstname_order" name="firstname_order" placeholder="아이디">
+	                    <h5 class="col-12">potato97</h5>
 	                </div>
 	                <div class="form-group">
 	                    <label>비밀번호</label>
-	                    <input type="password" class="form-control" id="lastname_order" name="lastname_order" placeholder="비밀번호">
+	                    <input type="password" class="form-control" id="lastname_order" name="lastname_order" placeholder="">
 	                </div>
-	                <div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							로그인 상태 유지
-						</label>
-					</div>
-					<div style="text-align: center; padding:10px; "> 
-	                	<a class="btn_1" href="" style="width:200px;">로그인</a>
+	                <div class="form-group">
+	                    <label>비밀번호 재확인</label>
+	                    <input type="password" id="tel_order" name="tel_order" class="form-control" placeholder="">
 	                </div>
-	                <div style="text-align: center; padding:10px;">
-	                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
-	                </div> 
-	                <div class="row align-items-center" style="margin-left:68px; margin-top:10px;">  
-	                	<div class="col-auto">
-		                	<a href="" class="login_text" style="color: black;">아이디 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto"> 
-	                		<a href="" class="login_text" style="color: black;">비밀번호 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto">
-	                		<a href="" class="login_text" style="color: black;">회원가입</a>
-	                	</div> 
+	                <div class="form-group">
+	                    <label>이름</label>
+	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" placeholder="">
+	                </div>
+                    <div class="form-group">
+                        <label>생년월일</label>
+	                		<div class="row">
+	                    	<div class="col-md-4 col-sm-4">
+	                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="년(4자)">
+	                        </div>
+	                    	<div class="col-md-4 col-sm-4">
+	                            <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
+	                                <option value="" selected>월</option>
+	                                <option value="1">1</option>
+	                                <option value="2">2</option>
+	                                <option value="3">3</option>
+	                                <option value="4">4</option>
+	                                <option value="5">5</option>
+	                                <option value="6">6</option>
+	                                <option value="7">7</option>
+	                                <option value="8">8</option>
+	                                <option value="9">9</option>
+	                                <option value="10">10</option>
+	                                <option value="11">11</option>
+	                                <option value="12">12</option>
+	                            </select>
+	                        </div>
+		                    <div class="col-md-4 col-sm-4">
+		                            <input type="text" id="pcode_oder" name="pcode_oder" class="form-control" placeholder="일">
+		                    </div>
+	                    </div>
+	                </div>
+	                <div class="form-group">
+	                    <label>성별</label>
+	                    <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
+                            <option value="" selected>성별</option>
+                            <option value="1">남성</option>
+                            <option value="2">여성</option>
+                            <option value="3">기타</option>
+                        </select>
+	                </div>
+	                <div class="form-group">
+                        <label>휴대전화</label>
+                		<div class="row">
+	                    	<div class="col-md-8 col-sm-8">
+	                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="전화번호 입력">
+	                        </div>
+	                    	<div class="col-md-4 col-sm-4">
+	                            <button class="btn_full">인증번호 받기</button>
+	                        </div>
+	                    	<div class="col-12">
+	                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="">
+	                        </div>
+                    	</div>
+               		</div>
+	                <div style="text-align: center; padding:10px; "> 
+	                	<a class="btn_1" href="profileView" style="width:200px;">수정하기</a>
 	                </div>
 	            </div><!-- End box_style_1 -->
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->
 	</div><!-- End container -->
-
 
 <!-- End Content =============================================== -->
 
