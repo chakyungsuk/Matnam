@@ -1,0 +1,44 @@
+
+
+:root{
+    // body
+  --#{$variable-prefix}body-bg : #{$body-bg};
+  --#{$variable-prefix}body-color: #{$body-color};
+  --#{$variable-prefix}body-color-rgb: #{to-rgb($body-color)};
+
+   // theme-color
+  --#{$variable-prefix}light: #{$gray-300};
+  --#{$variable-prefix}light-rgb: #{to-rgb($gray-100)};
+  --#{$variable-prefix}dark: #{$gray-900};
+  --#{$variable-prefix}dark-rgb: #{to-rgb($gray-900)};
+
+  //dropdown
+  --#{$variable-prefix}dropdown-link-hover-color: #{shade-color($gray-900, 5%)};
+  --#{$variable-prefix}dropdown-link-hover-bg:  #{$gray-100};   
+
+   //sidebar light
+  --#{$variable-prefix}sidebar-bg:                      #{$white};
+  --#{$variable-prefix}chat-primary-bg:                 #f6f6f9;
+  --#{$variable-prefix}sidebar-shadow:                  #{$box-shadow};
+
+  // modal
+  --#{$variable-prefix}modal-bg: #{$white};
+
+  // Border variable
+  --#{$variable-prefix}border-color:  #{$gray-400};
+
+  --#{$variable-prefix}auth-bg: url("../images/auth-img.jpg");
+  
+  //form
+  --#{$variable-prefix}input-bg: #{$white};
+  --#{$variable-prefix}input-border: #{darken($gray-400, 3%)}; 
+  --#{$variable-prefix}input-focus-border: #{$gray-400};
+  --#{$variable-prefix}input-disabled-bg: #{$white};
+
+  // card
+  --#{$variable-prefix}card-bg: #{$white};
+  --#{$variable-prefix}card-cap-bg: #{$gray-200};
+
+  //heading 
+  --#{$variable-prefix}heading-color: $gray-700;
+}

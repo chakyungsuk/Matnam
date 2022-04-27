@@ -1,0 +1,125 @@
+
+// 
+// Sidemenu
+// 
+
+.side-menu{
+    min-width: 90px;
+    max-width: 90px;
+    height: 100vh;
+    min-height: 570px;
+    background-color: $sidebar-bg;
+    display: flex;
+    z-index: 101;
+    border-right: 1px solid $sidebar-bg;
+    box-shadow: $box-shadow;
+    padding: 0 8px;
+
+    @media (max-width: 991.98px) {
+        position: fixed;
+        bottom: 0;
+        height: 60px;
+        min-width: 100%;
+        min-height: auto;
+        border-top: 1px solid $border-color;
+    }
+
+    .navbar-brand-box{
+        text-align: center;
+
+        svg {
+            fill: rgba(var(--bs-primary-rgb), 1);
+        }
+
+        @media (max-width: 991.98px) {
+            display: none;
+        }
+
+        .logo{
+            line-height: 70px;
+            
+        }
+
+        .logo-dark{
+            display: $display-block;
+        }
+
+        .logo-light{
+            display: $display-none;
+        }
+    }
+}
+
+.sidemenu-navigation{
+    height: 100%;
+    @media (max-width: 991.98px) {
+        width: 100%;
+
+        .tooltip{
+            display: none;
+        }
+    }
+}
+
+.side-menu-nav{
+    height: 100%;
+    flex-direction: column;
+    @media (max-width: 991.98px) {
+        justify-content: space-between !important;
+        flex-direction: row;
+    }
+    .nav-item{
+        margin: 7px 0;
+        display: block;
+        width: 100%;
+        
+        @media (max-width: 991.98px) {
+            flex-basis: 0;
+            flex-grow: 1;
+        }
+        .nav-link{
+            text-align: center;
+            font-size: 20px;
+            color: $sidebar-menu-item-color;
+            width: 42px;
+            margin: 0 auto;
+            height: 42px;
+            line-height: 42px;
+            background-color: var(--#{$variable-prefix}gray-300);;
+            border-radius: 50%;
+            padding: 0;
+            position: relative;
+
+            &.active{
+                color: $white;
+                background-color: rgba(var(--bs-primary-rgb), 1);
+            }
+        }
+
+        &.show>.nav-link{
+            color: rgba(var(--bs-primary-rgb), 1);
+        }
+    }
+
+    .profile-user {
+        height: 42px;
+        width: 42px;
+        background-color: var(--#{$variable-prefix}gray-300);
+        padding: 3px;
+    }
+
+    .sidenav-item-badge {
+        position: absolute;
+        top: -7px;
+        height: 22px;
+        width: 22px;
+        padding: 0;
+        line-height: 18px;
+        text-align: center;
+        border: 3px solid var(--#{$variable-prefix}gray-100);
+    }
+}
+
+.light-mode{
+    display: none;
+}

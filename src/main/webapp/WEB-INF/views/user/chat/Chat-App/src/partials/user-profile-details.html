@@ -1,0 +1,389 @@
+<div class="user-profile-sidebar">
+
+    <div class="p-3 border-bottom">
+        <div class="user-profile-img">
+            <img src="assets/images/users/avatar-2.jpg" class="profile-img rounded" alt="">
+            <div class="overlay-content rounded">
+                <div class="user-chat-nav p-2">
+                    <div class="d-flex w-100">
+                        <div class="flex-grow-1">
+                            <button type="button" class="btn nav-btn text-white user-profile-show d-none d-lg-block">
+                                <i class="bx bx-x"></i>
+                            </button>
+                            <button type="button" class="btn nav-btn text-white user-profile-show d-block d-lg-none">
+                                <i class="bx bx-left-arrow-alt"></i>
+                            </button>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div class="dropdown">
+                                <button class="btn nav-btn text-white dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class='bx bx-dots-vertical-rounded'></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center d-lg-none user-profile-show"
+                                        href="#">View Profile <i class="bx bx-user text-muted"></i></a>
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center d-lg-none"
+                                        href="#" data-bs-toggle="modal" data-bs-target=".audiocallModal">Audio <i
+                                            class="bx bxs-phone-call text-muted"></i></a>
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center d-lg-none"
+                                        href="#" data-bs-toggle="modal" data-bs-target=".videocallModal">Video <i
+                                            class="bx bx-video text-muted"></i></a>
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center"
+                                        href="#">Archive <i class="bx bx-archive text-muted"></i></a>
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center"
+                                        href="#">Muted <i class="bx bx-microphone-off text-muted"></i></a>
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center"
+                                        href="#">Delete <i class="bx bx-trash text-muted"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-auto p-3">
+                    <h5 class="user-name mb-0 text-truncate">Victoria Lane</h5>
+                    <p class="fs-14 text-truncate user-profile-status mt-1 mb-0"><i class="bx bxs-circle fs-10 text-success me-1 ms-0"></i>
+                        Online</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End profile user -->
+
+    <!-- Start user-profile-desc -->
+    <div class="p-4 user-profile-desc" data-simplebar>
+        <div class="text-center border-bottom border-bottom-dashed">
+            <div class="d-flex gap-2 justify-content-center mb-4">
+                <button type="button" class="btn avatar-sm p-0">
+                    <span class="avatar-title rounded bg-soft-info text-info">
+                        <i class="bx bxs-message-alt-detail"></i>
+                    </span>
+                </button>
+                <button type="button" class="btn avatar-sm p-0 favourite-btn">
+                    <span class="avatar-title rounded bg-soft-danger text-body">
+                        <i class="bx bx-heart"></i>
+                    </span>
+                </button>
+                <button type="button" class="btn avatar-sm p-0" data-bs-toggle="modal" data-bs-target=".audiocallModal">
+                    <span class="avatar-title rounded bg-soft-success text-success">
+                        <i class="bx bxs-phone-call"></i>
+                    </span>
+                </button>
+                <button type="button" class="btn avatar-sm p-0" data-bs-toggle="modal" data-bs-target=".videocallModal">
+                    <span class="avatar-title rounded bg-soft-warning text-warning">
+                        <i class="bx bx-video"></i>
+                    </span>
+                </button>
+                <div class="dropdown">
+                    <button class="btn avatar-sm p-0 dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span class="avatar-title bg-soft-primary text-primary rounded">
+                            <i class='bx bx-dots-horizontal-rounded'></i>
+                        </span>
+                    </button>
+
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">Archive <i
+                                class="bx bx-archive text-muted"></i></a>
+                        <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">Muted <i
+                                class="bx bx-microphone-off text-muted"></i></a>
+                        <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">Delete <i
+                                class="bx bx-trash text-muted"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-muted pt-4">
+            <h5 class="fs-12 text-muted text-uppercase">Status :</h5>
+            <p class="mb-4">A professional profile is a brief summary of your skills, strengths, and key experiences.
+            </p>
+        </div>
+
+        <div class="pb-4 border-bottom border-bottom-dashed mb-4">
+            <h5 class="fs-12 text-muted text-uppercase mb-2">Info :</h5>
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="ri-user-line align-middle fs-15 text-muted"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h5 class="fs-14 text-truncate mb-0"> Victoria Lane</h5>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mt-3">
+                <div class="flex-shrink-0">
+                    <i class="ri-mail-line align-middle fs-15 text-muted"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h5 class="fs-14 text-truncate mb-0">bellacote@vhato.com</h5>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mt-3">
+                <div class="flex-shrink-0">
+                    <i class="ri-phone-line align-middle fs-15 text-muted"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h5 class="fs-14 text-truncate mb-0">+(345) 3216 48751</h5>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mt-3">
+                <div class="flex-shrink-0">
+                    <i class="ri-mail-line align-middle fs-15 text-muted"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h5 class="fs-14 text-truncate mb-0">California, USA</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="pb-4 border-bottom border-bottom-dashed mb-4">
+            <div class="d-flex">
+                <div class="flex-grow-1">
+                    <h5 class="fs-12 text-muted text-uppercase">Group in common</h5>
+                </div>
+            </div>
+
+            <ul class="list-unstyled chat-list mx-n4">
+                <li>
+                    <a href="javascript: void(0);">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/users/group-img.jpg" alt="" class="avatar-sm rounded-circle me-3">
+                            <div class="flex-grow-1 overflow-hidden">
+                                <h6 class="text-truncate mb-0">Landing Design</h6>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript: void(0);">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 avatar-sm me-3">
+                                <span class="avatar-title rounded-circle bg-light text-dark">
+                                    SM
+                                </span>
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                                <h6 class="text-truncate mb-0">Sales & Marketing</h6>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="pb-4 border-bottom border-bottom-dashed mb-4">
+            <div class="d-flex align-items-center mb-3">
+                <div class="flex-grow-1">
+                    <h5 class="fs-12 text-muted text-uppercase mb-0">Shared Images</h5>
+                </div>
+                <div class="flex-shrink-0">
+                    <a href="#" class="fs-12 fw-medium d-block">Show all</a>
+                </div>
+            </div>
+            <div class="profile-media-img">
+                <div class="row g-1">
+                    <div class="col-lg-4 col-6">
+                        <a href="#">
+                            <img src="assets/images/small/img-1.jpg" alt="media img" class="img-fluid rounded">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-6">
+                        <a href="#">
+                            <img src="assets/images/small/img-2.jpg" alt="media img" class="img-fluid rounded">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-6">
+                        <a href="#">
+                            <img src="assets/images/small/img-3.jpg" alt="media img" class="img-fluid rounded">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-6">
+                        <a href="#">
+                            <img src="assets/images/small/img-4.jpg" alt="media img" class="img-fluid rounded">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-6">
+                        <a href="#">
+                            <img src="assets/images/small/img-5.jpg" alt="media img" class="img-fluid rounded">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-6">
+                        <div class="position-relative rounded overflow-hidden">
+                            <a href="javascript:void(0);" class="d-block">
+                                <img src="assets/images/small/img-6.jpg" alt="media img" class="img-fluid rounded">
+
+                                <div class="bg-overlay"></div>
+                                <div class="position-absolute top-50 start-50 text-white translate-middle fs-16">
+                                    +10
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <h5 class="fs-11 text-muted text-uppercase mb-3">Attached Files</h5>
+            </div>
+
+            <div>
+                <div class="card mb-2 border border-dashed">
+                    <div class="card-body p-2">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 ms-1 me-3">
+                                <img src="assets/images/pdf-file.png" alt="" class="avatar-xs">
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                                <h5 class="fs-14 text-truncate mb-1">design-phase-1-approved.pdf</h5>
+                                <p class="text-muted fs-13 mb-0">12.5 MB</p>
+                            </div>
+
+                            <div class="flex-shrink-0 ms-3">
+                                <div class="d-flex gap-2">
+                                    <div>
+                                        <a href="#" class="text-muted px-1">
+                                            <i class="bx bxs-download"></i>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle text-muted px-1" href="#" role="button"
+                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="bx bx-dots-horizontal-rounded"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                                href="#">Share <i class="bx bx-share-alt ms-2 text-muted"></i></a>
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                                href="#">Bookmark <i class="bx bx-bookmarks text-muted ms-2"></i></a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                                href="#">Delete <i class="bx bx-trash ms-2 text-muted"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border border-dashed mb-2">
+                    <div class="card-body p-2">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 ms-1 me-3">
+                                <img src="assets/images/image-file.png" alt="" class="avatar-xs">
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                                <h5 class="fs-14 text-truncate mb-1">Image-1.jpg</h5>
+                                <p class="text-muted fs-13 mb-0">4.2 MB</p>
+                            </div>
+
+                            <div class="flex-shrink-0 ms-3">
+                                <div class="d-flex gap-2">
+                                    <div>
+                                        <a href="#" class="text-muted px-1">
+                                            <i class="bx bxs-download"></i>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle text-muted px-1" href="#" role="button"
+                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="bx bx-dots-horizontal-rounded"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                                href="#">Share <i class="bx bx-share-alt ms-2 text-muted"></i></a>
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                                href="#">Bookmark <i class="bx bx-bookmarks text-muted ms-2"></i></a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                                href="#">Delete <i class="bx bx-trash ms-2 text-muted"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-2 border border-dashed mb-2">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 ms-1 me-3">
+                            <img src="assets/images/image-file.png" alt="" class="avatar-xs">
+                        </div>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <h5 class="fs-14 text-truncate mb-1">Image-2.jpg</h5>
+                            <p class="text-muted fs-13 mb-0">3.1 MB</p>
+                        </div>
+
+                        <div class="flex-shrink-0 ms-3">
+                            <div class="d-flex gap-2">
+                                <div>
+                                    <a href="#" class="text-muted px-1">
+                                        <i class="bx bxs-download"></i>
+                                    </a>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle text-muted px-1" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-horizontal-rounded"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#">Share <i class="bx bx-share-alt ms-2 text-muted"></i></a>
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#">Bookmark <i class="bx bx-bookmarks text-muted ms-2"></i></a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#">Delete <i class="bx bx-trash ms-2 text-muted"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-2 border border-dashed mb-0">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 ms-1 me-3">
+                            <img src="assets/images/zip-file.png" alt="" class="avatar-xs">
+                        </div>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <h5 class="fs-14 text-truncate mb-1">Landing-A.zip</h5>
+                            <p class="text-muted fs-13 mb-0">6.7 MB</p>
+                        </div>
+
+                        <div class="flex-shrink-0 ms-3">
+                            <div class="d-flex gap-2">
+                                <div>
+                                    <a href="#" class="text-muted px-1">
+                                        <i class="bx bxs-download"></i>
+                                    </a>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle text-muted px-1" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-horizontal-rounded"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#">Share <i class="bx bx-share-alt ms-2 text-muted"></i></a>
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#">Bookmark <i class="bx bx-bookmarks text-muted ms-2"></i></a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#">Delete <i class="bx bx-trash ms-2 text-muted"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end user-profile-desc -->
+</div>
