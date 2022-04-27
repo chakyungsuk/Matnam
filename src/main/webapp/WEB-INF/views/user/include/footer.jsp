@@ -132,16 +132,7 @@
 <!-- SPECIFIC SCRIPTS -->
 <script src="/resources/user/js/video_header.js"></script>
 <script>
-$(document).ready(function() {
-	'use strict';
-   	  HeaderVideo.init({
-      container: $('.header-video'),
-      header: $('.header-video--media'),
-      videoTrigger: $("#video-trigger"),
-      autoPlayVideo: true
-    });    
 
-});
 </script>
 
 </body>
