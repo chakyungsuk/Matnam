@@ -131,266 +131,155 @@
     </div><!-- End container -->
     </header>
     <!-- End Header =============================================== -->
-
-	<!-- SubHeader =============================================== -->
-	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
-	    <div id="subheader">
-	        <div id="sub_content">
-	            <h1>24 results in your zone</h1>
-	            <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
-	        </div><!-- End sub_content -->
-	    </div><!-- End subheader -->
-	</section><!-- End section -->
-	<!-- End SubHeader ============================================ -->
+    
+    <!-- SubHeader =============================================== -->
+    <section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
+        <div id="subheader">
+            <div id="sub_content">
+                <div id="thumb"><img src="img/thumb_restaurant.jpg" alt=""></div>
+                <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> ( <small><a href="#0">98 reviews</a></small> )</div>
+                <h1>힘난다 버거 강남점</h1>
+                <div><em>페스트푸드 / 햄버거</em></div>
+                <div><i class="icon_pin"></i> 서울 강남구 강남대로84길 15 지상1층 102-1호 <strong></strong></div>
+            </div><!-- End sub_content -->
+        </div><!-- End subheader -->
+    </section><!-- End section -->
+    <!-- End SubHeader ============================================ -->
 
     <div id="position">
         <div class="container">
             <ul>
                 <li><a href="#0">홈</a></li>
                 <li><a href="#0">지도검색</a></li>
+                <li>음식점상세</li>
             </ul>
-             <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
     </div><!-- Position -->
     
     <div class="collapse" id="collapseMap">
-		<div id="map" class="map"></div>
-	</div><!-- End Map -->
+            <div id="map" class="map"></div>
+    </div><!-- End Map -->
 
-<!-- Content ================================================== -->
-<div class="container margin_60_35">
-	<div class="row">
-    
-		<div class="col-lg-3">
-			<p>
-				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="지도 닫기" data-text-original="지도 검색">지도 검색</a>
-			</p>
-			<div id="filters_col">
-				<a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters <i class="icon-plus-1 float-right"></i></a>
-				<div class="collapse show" id="collapseFilters">
-					<div class="filter_type">
-						<h6>주소</h6>
-						<div class="mb-3">
-  						<input type="text" class="form-control" id="formGroupExampleInput" placeholder="주소나 키워드를 입력해주세요.">
-						</div>
-                    	<h6>카테고리</h6>
-                        <ul>
-                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">한식</label></div></li>
-                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">중식</label></div></li>
-                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">일식</label></div></li>
-                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">양식</label></div></li>                        	
-                        </ul>
-						<h6>Type</h6>
-					<label for="customRange3" class="form-label">최대평점</label>
-						<input type="range" class="form-range" min="0" max="5" step="0.1" id="customRange3" oninput="document.getElementById('value1').innerHTML=this.value;">
-						<span id="value1"></span>
-					</div>
-				</div><!--End collapse -->
-			</div><!--End filters col-->
-		</div><!--End col-md -->
-        
-		<div class="col-lg-9">
-        
-        
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>신난다버거 강남</h3>
-							<div class="type">
-								페스트푸드 / 햄버거
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>버거킹 강남점</h3>
-							<div class="type">
-								페스트푸드 / 햄버거
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>미스터피자 강남점</h3>
-							<div class="type">
-								페스트푸드 / 피자
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>피자헛 강남점</h3>
-							<div class="type">
-								페스트푸드 / 피자
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>롯데리아 강남점</h3>
-							<div class="type">
-								페스트푸드 / 햄버거
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>신난다버거 강남</h3>
-							<div class="type">
-								페스트푸드 / 햄버거
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-            
-			
-            <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>  
-		</div><!-- End col-md-9-->
-        
-	</div><!-- End row -->
-</div><!-- End container -->
-<!-- End Content =============================================== -->
+    <!-- Content ================================================== -->
+    <div class="container margin_60_35">
+        <div class="row">
+            <div class="col-lg-4">
+                <p>
+                    <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
+                </p>
+                <div class="box_style_2">
+                    <h4 class="nomargin_top">Info</h4>
+                    <ul class="opening_list">
+                        <li>주소<span>서울 강남구 강남대로84길 15 지상1층 102-1호</span></li>
+                        <li>전화번호<span>02-567-6768</span></li>
+                        <li>음식종류 <span class="label label-danger">페스트푸드</span></li>
+                        <li>영업시간<span>10:30~20:00</span></li>
+                        <li>휴무일<span>연중무휴</span></li>
+                    </ul>
+                </div>
+                <div class="box_style_2 d-none d-sm-block" id="help">
+                    <i class="icon_lifesaver"></i>
+                    <h4>Need <span>Help?</span></h4>
+                    <a href="tel://004542344599" class="phone">+45 423 445 99</a>
+                    <small>Monday to Friday 9.00am - 7.30pm</small>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="box_style_2">
+                    <h2 class="inner">Description</h2>
+                    <div id="Img_carousel" class="slider-pro">
+                        <div class="sp-slides">
+                            <div class="sp-slide">
+                                <img alt="" class="sp-image" src="/resources/css/images/blank.gif" data-src="/resources/image/slider_single_restaurant/1_medium.jpg" data-small="img/slider_single_restaurant/1_small.jpg" data-medium="img/slider_single_restaurant/1_medium.jpg" data-large="img/slider_single_restaurant/1_large.jpg" data-retina="img/slider_single_restaurant/1_large.jpg">
+                            </div>
+                            <div class="sp-slide">
+                                <img alt="" class="sp-image" src="../src/css/images/blank.gif" data-src="img/slider_single_restaurant/2_medium.jpg" data-small="img/slider_single_restaurant/2_small.jpg" data-medium="img/slider_single_restaurant/2_medium.jpg" data-large="img/slider_single_restaurant/2_large.jpg" data-retina="img/slider_single_restaurant/2_large.jpg">
+                            </div>
+                            <div class="sp-slide">
+                                <img alt="" class="sp-image" src="../src/css/images/blank.gif" data-src="img/slider_single_restaurant/3_medium.jpg" data-small="img/slider_single_restaurant/3_small.jpg" data-medium="img/slider_single_restaurant/3_medium.jpg" data-large="img/slider_single_restaurant/3_large.jpg" data-retina="img/slider_single_restaurant/3_large.jpg">
+                            </div>
+                            <div class="sp-slide">
+                                <img alt="" class="sp-image" src="../src/css/images/blank.gif" data-src="img/slider_single_restaurant/4_medium.jpg" data-small="img/slider_single_restaurant/4_small.jpg" data-medium="img/slider_single_restaurant/4_medium.jpg" data-large="img/slider_single_restaurant/4_large.jpg" data-retina="img/slider_single_restaurant/4_large.jpg">
+                            </div>
+                            <div class="sp-slide">
+                                <img alt="" class="sp-image" src="../src/css/images/blank.gif" data-src="img/slider_single_restaurant/5_medium.jpg" data-small="img/slider_single_restaurant/5_small.jpg" data-medium="img/slider_single_restaurant/5_medium.jpg" data-large="img/slider_single_restaurant/5_large.jpg" data-retina="img/slider_single_restaurant/5_large.jpg">
+                            </div>
+                            <div class="sp-slide">
+                                <img alt="" class="sp-image" src="../src/css/images/blank.gif" data-src="img/slider_single_restaurant/6_medium.jpg" data-small="img/slider_single_restaurant/6_small.jpg" data-medium="img/slider_single_restaurant/6_medium.jpg" data-large="img/slider_single_restaurant/6_large.jpg" data-retina="img/slider_single_restaurant/6_large.jpg">
+                            </div>
+                            <div class="sp-slide">
+                                <img alt="" class="sp-image" src="../src/css/images/blank.gif" data-src="img/slider_single_restaurant/7_medium.jpg" data-small="img/slider_single_restaurant/7_small.jpg" data-medium="img/slider_single_restaurant/7_medium.jpg" data-large="img/slider_single_restaurant/7_large.jpg" data-retina="img/slider_single_restaurant/7_large.jpg">
+                            </div>
+                            <div class="sp-slide">
+                                <img alt="" class="sp-image" src="../src/css/images/blank.gif" data-src="img/slider_single_restaurant/8_medium.jpg" data-small="img/slider_single_restaurant/8_small.jpg" data-medium="img/slider_single_restaurant/8_medium.jpg" data-large="img/slider_single_restaurant/8_large.jpg" data-retina="img/slider_single_restaurant/8_large.jpg">
+                            </div>
+                            <div class="sp-slide">
+                                <img alt="" class="sp-image" src="../src/css/images/blank.gif" data-src="img/slider_single_restaurant/9_medium.jpg" data-small="img/slider_single_restaurant/9_small.jpg" data-medium="img/slider_single_restaurant/9_medium.jpg" data-large="img/slider_single_restaurant/9_large.jpg" data-retina="img/slider_single_restaurant/9_large.jpg">
+                            </div>
+                        </div>
+                        <div class="sp-thumbnails">
+                            <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/1_medium.jpg">
+                            <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/2_medium.jpg">
+                            <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/3_medium.jpg">
+                            <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/4_medium.jpg">
+                            <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/5_medium.jpg">
+                            <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/6_medium.jpg">
+                            <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/7_medium.jpg">
+                            <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/8_medium.jpg">
+                            <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/9_medium.jpg">
+                        </div>
+                    </div>
+                    <h3>힘난다버거 강남점</h3>
+                    <p>
+                        맛과 영양의 균형을 갖춘 푸드테크 선두 기업 힘난다 입니다
+                    </p>
+                    <p class="add_bottom_30">
+                        맛있는 건강, 신바이오틱스 첨가 식품으로 만듭니다.
+						힘난다 수퍼푸드 컴퍼니는 현대인의 건강한 100세 시대를 위해 신바이오틱스 첨가 식품 연구개발에
+						집중합니다. 특히 온도에 민감하게 반응하는 프로바이오틱스의 한계를 뛰어넘은 신바이오틱스를
+						사용 중입니다. 이를 함유한 햄버거 패티, 샐러드, 주스를 생산·유통 중이며, 다양한 식품 개발을
+						통하여 맛있는 음식을 건강하게 먹을 수 있는 세상을 만들고자 합니다.
+                    </p>
+                    <div id="summary_review">
+                        <div id="general_rating">
+                            11 Reviews
+                            <div class="rating">
+                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+                            </div>
+                        </div>
+                        <div class="row" id="rating_summary">
+       
+                        </div><!-- End row -->
+                        <hr class="styled">
+                        <a href="#" class="btn_1 add_bottom_15" data-toggle="modal" data-target="#myReview">리뷰작성</a>
+                    </div><!-- End summary_review -->
+                    
+                    <div class="review_strip_single">
+                        <img src="img/avatar1.jpg" alt="" class="rounded-circle">
+                        <small> - 2022.04 -</small>
+                        <h4>김승태</h4>
+                        <p>
+                            직원분이 친절하시고 맛있어서 또올거같아요.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="rating">
+                                    <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
+                                </div>
+                                Food Quality
+                            </div>
+                        </div><!-- End row -->
+                    </div><!-- End review strip -->
+                   
+                   
+                </div><!-- End box_style_1 -->
+            </div>
+        </div><!-- End row -->
+    </div><!-- End container -->
+    <!-- End Content =============================================== -->
+
+
+
 
 <!-- Footer ================================================== -->
     <footer>
@@ -469,10 +358,10 @@
     </footer>
     <!-- End Footer =============================================== -->
 
-<div class="layer"></div><!-- Mobile menu overlay mask -->
+    <div class="layer"></div><!-- Mobile menu overlay mask -->
     
-<!-- Login modal -->   
-<div class="modal fade" id="login_2" tabindex="-1" role="dialog" aria-labelledby="myLogin" aria-hidden="true">
+    <!-- Login modal -->   
+    <div class="modal fade" id="login_2" tabindex="-1" role="dialog" aria-labelledby="myLogin" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
@@ -489,8 +378,8 @@
 		</div>
 	</div><!-- End modal -->   
     
-<!-- Register modal -->   
-<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myRegister" aria-hidden="true">
+    <!-- Register modal -->   
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myRegister" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
@@ -514,6 +403,79 @@
 		</div>
 	</div><!-- End Register modal -->
     
+    <!-- Review modal -->   
+    <div class="modal fade" id="myReview" tabindex="-1" role="dialog" aria-labelledby="review" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+					<form method="post" action="assets/review_restaurant.php" name="review" id="review" class="popup-form">  
+                    <div class="login_icon"><i class="icon_comment_alt"></i></div>
+                     <input name="restaurant_name" id="restaurant_name" type="hidden" value="Mexican Taco Mex">	
+                    	<div class="row" >
+                        	<div class="col-md-6">
+                            <input name="name_review" id="name_review" type="text" placeholder="Name" class="form-control form-white">			
+                            </div>
+                            <div class="col-md-6">
+                            	<input name="email_review" id="email_review" type="email" placeholder="Your email" class="form-control form-white">
+                            </div>
+                        </div><!-- End Row --> 
+                        
+                        <div class="row">
+                        	<div class="col-md-6">
+							<select class="form-control form-white" name="food_review" id="food_review">
+									<option value="">Food Quality</option>
+									<option value="Low">Low</option>
+									<option value="Sufficient">Sufficient</option>
+									<option value="Good">Good</option>
+									<option value="Excellent">Excellent</option>
+									<option value="Superb">Super</option>
+									<option value="Not rated">I don't know</option>
+								</select>                            </div>
+                            <div class="col-md-6">
+								<select class="form-control form-white"  name="price_review" id="price_review">
+									<option value="">Price</option>
+									<option value="Low">Low</option>
+									<option value="Sufficient">Sufficient</option>
+									<option value="Good">Good</option>
+									<option value="Excellent">Excellent</option>
+									<option value="Superb">Super</option>
+									<option value="Not rated">I don't know</option>
+								</select>
+                            </div>
+                        </div><!--End Row -->    
+                        
+                        <div class="row">
+                        	<div class="col-md-6">
+									<select class="form-control form-white"  name="punctuality_review" id="punctuality_review">
+									<option value="">Punctuality</option>
+									<option value="Low">Low</option>
+									<option value="Sufficient">Sufficient</option>
+									<option value="Good">Good</option>
+									<option value="Excellent">Excellent</option>
+									<option value="Superb">Super</option>
+									<option value="Not rated">I don't know</option>
+								</select>                       </div>
+                            <div class="col-md-6">
+								<select class="form-control form-white"  name="courtesy_review" id="courtesy_review">
+									<option value="">Courtesy</option>
+									<option value="Low">Low</option>
+									<option value="Sufficient">Sufficient</option>
+									<option value="Good">Good</option>
+									<option value="Excellent">Excellent</option>
+									<option value="Superb">Super</option>
+									<option value="Not rated">I don't know</option>
+								</select>
+                            </div>
+                        </div><!--End Row -->     
+						<textarea name="review_text" id="review_text" class="form-control form-white" style="height:100px" placeholder="Write your review"></textarea>
+						<input type="text" id="verify_review" class="form-control form-white" placeholder="Are you human? 3 + 1 =">
+					    <input type="submit" value="Submit" class="btn btn-submit" id="submit-review">
+				</form>
+                <div id="message-review"></div>
+			</div>
+		</div>
+	</div><!-- End Register modal -->
+    
      <!-- Search Menu -->
 	<div class="search-overlay-menu">
 		<span class="search-overlay-close"><i class="icon_close"></i></span>
@@ -523,7 +485,7 @@
 			</button>
 		</form>
 	</div>
-	<!-- End Search Menu -->
+	<!-- End Search Menu --> 
     
 <!-- COMMON SCRIPTS -->
 <script src="${pageContext.request.contextPath}/resources/user/js/jquery-3.6.0.min.js"></script>
