@@ -292,19 +292,22 @@
             <a href="list_page.html">View all Restaurants</a>
         </div>End container
     </div>End hight_light -->
-    <section class="parallax-window" data-parallax="scroll" data-image-src="/resources/user/image/carousel-3.jpg" data-natural-width="1200" data-natural-height="600">
-        <div class="parallax-content">
+    <!-- <section class="parallax-window" data-parallax="" data-image-src="/resources/user/image/carousel-3.jpg" data-natural-width="1200" data-natural-height="600"> -->
+        <div class="container">
+        <img src="/resources/user/image/carousel-3.jpg" class="" style="width: 100%; height: 600px; position: relative;">
+<!--         <div class="parallax-content">
             <div class="sub_content" style="color: orange;">
                 <i class="icon_mug"></i>
                 <h3 style="color: white;">We also deliver to your office</h3>
                 <p>
                 </p>
-            </div><!-- End sub_content -->
-        </div><!-- End subheader -->
-    </section><!-- End section -->
+            </div>End sub_content
+        </div>End subheader -->
+        </div>
+    <!-- </section> --><!-- End section -->
     <!-- End Content =============================================== -->
-
-    <div class="container margin_60">
+<div class="white_bg">
+    <div class="container margin_60" >
         <div class="main_title margin_mobile">
             <h2 class="nomargin_top">User recommendations</h2>
             <p>
@@ -346,6 +349,7 @@
             </div>
         </div><!-- End row -->
     </div><!-- End container -->
+    </div>
 
 <!-- Footer ================================================== -->    
 <%@ include file="/WEB-INF/views/user/include/footer.jsp"%>
@@ -355,7 +359,7 @@
 <script src="/resources/user/js/jquery-3.6.0.min.js"></script>
 <script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
-<script src="/resources/user/assets/validate.js"></script>
+<script src="/resources/user/js/validate.js"></script>
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="/resources/user/js/video_header.js"></script>
