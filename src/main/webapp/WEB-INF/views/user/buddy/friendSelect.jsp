@@ -110,13 +110,13 @@
 	    <div class="row">
 	        <div class="col-lg-3">
 	        </div><!-- End col -->
-	        <div class="col-lg-7">
+	        <div class="col-lg-6">
 	        	<div style="display: block; text-align: right;">
 		        	<!-- <a href="" style="float:right;"><h6><span class="badge bg-primary">차단관리</span></h6></a>
 		        	<a href="" style="float:right;"><h6><span class="badge bg-primary">친구요청관리</span></h6></a> -->
 		        	<a class="btn_1" href="blockFriendSelect" style="width:130px;">차단관리</a>
 		        	<a class="btn_1" href="userFriendRequest" style="width:130px;">친구요청관리</a>
-	        	</div>  
+	        	</div>   
 	        	<div class="box_style_2" id="order_process">
 	                <h2 class="inner" style="text-align: center;">친구목록</h2>
 					<form method="post" action="list_page.html">
@@ -129,22 +129,29 @@
 		                    </div> 
 		                </div>
 		            </form>
-		            <div class="row">
+		            <div class="row" style="height: 100px;">
 						<div class="col-2" style="margin-top:5px;">
 							<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
 								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
 							</svg>
 						</div>
-						<div class="col-8">
+						<div class="col-7">
 							<label>고구마</label><br>
 							<span>저랑 밥취향이 맞는 것 같아요! 친구해요!</span>
 						</div>
-						<div class="col-1">
-							<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><h6><span class="badge bg-primary">친구삭제</span></h6></a>
-							<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal"><h6><span class="badge bg-secondary">차단</span></h6></a>
-						</div>
-						
+						<div class="col-3">
+							<div class="row">
+								<div class="col-12">
+									<a href="/chat/chatView"><h6><span class="badge bg-primary" style="width:110px;">1:1 채팅</span></h6></a>
+								</div>
+								<div>
+									<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>
+									<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
+								</div>  
+							</div>  
+						</div>  
+						  
 					</div> 
 		            <div class="row">
 						<div class="col-2" style="margin-top:5px;">
@@ -153,16 +160,23 @@
 								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
 							</svg>
 						</div> 
-						<div class="col-8">
+						<div class="col-7">
 							<label>감자</label><br>
 							<span>감자 먹으러 갑시다</span>
 						</div>
-						<div class="col-1">
-							<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><h6><span class="badge bg-primary">친구삭제</span></h6></a>
-							<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal"><h6><span class="badge bg-secondary">차단</span></h6></a>
-						</div>
-					</div>
-				</div>
+						<div class="col-3">
+							<div class="row">
+								<div class="col-12">
+									<a href="/chat/chatView"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
+								</div>
+								<div>
+									<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>
+									<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
+								</div>  
+							</div> 
+						</div> 
+					</div> 
+				</div> 
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->

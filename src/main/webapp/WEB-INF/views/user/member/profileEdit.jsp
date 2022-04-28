@@ -40,6 +40,20 @@
     <link href="/resources/user/css/skins/square/grey.css" rel="stylesheet">
     <link href="/resources/user/css/ion.rangeSlider.css" rel="stylesheet">
     <link href="/resources/user/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" >
+    
+    <!-- glightbox css -->
+    <link rel="stylesheet" href="/resources/chat/dist/assets/libs/glightbox/css/glightbox.min.css">
+
+    <!-- One of the following themes -->
+    <link rel="stylesheet" href="/resources/chat/dist/assets/libs/@simonwep/pickr/themes/nano.min.css" /> <!-- 'classic' theme -->
+
+    <!-- swiper css -->
+    <link rel="stylesheet" href="/resources/chat/dist/assets/libs/swiper/swiper-bundle.min.css">
+
+    <!-- Icons Css -->
+    <link href="/resources/chat/dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/resources/chat/dist/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
     <!-- YOUR CUSTOM CSS -->
     <link href="/resources/user/css/custom.css" rel="stylesheet">
@@ -99,20 +113,23 @@
 
 	<div class="container margin_60_35">
 	    <div class="row">
-	        <div class="col-lg-3">
+	        <div class="col-lg-4">
 	        </div><!-- End col -->
-	        <div class="col-lg-6">
+	        <div class="col-lg-5">
 	            <div class="box_style_2" id="order_process">
 	                <h2 class="inner" style="text-align: center;">프로필 수정</h2>
-	                <div>
-		                <div style="text-align: center;">
-							<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-							</svg>
-		                </div>
-		                <h6 style="text-align: center;"><span class="badge bg-primary">사진 수정</span></h6>
-	                </div>
+	                <!-- <div class="mb-3 profile-user">
+                        <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg"
+                            class="rounded-circle avatar-lg img-thumbnail user-profile-image" alt="user-profile-image">
+                        <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
+                            <input id="profile-img-file-input" type="file" class="profile-img-file-input">
+                            <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
+                                <span class="avatar-title rounded-circle bg-light text-body">
+                                    <i class="bx bxs-camera"></i>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
 	                <div>
 		                <div class="mx-auto col-sm-9 col-md-9 my-5">
 		                	 <div class="form-group">
@@ -120,7 +137,64 @@
 			                    <input type="text" id="email_booking_2" name="email_order" class="form-control" placeholder="맛을 모르는 자, 일하지 말라">
 			                </div>
 	                	</div>  
-	                </div>
+	                </div> -->
+	                <!-- Start settings tab-pane -->
+		            <div class="tab-pane" id="pills-setting" role="tabpanel" aria-labelledby="pills-setting-tab">
+		                <!-- Start Settings content -->
+		                <div>
+		                    <div class="user-profile-img">
+		                        <img src="/resources/chat/dist/assets/images/small/img-4.jpg" class="profile-img profile-foreground-img" style="height: 220px;" alt="">
+		                    </div>
+		
+		                    <div class="text-center p-3 p-lg-4 border-bottom pt-2 pt-lg-2 position-relative">
+		                        <div class="mb-3 profile-user">
+		                            <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail user-profile-image" style="width:150px;" alt="user-profile-image">
+		                            <div class="avatar-xs rounded-circle profile-photo-edit" style="position:relative; margin-top:-50px; margin-left:95px;">
+		                                <input id="profile-img-file-input" type="file" class="profile-img-file-input">
+		                                <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
+		                                    <span class="avatar-title rounded-circle bg-light text-body" style="width:50px; height:50px;">
+		                                        <i class="bx bxs-camera" style="font-size:40px;"></i>
+		                                    </span>
+		                                </label>
+		                            </div>
+		                        </div> 
+		                    </div> 
+		                    <!-- End profile user -->
+		
+		                    <!-- Start User profile description -->
+		                    <div class="user-setting mt-5" style="height:400px;" data-simplebar>
+		                        <div id="settingprofile" class="accordion accordion-flush">
+	                                <div id="personalinfo" class="accordion-collapse collapse show" aria-labelledby="headerpersonalinfo"
+	                                    data-bs-parent="#settingprofile">
+	
+                                        <div>
+                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">Name</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" value="Dushane Daniel"
+                                                placeholder="Enter name" >
+                                        </div>
+
+                                        <div>
+                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">Email</label>
+                                            <input type="email" class="form-control" id="exampleInputPassword1"
+                                                value="dashanedaniel@vhato.com" placeholder="Enter email" >
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">Phone No</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" value="+(245) 4577 14523"
+                                                placeholder="Enter phone no" >
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">Location</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" value="California, USA"
+                                                placeholder="Location" >
+                                        </div>
+	                                </div>
+	                            </div>
+							</div>
+						</div>
+					</div>
 					<div style="text-align: center; padding:10px; "> 
 	                	<a class="btn_1" href="profileView" style="width:200px;">수정</a>
 	                </div>

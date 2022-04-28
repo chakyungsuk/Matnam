@@ -87,7 +87,7 @@
 	                <h2 class="inner" style="text-align: center;">개인정보 변경</h2>
 	                <div class="form-group">
 	                    <label>아이디</label>
-	                    <h5 class="col-12">potato97</h5>
+	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" placeholder="potato97" disabled>
 	                </div>
 	                <div class="form-group">
 	                    <label>비밀번호</label>
@@ -99,7 +99,7 @@
 	                </div>
 	                <div class="form-group">
 	                    <label>이름</label>
-	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" placeholder="">
+	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" placeholder="감자" disabled>
 	                </div>
                     <div class="form-group">
                         <label>생년월일</label>
@@ -131,7 +131,7 @@
 	                </div>
 	                <div class="form-group">
 	                    <label>성별</label>
-	                    <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
+	                    <select class="form-select" name="delivery_schedule_day" id="delivery_schedule_day">
                             <option value="" selected>성별</option>
                             <option value="1">남성</option>
                             <option value="2">여성</option>
@@ -152,12 +152,25 @@
 	                        </div>
                     	</div>
                		</div>
+               		<div class="form-group">
+					  	<label>주소</label>
+					  	<div class="input-group mb-2">
+							<input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode" readonly>
+							<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
+							<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
+						</div>
+					    <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1" readonly>
+					    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
+					    <input type="text" class="form-control mb-2" id="ifmaAddress2" name="ifmaAddress2" placeholder="상세주소" required>
+					    <input type="text" class="form-control" id="ifmaAddress3" name="ifmaAddress3" placeholder="참고항목">
+				  	</div>
 	                <div style="text-align: center; padding:10px; "> 
-	                	<a class="btn_1" href="profileView" style="width:200px;">수정하기</a>
+	                	<button class="btn_1" onclick = "location.href = '/user/profileView' " style="width:200px;">수정하기</button>
+	                	<!-- <a class="btn_1" href="profileView" style="width:200px;">수정하기</a> -->
 	                </div>
 	            </div><!-- End box_style_1 -->
+	            <button type="button" class="btn btn-outline-secondary" onclick = "location.href = '/user/profileView' ">돌아가기</button>
 	        </div><!-- End col -->
-	        
 	    </div><!-- End row -->
 	</div><!-- End container -->
 
