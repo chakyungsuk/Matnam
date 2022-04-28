@@ -94,7 +94,14 @@
 </header>
 <!-- End Header =============================================== -->
     
+<!-- COMMON SCRIPTS -->
+<script src="/resources/user/js/jquery-3.6.0.min.js"></script>
+<script src="/resources/user/js/common_scripts_min.js"></script>
+<script src="/resources/user/js/functions.js"></script>
+<script src="/resources/user/js/validate.js"></script>
 
+<!-- SPECIFIC SCRIPTS -->
+<script src="/resources/user/js/video_header.js"></script>
 
 </body>
 </html>
