@@ -20,7 +20,9 @@
         <div class="container">
             <ul>
                 <li><a href="#0">홈</a></li>
-                <li><a href="#0">고객센터</a></li>
+                <li><a href="#0">지도검색</a></li>
+                <li>고객센터</li>
+                <li>문의하기</li>
             </ul>
         </div>
     </div><!-- Position -->
@@ -34,47 +36,21 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="box_style_2">
-                    <h2 class="inner">고객센터</h2>
-                    	<table class="table">
-						  <thead>
-						    <tr>
-						      <th scope="col">#</th>
-						      <th scope="col">아이디</th>
-						      <th scope="col">제목</th>
-						      <th scope="col">답변여부</th>
-						      <th scope="col">등록일</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr>
-						      <th scope="row">1</th>
-						      <td>Mark</td>
-						      <td>Otto</td>
-						      <td>@mdo</td>
-						      <td>@mdo</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">2</th>
-						      <td>Jacob</td>
-						      <td>Thornton</td>
-						      <td>@fat</td>
-						      <td>@fat</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">3</th>
-						      <td colspan="2">Larry the Bird</td>
-						      <td>@twitter</td>
-						      <td>@twitter</td>
-						    </tr>
-						  </tbody>
-						</table>
-						 
-						 <div class="button_position">                  
-	                   		<a href="/user/userServiceForm"><button type="button" class="btn btn-outline-success">문의등록</button></a>
-                			<!-- <a href="/user/storeView"><button type="button" class="btn btn-outline-primary">목록</button></a> -->
-	                   	</div>
-                    </div><!-- End review strip -->
+                    <h2 class="inner">문의하기</h2> 
+                    <input class="form-control" type="text" placeholder="제목" aria-label="default input example">
+                   <div class="mb-3">
+					  <label for="exampleFormControlTextarea1" class="form-label"></label>
+					  <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="서비스 이용시 불편사항에대해 남겨주세요."></textarea>
+					</div>
+					
+					<div class="mb-3">
+					  <label for="formFile" class="form-label"></label>
+					  <input class="form-control" type="file" id="formFile">
+					</div>
+                   
                     
+                   	<a href="/user/userServiceList"><button type="button" class="btn btn-outline-success">문의하기</button></a>
+                   	<a href="/user/userServiceList"><button type="button" class="btn btn-outline-danger">취소</button></a>
                 </div><!-- End box_style_1 -->
             </div>
         </div><!-- End row -->
@@ -84,7 +60,7 @@
 	<!-- Footer -->
 	<%@include file="../include/footer.jsp" %>
 	<!-- Footer -->
- 
+
     
 <!-- COMMON SCRIPTS -->
 <script src="${pageContext.request.contextPath}/resources/user/js/jquery-3.6.0.min.js"></script>

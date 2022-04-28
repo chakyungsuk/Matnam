@@ -3,3 +3,9 @@
 	justify-content: flex-end;
 	
 }
+.button_service_view{
+	display: flex;
+	justify-content: space-between;
+	
+	
+}

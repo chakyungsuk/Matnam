@@ -104,7 +104,7 @@
                         
                     </div><!-- End review strip -->
                     
-                   	<a href="/user/storeReview"><button type="button" class="btn btn-outline-success">리뷰작성</button></a>
+                   	<a href="/user/userReviewForm"><button type="button" class="btn btn-outline-success">리뷰작성</button></a>
                 </div><!-- End box_style_1 -->
                 	<a href="/user/storeView"><button type="button" class="btn btn-outline-primary">목록</button></a>
             </div>

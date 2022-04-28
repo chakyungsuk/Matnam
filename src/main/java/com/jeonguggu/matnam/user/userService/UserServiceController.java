@@ -13,5 +13,19 @@ public class UserServiceController {
 		
 		return "user/service/userServiceList";
 	}
+	
+	@RequestMapping(value="user/userServiceForm")
+	public String userServiceForm ()throws Exception
+	{
+		
+		return "user/service/userServiceForm";
+	}
+	
+	@RequestMapping(value="user/userServiceView")
+	public String userServiceView ()throws Exception
+	{
+		
+		return "user/service/userServiceView";
+	}
 
 }

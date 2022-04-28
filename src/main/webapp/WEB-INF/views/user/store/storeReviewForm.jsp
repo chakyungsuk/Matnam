@@ -41,7 +41,7 @@
     <!-- Content ================================================== -->
     <div class="container margin_60_35">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="box_style_2">
                     <h2 class="inner">Review</h2> 
                     
