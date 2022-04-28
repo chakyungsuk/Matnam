@@ -7,18 +7,18 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <h3></h3>
                     <p>
-                        <img src="/resources/user/image/logofooter.png" alt="" class="img-fluid" style="height: 100%; width: 90%; margin-top: 25px;">
+                        <img src="/resources/user/image/logofooter.png" alt="" class="img-fluid" style="height: 100%; width: 70%; margin-top: 25px;">
                     </p>
                 </div>
-                <div class="col-md-6" id="newsletter">
+                <div class="col-md-7" id="newsletter">
                     <h3>Newsletter</h3>
-                    <p>
-                       (주)쏠리드 / BUSINESS LICENSE: 211-86-20541  
-                       <br>MAIL ORDER NO.: 2019-서울강남-04023
-                       <br>CEO: WOO YOUNG MlADDRESS: 6, TEHERAN-RO 107-GIL, GANGNAM-GU, SEOUL, REPUBLIC OF KOREA 
+                    <p style="margin-right: 0px;">
+                       (주)쏠리드 / BUSINESS LICENSE: 211-86-20541 MAIL ORDER NO.: 2019-서울강남-04023
+                       <br>CEO: WOO YOUNG MlADDRESS: 6, TEHERAN-RO 107-GIL, GANGNAM-GU, SEOUL
+                       <br>REPUBLIC OF KOREA 
 					   <br>TEL: 1833-4868 / E-MAIL: INFO@KIMSUNGTAE.COM
                     </p>
                 </div>
