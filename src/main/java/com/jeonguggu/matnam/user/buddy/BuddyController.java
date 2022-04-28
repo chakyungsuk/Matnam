@@ -23,4 +23,10 @@ public class BuddyController {
 		
 		return "/user/buddy/friendSelect";
 	}
+	
+	@RequestMapping(value = "/user/blockFriendSelect")
+	public String blockFriendSelect() {
+		
+		return "/user/buddy/blockFriendSelect";
+	}
 }

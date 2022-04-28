@@ -35,6 +35,8 @@
     <link href="/resources/user/css/fontello/css/fontello.min.css" rel="stylesheet">
     <link href="/resources/user/css/magnific-popup.css" rel="stylesheet">
     <link href="/resources/user/css/pop_up.css" rel="stylesheet">
+    <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
     
     <!-- Radio and check inputs -->
     <link href="/resources/user/css/skins/square/grey.css" rel="stylesheet">
@@ -73,19 +75,8 @@
 </head>
 
 <body>
-
-	<div id="preloader">
-        <div class="sk-spinner sk-spinner-wave" id="status">
-            <div class="sk-rect1"></div>
-            <div class="sk-rect2"></div>
-            <div class="sk-rect3"></div>
-            <div class="sk-rect4"></div>
-            <div class="sk-rect5"></div>
-        </div>
-    </div><!-- End Preload -->
-
     <!-- Header ================================================== -->
-    <%@include file="../include/top.jsp"%>
+    <%@ include file="/WEB-INF/views/user/include/top.jsp"%> 
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
@@ -117,100 +108,118 @@
 <!-- Content ================================================== -->
 	<div class="container margin_60_35">
 	    <div class="row">
-	        <div class="col-lg-2">
+	        <div class="col-lg-3">
 	        </div><!-- End col -->
-	        <div class="col-lg-8">
+	        <div class="col-lg-7">
+	        	<div style="display: block; text-align: right;">
+		        	<!-- <a href="" style="float:right;"><h6><span class="badge bg-primary">차단관리</span></h6></a>
+		        	<a href="" style="float:right;"><h6><span class="badge bg-primary">친구요청관리</span></h6></a> -->
+		        	<a class="btn_1" href="blockFriendSelect" style="width:130px;">차단관리</a>
+		        	<a class="btn_1" href="userFriendRequest" style="width:130px;">친구요청관리</a>
+	        	</div>  
 	        	<div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">친구목록 <a href="" style="float:right;"><h6><span class="badge bg-primary">차단관리</span></h6></a></h2>
+	                <h2 class="inner" style="text-align: center;">친구목록</h2>
+					<form method="post" action="list_page.html">
+		                <div id="custom-search-input" style="margin-left:130px;">
+		                    <div class="input-group" style="margin-bottom:30px;">
+		                        <input type="text" class="search-query" style="width:300px; -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);" placeholder="친구 검색">
+		                        <span class="input-group-btn">
+		                        	<input type="submit" style="margin-right: 350px;" class="btn_search" value="">
+		                        </span> 
+		                    </div> 
+		                </div>
+		            </form>
+		            <div class="row">
+						<div class="col-2" style="margin-top:5px;">
+							<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+							</svg>
+						</div>
+						<div class="col-8">
+							<label>고구마</label><br>
+							<span>저랑 밥취향이 맞는 것 같아요! 친구해요!</span>
+						</div>
+						<div class="col-1">
+							<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><h6><span class="badge bg-primary">친구삭제</span></h6></a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal"><h6><span class="badge bg-secondary">차단</span></h6></a>
+						</div>
+						
+					</div> 
+		            <div class="row">
+						<div class="col-2" style="margin-top:5px;">
+							<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+							</svg>
+						</div> 
+						<div class="col-8">
+							<label>감자</label><br>
+							<span>감자 먹으러 갑시다</span>
+						</div>
+						<div class="col-1">
+							<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><h6><span class="badge bg-primary">친구삭제</span></h6></a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal"><h6><span class="badge bg-secondary">차단</span></h6></a>
+						</div>
+					</div>
 				</div>
-				
-	            
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->
 	</div><!-- End container -->
-
+ 
 
 <!-- End Content =============================================== -->
 
 <!-- Footer ================================================== -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h3>Secure payments with</h3>
-                <p>
-                    <img src="img/cards.png" alt="" class="img-fluid">
-                </p>
-            </div>
-            <div class="col-md-3">
-                <h3>About</h3>
-                <ul>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="faq.html">Faq</a></li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                    <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
-                    <li><a href="#0" data-toggle="modal" data-target="#register">Register</a></li>
-                    <li><a href="#0">Terms and conditions</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3" id="newsletter">
-                <h3>Newsletter</h3>
-                <p>
-                    Join our newsletter to keep be informed about offers and news.
-                </p>
-                <div id="message-newsletter_2">
-                </div>
-                <form method="post" action="assets/newsletter.php" name="newsletter_2" id="newsletter_2">
-                    <div class="form-group">
-                        <input name="email_newsletter_2" id="email_newsletter_2" type="email" value="" placeholder="Your mail" class="form-control">
-                    </div>
-                    <input type="submit" value="Subscribe" class="btn_1" id="submit-newsletter_2">
-                </form>
-            </div>
-            <div class="col-md-2">
-                <h3>Settings</h3>
-                <div class="styled-select">
-                    <select name="lang" id="lang">
-                        <option value="English" selected>English</option>
-                        <option value="French">French</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="Russian">Russian</option>
-                    </select>
-                </div>
-                <div class="styled-select">
-                    <select name="currency" id="currency">
-                        <option value="USD" selected>USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="RUB">RUB</option>
-                    </select>
-                </div>
-            </div>
-        </div><!-- End row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div id="social_footer">
-                    <ul>
-                        <li><a href="#0"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#0"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#0"><i class="icon-google"></i></a></li>
-                        <li><a href="#0"><i class="icon-instagram"></i></a></li>
-                        <li><a href="#0"><i class="icon-pinterest"></i></a></li>
-                        <li><a href="#0"><i class="icon-vimeo"></i></a></li>
-                        <li><a href="#0"><i class="icon-youtube-play"></i></a></li>
-                    </ul>
-                    <p>
-                        © Quick Food 2021
-                    </p>
-                </div>
-            </div>
-        </div><!-- End row -->
-    </div><!-- End container -->
-</footer>
+<%@ include file="/WEB-INF/views/user/include/footer.jsp"%>
 <!-- End Footer =============================================== -->
 
 <div class="layer"></div><!-- Mobile menu overlay mask -->
+
+	<!-- Modal -->
+	
+	<!-- deleteModal -->
+	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteModalLabel">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					해당 친구를 삭제하시겠습니까?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+					<button type="button" class="btn btn-primary">예</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end deleteModal -->
+	
+	<!-- blockModal -->
+	<div class="modal fade" id="blockModal" tabindex="-1" aria-labelledby="blockModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="blockModalLabel">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					해당 친구를 차단하시겠습니까?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+					<button type="button" class="btn btn-primary">예</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end blockModal -->
+	
+	<!-- end Modal -->
     
      <!-- Search Menu -->
 	<div class="search-overlay-menu">
@@ -227,7 +236,9 @@
 <script src="/resources/user/js/jquery-3.6.0.min.js"></script>
 <script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
-<script src="/resources/user/assets/validate.js"></script>
+<script src="/resources/user/js/validate.js"></script>
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="http://maps.googleapis.com/maps/api/js"></script>
@@ -250,6 +261,7 @@
             grid: true
         });
     });
+    
 </script>
 </body>
 </html>
