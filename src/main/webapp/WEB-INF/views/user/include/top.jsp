@@ -24,7 +24,6 @@
     <!-- BASE CSS -->
     <link href="/resources/user/css/animate.min.css" rel="stylesheet">
     <link href="/resources/user/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/user/css/menu.css" rel="stylesheet">
     <link href="/resources/user/css/style.css" rel="stylesheet">
     <link href="/resources/user/css/responsive.css" rel="stylesheet">
@@ -71,6 +70,18 @@
             <a href="#" class="open_close" id="close_in"><i class="icon_close"></i></a>
              <ul>
                 <li class="submenu">
+                <a href="javascript:void(0);" class="show-submenu">Home<i class="icon-down-open-mini"></i></a>
+                <ul>
+                    <li><a href="index.html">Home Video background</a></li>
+                    <li><a href="index_2.html">Home Static image</a></li>
+                    <li><a href="index_3.html">Home Text rotator</a></li>
+                    <li><a href="index_8.html">Home Layer slider</a></li>
+                    <li><a href="index_4.html">Home Cookie bar</a></li>
+                    <li><a href="index_5.html">Home Popup</a></li>
+                    <li><a href="index_7.html">Top Menu version 2</a></li>
+                </ul>
+                </li>
+                <li class="submenu">
                 <a href="javascript:void(0);" class="show-submenu">Restaurants<i class="icon-down-open-mini"></i></a>
                 <ul>
                     <li><a href="list_page.html">Row listing</a></li>
@@ -84,6 +95,8 @@
                     <li><a href="cart_datepicker.html">Order Date/Time picker</a></li>
                 </ul>
                 </li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="faq.html">Faq</a></li>
                 <li class="submenu">
                 <a href="javascript:void(0);" class="show-submenu">Pages<i class="icon-down-open-mini"></i></a>
                 <ul>
@@ -101,6 +114,7 @@
                 </ul>
                 </li>
                 <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
+                <li><a href="#0">Purchase this template</a></li>
             </ul>
         </div><!-- End main-menu -->
         </nav>
@@ -109,27 +123,7 @@
 </header>
 <!-- End Header =============================================== -->
     
-<!-- COMMON SCRIPTS -->
-<script src="/resources/user/js/jquery-3.6.0.min.js"></script>
-<script src="/resources/user/js/common_scripts_min.js"></script>
-<script src="/resources/user/js/functions.js"></script>
-<script src="/resources/user/assets/validate.js"></script>
-<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 
-<!-- SPECIFIC SCRIPTS -->
-<script src="/resources/user/js/video_header.js"></script>
-<script>
-$(document).ready(function() {
-	'use strict';
-   	  HeaderVideo.init({
-      container: $('.header-video'),
-      header: $('.header-video--media'),
-      videoTrigger: $("#video-trigger"),
-      autoPlayVideo: true
-    });    
-
-});
-</script>
 
 </body>
 </html>
