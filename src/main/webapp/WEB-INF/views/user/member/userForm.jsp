@@ -131,7 +131,7 @@
 	                </div>
 	                <div class="form-group">
 	                    <label>성별</label>
-	                    <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
+	                    <select class="form-select" name="delivery_schedule_day" id="delivery_schedule_day">
                             <option value="" selected>성별</option>
                             <option value="1">남성</option>
                             <option value="2">여성</option>
@@ -140,18 +140,47 @@
 	                </div>
 	                <div class="form-group">
                         <label>휴대전화</label>
-	                		<div class="row">
-		                    	<div class="col-md-8 col-sm-8">
-		                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="전화번호 입력">
-		                        </div>
-		                    	<div class="col-md-4 col-sm-4">
-		                            <button class="btn_full">인증번호 받기</button>
-		                        </div>
-		                    	<div class="col-12">
-		                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="">
-		                        </div>
+                		<div class="row">
+	                    	<div class="col-md-8 col-sm-8">
+	                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="전화번호 입력">
+	                        </div>
+	                    	<div class="col-md-4 col-sm-4">
+	                            <button class="btn_full">인증번호 받기</button>
+	                        </div>
+	                    	<div class="col-12">
+	                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="">
+	                        </div>
 	                    </div>
 	                </div>
+	                <div class="form-group">
+						<label>음식취향</label>
+						<div class="mb-3">
+							<input type="checkbox" class="btn-check" id="ifmhHobbyCd1" name="ifmhHobbyCd1" value="38" autocomplete="off">
+							<label class="btn btn-outline-primary" for="ifmhHobbyCd1">한식</label>
+							<input type="checkbox" class="btn-check" id="ifmhHobbyCd2" name="ifmhHobbyCd2" value="39" autocomplete="off"> 
+							<label class="btn btn-outline-primary" for="ifmhHobbyCd2">양식</label> 
+							<input type="checkbox" class="btn-check" id="ifmhHobbyCd3" name="ifmhHobbyCd3" value="40" autocomplete="off">
+							<label class="btn btn-outline-primary" for="ifmhHobbyCd3">중식</label>
+							<input type="checkbox" class="btn-check" id="ifmhHobbyCd4" name="ifmhHobbyCd4" value="41" autocomplete="off"> 
+							<label class="btn btn-outline-primary" for="ifmhHobbyCd4">일식</label> 
+							<%-- <c:forEach items="${codeHobby}" var="itemHobby" varStatus="statusHobby">
+								<input type="checkbox" class="btn-check" id="ifmhHobbyCd<c:out value="${itemHobby.ifcdSeq}"/>" name="ifmhHobbyCdArray" value="${itemHobby.ifcdSeq}" autocomplete="off">
+								<label class="btn btn-outline-primary" for="ifmhHobbyCd<c:out value="${itemHobby.ifcdSeq}"/>"><c:out value="${itemHobby.ifcdName}"/></label>
+							</c:forEach> --%>
+						</div> 
+					</div>
+					<div class="form-group">
+					  	<label>주소</label>
+					  	<div class="input-group mb-2">
+							<input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode" readonly>
+							<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
+							<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
+						</div>
+					    <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1" readonly>
+					    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
+					    <input type="text" class="form-control mb-2" id="ifmaAddress2" name="ifmaAddress2" placeholder="상세주소" required>
+					    <input type="text" class="form-control" id="ifmaAddress3" name="ifmaAddress3" placeholder="참고항목">
+				  	</div>
 	                <div style="text-align: center; padding:10px; "> 
 	                	<a class="btn_1" href="loginForm" style="width:200px;">가입하기</a>
 	                </div>
