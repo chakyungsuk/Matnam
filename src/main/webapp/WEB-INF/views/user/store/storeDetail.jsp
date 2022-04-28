@@ -143,7 +143,7 @@
 	<!-- Footer -->
 	<%@include file="../include/footer.jsp" %>
 	<!-- Footer -->
-
+ 
     
 <!-- COMMON SCRIPTS -->
 <script src="${pageContext.request.contextPath}/resources/user/js/jquery-3.6.0.min.js"></script>

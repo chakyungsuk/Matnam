@@ -256,7 +256,7 @@
 						</div>
 					</div>
 				</div><!-- End row-->
-			</div><!-- End strip_list-->
+			</div><!-- End strip_list--> 
             
 			
             <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>  

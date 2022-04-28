@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="box_style_2">
-                    <h2 class="inner">Review</h2>
+                    <h2 class="inner">Review</h2> 
                     
                     <input type="range" class="form-range" min="0" max="5" step="0.1" id="customRange3" width="100px" oninput="document.getElementById('value1').innerHTML=this.value;">
 					<span id="value1"></span>
