@@ -14,5 +14,4 @@ public class MatnamMainController {
 		
 		return "/user/index/matnamMain";
 	}
-	
 }
