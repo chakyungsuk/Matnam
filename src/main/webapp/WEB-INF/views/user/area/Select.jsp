@@ -210,7 +210,7 @@
 				<div class="row">
 					<div class="col-3">
 						<select class="form-select" aria-label="Default select example">
-							<option selected>Open this select menu</option>
+							<option selected>도시</option>
 							<option value="1">One</option>
 							<option value="2">Two</option>
 							<option value="3">Three</option>
@@ -218,7 +218,7 @@
 					</div>							
 					<div class="col-3">
 						<select class="form-select" aria-label="Default select example">
-							<option selected>Open this select menu</option>
+							<option selected>상세 도시</option>
 							<option value="1">One</option>
 							<option value="2">Two</option>
 							<option value="3">Three</option>
@@ -226,7 +226,7 @@
 					</div>							
 					<div class="col-3">
 						<select class="form-select" aria-label="Default select example">
-							<option selected>Open this select menu</option>
+							<option selected>상세 도시2</option>
 							<option value="1">One</option>
 							<option value="2">Two</option>
 							<option value="3">Three</option>
