@@ -25,12 +25,12 @@ public class StoreController {
 		
 	}
 	
-	@RequestMapping(value="user/storeReview")
-	public String storeReview() throws Exception {
+	@RequestMapping(value="user/userReviewForm")
+	public String userReviewForm() throws Exception {
 		
 		
 		
-		return "user/store/storeReview";
+		return "user/store/storeReviewForm";
 	}
 
 }

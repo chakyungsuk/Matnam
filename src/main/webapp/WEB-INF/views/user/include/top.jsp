@@ -23,6 +23,7 @@
 
     <!-- BASE CSS -->
     <link href="/resources/user/css/animate.min.css" rel="stylesheet">
+    <link href="/resources/user/css/button.css" rel="stylesheet">
     <link href="/resources/user/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/user/css/menu.css" rel="stylesheet">
     <link href="/resources/user/css/style.css" rel="stylesheet">
