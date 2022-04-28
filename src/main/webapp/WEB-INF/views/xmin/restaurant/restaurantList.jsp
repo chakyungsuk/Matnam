@@ -290,7 +290,7 @@
 			</nav>
 
 			<main class="content">	
-				<h1 class="h3 mb-3" style="text-align:center;">서비스 관리</h1>	
+				<h1 class="h3 mb-3" style="text-align:center;">음식점 관리</h1>	
 				<div class="row">
 						<div class="col-12 col-md-3 col-xxl-3 d-flex" style="height:350px;">
 							<div class="card flex-fill w-100">
@@ -319,7 +319,7 @@
 						<div class="col-12 col-md-9 col-xxl-9 d-flex">
 							<div class="card flex-fill w-100">
 								<div class="card-header">
-									<h5 class="card-title mb-0">음식점 관리</h5>
+									<h5 class="card-title mb-0">지도</h5>
 								</div>
 								<div class="card-body px-4">
 									<img src="/resources/admin/img/photos/map2.jpg" style="height:500px; width:100%">
@@ -331,7 +331,7 @@
 					<div class="col-12">
 						<div class="card flex-fill">
 							<div class="card-header">
-								<h5 class="card-title mb-0">회원 정보</h5>
+								<h5 class="card-title mb-0">음식점 정보</h5>
 							</div>
 							<table class="table table-hover my-0" style="text-align:center;">
 								<thead style="border-bottom:none;">
