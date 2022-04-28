@@ -31,6 +31,7 @@
     <link href="/resources/user/css/fontello/css/fontello.min.css" rel="stylesheet">
     <link href="/resources/user/css/magnific-popup.css" rel="stylesheet">
     <link href="/resources/user/css/pop_up.css" rel="stylesheet">
+    <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- YOUR CUSTOM CSS -->
     <link href="/resources/user/css/custom.css" rel="stylesheet">

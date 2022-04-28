@@ -13,7 +13,7 @@
     <section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
         <div id="subheader">
             <div id="sub_content">
-                <div id="thumb"><img src="img/thumb_restaurant.jpg" alt=""></div>
+                <div id="thumb"><img src="/resources/user/image/store/himnandaLogo.png" alt=""></div>
                 <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> ( <small><a href="#0">98 reviews</a></small> )</div>
                 <h1>힘난다 버거 강남점</h1>
                 <div><em>페스트푸드 / 햄버거</em></div>

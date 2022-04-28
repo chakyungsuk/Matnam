@@ -13,7 +13,7 @@
     <section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
         <div id="subheader">
             <div id="sub_content">
-                <div id="thumb"><img src="img/thumb_restaurant.jpg" alt=""></div>
+                <div id="thumb"><img src="/resources/user/image/store/himnandaLogo.png" alt=""></div>
                 <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> ( <small><a href="#0">98 reviews</a></small> )</div>
                 <h1>힘난다 버거 강남점</h1>
                 <div><em>페스트푸드 / 햄버거</em></div>
@@ -64,34 +64,7 @@
             <div class="col-lg-8">
                 <div class="box_style_2">
                     <h2 class="inner">Description</h2>
-                   	<div>
-                   		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 300px;">
-						  <div class="carousel-indicators">
-						    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-						    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-						    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-						  </div>
-						  <div class="carousel-inner">
-						    <div class="carousel-item active">
-						      <img src="/resources/user/image/cc.jpg" class="d-block w-100" alt="...">
-						    </div>
-						    <div class="carousel-item">
-						      <img src="..." class="d-block w-100" alt="...">
-						    </div>
-						    <div class="carousel-item">
-						      <img src="..." class="d-block w-100" alt="...">
-						    </div>
-						  </div>
-						  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						    <span class="visually-hidden">Previous</span>
-						  </button>
-						  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						    <span class="visually-hidden">Next</span>
-						  </button>
-						</div>
-                   	</div>
+                   	
                     <h3>힘난다버거 강남점  
                     	<div id="general_rating">
                              Reviews
@@ -126,7 +99,6 @@
                                 <div class="rating">
                                     <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
                                 </div>
-                                Food Quality
                             </div>
                         </div><!-- End row -->
                         
@@ -134,7 +106,7 @@
                     
                    	<a href="/user/storeReview"><button type="button" class="btn btn-outline-success">리뷰작성</button></a>
                 </div><!-- End box_style_1 -->
-                	<a href="/user/storeReview"><button type="button" class="btn btn-outline-primary">목록</button></a>
+                	<a href="/user/storeView"><button type="button" class="btn btn-outline-primary">목록</button></a>
             </div>
         </div><!-- End row -->
     </div><!-- End container -->
