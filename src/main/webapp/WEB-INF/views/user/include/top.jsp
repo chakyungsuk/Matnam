@@ -72,6 +72,7 @@
             <a href="#" class="open_close" id="close_in"><i class="icon_close"></i></a>
              <ul>
              	<li><a href="/user/storeView">지도검색</a></li>
+             	<li><a href="/user/areaSelect">친구매칭</a></li>
                 <li class="submenu">
                 <a href="javascript:void(0);" class="show-submenu">Pages<i class="icon-down-open-mini"></i></a>
                 <ul>
