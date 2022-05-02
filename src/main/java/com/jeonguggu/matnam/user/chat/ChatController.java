@@ -9,6 +9,6 @@ public class ChatController {
 	@RequestMapping(value = "/chat/chatView")
 	public String chatView() {
 		
-		return "/user/chat/Chat-App/dist/index";
+		return "/user/chat/chatView";
 	}
 }

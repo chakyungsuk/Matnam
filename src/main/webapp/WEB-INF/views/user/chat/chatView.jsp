@@ -96,7 +96,7 @@
                                 class="bx bx-cog text-muted ms-1" ></i></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="auth-logout.html">Log out <i class="bx bx-log-out-circle text-muted ms-1"></i></a>
+                            href="/user/loginForm">Log out <i class="bx bx-log-out-circle text-muted ms-1"></i></a>
                     </div>
                 </li>
             </ul>
@@ -812,7 +812,7 @@
 
                     <div class="alert alert-warning alert-dismissible copyclipboard-alert px-4 fade show" id="copyClipBoard"
                         role="alert">
-                        Message copied
+                        메세지 복사 성공
                     </div>
                     <!-- end chat conversation end -->
                 </div>
@@ -1630,31 +1630,31 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content modal-header-colored border-0">
                 <div class="modal-header">
-                    <h5 class="modal-title text-white fs-16" id="addgroup-exampleModalLabel">Create New Group</h5>
+                    <h5 class="modal-title text-white fs-16" id="addgroup-exampleModalLabel">대화방 만들기</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body p-4">
                     <form>
                         <div class="mb-4">
-                            <label for="addgroupname-input" class="form-label">Group Name</label>
+                            <label for="addgroupname-input" class="form-label">대화방 이름</label>
                             <input type="text" class="form-control" id="addgroupname-input"
                                 placeholder="Enter Group Name">
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">Group Members</label>
+                            <label class="form-label">친구 목록</label>
                             <div class="mb-3">
                                 <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#groupmembercollapse" aria-expanded="false"
                                     aria-controls="groupmembercollapse">
-                                    Select Members
+                                    친구 선택
                                 </button>
                             </div>
 
                             <div class="collapse" id="groupmembercollapse">
                                 <div class="card border">
                                     <div class="card-header">
-                                        <h5 class="fs-15 mb-0">Contacts</h5>
+                                        <h5 class="fs-15 mb-0">내친구</h5>
                                     </div>
                                     <div class="card-body py-2 px-0">
                                         <div data-simplebar style="max-height: 180px;">
@@ -1861,16 +1861,16 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="addgroupdescription-input" class="form-label">Description</label>
+                            <label for="addgroupdescription-input" class="form-label">초대 메세지</label>
                             <textarea class="form-control" id="addgroupdescription-input" rows="3"
-                                placeholder="Enter Description"></textarea>
+                                placeholder="하고싶은말"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer border-top-dashed">
                     <button type="button" class="btn btn-link link-danger m-0" data-bs-dismiss="modal"><i
-                            class="ri-close-line"></i> Close</button>
-                    <button type="button" class="btn btn-primary m-0">Create Groups</button>
+                            class="ri-close-line"></i> 닫 기 </button>
+                    <button type="button" class="btn btn-primary m-0">대화방 만들기</button>
                 </div>
             </div>
         </div>
