@@ -75,17 +75,10 @@
                 <li class="submenu">
                 <a href="javascript:void(0);" class="show-submenu">Pages<i class="icon-down-open-mini"></i></a>
                 <ul>
-                    <li><a href="RTL_version/index.html">RTL version</a></li>
-                    <li><a href="admin.html">Admin section</a></li>
-                    <li><a href="submit_driver.html">Submit Driver</a></li>
-                    <li><a href="/user/loginForm">User Login</a></li>
+                    <li><a href="/xmin/indexView">Admin section</a></li>
                     <li><a href="/user/userForm">User Register</a></li>
-                    <li><a href="detail_page_2.html">Restaurant detail page</a></li>
                     <li><a href="/user/profileView">프로필 관리</a></li>
                     <li><a href="/user/friendSelect">친구목록</a></li>
-                    <li><a href="coming_soon/index.html">Coming soon page</a></li>
-                    <li><a href="icon_pack_1.html">Icon pack 1</a></li>
-                    <li><a href="icon_pack_2.html">Icon pack 2</a></li>
                 </ul> 
                 </li>
                 <li class="submenu">
