@@ -73,7 +73,7 @@
             </a>
 					</li>
 
-					<li class="sidebar-header">
+					<!-- <li class="sidebar-header">
 						Tools & Components
 					</li>
 
@@ -121,7 +121,7 @@
 						<a class="sidebar-link" href="maps-google.html">
               <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
             </a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</nav>
