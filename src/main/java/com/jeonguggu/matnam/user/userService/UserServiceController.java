@@ -27,5 +27,12 @@ public class UserServiceController {
 		
 		return "user/service/userServiceView";
 	}
+	
+	@RequestMapping(value="user/userServiceEdit")
+	public String userServiceEdit ()throws Exception
+	{
+		
+		return "user/service/userServiceEdit";
+	}
 
 }

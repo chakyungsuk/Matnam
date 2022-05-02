@@ -40,7 +40,6 @@
 				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="지도 닫기" data-text-original="지도 검색">지도 검색</a>
 			</p>
 			<div id="filters_col">
-				<a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters <i class="icon-plus-1 float-right"></i></a>
 				<div class="collapse show" id="collapseFilters">
 					<div class="filter_type">
 						<h6>주소</h6>
