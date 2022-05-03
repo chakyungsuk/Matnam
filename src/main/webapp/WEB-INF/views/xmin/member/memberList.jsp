@@ -365,11 +365,11 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>1</td>
-										<td class="d-none d-xl-table-cell">hyunjune94</td>
-										<td class="d-none d-xl-table-cell"><a href="/xmin/memberView">강현준</a></td>										
+										<td class="d-none d-xl-table-cell">1</td>
+										<td>hyunjune94</td>
+										<td><a href="/xmin/memberView">강현준</a></td>										
 										<td class="d-none d-md-table-cell">010-7335-2901</td>
-										<td><span class="badge bg-success">Done</span></td>
+										<td class="d-none d-xl-table-cell"><span class="badge bg-success">Done</span></td>
 									</tr>
 									<tr>
 										<td>2</td>

@@ -299,7 +299,7 @@
 						<div class="row" style="padding: 10px 10px 10px 10px;">
 							<div class="col-6 col-md-3">							
 							    <select class="form-select" aria-label="Default select example">
-									<option selected>가입 일자</option>
+									<option selected>시작일</option>
 									<option value="1">1년 이내</option>
 									<option value="2">1년~2년</option>
 									<option value="3">2년~3년</option	>
@@ -308,117 +308,119 @@
 							</div>
 							<div class="col-6 col-md-3">
 							    <select class="form-select" aria-label="Default select example">
-									<option selected>연령</option>
+									<option selected>종료일</option>
 									<option value="1">8세 이하</option>
 									<option value="2">청소년</option>
 									<option value="3">성인</option>
 								</select>
 							</div>
 							<div class="col-6 col-md-3">
-							    <select class="form-select" aria-label="Default select example">
-									<option selected>성별</option>
-									<option value="1">남</option>
-									<option value="2">여</option>
-								</select>
-							</div>
-							<div class="col-6 col-md-3">
-								<select class="form-select" aria-label="Default select example">
-									<option selected>검색구분</option>
-									<option value="1">남</option>
-									<option value="2">여</option>
-								</select>
-							</div>
-						</div>
-						<div class="row" style="padding: 0px 10px 10px 10px;">
-							<div class="col-6 col-md-3">
-							    <input type="text" class="form-control" placeholder="검색" aria-label="Username" aria-describedby="basic-addon1">
-							</div>
-							<div class="col-6 col-md-3">
-							    <input type="text" class="form-control" placeholder="검색" aria-label="Username" aria-describedby="basic-addon1">
-							</div>
-							<div class="col-6 col-md-3">
-							    <input type="text" class="form-control" placeholder="검색" aria-label="Username" aria-describedby="basic-addon1">
+							    <input type="text" class="form-control" placeholder="검색구분" aria-label="Username" aria-describedby="basic-addon1">
 							</div>
 							<div class="col-6 col-md-3">
 								<button class="btn btn-primary"><i class="align-middle" data-feather="search"></i></button>
 								<button class="btn btn-danger"><i class="align-middle" data-feather="refresh-cw"></i></button>
 							</div>
-						</div>	
-					
+						</div>				
 					</div>			
 				</div>				
 				<div class="row">
 					<div class="col-12">
 						<div class="card flex-fill">
 							<div class="card-header">
-								<h5 class="card-title mb-0">회원 정보</h5>
+								<h5 class="card-title mb-0">진행중인 이벤트</h5>
+							</div>
+							<table class="table table-hover my-0" style="text-align:center;">
+								<thead style="border-bottom:none;">
+									<tr>
+										<th class="d-none d-md-table-cell">no</th>
+										<th class="d-none d-xl-table-cell">시작일</th>
+										<th class="d-none d-xl-table-cell">종료일</th>										
+										<th>제목</th>
+										<th>비고</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="d-none d-md-table-cell">1</td>
+										<td class="d-none d-md-table-cell">01/01/2021</td>
+										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td><a href="/xmin/eventView">친구초대 이벤트!</a></td>
+										<td>친구 초대시 ~~혜택</td>
+									</tr>
+									<tr>
+										<td class="d-none d-md-table-cell">1</td>
+										<td class="d-none d-md-table-cell">01/01/2021</td>
+										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td>친구초대 이벤트!</td>
+										<td>친구 초대시 ~~혜택</td>
+									</tr>
+									<tr>
+										<td class="d-none d-md-table-cell">1</td>
+										<td class="d-none d-md-table-cell">01/01/2021</td>
+										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td>친구초대 이벤트!</td>
+										<td>친구 초대시 ~~혜택</td>
+									</tr>
+									
+								</tbody>
+							</table>
+							<div style="padding: 25px 25px 0px 0px; text-align:right;">
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="location.href='/xmin/eventForm';">
+									<i data-feather="plus"></i>추가
+								</button>
+							</div>	
+							<nav aria-label="Page navigation example" style="margin-top:20px;">
+								<ul class="pagination" style="justify-content: center;">
+									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+									<li class="page-item"><a class="page-link" href="#">1</a></li>
+									<li class="page-item"><a class="page-link" href="#">2</a></li>
+									<li class="page-item"><a class="page-link" href="#">3</a></li>
+									<li class="page-item"><a class="page-link" href="#">Next</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-12">
+						<div class="card flex-fill">
+							<div class="card-header">
+								<h5 class="card-title mb-0">종료된 이벤트</h5>
 							</div>
 							<table class="table table-hover my-0" style="text-align:center;">
 								<thead style="border-bottom:none;">
 									<tr>
 										<th class="d-none d-xl-table-cell">no</th>
-										<th>아이디</th>
-										<th>사용자 이름</th>										
-										<th class="d-none d-md-table-cell">전화번호</th>
-										<th class="d-none d-xl-table-cell">회원등급</th>
+										<th>시작일</th>
+										<th>종료일</th>										
+										<th class="d-none d-md-table-cell">제목</th>
+										<th class="d-none d-xl-table-cell">비고</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td>1</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
+										<td class="d-none d-md-table-cell">1</td>
+										<td class="d-none d-md-table-cell">01/01/2021</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Vanessa Tucker</td>
+										<td><a href="/xmin/eventView">친구초대 이벤트!</a></td>
+										<td>친구 초대시 ~~혜택</td>
 									</tr>
 									<tr>
-										<td>2</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
+										<td class="d-none d-md-table-cell">1</td>
+										<td class="d-none d-md-table-cell">01/01/2021</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-danger">Cancelled</span></td>
-										<td class="d-none d-md-table-cell">William Harris</td>
+										<td>친구초대 이벤트!</td>
+										<td>친구 초대시 ~~혜택</td>
 									</tr>
 									<tr>
-										<td>3</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
+										<td class="d-none d-md-table-cell">1</td>
+										<td class="d-none d-md-table-cell">01/01/2021</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Sharon Lessman</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-warning">In progress</span></td>
-										<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">William Harris</td>
-									</tr>
-									<tr>
-										<td>6</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Sharon Lessman</td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Christina Mason</td>
-									</tr>
-									<tr>
-										<td>8</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-warning">In progress</span></td>
-										<td class="d-none d-md-table-cell">William Harris</td>
+										<td>친구초대 이벤트!</td>
+										<td>친구 초대시 ~~혜택</td>
 									</tr>
 								</tbody>
 							</table>

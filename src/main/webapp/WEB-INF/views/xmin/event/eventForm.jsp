@@ -62,13 +62,13 @@
             </a>
 					</li>
 
-					<li class="sidebar-item active">
+					<li class="sidebar-item">
 						<a class="sidebar-link" href="/xmin/serviceList">
               <i class="align-middle" data-feather="bell"></i> <span class="align-middle">Service</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
+					<li class="sidebar-item active">
 						<a class="sidebar-link" href="/xmin/eventList">
               <i class="align-middle" data-feather="star"></i> <span class="align-middle">Event</span>
             </a>
@@ -291,149 +291,50 @@
 
 			<main class="content">
 				<div class="container-fluid p-0">
-					<h1 class="h3 mb-3" style="text-align:center;">서비스 관리</h1>					
+					<h1 class="h3 mb-3" style="text-align:center;">이벤트 등록</h1>					
 					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">검색 구분</h5>
-						</div>
-						<div class="row" style="padding: 10px 10px 10px 10px;">
-							<div class="col-6 col-md-3">							
-							    <input type="text" class="form-control" placeholder="아이디" aria-label="Username" aria-describedby="basic-addon1">						
+						<div class="row" style="padding: 15px 15px 15px 15px;">
+							<div class="col-2">					
 							</div>
-							<div class="col-6 col-md-3">
-							    <select class="form-select" aria-label="Default select example">
-									<option selected>연령</option>
-									<option value="1">8세 이하</option>
-									<option value="2">청소년</option>
-									<option value="3">성인</option>
-								</select>
+							<div class="col-8">
+								<input type="text" class="form-control" placeholder="title">	
 							</div>
-							<div class="col-6 col-md-3">
-							    <select class="form-select" aria-label="Default select example">
-									<option selected>회원등급</option>
-									<option value="1">남</option>
-									<option value="2">여</option>
-								</select>
-							</div>
-							<div class="col-6 col-md-3">
-								<select class="form-select" aria-label="Default select example">
-									<option selected>답변여부</option>
-									<option value="1">남</option>
-									<option value="2">여</option>
-								</select>
+							<div class="col-2">
 							</div>
 						</div>
 						<div class="row" style="padding: 0px 10px 10px 10px;">
-							<div class="col-6 col-md-3">
-							
+							<div class="col-3">
 							</div>
-							<div class="col-6 col-md-3">
-							
+							<div class="col-3">							
+						  		<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">시작일</span>
+									<input type="date" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+								</div>
 							</div>
-							<div class="col-6 col-md-3">
-
+							<div class="col-3">
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">종료일</span>
+									<input type="date" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+								</div>
 							</div>
-							<div class="col-6 col-md-3">
-								<button class="btn btn-primary"><i class="align-middle" data-feather="search"></i></button>
-								<button class="btn btn-danger"><i class="align-middle" data-feather="refresh-cw"></i></button>
+							<div class="col-3">
 							</div>
-						</div>	
-					
+						</div>													
 					</div>			
 				</div>				
 				<div class="row">
 					<div class="col-12">
 						<div class="card flex-fill">
 							<div class="card-header">
-								<h5 class="card-title mb-0">건의 사항</h5>
-							</div>
-							<table class="table table-hover my-0" style="text-align:center;">
-								<thead style="border-bottom:none;">
-									<tr>
-										<th class="d-none d-xl-table-cell">no</th>
-										<th>아이디</th>
-										<th class="d-none d-xl-table-cell">접수일</th>
-										<th>제목</th>										
-										<th class="d-none d-md-table-cell">카테고리</th>
-										<th class="d-none d-xl-table-cell">답변여부</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="d-none d-xl-table-cell">1</td>
-										<td>hyunjune94</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><a href="/xmin/serviceView">매칭시스템이 어떤식으로 되는건지 궁금합니다</a></td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-warning">직원 불친절 / 기타 불만</span></td>
-										<td class="d-none d-md-table-cell">X</td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span></td>
-										<td class="d-none d-md-table-cell">X</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td class="d-none d-xl-table-cell">hohohohoho</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><a href="/xmin/serviceView2">욕설신고합니다</a></td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-primary">웹사이트 사용관련 질의</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-primary">사용자 매칭에 대한 질의</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-primary">음식점 추천기준에 대한 질의</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>6</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>8</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-warning">기타 불만</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-								</tbody>
-							</table>
-							<nav aria-label="Page navigation example" style="margin-top:20px;">
-								<ul class="pagination" style="justify-content: center;">
-									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a></li>
-								</ul>
-							</nav>
+								<h5 class="card-title mb-0">이벤트 내용</h5>
+							</div>							
+							<div class="input-group" style="padding: 15px 15px 15px 15px;">
+								<textarea class="form-control" aria-label="With textarea" style="min-height:200px;"></textarea>
+							</div>		
+							<div style="padding: 0px 0px 25px 0px; text-align:center;">
+								<button type="button" class="btn btn-outline-primary"	onclick="location.href='/xmin/eventView';">등록</button>
+								<button type="button" class="btn btn-outline-secondary"	onclick="location.href='/xmin/eventList';">취소</button>
+							</div>	
 						</div>
 					</div>
 				</div>

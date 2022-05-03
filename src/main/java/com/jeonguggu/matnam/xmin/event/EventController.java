@@ -11,4 +11,22 @@ public class EventController {
 		
 		return "/xmin/event/eventList";
 	}		
+	
+	@RequestMapping(value = "/xmin/eventView")
+	public String eventView() {
+		
+		return "/xmin/event/eventView";
+	}		
+	
+	@RequestMapping(value = "/xmin/eventForm")
+	public String eventForm() {
+		
+		return "/xmin/event/eventForm";
+	}		
+	
+	@RequestMapping(value = "/xmin/eventEdit")
+	public String eventEdit() {
+		
+		return "/xmin/event/eventEdit";
+	}		
 }
