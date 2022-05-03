@@ -16,10 +16,17 @@ public class MemberController {
 	public String memberView() {
 		
 		return "/xmin/member/memberView";
-	}		
+	}	
+	
 	@RequestMapping(value = "/xmin/memberForm")
 	public String memberForm() {
 		
 		return "/xmin/member/memberForm";
+	}		
+	
+	@RequestMapping(value = "/xmin/memberEdit")
+	public String memberEdit() {
+		
+		return "/xmin/member/memberEdit";
 	}		
 }

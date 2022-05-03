@@ -38,7 +38,7 @@
 		
 		.btn_area {
 			text-align:center;
-			margin-top : 60px;
+			margin-top : 30px;
 		}
 	</style>
 </head>
@@ -363,11 +363,11 @@
 									<div class="d-flex align-items-start">
 										<div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">아이디</label>
-											<h5>hyunjune94</h5>
+											<input type="text" class="form-control" id="id" value="hyunjune94" style="width:80%">
 									    </div>
 									    <div class="col-12 col-md-6">
 									    	<label for="formGroupExampleInput" class="form-label">이름</label>
-						  					<h5>강현준</h5>
+									    	<input type="text" class="form-control" id="name" value="강현준" style="width:80%">
 									    </div>
 									</div>
 									<hr />
@@ -375,7 +375,7 @@
 									<div class="d-flex align-items-start">
 										<div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">비밀번호</label>
-						  					<h5>rkdguswn***</h5>
+						  					<input type="text" class="form-control" id="password" value="***********" style="width:80%">
 									    </div>
 									    <div class="col-12 col-md-6">
 						
@@ -387,17 +387,17 @@
 										<div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">모바일</label>
 						  					<div class="input-group">
-												<input type="text" class="form-control" aria-label="mn1" value="010" readonly>
+												<input type="text" class="form-control" aria-label="mn1" value="010">
 												<span class="input-group-text">-</span> 
-												<input type="text" class="form-control" aria-label="mn2" value="7335" readonly>
+												<input type="text" class="form-control" aria-label="mn2" value="7335">
 												<span class="input-group-text">-</span> 
-												<input type="text" class="form-control" aria-label="mn3" value="2901" readonly>
+												<input type="text" class="form-control" aria-label="mn3" value="2901">
 											</div>
 									    </div>
 									    <div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">전화번호</label>
 						  					<div class="input-group	">
-												<select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" disabled>
+												<select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
 													<option selected>지역</option>
 													<option value="1">02)</option>
 													<option value="2" selected>031)</option>
@@ -405,9 +405,9 @@
 													<option value="4">051)</option>
 													<option value="5">064)</option>
 												</select> 
-												<input type="text" class="form-control" aria-label="mn1" value="922" readonly>
+												<input type="text" class="form-control" aria-label="mn1" value="922">
 												<span class="input-group-text">-</span> 
-												<input type="text" class="form-control" aria-label="mn2" value="9001" readonly>
+												<input type="text" class="form-control" aria-label="mn2" value="9001">
 											</div>
 									    </div>
 									</div>
@@ -416,16 +416,16 @@
 									<div class="d-flex align-items-start">
 										<div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">생일</label>
-						  					<input type="date" class="form-control" id="name" value="1994-07-28" style="width:80%" readonly>
+						  					<input type="date" class="form-control" id="name" value="1994-07-28" style="width:80%">
 									    </div>
 									    <div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">성별</label>
 						  					<div class="form-check">
 											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="gender" id="gender" value="M" checked disabled> <label class="form-check-label" for="inlineRadio1">남</label>
+												<input class="form-check-input" type="radio" name="gender" id="gender" value="M" checked> <label class="form-check-label" for="inlineRadio1">남</label>
 											</div>
 											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="gender" id="gender" value="W" disabled> <label class="form-check-label" for="inlineRadio2">녀</label>
+												<input class="form-check-input" type="radio" name="gender" id="gender" value="W"> <label class="form-check-label" for="inlineRadio2">녀</label>
 											</div>
 											</div>
 									    </div>
@@ -435,46 +435,25 @@
 									<div class="d-flex align-items-start">
 										<div class="col-12 col-md-12">
 											<label for="formGroupExampleInput" class="form-label">우편번호</label>
-						  					<h5>444-111</h5>
+						  					<input type="text" class="form-control" id="zipCode" value="444-111" style="width:40%">
 									    </div>
 									</div>
+									<br>
 									<div class="d-flex align-items-start">
 										<div class="col-6 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">주소1</label>
-						  					<h5>경기도 고양시 일산서구 주엽2동</h5>
+											<input type="text" class="form-control" id="address1" value="경기도 고양시 일산서구 주엽2동" style="width:80%">
 									    </div>
 										<div class="col-6 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">주소2</label>
-						  					<h5>202222동 111111111호</h5>
+											<input type="text" class="form-control" id="address2" value="202222동 111111111호" style="width:80%">
 									    </div>
 									</div>
 									<hr />
-									
+																		
 									<div class="btn_area">
-										<button type="button" class="btn btn-outline-primary"	onclick="location.href='/xmin/memberList';">목록</button>
-										<button type="button" class="btn btn-outline-secondary"	onclick="location.href='/xmin/memberEdit';">수정</button>
-										<!-- Button trigger modal -->
-										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-											삭제
-										</button>										
-										<!-- Modal -->
-										<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h5 class="modal-title" id="staticBackdropLabel">데이터 삭제</h5>
-														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-													</div>
-													<div class="modal-body">
-													 '강현준'님의 데이터를 삭제하시겠습니까?
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" onclick="location.href='/xmin/memberList';">삭제</button>
-														<button type="button" class="btn btn-outline-secondary" onclick="location.href='/xmin/memberView';">취소</button>
-													</div>
-												</div>
-											</div>
-										</div>
+										<button type="button" class="btn btn-outline-primary"	onclick="location.href='/xmin/memberView';">수정</button>
+										<button type="button" class="btn btn-outline-secondary"	onclick="location.href='/xmin/memberView';">취소</button>
 									</div>
 								</div>
 							</div>

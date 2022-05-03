@@ -352,7 +352,8 @@
 									<tr>
 										<th class="d-none d-xl-table-cell">no</th>
 										<th>아이디</th>
-										<th>접수일</th>										
+										<th>접수일</th>
+										<th>제목</th>										
 										<th class="d-none d-md-table-cell">카테고리</th>
 										<th class="d-none d-xl-table-cell">답변여부</th>
 									</tr>
@@ -360,8 +361,9 @@
 								<tbody>
 									<tr>
 										<td>1</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
+										<td class="d-none d-xl-table-cell">hyunjune94</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td><a href="/xmin/serviceView">매칭시스템이 어떤식으로 되는건지 궁금합니다</a></td>
 										<td><span class="badge bg-warning">직원 불친절 / 기타 불만</span></td>
 										<td class="d-none d-md-table-cell">X</td>
 									</tr>
@@ -369,13 +371,15 @@
 										<td>2</td>
 										<td class="d-none d-xl-table-cell">01/01/2021</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td>직원 불친절 / 기타 불만</td>
 										<td><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span></td>
 										<td class="d-none d-md-table-cell">X</td>
 									</tr>
 									<tr>
 										<td>3</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
+										<td class="d-none d-xl-table-cell">hohohohoho</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td><a href="/xmin/serviceView2">욕설신고합니다</a></td>
 										<td><span class="badge bg-primary">웹사이트 사용관련 질의</span></td>
 										<td class="d-none d-md-table-cell">O</td>
 									</tr>
@@ -383,6 +387,7 @@
 										<td>4</td>
 										<td class="d-none d-xl-table-cell">01/01/2021</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td>직원 불친절 / 기타 불만</td>
 										<td><span class="badge bg-primary">사용자 매칭에 대한 질의</span></td>
 										<td class="d-none d-md-table-cell">O</td>
 									</tr>
@@ -390,6 +395,7 @@
 										<td>5</td>
 										<td class="d-none d-xl-table-cell">01/01/2021</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td>직원 불친절 / 기타 불만</td>
 										<td><span class="badge bg-primary">음식점 추천기준에 대한 질의</span></td>
 										<td class="d-none d-md-table-cell">O</td>
 									</tr>
@@ -397,6 +403,7 @@
 										<td>6</td>
 										<td class="d-none d-xl-table-cell">01/01/2021</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td>직원 불친절 / 기타 불만</td>
 										<td><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span></td>
 										<td class="d-none d-md-table-cell">O</td>
 									</tr>
@@ -404,6 +411,7 @@
 										<td>7</td>
 										<td class="d-none d-xl-table-cell">01/01/2021</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td>직원 불친절 / 기타 불만</td>
 										<td><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span></td>
 										<td class="d-none d-md-table-cell">O</td>
 									</tr>
@@ -411,6 +419,7 @@
 										<td>8</td>
 										<td class="d-none d-xl-table-cell">01/01/2021</td>
 										<td class="d-none d-xl-table-cell">31/06/2021</td>
+										<td>직원 불친절 / 기타 불만</td>
 										<td><span class="badge bg-warning">기타 불만</span></td>
 										<td class="d-none d-md-table-cell">O</td>
 									</tr>
