@@ -60,6 +60,7 @@
 		
 		a:link{
 			color: black;
+			text-decoration: none;
 		}
 		div.vertical-line{
 	      width: 1px; /* Line width */
@@ -91,9 +92,9 @@
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="#0">Home</a></li>
-                <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li><a href="/index/matnamMain">홈</a></li>
+                <li><a href="/user/friendSelect">친구목록</a></li>
+                <li><a href="/user/userFriendRequest">친구요청확인</a></li>
             </ul>
             <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
@@ -129,8 +130,8 @@
 									<span>저랑 밥취향이 맞는 것 같아요! 친구해요!</span>
 								</div>
 								<div class="col-1">
-									<a href=""><h6><span class="badge bg-primary">수락</span></h6></a>
-									<a href=""><h6><span class="badge bg-secondary">거절</span></h6></a>
+									<a href="#" data-bs-toggle="modal" data-bs-target="#yesModal"><h6><span class="badge bg-primary">수락</span></h6></a>
+									<a href="#" data-bs-toggle="modal" data-bs-target="#noModal"><h6><span class="badge bg-secondary">거절</span></h6></a>
 								</div>
 							</div>
 						</div>
@@ -153,7 +154,7 @@
 									<span>생선구이 짱</span>
 								</div>
 								<div class="col-2">
-									<a href=""><h6><span class="badge bg-secondary">요청취소</span></h6></a>
+									<a href="#" data-bs-toggle="modal" data-bs-target="#cancelModal"><h6><span class="badge bg-secondary">요청취소</span></h6></a>
 								</div>
 							</div>
 						</div>
@@ -184,12 +185,79 @@
 		</form>
 	</div>
 	<!-- End Search Menu -->
+	
+	<!-- Modal -->
+	
+	<!-- yesModal -->
+	<div class="modal fade" id="yesModal" tabindex="-1" aria-labelledby="yesModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="yesModalLabel">요청 수락</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					고구마님의 친구 요청을 수락하시겠습니까?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+					<button type="button" class="btn btn-primary">예</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end yesModal -->
+	
+	<!-- noModal -->
+	<div class="modal fade" id="noModal" tabindex="-1" aria-labelledby="noModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="noModalLabel">요청 거절</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					고구마님의 친구 요청을 거절하시겠습니까?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+					<button type="button" class="btn btn-primary">예</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end noModal -->
+	
+	<!-- cancelModal -->
+	<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="cancelModalLabel">요청 취소</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					친구 요청을 취소하시겠습니까?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+					<button type="button" class="btn btn-primary">예</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end cancelModal -->
+	
+	<!-- end Modal -->
     
 <!-- COMMON SCRIPTS -->
 <script src="/resources/user/js/jquery-3.6.0.min.js"></script>
 <script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
 <script src="/resources/user/assets/validate.js"></script>
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="http://maps.googleapis.com/maps/api/js"></script>

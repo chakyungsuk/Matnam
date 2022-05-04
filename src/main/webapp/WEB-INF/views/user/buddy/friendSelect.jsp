@@ -62,6 +62,7 @@
 		
 		a:link{
 			color: black;
+			text-decoration: none;
 		}
 		div.vertical-line{
 	      width: 1px; /* Line width */
@@ -93,9 +94,8 @@
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="#0">Home</a></li>
-                <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li><a href="/index/matnamMain">홈</a></li>
+                <li><a href="/user/friendSelect">친구목록</a></li>
             </ul>
             <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
@@ -199,7 +199,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="deleteModalLabel">Modal title</h5>
+					<h5 class="modal-title" id="deleteModalLabel">친구 삭제</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
@@ -219,7 +219,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="blockModalLabel">Modal title</h5>
+					<h5 class="modal-title" id="blockModalLabel">친구 차단</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">

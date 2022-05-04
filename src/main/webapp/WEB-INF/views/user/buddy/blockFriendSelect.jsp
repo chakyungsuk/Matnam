@@ -71,6 +71,10 @@
 	        You can instead use position:absolute or display:inline-block
 	        if this fits better with your design */
 	    }
+	    a:link{
+			color: black;
+			text-decoration: none;
+		}
     </style> 
 </head>
 
@@ -93,9 +97,9 @@
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="#0">Home</a></li>
-                <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li><a href="/index/matnamMain">홈</a></li>
+                <li><a href="/user/friendSelect">친구목록</a></li>
+                <li><a href="/user/blockFriendSelect">차단친구목록</a></li>
             </ul>
             <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
@@ -167,7 +171,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="deleteModalLabel">Modal title</h5>
+					<h5 class="modal-title" id="deleteModalLabel">차단 해제</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">

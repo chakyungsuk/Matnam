@@ -43,6 +43,13 @@
 
     <!-- YOUR CUSTOM CSS -->
     <link href="/resources/user/css/custom.css" rel="stylesheet">
+    
+	<style type="text/css">
+		a:link{
+			color: black;
+			text-decoration: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -64,9 +71,8 @@
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="#0">Home</a></li>
-                <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li><a href="/index/matnamMain">홈</a></li>
+                <li><a href="/user/userForm">회원가입</a></li>
             </ul>
             <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>

@@ -74,6 +74,7 @@
 		
 		a:link{
 			color: black;
+			text-decoration: none;
 		}
     </style> 
 </head>
@@ -97,9 +98,9 @@
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="#0">Home</a></li>
-                <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li><a href="/index/matnamMain">홈</a></li>
+                <li><a href="/user/profileView">프로필관리</a></li>
+                <li><a href="/user/profileEdit">프로필변경</a></li>
             </ul>
             <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
@@ -115,7 +116,7 @@
 	    <div class="row justify-content-center">
 	        <div class="col-5">
 	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">프로필 수정</h2>
+	                <h2 class="inner" style="text-align: center;">프로필 변경</h2>
 	                <!-- <div class="mb-3 profile-user">
                         <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg"
                             class="rounded-circle avatar-lg img-thumbnail user-profile-image" alt="user-profile-image">
@@ -219,6 +220,7 @@
 	                	<button class="btn_1" onclick="location.href = '/user/profileView'" style="width:200px;">수정</button>
 	                </div>
 	            </div><!-- End box_style_1 -->
+	            <button type="button" class="btn btn-outline-secondary" onclick = "location.href = '/user/profileView' ">돌아가기</button>
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->
