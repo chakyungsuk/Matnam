@@ -60,6 +60,7 @@
 		
 		a:link{
 			color: black;
+			text-decoration: none;
 		}
     </style> 
 </head>
@@ -98,10 +99,10 @@
 <!-- Content ================================================== -->
 
 	<div class="container margin_60_35">
-	    <div class="row">
-	        <div class="col-lg-3">
-	        </div><!-- End col -->
-	        <div class="col-lg-6">
+	    <div class="row justify-content-center">
+	        <!-- <div class="col-lg-4">
+	        </div>End col -->
+	        <div class="col-5">
 	            <div class="box_style_2" id="order_process">
 	                <h2 class="inner" style="text-align: center;">로그인</h2>
 	                <div class="form-group">
@@ -119,12 +120,12 @@
 						</label>
 					</div>
 					<div style="text-align: center; padding:10px; "> 
-	                	<a class="btn_1" href="" style="width:200px;">로그인</a>
+	                	<button class="btn_1" onclick="location.href = ''" style="width:200px;">로그인</button>
 	                </div>
 	                <div style="text-align: center; padding:10px;">
 	                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
 	                </div> 
-	                <div class="row align-items-center" style="margin-left:68px; margin-top:10px;">  
+	                <div class="row justify-content-center" style="margin-top:10px;">  
 	                	<div class="col-auto">
 		                	<a href="" class="login_text" style="color: black;">아이디 찾기</a>
 	                	</div>

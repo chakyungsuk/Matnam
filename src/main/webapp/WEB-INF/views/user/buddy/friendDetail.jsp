@@ -50,6 +50,8 @@
     <!-- swiper css -->
     <link rel="stylesheet" href="/resources/chat/dist/assets/libs/swiper/swiper-bundle.min.css">
 
+	<!-- Bootstrap Css -->
+    <link href="/resources/chat/dist/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="/resources/chat/dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
@@ -75,8 +77,34 @@
 		a:link{
 			color: black;
 		}
-    </style> 
-</head>
+		.star {
+		  position: relative;
+		  font-size: 2rem;
+		  color: #ddd;
+		}
+		/* 		
+		.star input {
+		  width: 100%;
+		  height: 100%;
+		  position: absolute;
+		  left: 0;
+		  opacity: 0;
+		  cursor: pointer;
+		} */
+		
+		.star span {
+		  width: 0;
+		  position: absolute; 
+		  left: 0;
+		  color: red;
+		  overflow: hidden;
+		  pointer-events: none;
+		}  
+		div > a{
+			text-decoration: none;
+		}
+    </style>  
+</head> 
 
 <body>
     <!-- Header ================================================== -->
@@ -97,9 +125,8 @@
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="#0">Home</a></li>
-                <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li><a href="/index/matnamMain">홈</a></li>
+                <li><a href="/user/friendDetail">친구프로필</a></li>
             </ul>
             <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
@@ -109,13 +136,15 @@
 		<div id="map" class="map"></div>
 	</div><!-- End Map -->
 
-<!-- Content ================================================== -->
+	<!-- Content ================================================== -->
 
 	<div class="container margin_60_35">
-	    <div class="row justify-content-center">
-	        <div class="col-5"> 
+	    <div class="row">
+	        <div class="col-lg-4">
+	        </div><!-- End col -->
+	        <div class="col-lg-5"> 
 	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">프로필 관리</h2>
+	                <h2 class="inner" style="text-align: center;">고구마 님의 프로필</h2>
 	                <!-- <div style="text-align: center;">
 						<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 							<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -138,7 +167,7 @@
 	                	<a class="btn_1" href="friendSelect" style="width:200px;">친구 관리</a>
 	                </div> -->
 	                <!-- Start Profile tab-pane -->
-		            <div class="tab-pane" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
+		            <div class="tab-pane" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab" >
 		                <!-- Start profile content -->
 		                <div>
 		                    <div class="user-profile-img">
@@ -149,20 +178,25 @@
 		                            <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" style="width:150px;" alt="">
 		                        </div>
 		   
-		                        <h5 class="fs-17 mb-1 text-truncate">고구마</h5>
-		                        <p class="text-muted fs-14 text-truncate mb-0">고구마도 좋지만 감자도 좋아</p>
+		                        <h5 class="fs-17 mb-1 text-truncate">Dushane Daniel</h5>
+		                        <p class="text-muted fs-14 text-truncate mb-0">Front end Developer</p>
 		                    </div>
 		                    <!-- End profile user -->
 		
 		                    <!-- Start user-profile-desc -->
-		                    <div class="p-4 profile-desc" style="height:200px;" data-simplebar>
-		                        <div class="mb-4 pb-2">
+		                    <div class="p-4 profile-desc" style="height:500px;" data-simplebar>
+		                        <div class="text-muted">
+		                            <p class="mb-3">A professional profile is an introductory section on your resume that highlights your
+		                                relevant qualifications and skills.</p>
+		                        </div>
+		
+		                        <div class="border-bottom border-bottom-dashed mb-4 pb-2">
 		                            <div class="d-flex py-2 align-items-center">
 		                                <div class="flex-shrink-0 me-3">
 		                                    <i class="bx bx-user align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0">고구마</p>
+		                                    <p class="mb-0">Dushane Daniel</p>
 		                                </div>
 		                            </div>
 		
@@ -193,6 +227,34 @@
 		                                </div>
 		                            </div>
 		                        </div>
+		                        <div class="mb-4 pb-4">
+		                            <div class="d-flex align-items-center mb-3">
+		                                <div class="flex-grow-1">
+		                                    <h5 class="fs-12 text-muted text-uppercase mb-0">작성 리뷰</h5>
+		                                </div>
+		                                <div class="flex-shrink-0">
+		                                    <a href="#" class="fw-medium fs-12 d-block">Show all</a>
+		                                </div>
+		                            </div>
+	                                <div class="border-bottom border-bottom-dashed mb-4 pb-4">
+	                                    <a href="#">
+	                                        <h5 style="display:inline-block;">힘난다 버거 강남역점</h5>
+	                                    </a>
+                                        <span class="star">
+											★★★★★
+											<span style="width:90%">★★★★★</span>
+										</span>
+	                                </div>
+	                                <div class="border-bottom border-bottom-dashed mb-4 pb-4">
+	                                    <a href="#">
+	                                        <h5 style="display:inline-block;">가장 맛있는 족발 강남역점</h5>
+	                                    </a>
+	                                    <span class="star">
+											★★★★★
+											<span style="width:80%">★★★★★</span>
+										</span>
+	                                </div>
+		                        </div>
 		                    </div>
 		                    <!-- end user-profile-desc -->
 		                </div>
@@ -201,13 +263,8 @@
 		            <!-- End Profile tab-pane -->
             
             		<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = '/user/profileEdit'" style="width:200px;">프로필 변경</button>
-	                </div>
-            		<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = '/user/userEdit'" style="width:200px;">개인정보 변경</button>
-	                </div>
-					<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = '/user/friendSelect'" style="width:200px;">친구 관리</button>
+	                	<button class="btn_1" style="width:100px;" data-bs-toggle="modal" data-bs-target="#friendModal">친구추가</button>
+	                	<button class="btn_1" onclick="location.href = '/user/areaSelect'" style="width:100px;">목록으로</button>
 	                </div>
 	            </div><!-- End box_style_1 -->
 	        </div><!-- End col -->
@@ -216,13 +273,13 @@
 	</div><!-- End container -->
 
 
-<!-- End Content =============================================== -->
-
-<!-- Footer ================================================== -->
-<%@ include file="/WEB-INF/views/user/include/footer.jsp"%>
-<!-- End Footer =============================================== -->
-
-<div class="layer"></div><!-- Mobile menu overlay mask -->
+	<!-- End Content =============================================== -->
+	
+	<!-- Footer ================================================== -->
+	<%@ include file="/WEB-INF/views/user/include/footer.jsp"%>
+	<!-- End Footer =============================================== -->
+	
+	<div class="layer"></div><!-- Mobile menu overlay mask -->
     
      <!-- Search Menu -->
 	<div class="search-overlay-menu">
@@ -234,12 +291,39 @@
 		</form>
 	</div>
 	<!-- End Search Menu -->
+	
+	<!-- Modal -->
+	<div class="modal fade" id="friendModal" tabindex="-1" aria-labelledby="friendModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="friendModalLabel">친구요청</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">고구마님께 친구요청하시겠습니까?</label>
+							<textarea class="form-control" id="message-text" placeholder="인사말을 남겨보세요." style="height:150px;"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">send</button>
+				</div>
+		  </div>
+		</div>
+	</div>
+	<!--End Modal -->
     
 <!-- COMMON SCRIPTS -->
 <script src="/resources/user/js/jquery-3.6.0.min.js"></script>
 <script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
 <script src="/resources/user/assets/validate.js"></script>
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="http://maps.googleapis.com/maps/api/js"></script>
@@ -262,6 +346,7 @@
             grid: true
         });
     });
+    
 </script>
 </body>
 </html>

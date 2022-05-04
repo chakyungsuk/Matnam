@@ -109,7 +109,7 @@
         	</div>	
 			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
 				<div class="row">
-					<div class="col-md-9">
+					<div class="col-md-9" style="cursor: pointer;" onclick="location.href='/user/friendDetail';">
 						<div class="desc">
 							<div class="rating">
 								<i class="icon_heart" style="color:red;"></i> x 37
@@ -133,7 +133,7 @@
 					<div class="col-md-3">
 						<div class="go_to">
 							<div>
-								<a href="detail_page.html" class="btn_1">친구요청</a>
+								<a href="#" class="btn_1" data-bs-toggle="modal" data-bs-target="#friendModal">친구요청</a>
 							</div>
 						</div>
 					</div>
@@ -167,7 +167,7 @@
 					<div class="col-md-3">
 						<div class="go_to">
 							<div>
-								<a href="detail_page.html" class="btn_1">친구요청</a>
+								<a href="" class="btn_1">친구요청</a>
 							</div>
 						</div>
 					</div>
@@ -203,7 +203,7 @@
 					<div class="col-md-3">
 						<div class="go_to">
 							<div>
-								<a href="detail_page.html" class="btn_1">친구요청</a>
+								<a href="" class="btn_1">친구요청</a>
 							</div>
 						</div>
 					</div>
@@ -238,7 +238,7 @@
 					<div class="col-md-3">
 						<div class="go_to">
 							<div>
-								<a href="detail_page.html" class="btn_1">친구요청</a>
+								<a href="" class="btn_1">친구요청</a>
 							</div>
 						</div>
 					</div>
@@ -253,12 +253,43 @@
 <!-- End Content =============================================== -->
 
 <%@include file="../include/footer.jsp" %>
+
+	<!-- Modal -->
+	
+	<!-- friendModal -->
+	<div class="modal fade" id="friendModal" tabindex="-1" aria-labelledby="friendModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="friendModalLabel">친구 추가</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">인사말을 남겨보세요!</label>
+							<textarea class="form-control" id="message-text" style="height:150px;"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Send</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end friendModal -->
+	
+	<!-- end Modal -->
     
 <!-- COMMON SCRIPTS -->
 <script src="/resources/user/js/jquery-3.6.0.min.js"></script>
 <script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
 <script src="/resources/user/assets/validate.js"></script>
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="http://maps.googleapis.com/maps/api/js"></script>

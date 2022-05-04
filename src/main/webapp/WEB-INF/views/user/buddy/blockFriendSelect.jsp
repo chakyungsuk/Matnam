@@ -152,13 +152,13 @@
 	</div><!-- End container -->
 
 
-<!-- End Content =============================================== -->
-
-<!-- Footer ================================================== -->
-<%@ include file="/WEB-INF/views/user/include/footer.jsp"%>
-<!-- End Footer =============================================== -->
-
-<div class="layer"></div><!-- Mobile menu overlay mask -->
+	<!-- End Content =============================================== -->
+	
+	<!-- Footer ================================================== -->
+	<%@ include file="/WEB-INF/views/user/include/footer.jsp"%>
+	<!-- End Footer =============================================== -->
+	
+	<div class="layer"></div><!-- Mobile menu overlay mask -->
 
 	<!-- Modal -->
 	

@@ -112,10 +112,8 @@
 <!-- Content ================================================== -->
 
 	<div class="container margin_60_35">
-	    <div class="row">
-	        <div class="col-lg-4">
-	        </div><!-- End col -->
-	        <div class="col-lg-5">
+	    <div class="row justify-content-center">
+	        <div class="col-5">
 	            <div class="box_style_2" id="order_process">
 	                <h2 class="inner" style="text-align: center;">프로필 수정</h2>
 	                <!-- <div class="mb-3 profile-user">
@@ -144,9 +142,31 @@
 		                <div>
 		                    <div class="user-profile-img">
 		                        <img src="/resources/chat/dist/assets/images/small/img-4.jpg" class="profile-img profile-foreground-img" style="height: 220px;" alt="">
+		                        <div class="overlay-content">
+		                            <div>
+		                                <div class="user-chat-nav p-3">
+		                                    <div class="d-flex w-100 align-items-center">
+		                                        <div class="flex-grow-1">
+		                                        </div>
+		                                        <div class="flex-shrink-0">
+		                                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit" data-bs-toggle="tooltip"
+		                                                data-bs-trigger="hover" data-bs-placement="bottom" title="Change Background">
+		                                                <input id="profile-foreground-img-file-input" type="file"
+		                                                    class="profile-foreground-img-file-input">
+		                                                <label for="profile-foreground-img-file-input" class="profile-photo-edit avatar-xs">
+		                                                    <span class="avatar-title rounded-circle bg-light text-body">
+		                                                        <i class="bx bxs-pencil"></i>
+		                                                    </span>
+		                                                </label>
+		                                            </div>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
 		                    </div>
 		
-		                    <div class="text-center p-3 p-lg-4 border-bottom pt-2 pt-lg-2 position-relative">
+		                    <div class="text-center p-3 p-lg-4 border-bottom pt-2 pt-lg-2 position-relative" style="margin-top:-80px;">
 		                        <div class="mb-3 profile-user">
 		                            <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail user-profile-image" style="width:150px;" alt="user-profile-image">
 		                            <div class="avatar-xs rounded-circle profile-photo-edit" style="position:relative; margin-top:-50px; margin-left:95px;">
@@ -173,7 +193,7 @@
                                                 placeholder="Enter name" >
                                         </div>
 
-                                        <div>
+                                        <div class="mt-3">
                                             <label for="exampleInputPassword1" class="form-label text-muted fs-13">Email</label>
                                             <input type="email" class="form-control" id="exampleInputPassword1"
                                                 value="dashanedaniel@vhato.com" placeholder="Enter email" >
@@ -196,7 +216,7 @@
 						</div>
 					</div>
 					<div style="text-align: center; padding:10px; "> 
-	                	<a class="btn_1" href="profileView" style="width:200px;">수정</a>
+	                	<button class="btn_1" onclick="location.href = '/user/profileView'" style="width:200px;">수정</button>
 	                </div>
 	            </div><!-- End box_style_1 -->
 	        </div><!-- End col -->
@@ -208,7 +228,7 @@
 <!-- End Content =============================================== -->
 
 <!-- Footer ================================================== -->
-<%@ include file="/WEB-INF/views/user/include/footer.jsp"%>
+	<%@ include file="/WEB-INF/views/user/include/footer.jsp"%>
 <!-- End Footer =============================================== -->
 
 <div class="layer"></div><!-- Mobile menu overlay mask -->

@@ -182,7 +182,7 @@
 					    <input type="text" class="form-control" id="ifmaAddress3" name="ifmaAddress3" placeholder="참고항목">
 				  	</div>
 	                <div style="text-align: center; padding:10px; "> 
-	                	<a class="btn_1" href="loginForm" style="width:200px;">가입하기</a>
+	                	<button class="btn_1" onclick="location.href = '/user/loginForm'" style="width:200px;">가입하기</button>
 	                </div>
 	            </div><!-- End box_style_1 -->
 	        </div><!-- End col -->

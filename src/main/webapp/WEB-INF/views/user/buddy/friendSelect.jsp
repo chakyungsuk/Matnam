@@ -114,8 +114,8 @@
 	        	<div style="display: block; text-align: right;">
 		        	<!-- <a href="" style="float:right;"><h6><span class="badge bg-primary">차단관리</span></h6></a>
 		        	<a href="" style="float:right;"><h6><span class="badge bg-primary">친구요청관리</span></h6></a> -->
-		        	<a class="btn_1" href="blockFriendSelect" style="width:130px;">차단관리</a>
-		        	<a class="btn_1" href="userFriendRequest" style="width:130px;">친구요청관리</a>
+		        	<button class="btn_1" onclick="location.href = '/user/blockFriendSelect'" style="width:130px;">차단관리</button>
+		        	<button class="btn_1"onclick="location.href = '/user/userFriendRequest'" style="width:130px;">친구요청관리</button>
 	        	</div>   
 	        	<div class="box_style_2" id="order_process">
 	                <h2 class="inner" style="text-align: center;">친구목록</h2>
@@ -143,7 +143,7 @@
 						<div class="col-3">
 							<div class="row">
 								<div class="col-12">
-									<a href="/chat/chatView"><h6><span class="badge bg-primary" style="width:110px;">1:1 채팅</span></h6></a>
+									<a href="/chat/chatView"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
 								</div>
 								<div>
 									<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>
@@ -170,13 +170,14 @@
 									<a href="/chat/chatView"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
 								</div>
 								<div>
-									<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>
+									<a href="#" ><span class="badge bg-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" style="display:inline-block;">친구삭제</span></a>
 									<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
 								</div>  
 							</div> 
 						</div> 
 					</div> 
 				</div> 
+				<button type="button" class="btn btn-outline-secondary" onclick = "location.href = '/user/profileView' ">돌아가기</button>
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->

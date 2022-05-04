@@ -29,4 +29,16 @@ public class BuddyController {
 		
 		return "/user/buddy/blockFriendSelect";
 	}
+	
+	@RequestMapping(value = "/user/friendDetail")
+	public String friendDetail() {
+		
+		return "/user/buddy/friendDetail";
+	}
+	
+	@RequestMapping(value = "/user/test")
+	public String test() {
+		
+		return "/user/chat/Chat-App/dist/index2";
+	}
 }
