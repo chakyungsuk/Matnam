@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%@include file="../include/top.jsp" %>
-
+	<!-- top -->
+	<%@include file="../include/top.jsp" %>
+	<!-- top -->
 	<!-- SubHeader =============================================== -->
 	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
 	    <div id="subheader">
