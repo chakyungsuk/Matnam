@@ -20,11 +20,7 @@
 	<div class="row">
     
 		<div class="col-lg-3">
-			<p>
-				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
-			</p>
 			<div id="filters_col">
-				<a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters <i class="icon-plus-1 float-right"></i></a>
 				<div class="collapse show" id="collapseFilters">
 					<div class="filter_type">
                     	<h6>Distance</h6>

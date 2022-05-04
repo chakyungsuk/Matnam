@@ -37,6 +37,14 @@
             <div class="col-lg-12">
                 <div class="box_style_2">
                     <h2 class="inner">문의하기</h2> 
+                    <select class="form-select" aria-label="Default select example">
+					  <option selected>문의 유형을 선택해주세요</option>
+					  <option value="1">직원 불친절 / 기타 불만</option>
+					  <option value="2">욕설/모욕적 언어사용 신고</option>
+					  <option value="3">웹사이트 사용관련 질의</option>
+					  <option value="3">사용자 매칭에 대한 질의</option>
+					  <option value="3">음식점 추천기준에 대한 질의</option>
+					</select>
                     <input class="form-control" type="text" placeholder="제목" aria-label="default input example">
                    <div class="mb-3">
 					  <label for="exampleFormControlTextarea1" class="form-label"></label>

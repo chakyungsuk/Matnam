@@ -38,6 +38,7 @@
                 <div class="box_style_2">
                     <h2 class="inner">문의하기</h2> 
                     <h5>속도가 너무느립니다.</h2>
+                    <span class="badge bg-danger">욕설/모욕적 언어사용 신고</span>
                    <div class="mb-3">
 					  <label for="exampleFormControlTextarea1" class="form-label"></label>
 					  <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="서비스 이용시 불편사항에대해 남겨주세요." >속도가 너무느려서 사이트를 이용할수가없습니다.</textarea>
@@ -53,7 +54,6 @@
 	                   		<a href="/user/userServiceView"><button type="button" class="btn btn-outline-success">수정하기</button></a>
 	                   		<a href="/user/userServiceView"><button type="button" class="btn btn-outline-danger">취소</button></a>
 	                   	</div>
-	                   	<a href="/user/userServiceList"><button type="button" class="btn btn-outline-success">목록</button></a>
                    	</div>
                 </div><!-- End box_style_1 -->
             </div>
