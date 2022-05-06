@@ -58,15 +58,6 @@
 							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>아무개</li>
 						</ul>
 					</div>					
-					<div class="filter_type">
-						<h6>Options</h6>
-						<ul class="nomargin">
-							<li><label><input type="checkbox" class="icheck">Delivery</label></li>
-							<li><label><input type="checkbox" class="icheck">Take Away</label></li>
-							<li><label><input type="checkbox" class="icheck">Distance 10Km</label></li>
-							<li><label><input type="checkbox" class="icheck">Distance 5Km</label></li>
-						</ul>
-					</div>
 				</div><!--End collapse -->
 			</div><!--End filters col-->
 		</div><!--End col-md -->
