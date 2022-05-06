@@ -40,7 +40,7 @@
         </a>
 
 				<!-- nav -->
-				<%@include file="../include/nav.jsp" %>
+				<%@include file="../include/eventNav.jsp" %>
 				<!-- nav -->
 			</div>
 		</nav>

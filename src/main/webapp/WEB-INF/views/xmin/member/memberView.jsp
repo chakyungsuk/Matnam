@@ -52,7 +52,7 @@
         </a>
 
 				<!-- nav -->
-				<%@include file="../include/nav.jsp" %>
+				<%@include file="../include/memberNav.jsp" %>
 				<!-- nav -->
 			</div>
 		</nav>
