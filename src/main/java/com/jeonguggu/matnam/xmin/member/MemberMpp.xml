@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jeonguggu.matnam.xmin.member.MemberMpp">
+
+    <resultMap id="resultMapObj" type="com.jeonguggu.matnam.xmin.member.Member"></resultMap>
+
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT
+			count(*)
+		FROM
+			matnamMember
+		WHERE 1=1
+			AND mnMmDelNy = 0;
+	</select>	
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			mnMmSeq
+			, mnMmId
+		FROM
+			matnamMember
+		WHERE 1=1
+			AND mnMmDelNy = 0;
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO matnamMember (
+			mnMmName
+			, mnMmId
+			, mnMmDelNy
+		) VALUES (
+			#{mnMmName}
+			, #{mnMmId}
+			, 0
+		)
+	</insert>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			mnMmSeq
+			, mnMmName
+			, mnMmId
+			, mnevDelNy
+		FROM
+			matnamMember
+		WHERE 1=1
+			AND mnMmDelNy = 0;
+			AND mnMmSeq = #{mnMmSeq}
+	</select>
+	
+	<update id="update">
+		UPDATE matnamMember SET
+			mnMmId = #{mnMmId}
+			, mnMmPassword = #{mnMmPassword}
+		WHERE 1=1
+			and mnMmSeq = #{mnMmSeq}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM 
+			matnamMember
+		WHERE 1=1
+			AND mnMmSeq = #{mnMmSeq}
+	</delete>
+	
+</mapper>
