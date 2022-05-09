@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jeonguggu.matnam.xmin.event.EventMpp">
+
+    <resultMap id="resultMapObj" type="com.jeonguggu.matnam.xmin.event.Event"></resultMap>
+
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT
+			count(*)
+		FROM
+			matnamEvent
+		WHERE 1=1
+			AND mnevDelNy = 0;
+	</select>	
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			mnevSeq
+			, mnevTitle
+		FROM
+			matnamEvent
+		WHERE 1=1
+			AND mnevDelNy = 0;
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO matnamEvent (
+			mnevTitle
+			, mnevContent
+			, mnevDelNy
+		) VALUES (
+			#{mnevTitle}
+			, #{mnevContent}
+			, 0
+		)
+	</insert>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			mnevSeq
+			, mnevTitle
+			, mnevContent
+			, mnevDelNy
+		FROM
+			matnamEvent
+		WHERE 1=1
+			AND mnevDelNy = 0;
+			AND mnevSeq = #{mnevSeq}
+	</select>
+	
+	<update id="update">
+		UPDATE matnamEvent SET
+			mnevTitle = #{mnevTitle}
+			, mnevContent = #{mnevContent}
+		WHERE 1=1
+			and mnevSeq = #{mnevSeq}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM 
+			matnamEvent
+		WHERE 1=1
+			AND mnevSeq = #{mnevSeq}
+	</delete>
+	
+</mapper>
