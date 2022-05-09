@@ -149,8 +149,8 @@
 		                            <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" style="width:150px;" alt="">
 		                        </div>
 		   
-		                        <h5 class="fs-17 mb-1 text-truncate">고구마</h5>
-		                        <p class="text-muted fs-14 text-truncate mb-0">고구마도 좋지만 감자도 좋아</p>
+		                        <h5 class="fs-17 mb-1 text-truncate"><c:out value="${rt.mnMmName}"/></h5>
+		                        <p class="text-muted fs-14 text-truncate mb-0"><c:out value="${rt.mnMmIntroduce}"/></p>
 		                    </div>
 		                    <!-- End profile user -->
 		
@@ -162,7 +162,7 @@
 		                                    <i class="bx bx-user align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0">고구마</p>
+		                                    <p class="mb-0"><c:out value="${rt.mnMmName}"/></p>
 		                                </div>
 		                            </div>
 		
@@ -171,7 +171,7 @@
 		                                    <i class="ri-phone-line align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0">+(365) 1456 12584</p>
+		                                    <p class="mb-0"><c:out value="${rt.mnMmMobile}"/></p>
 		                                </div>
 		                            </div>
 		
@@ -180,7 +180,7 @@
 		                                    <i class="ri-message-2-line align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="fw-medium mb-0">dushanedaniel@gmail.com</p>
+		                                    <p class="fw-medium mb-0"><c:out value="${rt.mnMmEmail}"/></p>
 		                                </div>
 		                            </div>
 		
@@ -189,7 +189,7 @@
 		                                    <i class="ri-map-pin-2-line align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0">California, USA</p>
+		                                    <p class="mb-0"><c:out value="${rt.mnmaAddress1}"/></p>
 		                                </div>
 		                            </div>
 		                        </div>

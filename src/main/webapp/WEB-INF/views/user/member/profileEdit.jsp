@@ -189,27 +189,23 @@
 	                                    data-bs-parent="#settingprofile">
 	
                                         <div>
-                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">Name</label>
-                                            <input type="text" class="form-control" id="exampleInputPassword1" value="Dushane Daniel"
-                                                placeholder="Enter name" >
+                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">소개글</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" value="<c:out value="${rt.mnMmIntroduce}"/>" placeholder="Enter name" >
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">전화번호</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" value="<c:out value="${rt.mnMmMobile}"/>" placeholder="Enter phone no" >
                                         </div>
 
                                         <div class="mt-3">
-                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">Email</label>
-                                            <input type="email" class="form-control" id="exampleInputPassword1"
-                                                value="dashanedaniel@vhato.com" placeholder="Enter email" >
+                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">이메일</label>
+                                            <input type="email" class="form-control" id="exampleInputPassword1" value="<c:out value="${rt.mnMmEmail}"/>" placeholder="Enter email" >
                                         </div>
 
                                         <div class="mt-3">
-                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">Phone No</label>
-                                            <input type="text" class="form-control" id="exampleInputPassword1" value="+(245) 4577 14523"
-                                                placeholder="Enter phone no" >
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">Location</label>
-                                            <input type="text" class="form-control" id="exampleInputPassword1" value="California, USA"
-                                                placeholder="Location" >
+                                            <label for="exampleInputPassword1" class="form-label text-muted fs-13">주소</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" value="<c:out value="${rt.mnmaAddress1}"/>" placeholder="Location" >
                                         </div>
 	                                </div>
 	                            </div>

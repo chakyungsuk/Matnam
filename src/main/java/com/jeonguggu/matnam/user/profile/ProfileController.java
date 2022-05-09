@@ -1,15 +1,9 @@
 package com.jeonguggu.matnam.user.profile;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Handles requests for the application home page.
@@ -17,8 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ProfileController {
 	
+	@Autowired
+	ProfileServiceImpl service;
+	
 	@RequestMapping(value = "/user/loginForm")
 	public String loginForm() {
+		
+		
 		
 		return "/user/member/loginForm";
 	}
@@ -36,13 +35,21 @@ public class ProfileController {
 	}
 	
 	@RequestMapping(value = "/user/profileView")
-	public String profileView() {
+	public String profileView(ProfileVo vo, Model model) throws Exception {
+		
+		vo.setMnMmSeq("3");
+		Profile rt = service.selectOneProfile(vo);
+		model.addAttribute("rt", rt);
 		
 		return "/user/member/profileView";
 	}
 	
 	@RequestMapping(value = "/user/profileEdit")
-	public String profileEdit() {
+	public String profileEdit(ProfileVo vo, Model model) throws Exception {
+		
+		vo.setMnMmSeq("3");
+		Profile rt = service.selectOneProfile(vo);
+		model.addAttribute("rt", rt);
 		
 		return "/user/member/profileEdit";
 	}

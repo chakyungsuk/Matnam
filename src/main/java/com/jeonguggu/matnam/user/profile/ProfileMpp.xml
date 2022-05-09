@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jeonguggu.matnam.user.profile.ProfileMpp">
+
+    <resultMap id="resultMapObj" type="com.jeonguggu.matnam.user.profile.Profile"></resultMap>
+    
+    <!-- 로그인 시작 -->
+	<select id="selectOneLogin" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			,a.mnMmId
+			,a.mnMmPassword
+		FROM
+			matnamMember a
+		WHERE 1=1
+			AND a.mnMmId = #{mnMmId}
+			AND a.mnMmPassword = #{mnMmPassword}
+	</select>
+	<!-- 로그인 끝 -->
+	
+    <!-- 회원 프로필 조회 시작 -->
+	<select id="selectOneProfile" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			,a.mnMmId
+			,a.mnMmName
+			,a.mnMmMobile
+			,a.mnMmEmail
+			,a.mnMmIntroduce
+			,b.mnmaAddress1
+		FROM
+			matnamMember a
+			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq
+		WHERE 1=1
+			AND a.mnMmSeq = #{mnMmSeq}
+	</select>
+	<!-- 회원 프로필 조회 끝 -->
+    
+</mapper>
