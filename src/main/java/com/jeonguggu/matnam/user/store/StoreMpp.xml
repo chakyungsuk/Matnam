@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jeonguggu.matnam.user.store.StoreMpp">
+<resultMap id="resultMapObj" type="com.jeonguggu.matnam.user.store.Store"></resultMap>
+
+	<select id="selectListStore" resultMap="resultMapObj">
+		SELECT
+			mnrtName
+		    ,mnrtFoodCate
+		    ,mnrtAddressFull
+		    ,mnrtTime
+		    ,mnrtBreakTime
+		    ,mnrtAvg
+		FROM matnam.matnamRestaurant
+		
+	</select>
+	
+	<select id="selectOneStore" resultMap="resultMapObj">
+		SELECT
+			a.mnrtName
+			,a.mnrtAddressFull
+		    ,a.mnrtFoodCate
+		    ,a.mnrtTime
+		    ,a.mnrtBreakTime
+		    ,a.mnrtHoliday
+		    ,a.mnrtText
+		    ,c.mnMmName
+		    ,b.mnrvScore
+		    ,b.mnrvText
+		FROM matnam.matnamRestaurant a
+			left join matnamReview b on b.mnrtSeq = a.mnrtSeq 
+		    left join matnamMember c on c.mnMmSeq = b.mnMmSeq
+		
+	</select>
+	
+
+
+
+</mapper>

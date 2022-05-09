@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jeonguggu.matnam.user.store.StoreMpp">
+<resultMap id="resultMapObj" type="com.jeonguggu.matnam.user.store.Store"></resultMap>
+
+	<select id="selectListService" resultMap="resultMapObj">
+		select 
+			a.mnsvSeq
+		    ,b.mnMmId
+		    ,a.mnsvDateReceipt
+		    ,a.mnsvTitle
+		    ,a.mnsvDesc
+		    ,a.mnsvDoneNy
+		from matnam.matnamServices a
+			left join matnamMember b on b.mnMmSeq = a.mnMmSeq;
+
+		
+	</select>
+	
+
+
+
+</mapper>
