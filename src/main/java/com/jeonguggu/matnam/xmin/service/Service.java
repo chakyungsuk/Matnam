@@ -7,17 +7,12 @@ public class Service {
 	//matnamServices
 	private String mnsvSeq;
 	private String mnsvTitle;
-	private Date mnsvDateReceipt;
+	private Integer mnsvTypeCd;
+	private Date mnsvReceiptDate;
 	private Integer mnsvDoneNy;
 	private String mnsvDesc;
 	private Integer mnsvDelNy;
 	
-	//matnamServicesComplaint
-	private String mnscSeq;
-	private Integer mnscTypeCd;
-	private String mnscDesc;
-	private Integer mnscDelNy;
-
 	//matnamServicesReply
 	private String mnsrSeq;
 	private String mnsrContent;
@@ -26,7 +21,6 @@ public class Service {
 	private Integer mnsrDelNy;
 	
 	//=================================
-	
 	
 	public String getMnsvSeq() {
 		return mnsvSeq;
@@ -40,11 +34,17 @@ public class Service {
 	public void setMnsvTitle(String mnsvTitle) {
 		this.mnsvTitle = mnsvTitle;
 	}
-	public Date getMnsvDateReceipt() {
-		return mnsvDateReceipt;
+	public Integer getMnsvTypeCd() {
+		return mnsvTypeCd;
 	}
-	public void setMnsvDateReceipt(Date mnsvDateReceipt) {
-		this.mnsvDateReceipt = mnsvDateReceipt;
+	public void setMnsvTypeCd(Integer mnsvTypeCd) {
+		this.mnsvTypeCd = mnsvTypeCd;
+	}
+	public Date getMnsvReceiptDate() {
+		return mnsvReceiptDate;
+	}
+	public void setMnsvReceiptDate(Date mnsvReceiptDate) {
+		this.mnsvReceiptDate = mnsvReceiptDate;
 	}
 	public Integer getMnsvDoneNy() {
 		return mnsvDoneNy;
@@ -63,30 +63,6 @@ public class Service {
 	}
 	public void setMnsvDelNy(Integer mnsvDelNy) {
 		this.mnsvDelNy = mnsvDelNy;
-	}
-	public String getMnscSeq() {
-		return mnscSeq;
-	}
-	public void setMnscSeq(String mnscSeq) {
-		this.mnscSeq = mnscSeq;
-	}
-	public Integer getMnscTypeCd() {
-		return mnscTypeCd;
-	}
-	public void setMnscTypeCd(Integer mnscTypeCd) {
-		this.mnscTypeCd = mnscTypeCd;
-	}
-	public String getMnscDesc() {
-		return mnscDesc;
-	}
-	public void setMnscDesc(String mnscDesc) {
-		this.mnscDesc = mnscDesc;
-	}
-	public Integer getMnscDelNy() {
-		return mnscDelNy;
-	}
-	public void setMnscDelNy(Integer mnscDelNy) {
-		this.mnscDelNy = mnscDelNy;
 	}
 	public String getMnsrSeq() {
 		return mnsrSeq;
@@ -118,6 +94,5 @@ public class Service {
 	public void setMnsrDelNy(Integer mnsrDelNy) {
 		this.mnsrDelNy = mnsrDelNy;
 	}
-	
 	
 }
