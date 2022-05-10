@@ -39,5 +39,5 @@
 			AND a.mnMmSeq = #{mnMmSeq}
 	</select>
 	<!-- 회원 프로필 조회 끝 -->
-    
+	
 </mapper>

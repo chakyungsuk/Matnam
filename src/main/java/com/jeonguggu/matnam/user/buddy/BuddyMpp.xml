@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jeonguggu.matnam.user.buddy.BuddyMpp">
+
+    <resultMap id="resultMapObj" type="com.jeonguggu.matnam.user.buddy.Buddy"></resultMap>
+	
+    <!-- 친구목록 조회 시작 -->
+	<select id="selectListFriend" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			,a.mnMmName
+			,a.mnMmIntroduce
+		FROM
+			matnamMember a
+			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 1
+			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 1
+		WHERE 1=1
+			AND b.mnMmSeq = #{mnMmSeq}
+			OR c.mnfdFriendSeq = #{mnMmSeq}
+	</select>
+	<!-- 친구 목록 조회 끝 -->
+	
+	<!-- 차단친구목록 조회 시작 -->
+	<select id="selectListFriendBlock" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			,a.mnMmName
+			,a.mnMmIntroduce
+		FROM
+			matnamMember a
+			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 2
+			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 2
+		WHERE 1=1
+			AND b.mnMmSeq = #{mnMmSeq}
+			OR c.mnfdFriendSeq = #{mnMmSeq}
+	</select>
+	<!-- 차단친구 목록 조회 끝 -->
+	
+	<!-- 받은 친구요청 목록 조회 시작 -->
+	<select id="selectListUserFriendRequestReceive" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			,a.mnMmName
+			,a.mnMmIntroduce
+			,c.mnfdMessage
+		FROM
+			matnamMember a
+			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 3
+		WHERE 1=1
+			AND c.mnfdFriendSeq = #{mnMmSeq}
+	</select>
+	<!-- 받은 친구요청 목록 조회 끝 -->
+	
+	<!-- 보낸 친구요청 목록 조회 시작 -->
+	<select id="selectListUserFriendRequestSend" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			,a.mnMmName
+			,a.mnMmIntroduce
+			,b.mnfdMessage
+		FROM
+			matnamMember a
+			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 3
+		WHERE 1=1
+			AND b.mnMmSeq = #{mnMmSeq}
+	</select>
+	<!-- 보낸 친구요청 목록 조회 끝 -->
+    
+</mapper>

@@ -118,7 +118,7 @@
 							<div style="text-align: center;">
 								<label>받은 친구 요청</label>
 							</div>
-							<div class="row">
+							<!-- <div class="row">
 								<div class="col-2" style="margin-top:5px;">
 									<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 										<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -133,7 +133,32 @@
 									<a href="#" data-bs-toggle="modal" data-bs-target="#yesModal"><h6><span class="badge bg-primary">수락</span></h6></a>
 									<a href="#" data-bs-toggle="modal" data-bs-target="#noModal"><h6><span class="badge bg-secondary">거절</span></h6></a>
 								</div>
-							</div>
+							</div> -->
+							<c:choose>
+								<c:when test="${fn:length(listReceive) eq 0}">
+										<h5 style="text-align: center;">받은 친구요청이 없습니다.</h5>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${listReceive}" var="itemReceive" varStatus="status">	
+										<div class="row">
+											<div class="col-2" style="margin-top:5px;">
+												<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+													<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+													<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+												</svg>
+											</div>
+											<div class="col-8">
+												<label><c:out value="${itemReceive.mnMmName}"/></label><br>
+												<span><c:out value="${itemReceive.mnfdMessage}"/></span>
+											</div>
+											<div class="col-1">
+												<a href="#" data-bs-toggle="modal" data-bs-target="#yesModal"><h6><span class="badge bg-primary">수락</span></h6></a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#noModal"><h6><span class="badge bg-secondary">거절</span></h6></a>
+											</div>
+										</div>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div class="col-auto">
 							<div class="vertical-line"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
@@ -142,7 +167,7 @@
 							<div style="text-align: center;">
 								<label>보낸 친구 요청</label>
 							</div>
-							<div class="row">
+							<!-- <div class="row">
 								<div class="col-2" style="margin-top:5px;">
 									<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 										<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -156,7 +181,32 @@
 								<div class="col-2">
 									<a href="#" data-bs-toggle="modal" data-bs-target="#cancelModal"><h6><span class="badge bg-secondary">요청취소</span></h6></a>
 								</div>
-							</div>
+							</div> -->
+							<c:choose>
+								<c:when test="${fn:length(listSend) eq 0}">
+										<h5 style="text-align: center;">보낸 친구요청이 없습니다.</h5>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${listSend}" var="itemSend" varStatus="status">	
+										<div class="row">
+											<div class="col-2" style="margin-top:5px;">
+												<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+													<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+													<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+												</svg>
+											</div>
+											<div class="col-8">
+												<label><c:out value="${itemSend.mnMmName}"/></label><br>
+												<span><c:out value="${itemSend.mnfdMessage}"/></span>
+											</div>
+											<div class="col-1">
+												<a href="#" data-bs-toggle="modal" data-bs-target="#yesModal"><h6><span class="badge bg-primary">수락</span></h6></a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#noModal"><h6><span class="badge bg-secondary">거절</span></h6></a>
+											</div>
+										</div>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 				</div>

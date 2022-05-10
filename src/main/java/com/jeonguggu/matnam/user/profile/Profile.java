@@ -14,6 +14,8 @@ public class Profile {
 	//프로필 주소
 	private String mnmaAddress1 = "";
 	
+//	----------------------------------------
+	
 	public String getMnMmSeq() {
 		return mnMmSeq;
 	}
@@ -62,7 +64,5 @@ public class Profile {
 	public void setMnmaAddress1(String mnmaAddress1) {
 		this.mnmaAddress1 = mnmaAddress1;
 	}
-	
-
 	
 }

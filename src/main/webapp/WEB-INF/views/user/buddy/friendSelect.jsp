@@ -129,7 +129,7 @@
 		                    </div> 
 		                </div>
 		            </form>
-		            <div class="row" style="height: 100px;">
+		            <!-- <div class="row" style="height: 100px;">
 						<div class="col-2" style="margin-top:5px;">
 							<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -175,7 +175,39 @@
 								</div>  
 							</div> 
 						</div> 
-					</div> 
+					</div>  -->
+					<c:choose>
+						<c:when test="${fn:length(list) eq 0}">
+								<h5 style="text-align: center;">아직 친구가 없습니다 친구 추가를 해보세요!</h5>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${list}" var="item" varStatus="status">	
+								<div class="row" style="height: 100px;">
+									<div class="col-2" style="margin-top:5px;">
+										<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+											<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+											<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+										</svg>
+									</div>
+									<div class="col-7">
+										<label><c:out value="${item.mnMmName}"/></label><br>
+										<span><c:out value="${item.mnMmIntroduce}"/></span>
+									</div>
+									<div class="col-3">
+										<div class="row">
+											<div class="col-12">
+												<a href="/chat/chatView"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
+											</div>
+											<div>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
+											</div>  
+										</div>  
+									</div>  
+								</div> 
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 				</div> 
 				<button type="button" class="btn btn-outline-secondary" onclick = "location.href = '/user/profileView' ">돌아가기</button>
 	        </div><!-- End col -->

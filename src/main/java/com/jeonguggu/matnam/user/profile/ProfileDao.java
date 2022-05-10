@@ -24,5 +24,4 @@ public class ProfileDao {
 	public Profile selectOneProfile(ProfileVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneProfile", vo);
 	}
-
 }

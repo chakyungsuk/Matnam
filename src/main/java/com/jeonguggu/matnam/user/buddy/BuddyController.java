@@ -1,10 +1,17 @@
 package com.jeonguggu.matnam.user.buddy;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class BuddyController {
+	
+	@Autowired
+	BuddyServiceImpl service;
 	
 	@RequestMapping(value = "/user/areaSelect")
 	public String Select() {
@@ -13,19 +20,33 @@ public class BuddyController {
 	}
 
 	@RequestMapping(value = "/user/userFriendRequest")
-	public String userFriendRequest() {
+	public String userFriendRequest(BuddyVo vo, Model model) throws Exception {
+		
+		vo.setMnMmSeq("3");
+		List<Buddy> listReceive = service.selectListUserFriendRequestReceive(vo);
+		List<Buddy> listSend = service.selectListUserFriendRequestSend(vo);
+		model.addAttribute("listReceive", listReceive);
+		model.addAttribute("listSend", listSend);
 		
 		return "/user/buddy/userFriendRequest";
 	}
 	
 	@RequestMapping(value = "/user/friendSelect")
-	public String friendSelect() {
+	public String friendSelect(BuddyVo vo, Model model) throws Exception {
+		
+		vo.setMnMmSeq("3");
+		List<Buddy> list = service.selectListFriend(vo);
+		model.addAttribute("list", list);
 		
 		return "/user/buddy/friendSelect";
 	}
 	
 	@RequestMapping(value = "/user/blockFriendSelect")
-	public String blockFriendSelect() {
+	public String blockFriendSelect(BuddyVo vo, Model model) throws Exception {
+		
+		vo.setMnMmSeq("3");
+		List<Buddy> list = service.selectListFriendBlock(vo);
+		model.addAttribute("list", list);
 		
 		return "/user/buddy/blockFriendSelect";
 	}
@@ -36,9 +57,4 @@ public class BuddyController {
 		return "/user/buddy/friendDetail";
 	}
 	
-	@RequestMapping(value = "/user/test")
-	public String test() {
-		
-		return "/user/chat/Chat-App/dist/index2";
-	}
 }
