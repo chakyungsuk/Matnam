@@ -30,4 +30,4 @@ target/
 .factorypath
 .project
 .springBeans
-.bak
+*.bak
