@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -88,7 +92,16 @@
                     <li><a href="/user/userServiceList">문의하기</a></li>
                 </ul> 
                 </li>
-                <li><a href="/user/loginForm">Login</a></li>
+                <!-- <li><a href="/user/loginForm">Login</a></li> -->
+                <c:choose>
+	        		<c:when test="${not empty sessSeq}">
+	        			<li><a href="/user/profileView?mnMmSeq=${sessSeq}"><c:out value="${sessName}"></c:out> 님</a></li>
+						<li><a href="#" id="btnLogout" onclick="btnLogout();">Logout</a></li>
+	        		</c:when>
+	        		<c:otherwise>
+						<li><a href="/user/loginForm">Login</a></li>
+	        		</c:otherwise>
+	       		</c:choose>
             </ul>
         </div><!-- End main-menu -->
         </nav>
@@ -98,6 +111,8 @@
 <!-- End Header =============================================== -->
     
 <!-- COMMON SCRIPTS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 <script src="/resources/user/js/jquery-3.6.0.min.js"></script>
 <script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
@@ -105,6 +120,29 @@
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="/resources/user/js/video_header.js"></script>
+
+<script type="text/javascript">
+	$("#btnLogout").on("click",function(){
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/user/logoutProc"
+			,data : { "sessSeq" : $("#sessSeq").val(), "sessId" : $("#sessId").val()}
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/index/matnamMain";
+				} else {
+					alert("오류");
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	});
+    
+</script>
 
 </body>
 </html>
