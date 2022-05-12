@@ -13,6 +13,7 @@
 		SELECT
 			a.mnMmSeq
 			,a.mnMmId
+			,a.mnMmName
 			,a.mnMmPassword
 		FROM
 			matnamMember a
@@ -39,5 +40,27 @@
 			AND a.mnMmSeq = #{mnMmSeq}
 	</select>
 	<!-- 회원 프로필 조회 끝 -->
+	
+    <!-- 회원 정보 조회 시작 -->
+	<select id="selectOneUserMember" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			,a.mnMmId
+			,a.mnMmName
+			,a.mnMmDob_Year
+			,a.mnMmDob_Month_Cd
+			,a.mnMmDob_Day
+			,a.mnMmGenderCd
+			,a.mnMmMobile
+			,b.mnmaZipcode
+			,b.mnmaAddress1
+			,b.mnmaAddress2
+		FROM
+			matnamMember a
+			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq
+		WHERE 1=1
+			AND a.mnMmSeq = #{mnMmSeq}
+	</select>
+	<!-- 회원 정보 조회 끝 -->
 	
 </mapper>

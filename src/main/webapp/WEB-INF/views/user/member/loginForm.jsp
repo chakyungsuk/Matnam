@@ -106,11 +106,11 @@
 	                <h2 class="inner" style="text-align: center;">로그인</h2>
 	                <div class="form-group">
 	                    <label>아이디</label>
-	                    <input type="text" class="form-control" id="firstname_order" name="firstname_order" placeholder="아이디">
+	                    <input type="text" class="form-control" id="mnMmId" name="firstname_order" placeholder="아이디">
 	                </div>
 	                <div class="form-group">
 	                    <label>비밀번호</label>
-	                    <input type="password" class="form-control" id="lastname_order" name="lastname_order" placeholder="비밀번호">
+	                    <input type="password" class="form-control" id="mnMmPassword" name="lastname_order" placeholder="비밀번호">
 	                </div>
 	                <div class="form-check">
 						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -119,7 +119,7 @@
 						</label>
 					</div>
 					<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = ''" style="width:200px;">로그인</button>
+	                	<button type="button" class="btn_1" id="btnLogin" style="width:200px;">로그인</button>
 	                </div>
 	                <div style="text-align: center; padding:10px;">
 	                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
@@ -162,7 +162,9 @@
 	<!-- End Search Menu -->
     
 <!-- COMMON SCRIPTS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
 <script src="/resources/user/js/jquery-3.6.0.min.js"></script>
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 <script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
 <script src="/resources/user/assets/validate.js"></script>
@@ -188,6 +190,40 @@
             grid: true
         });
     });
+    
+    $("#btnLogin").on("click",function(){
+ 		
+ 		if(!checkNull($("#mnMmId"), $("#mnMmId").val(), "아이디를 입력하세요.")) return false;
+ 		if(!checkNull($("#mnMmPassword"), $("#mnMmPassword").val(), "비밀번호를 입력하세요.")) return false;
+ 		
+ 		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/user/loginProc"
+			,data : { "mnMmId" : $("#mnMmId").val(), "mnMmPassword" : $("#mnMmPassword").val()}
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/index/matnamMain";
+				} else {
+					alert("회원없음");
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+ 	});
+    
+    checkNull = function (obj, value, message) {
+    	if(value == "" || value == null){
+    		alert(message);
+    		obj.focus();
+    		return false;
+    	} else {
+    		return true;
+    	}
+    }
 </script>
 </body>
 </html>

@@ -24,4 +24,9 @@ public class ProfileDao {
 	public Profile selectOneProfile(ProfileVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneProfile", vo);
 	}
+	
+//	회원 정보 조회
+	public Profile selectOneUserMember(ProfileVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneUserMember", vo);
+	}
 }

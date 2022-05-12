@@ -1,12 +1,22 @@
 package com.jeonguggu.matnam.user.buddy;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class Buddy {
 
-	//친구 목록
+//	유저 정보
 	private String mnMmSeq = "";
 	private String mnMmName = "";
-	private String mnfdFriendSeq = "";
 	private String mnMmIntroduce = "";
+	private String mnMmDob_Year = "";
+	private String mnMmDob_Gender_Cd = "";
+	private String mnmaAddress1 = "";
+	private String mnMmLike = "";
+	private Integer age = 0;
+	
+	//친구 목록
+	private String mnfdFriendSeq = "";
 	
 //	친구요청
 	private String mnfdMessage = "";
@@ -43,6 +53,49 @@ public class Buddy {
 	public void setMnfdMessage(String mnfdMessage) {
 		this.mnfdMessage = mnfdMessage;
 	}
+	public String getMnMmDob_Year() {
+		return mnMmDob_Year;
+	}
+	public void setMnMmDob_Year(String mnMmDob_Year) {
+		this.setAge(mnMmDob_Year);
+		this.mnMmDob_Year = mnMmDob_Year;
+	}
+	public String getMnMmDob_Gender_Cd() {
+		return mnMmDob_Gender_Cd;
+	}
+	public void setMnMmDob_Gender_Cd(String mnMmDob_Gender_Cd) {
+		this.mnMmDob_Gender_Cd = mnMmDob_Gender_Cd;
+	}
+	public String getMnmaAddress1() {
+		return mnmaAddress1;
+	}
+	public void setMnmaAddress1(String mnmaAddress1) {
+		this.mnmaAddress1 = mnmaAddress1;
+	}
+	public String getMnMmLike() {
+		return mnMmLike;
+	}
+	public void setMnMmLike(String mnMmLike) {
+		this.mnMmLike = mnMmLike;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = getAge(age);
+	}
 	
-	
+	public Integer getAge(String dobYear) {
+		//현재 년도 구하기
+		Calendar now = Calendar.getInstance(); //년월일시분초
+		Integer currentYear = now.get(Calendar.YEAR);
+		
+		//태어난년도를 위한 세팅
+		SimpleDateFormat format = new SimpleDateFormat("yyyy");
+		//태어난 년도
+		Integer birthYear = Integer.parseInt(dobYear);
+		
+		// 현재 년도 - 태어난 년도 => 나이 (만나이X)		 
+		return (currentYear - birthYear +1);
+	}
 }

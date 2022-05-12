@@ -38,5 +38,12 @@ public class BuddyServiceImpl implements BuddyService {
 		
 		return dao.selectListUserFriendRequestSend(vo);
 	}
+	
+//	매칭 목록 조회
+	@Override
+	public List<Buddy> selectListArea(BuddyVo vo) throws Exception {
+		
+		return dao.selectListArea(vo);
+	}
 
 }

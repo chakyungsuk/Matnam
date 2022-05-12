@@ -36,5 +36,10 @@ public class BuddyDao {
 	public List<Buddy> selectListUserFriendRequestSend(BuddyVo vo) {
 		return sqlSession.selectList(namespace + ".selectListUserFriendRequestSend", vo);
 	}
+	
+//	매칭 목록 조회
+	public List<Buddy> selectListArea(BuddyVo vo) {
+		return sqlSession.selectList(namespace + ".selectListArea", vo);
+	}
 
 }

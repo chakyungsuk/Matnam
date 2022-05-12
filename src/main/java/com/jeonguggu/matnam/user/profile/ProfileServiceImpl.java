@@ -21,5 +21,12 @@ public class ProfileServiceImpl implements ProfileService {
 		
 		return dao.selectOneProfile(vo);
 	}
+	
+//	회원 정보 조회
+	@Override
+	public Profile selectOneUserMember(ProfileVo vo) throws Exception {
+		
+		return dao.selectOneUserMember(vo);
+	}
 
 }

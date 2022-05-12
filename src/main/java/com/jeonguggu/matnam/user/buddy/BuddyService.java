@@ -16,4 +16,7 @@ public interface BuddyService {
 //	보낸 친구요청 목록 조회
 	public List<Buddy> selectListUserFriendRequestSend(BuddyVo vo) throws Exception;
 	
+//	매칭 목록 조회
+	public List<Buddy> selectListArea(BuddyVo vo) throws Exception;
+	
 }

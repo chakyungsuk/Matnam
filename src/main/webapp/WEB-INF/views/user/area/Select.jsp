@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
 	<!-- top -->
 	<%@include file="../include/top.jsp" %>
 	<!-- top -->
@@ -105,7 +110,7 @@
 							<div class="thumb_strip">
 								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
 							</div>
-							<h3>차경석 님</h3>
+							<h3>--예시-- 님</h3>
 							<div class="type">
 								15세 / 남성
 							</div>
@@ -125,10 +130,10 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
+				</div><!-- End row -->
+			</div><!-- End strip_list -->
             
-			<div class="strip_list wow fadeIn" data-wow-delay="0.2s">
+			<!-- <div class="strip_list wow fadeIn" data-wow-delay="0.2s">
 				<div class="row">
 					<div class="col-md-9">
 						<div class="desc">
@@ -159,8 +164,8 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
+				</div>End row
+			</div>End strip_list
             
 			<div class="strip_list wow fadeIn" data-wow-delay="0.3s">
 				<div class="row">
@@ -195,8 +200,8 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->            
+				</div>End row
+			</div>End strip_list            
             
 			<div class="strip_list wow fadeIn" data-wow-delay="0.4s">
 				<div class="row">
@@ -230,8 +235,51 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
+				</div>End row
+			</div>End strip_list -->
+			<c:choose>
+				<c:when test="${fn:length(list) eq 0}">
+						<h5 style="text-align: center;">해당 매칭유저가 없습니다.</h5>
+				</c:when>
+				<c:otherwise>
+					<c:forEach items="${list}" var="item" varStatus="status">	
+						<div class="strip_list wow fadeIn" data-wow-delay="0.4s">
+							<div class="row">
+								<div class="col-md-9" style="cursor: pointer;" onclick="location.href='/user/friendDetail?mnMmSeq=<c:out value="${item.mnMmSeq}"/>';">
+									<div class="desc">
+										<div class="thumb_strip">
+											<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
+										</div>
+										<div class="rating">
+											<i class="icon_heart" style="color:red;"></i> x <c:out value="${item.mnMmLike}"/>
+										</div>
+										<h3><c:out value="${item.mnMmName}"/> 님</h3>
+										<div class="type">
+											<c:out value="${item.age}"/>세 / 남성
+										</div>
+										<div class="location">
+											<c:out value="${item.mnmaAddress1}"/>
+										</div>
+										<ul>
+											<li>서울<i class="icon_check_alt2 ok"></i></li>
+											<li>일산<i class="icon_check_alt2 ok"></i></li>
+											<li>양식<i class="icon_check_alt2 ok"></i></li>
+											<li>한식<i class="icon_check_alt2 ok"></i></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="go_to">
+										<div>
+											<a href="" class="btn_1">친구요청</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
             
             <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>  
 		</div><!-- End col-md-9-->

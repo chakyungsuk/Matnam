@@ -10,9 +10,15 @@ public class Profile {
 	private String mnMmMobile = "";
 	private String mnMmEmail = "";
 	private String mnMmIntroduce = "";
+	private String mnMmDob_Year = "";
+	private String mnMmDob_Month_Cd = "";
+	private String mnMmDob_Day = "";
+	private String mnMmGenderCd = "";
 	
 	//프로필 주소
+	private String mnmaZipcode = "";
 	private String mnmaAddress1 = "";
+	private String mnmaAddress2 = "";
 	
 //	----------------------------------------
 	
@@ -63,6 +69,42 @@ public class Profile {
 	}
 	public void setMnmaAddress1(String mnmaAddress1) {
 		this.mnmaAddress1 = mnmaAddress1;
+	}
+	public String getMnMmDob_Year() {
+		return mnMmDob_Year;
+	}
+	public void setMnMmDob_Year(String mnMmDob_Year) {
+		this.mnMmDob_Year = mnMmDob_Year;
+	}
+	public String getMnMmDob_Month_Cd() {
+		return mnMmDob_Month_Cd;
+	}
+	public void setMnMmDob_Month_Cd(String mnMmDob_Month_Cd) {
+		this.mnMmDob_Month_Cd = mnMmDob_Month_Cd;
+	}
+	public String getMnMmDob_Day() {
+		return mnMmDob_Day;
+	}
+	public void setMnMmDob_Day(String mnMmDob_Day) {
+		this.mnMmDob_Day = mnMmDob_Day;
+	}
+	public String getMnMmGenderCd() {
+		return mnMmGenderCd;
+	}
+	public void setMnMmGenderCd(String mnMmGenderCd) {
+		this.mnMmGenderCd = mnMmGenderCd;
+	}
+	public String getMnmaZipcode() {
+		return mnmaZipcode;
+	}
+	public void setMnmaZipcode(String mnmaZipcode) {
+		this.mnmaZipcode = mnmaZipcode;
+	}
+	public String getMnmaAddress2() {
+		return mnmaAddress2;
+	}
+	public void setMnmaAddress2(String mnmaAddress2) {
+		this.mnmaAddress2 = mnmaAddress2;
 	}
 	
 }

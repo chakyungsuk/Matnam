@@ -201,13 +201,13 @@
 		            <!-- End Profile tab-pane -->
             
             		<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = '/user/profileEdit'" style="width:200px;">프로필 변경</button>
+	                	<button class="btn_1" onclick="location.href = '/user/profileEdit?mnMmSeq=${sessSeq}'" style="width:200px;">프로필 변경</button>
 	                </div>
             		<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = '/user/userEdit'" style="width:200px;">개인정보 변경</button>
+	                	<button class="btn_1" onclick="location.href = '/user/userEdit?mnMmSeq=${sessSeq}'" style="width:200px;">개인정보 변경</button>
 	                </div>
 					<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = '/user/friendSelect'" style="width:200px;">친구 관리</button>
+	                	<button class="btn_1" onclick="location.href = '/user/friendSelect?mnMmSeq=${sessSeq}'" style="width:200px;">친구 관리</button>
 	                </div>
 	            </div><!-- End box_style_1 -->
 	        </div><!-- End col -->

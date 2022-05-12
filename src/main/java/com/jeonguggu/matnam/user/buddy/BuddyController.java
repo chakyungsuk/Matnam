@@ -14,7 +14,15 @@ public class BuddyController {
 	BuddyServiceImpl service;
 	
 	@RequestMapping(value = "/user/areaSelect")
-	public String Select() {
+	public String Select(BuddyVo vo, Model model) throws Exception {
+		
+		vo.setMnMmSeq("3");
+		List<Buddy> listFriend = service.selectListFriend(vo);
+		model.addAttribute("listFriend", listFriend);
+		
+		vo.setMnmaAddress1("¼­¿ï");
+		List<Buddy> list = service.selectListArea(vo);
+		model.addAttribute("list", list);
 		
 		return "/user/area/Select";
 	}

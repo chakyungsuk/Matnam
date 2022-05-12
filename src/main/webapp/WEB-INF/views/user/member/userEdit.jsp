@@ -94,7 +94,7 @@
 	                <h2 class="inner" style="text-align: center;">개인정보 변경</h2>
 	                <div class="form-group">
 	                    <label>아이디</label>
-	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" placeholder="potato97" disabled>
+	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" value="${rt.mnMmId}" disabled>
 	                </div>
 	                <div class="form-group">
 	                    <label>비밀번호</label>
@@ -106,16 +106,16 @@
 	                </div>
 	                <div class="form-group">
 	                    <label>이름</label>
-	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" placeholder="감자" disabled>
+	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" value="${rt.mnMmName}" disabled>
 	                </div>
                     <div class="form-group">
                         <label>생년월일</label>
 	                		<div class="row">
 	                    	<div class="col-md-4 col-sm-4">
-	                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="년(4자)">
+	                            <input type="text" id="city_order" name="city_order" class="form-control" value="${rt.mnMmDob_Year}" placeholder="년(4자)">
 	                        </div>
 	                    	<div class="col-md-4 col-sm-4">
-	                            <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
+	                            <select class="form-select" name="delivery_schedule_day" id="delivery_schedule_day">
 	                                <option value="" selected>월</option>
 	                                <option value="1">1</option>
 	                                <option value="2">2</option>
