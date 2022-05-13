@@ -16,7 +16,6 @@ public class BuddyController {
 	@RequestMapping(value = "/user/areaSelect")
 	public String Select(BuddyVo vo, Model model) throws Exception {
 		
-		vo.setMnMmSeq("3");
 		List<Buddy> listFriend = service.selectListFriend(vo);
 		model.addAttribute("listFriend", listFriend);
 		
@@ -30,7 +29,6 @@ public class BuddyController {
 	@RequestMapping(value = "/user/userFriendRequest")
 	public String userFriendRequest(BuddyVo vo, Model model) throws Exception {
 		
-		vo.setMnMmSeq("3");
 		List<Buddy> listReceive = service.selectListUserFriendRequestReceive(vo);
 		List<Buddy> listSend = service.selectListUserFriendRequestSend(vo);
 		model.addAttribute("listReceive", listReceive);
@@ -42,7 +40,6 @@ public class BuddyController {
 	@RequestMapping(value = "/user/friendSelect")
 	public String friendSelect(BuddyVo vo, Model model) throws Exception {
 		
-		vo.setMnMmSeq("3");
 		List<Buddy> list = service.selectListFriend(vo);
 		model.addAttribute("list", list);
 		
@@ -52,7 +49,6 @@ public class BuddyController {
 	@RequestMapping(value = "/user/blockFriendSelect")
 	public String blockFriendSelect(BuddyVo vo, Model model) throws Exception {
 		
-		vo.setMnMmSeq("3");
 		List<Buddy> list = service.selectListFriendBlock(vo);
 		model.addAttribute("list", list);
 		

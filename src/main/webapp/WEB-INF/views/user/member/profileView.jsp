@@ -111,6 +111,10 @@
 
 <!-- Content ================================================== -->
 
+	<form id="formList" name="formList" method="post" action="/user/profileEdit">
+		<input type="hidden" id="mnMmSeq" name="mnMmSeq">
+	</form>
+
 	<div class="container margin_60_35">
 	    <div class="row justify-content-center">
 	        <div class="col-5"> 
@@ -201,13 +205,13 @@
 		            <!-- End Profile tab-pane -->
             
             		<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = '/user/profileEdit?mnMmSeq=${sessSeq}'" style="width:200px;">프로필 변경</button>
+	                	<button class="btn_1" onclick="javascript:goProfileEdit(${sessSeq})" style="width:200px;">프로필 변경</button>
 	                </div>
             		<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = '/user/userEdit?mnMmSeq=${sessSeq}'" style="width:200px;">개인정보 변경</button>
+	                	<button class="btn_1" onclick="javascript:goUserEdit(${sessSeq})" style="width:200px;">개인정보 변경</button>
 	                </div>
 					<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick="location.href = '/user/friendSelect?mnMmSeq=${sessSeq}'" style="width:200px;">친구 관리</button>
+	                	<button class="btn_1" onclick="javascript:goFriendSelect(${sessSeq})" style="width:200px;">친구 관리</button>
 	                </div>
 	            </div><!-- End box_style_1 -->
 	        </div><!-- End col -->
@@ -262,6 +266,24 @@
             grid: true
         });
     });
+    
+    goProfileEdit = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/profileEdit");
+		$("#formList").submit();
+	} 
+    
+    goUserEdit = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/userEdit");
+		$("#formList").submit();
+	} 
+    
+    goFriendSelect = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/friendSelect");
+		$("#formList").submit();
+	} 
 </script>
 </body>
 </html>

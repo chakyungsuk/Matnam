@@ -106,6 +106,11 @@
 	</div><!-- End Map -->
 
 <!-- Content ================================================== -->
+
+	<form id="formList" name="formList" method="post" action="/user/profileView">
+		<input type="hidden" id="mnMmSeq" name="mnMmSeq">
+	</form>
+
 	<div class="container margin_60_35">
 	    <div class="row">
 	        <div class="col-lg-3">
@@ -114,8 +119,8 @@
 	        	<div style="display: block; text-align: right;">
 		        	<!-- <a href="" style="float:right;"><h6><span class="badge bg-primary">차단관리</span></h6></a>
 		        	<a href="" style="float:right;"><h6><span class="badge bg-primary">친구요청관리</span></h6></a> -->
-		        	<button class="btn_1" onclick="location.href = '/user/blockFriendSelect'" style="width:130px;">차단관리</button>
-		        	<button class="btn_1"onclick="location.href = '/user/userFriendRequest'" style="width:130px;">친구요청관리</button>
+		        	<button class="btn_1" onclick="javascript:goBlockFriendSelect(${sessSeq})" style="width:130px;">차단관리</button>
+		        	<button class="btn_1"onclick="javascript:goUserFriendRequest(${sessSeq})" style="width:130px;">친구요청관리</button>
 	        	</div>   
 	        	<div class="box_style_2" id="order_process">
 	                <h2 class="inner" style="text-align: center;">친구목록</h2>
@@ -209,7 +214,7 @@
 						</c:otherwise>
 					</c:choose>
 				</div> 
-				<button type="button" class="btn btn-outline-secondary" onclick = "location.href = '/user/profileView' ">돌아가기</button>
+				<button type="button" class="btn btn-outline-secondary" onclick = "javascript:goForm(${sessSeq})">돌아가기</button>
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->
@@ -309,6 +314,23 @@
         });
     });
     
+    goForm = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/profileView");
+		$("#formList").submit();
+	} 
+    
+    goBlockFriendSelect = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/blockFriendSelect");
+		$("#formList").submit();
+	} 
+    
+    goUserFriendRequest = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/userFriendRequest");
+		$("#formList").submit();
+	} 
 </script>
 </body>
 </html>

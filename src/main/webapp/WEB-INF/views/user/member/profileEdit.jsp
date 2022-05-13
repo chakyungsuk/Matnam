@@ -112,6 +112,10 @@
 
 <!-- Content ================================================== -->
 
+	<form id="formList" name="formList" method="post" action="/user/profileView">
+		<input type="hidden" id="mnMmSeq" name="mnMmSeq">
+	</form>
+
 	<div class="container margin_60_35">
 	    <div class="row justify-content-center">
 	        <div class="col-5">
@@ -216,7 +220,7 @@
 	                	<button class="btn_1" onclick="location.href = '/user/profileView'" style="width:200px;">수정</button>
 	                </div>
 	            </div><!-- End box_style_1 -->
-	            <button type="button" class="btn btn-outline-secondary" onclick = "location.href = '/user/profileView' ">돌아가기</button>
+	            <button type="button" class="btn btn-outline-secondary" onclick = "javascript:goForm(${sessSeq})">돌아가기</button>
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->
@@ -269,6 +273,12 @@
             grid: true
         });
     });
+    
+    goForm = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/profileView");
+		$("#formList").submit();
+	} 
 </script>
 </body>
 </html>

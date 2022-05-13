@@ -82,7 +82,6 @@
                 <ul>
                     <li><a href="/xmin/indexView">Admin section</a></li>
                     <li><a href="/user/userForm">User Register</a></li>
-                    <li><a href="/user/profileView">프로필 관리</a></li>
                     <li><a href="/user/friendSelect">친구목록</a></li>
                 </ul> 
                 </li>
