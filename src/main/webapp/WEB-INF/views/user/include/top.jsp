@@ -47,10 +47,6 @@
 
 <body>
 
-<form id="formList" name="formList" method="post" action="codeList">
-	<input type="hidden" id="mnMmSeq" name="mnMmSeq">
-</form>
-   
 <div id="preloader">
        <div class="sk-spinner sk-spinner-wave" id="status">
            <div class="sk-rect1"></div>
@@ -111,6 +107,11 @@
         </nav>
     </div><!-- End row -->
 </div><!-- End container -->
+
+<form id="formList" name="formList" method="post" action="/user/profileView">
+	<input type="hidden" id="mnMmSeq" name="mnMmSeq">
+</form>
+
 </header>
 <!-- End Header =============================================== -->
     
