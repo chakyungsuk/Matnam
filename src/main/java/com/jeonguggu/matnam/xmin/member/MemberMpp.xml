@@ -28,8 +28,7 @@
 		FROM
 			matnamMember a
 		LEFT JOIN matnamMemberPhone b on b.mnMmSeq = a.mnMmSeq
-		WHERE 1=1
-			AND mnMmDelNy = 0;
+		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
 	
 	<insert id="insert">

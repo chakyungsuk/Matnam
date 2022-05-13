@@ -43,6 +43,10 @@
 </head>
 
 <body>
+<form id="xminList" name="xminList" method="post" action="/xmin/memberList">	
+<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -314,11 +318,27 @@
 							</table>
 							<nav aria-label="Page navigation example" style="margin-top:20px;">
 								<ul class="pagination" style="justify-content: center;">
-									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a></li>
+									<!-- Previous -->
+									<c:if test="${vo.startPage gt vo.pageNumToShow}">
+										<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${vo.startPage - 1}'/>');">Previous</a></li>
+									</c:if>
+										
+									<!-- Page -->    
+									<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+										<c:choose>
+											<c:when test="${i.index eq vo.thisPage}">  
+									                <li class="page-item active"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
+											</c:when>
+											<c:otherwise>             
+									                <li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${i.index}'/>');">${i.index}</a></li>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>  
+									
+									<!-- Next -->
+									<c:if test="${vo.endPage ne vo.totalPages}">                
+										<li class="page-item"><a class="page-link" href="javascript:goList('<c:out value='${vo.endPage + 1}'/>');">Next</a></li>
+									</c:if>
 								</ul>
 							</nav>
 						</div>
@@ -329,9 +349,20 @@
 		</div>
 	</div>
 
-	<script src="/resources/admin/js/app.js"></script>
-	<script src="/resources/admin/js/app2.js"></script>
+<script src="/resources/admin/js/app.js"></script>
+<script src="/resources/admin/js/app2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+<script>
 
+	goList = function(seq){
+		$("#thisPage").val(seq)		// form 객체를 가져온다.
+		$("#xminList").submit();	// 그 가져온 객체를 전달한다.
+	}
+
+</script>	
+	
+</form>
 </body>
 
 </html>

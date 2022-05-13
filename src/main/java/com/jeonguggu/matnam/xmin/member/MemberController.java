@@ -21,6 +21,8 @@ public class MemberController {
 		
 		int count = service.selectOneCount(vo);
 		
+		vo.setParamsPaging(count);
+		
 		if (count != 0) {
 			List<Member> list = service.selectList(vo);
 			model.addAttribute("list", list);
