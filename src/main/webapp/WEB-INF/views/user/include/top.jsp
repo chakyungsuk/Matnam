@@ -46,6 +46,10 @@
 </head>
 
 <body>
+
+<form id="formList" name="formList" method="post" action="codeList">
+	<input type="hidden" id="mnMmSeq" name="mnMmSeq">
+</form>
    
 <div id="preloader">
        <div class="sk-spinner sk-spinner-wave" id="status">
@@ -95,7 +99,7 @@
                 <!-- <li><a href="/user/loginForm">Login</a></li> -->
                 <c:choose>
 	        		<c:when test="${not empty sessSeq}">
-	        			<li><a href="/user/profileView?mnMmSeq=${sessSeq}"><c:out value="${sessName}"></c:out> 님</a></li>
+	        			<li><a href="javascript:goForm(${sessSeq})"><c:out value="${sessName}"></c:out> 님</a></li>
 						<li><a href="#" id="btnLogout" onclick="btnLogout();">Logout</a></li>
 	        		</c:when>
 	        		<c:otherwise>
@@ -142,6 +146,11 @@
 		});
 	});
     
+	goForm = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/profileView");
+		$("#formList").submit();
+	} 
 </script>
 
 </body>
