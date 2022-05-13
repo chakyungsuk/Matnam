@@ -7,12 +7,12 @@
 <mapper namespace="com.jeonguggu.matnam.xmin.event.EventMpp">
 
     <resultMap id="resultMapObj" type="com.jeonguggu.matnam.xmin.event.Event"></resultMap>
-
+    
 	
 	<select id="selectOneCount" resultType="Integer">
 		SELECT
 			count(*)
-		FROM
+		FROM 
 			matnamEvent
 		WHERE 1=1
 			AND mnevDelNy = 0;
@@ -22,10 +22,20 @@
 		SELECT
 			mnevSeq
 			, mnevTitle
+			, mnevStartDate
+			, mnevEndDate
+			, mnevContent
+			, mnevUseNy
 		FROM
 			matnamEvent
 		WHERE 1=1
-			AND mnevDelNy = 0;
+			<choose>
+				<when test="shMnevUseNy == 1">And mnevUseNy = 1</when>
+				<when test="shMnevUseNy == 0">And mnevUseNy = 0</when>
+			</choose>
+			<if test="shMnevTitle != null and !shMnevTitle.equals('')"> AND mnevTitle LIKE concat('%',#{shMnevTitle},'%')</if>	
+			<if test="shMnevContent != null and !shMnevContent.equals('')"> AND mnevContent LIKE concat('%',#{shMnevContent},'%')</if>
+			limit #{startRnumForMysql}, #{rowNumToShow}
 	</select>
 	
 	<insert id="insert">

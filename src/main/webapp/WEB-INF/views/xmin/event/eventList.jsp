@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
+<fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -31,6 +37,12 @@
 		
 		a:link {
 			text-decoration : none;
+		}
+		
+		table {
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  white-space: nowrap;
 		}
 	</style>
 	
@@ -213,160 +225,123 @@
 			</nav>
 
 			<main class="content">
-				<div class="container-fluid p-0">
-					<h1 class="h3 mb-3" style="text-align:center;">이벤트 관리</h1>					
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title mb-0">검색 구분</h5>
-						</div>
-						<div class="row" style="padding: 10px 10px 10px 10px;">
-							<div class="col-6 col-md-3">							
-							    <select class="form-select" aria-label="Default select example">
-									<option selected>시작일</option>
-									<option value="1">1년 이내</option>
-									<option value="2">1년~2년</option>
-									<option value="3">2년~3년</option	>
-									<option value="3">3년 이상</option	>
-								</select>								
-							</div>
-							<div class="col-6 col-md-3">
-							    <select class="form-select" aria-label="Default select example">
-									<option selected>종료일</option>
-									<option value="1">8세 이하</option>
-									<option value="2">청소년</option>
-									<option value="3">성인</option>
-								</select>
-							</div>
-							<div class="col-6 col-md-3">
-							    <input type="text" class="form-control" placeholder="검색구분" aria-label="Username" aria-describedby="basic-addon1">
-							</div>
-							<div class="col-6 col-md-3">
-								<button class="btn btn-primary"><i class="align-middle" data-feather="search"></i></button>
-								<button class="btn btn-danger"><i class="align-middle" data-feather="refresh-cw"></i></button>
-							</div>
-						</div>				
-					</div>			
-				</div>				
-				<div class="row">
-					<div class="col-12">
-						<div class="card flex-fill">
+				<form id="eventList" name="eventList" method="post" action="/xmin/eventList">
+				<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+				<input type="hidden" name="rowNumToshow" value="<c:out value="${vo.rowNumToShow }"/>">
+				<input type="hidden" id="mnevSeq" name="mnevSeq">
+					<div class="container-fluid p-0">
+						<h1 class="h3 mb-3" style="text-align:center;">이벤트 관리</h1>					
+						<div class="card">
 							<div class="card-header">
-								<h5 class="card-title mb-0">진행중인 이벤트</h5>
+								<h5 class="card-title mb-0">검색 구분</h5>
 							</div>
-							<table class="table table-hover my-0" style="text-align:center;">
-								<thead style="border-bottom:none;">
-									<tr>
-										<th class="d-none d-md-table-cell">no</th>
-										<th class="d-none d-xl-table-cell">시작일</th>
-										<th class="d-none d-xl-table-cell">종료일</th>										
-										<th>제목</th>
-										<th>비고</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="d-none d-md-table-cell">1</td>
-										<td class="d-none d-md-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><a href="/xmin/eventView">친구초대 이벤트!</a></td>
-										<td>친구 초대시 ~~혜택</td>
-									</tr>
-									<tr>
-										<td class="d-none d-md-table-cell">1</td>
-										<td class="d-none d-md-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>친구초대 이벤트!</td>
-										<td>친구 초대시 ~~혜택</td>
-									</tr>
-									<tr>
-										<td class="d-none d-md-table-cell">1</td>
-										<td class="d-none d-md-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>친구초대 이벤트!</td>
-										<td>친구 초대시 ~~혜택</td>
-									</tr>
-									
-								</tbody>
-							</table>
-							<div style="padding: 25px 25px 0px 0px; text-align:right;">
-								<!-- Button trigger modal -->
-								<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="location.href='/xmin/eventForm';">
-									<i data-feather="plus"></i>추가
-								</button>
-							</div>	
-							<nav aria-label="Page navigation example" style="margin-top:20px;">
-								<ul class="pagination" style="justify-content: center;">
-									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a></li>
-								</ul>
-							</nav>
-						</div>
-					</div>
-				</div>
+							<div class="row" style="padding: 10px 10px 10px 10px;">
+	 							<div class="col-6 col-md-3">							
+								    <select class="form-select" aria-label="Default select example" name="shMnevUseNy" id="shMnevUseNy">
+										<option value="">이벤트</option>
+										<option value="1" <c:if test="${vo.shMnevUseNy eq 1 }">selected</c:if>>진행중인 이벤트
+										<option value="0" <c:if test="${vo.shMnevUseNy eq 0 }">selected</c:if>>종료된 이벤트
+									</select>								
+								</div>
+								<div class="col-6 col-md-3">
+								   <input type="text" class="form-control" name="shMnevTitle" id="shMnevTitle" value="<c:out value="${vo.shMnevTitle }"/>" placeholder="제목검색">
+								</div>
+								<div class="col-6 col-md-3">
+								   <input type="text" class="form-control" name="shMnevContent" id="shMnevContent" value="<c:out value="${vo.shMnevContent }"/>" placeholder="비고검색">
+								</div>
+								<div class="col-6 col-md-3">
+									<button type="submit" class="btn btn-primary"><i class="align-middle" data-feather="search"></i></button>
+									<button type="submit" class="btn btn-danger"><i class="align-middle" data-feather="refresh-cw"></i></button>
+								</div>
+							</div>				
+						</div>			
+					</div>	
+				</form>
 				
-				<div class="row">
-					<div class="col-12">
-						<div class="card flex-fill">
-							<div class="card-header">
-								<h5 class="card-title mb-0">종료된 이벤트</h5>
+				<form id="" name="" method="post">
+					<div class="row">
+						<div class="col-12">
+							<div class="card flex-fill">
+								<div class="card-header">
+									<h5 class="card-title mb-0">진행중인 이벤트</h5>
+								</div>
+								<table class="table table-hover my-0" style="text-align:center;">
+									<thead style="border-bottom:none;">
+										<tr>
+											<th class="d-none d-md-table-cell">no</th>
+											<th class="d-none d-xl-table-cell">시작일</th>
+											<th class="d-none d-xl-table-cell">종료일</th>										
+											<th>제목</th>
+											<th>비고</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:choose>
+											<c:when test="${fn:length(list) eq 0}">
+												<tr>
+													<td class="text-center" colspan="9">등록된 이벤트가 없습니다.</td>
+												</tr>
+											</c:when>
+											<c:otherwise>
+												<c:forEach items="${list}" var="item" varStatus="status">
+													<tr>
+														<th style="width:10%;"><c:out value="${item.mnevSeq}" /></th>
+														<td style="width:20%;"><c:out value="${item.mnevStartDate}" /></td>
+														<td style="width:20%;"><c:out value="${item.mnevEndDate}" /></td>
+														<td style="width:25%;"><c:out value="${item.mnevTitle}" /></td>
+														<td style="width:25%;"><c:out value="${item.mnevContent}" /></td>
+													</tr>
+												</c:forEach>
+											</c:otherwise>
+										</c:choose>									
+									</tbody>
+								</table>
+								<div style="padding: 25px 25px 0px 0px; text-align:right;">
+									<!-- Button trigger modal -->
+									<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="location.href='/xmin/eventForm';">
+										<i data-feather="plus"></i>추가
+									</button>
+								</div>	
+								<nav aria-label="Page navigation example" style="margin-top:20px;">
+									<ul class="pagination" style="justify-content: center;">
+									    <c:if test="${vo.startPage gt vo.pageNumToShow}">
+											<li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.startPage - 1}'/>);">Previous</a></li>
+										</c:if>
+										<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+											<c:choose>
+												<c:when test="${i.index eq vo.thisPage}">
+										        <li class="page-item active"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+												</c:when>
+												<c:otherwise>             
+										        <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>     
+										<c:if test="${vo.endPage ne vo.totalPages}">                
+										        <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.endPage + 1}'/>);">Next</a></li>
+										</c:if>   
+									</ul>
+								</nav>
 							</div>
-							<table class="table table-hover my-0" style="text-align:center;">
-								<thead style="border-bottom:none;">
-									<tr>
-										<th class="d-none d-xl-table-cell">no</th>
-										<th>시작일</th>
-										<th>종료일</th>										
-										<th class="d-none d-md-table-cell">제목</th>
-										<th class="d-none d-xl-table-cell">비고</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="d-none d-md-table-cell">1</td>
-										<td class="d-none d-md-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><a href="/xmin/eventView">친구초대 이벤트!</a></td>
-										<td>친구 초대시 ~~혜택</td>
-									</tr>
-									<tr>
-										<td class="d-none d-md-table-cell">1</td>
-										<td class="d-none d-md-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>친구초대 이벤트!</td>
-										<td>친구 초대시 ~~혜택</td>
-									</tr>
-									<tr>
-										<td class="d-none d-md-table-cell">1</td>
-										<td class="d-none d-md-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>친구초대 이벤트!</td>
-										<td>친구 초대시 ~~혜택</td>
-									</tr>
-								</tbody>
-							</table>
-							<nav aria-label="Page navigation example" style="margin-top:20px;">
-								<ul class="pagination" style="justify-content: center;">
-									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a></li>
-								</ul>
-							</nav>
 						</div>
 					</div>
-				</div>
+				</form>			
 			</main>
 			<%@ include file="/WEB-INF/views/xmin/include/footer.jsp"%>
 		</div>
 	</div>
-
+	
+	
 	<script src="/resources/admin/js/app.js"></script>
 	<script src="/resources/admin/js/app2.js"></script>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		goList = function(seq) {
+			$("#thisPage").val(seq);
+			$("#eventList").submit();
+		};
+	</script>
 </body>
+
 
 </html>
