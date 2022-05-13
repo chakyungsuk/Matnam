@@ -7,6 +7,10 @@ public class Member {
 	private Integer mnMmDormancy;
 	private String mnMmId;
 	private String mnMmName;
+	private String mnMmRankCd;
+	
+	// matnamMemberPhone
+	private String mnmpNumber;
 	
 // --------------------------------
 	
@@ -39,6 +43,18 @@ public class Member {
 	}
 	public void setMnMmName(String mnMmName) {
 		this.mnMmName = mnMmName;
+	}
+	public String getMnMmRankCd() {
+		return mnMmRankCd;
+	}
+	public void setMnMmRankCd(String mnMmRankCd) {
+		this.mnMmRankCd = mnMmRankCd;
+	}
+	public String getMnmpNumber() {
+		return mnmpNumber;
+	}
+	public void setMnmpNumber(String mnmpNumber) {
+		this.mnmpNumber = mnmpNumber;
 	}	
 	
 }

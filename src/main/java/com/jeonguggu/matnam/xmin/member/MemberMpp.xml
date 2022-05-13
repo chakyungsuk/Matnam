@@ -20,10 +20,14 @@
 	
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
-			mnMmSeq
-			, mnMmId
+			a.mnMmSeq
+			, a.mnMmId
+			, a.mnMmName
+			, b.mnmpNumber
+			, a.mnMmRankCd
 		FROM
-			matnamMember
+			matnamMember a
+		LEFT JOIN matnamMemberPhone b on b.mnMmSeq = a.mnMmSeq
 		WHERE 1=1
 			AND mnMmDelNy = 0;
 	</select>

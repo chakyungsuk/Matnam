@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   <!--  -- c:out -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  <!-- -- 날짜나 시간 -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -287,62 +292,24 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td class="d-none d-xl-table-cell">1</td>
-										<td>hyunjune94</td>
-										<td><a href="/xmin/memberView">강현준</a></td>										
-										<td class="d-none d-md-table-cell">010-7335-2901</td>
-										<td class="d-none d-xl-table-cell"><span class="badge bg-success">Done</span></td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-danger">Cancelled</span></td>
-										<td class="d-none d-md-table-cell">William Harris</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Sharon Lessman</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-warning">In progress</span></td>
-										<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">William Harris</td>
-									</tr>
-									<tr>
-										<td>6</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Sharon Lessman</td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-success">Done</span></td>
-										<td class="d-none d-md-table-cell">Christina Mason</td>
-									</tr>
-									<tr>
-										<td>8</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><span class="badge bg-warning">In progress</span></td>
-										<td class="d-none d-md-table-cell">William Harris</td>
-									</tr>
+									<c:forEach items="${list}" var="item" varStatus="status">
+										<tr>
+											<td class="d-none d-xl-table-cell"><c:out value="${item.mnMmSeq }"/></td>
+											<td><c:out value="${item.mnMmId }"/></td>
+											<td><a href="/xmin/memberView"><c:out value="${item.mnMmName }"/></a></td>										
+											<td class="d-none d-md-table-cell">
+												<c:set var="mnmpNumber" value="${item.mnmpNumber}"/>
+												<c:choose>
+										      		<c:when test="${fn:length(mnmpNumber) eq 11}">
+											            <c:out value="${fn:substring(mnmpNumber,0,3)}"/>
+											            - <c:out value="${fn:substring(mnmpNumber,3,7)}"/>
+											            - <c:out value="${fn:substring(mnmpNumber,6,11)}"/>
+											        </c:when>	
+										        </c:choose>
+											</td>
+											<td class="d-none d-xl-table-cell"><c:out value="${item.mnMmRankCd }"/></td>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 							<nav aria-label="Page navigation example" style="margin-top:20px;">
