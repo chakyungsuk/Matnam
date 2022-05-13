@@ -265,7 +265,7 @@
 							</div>
 							<div class="col-6 col-md-3">
 								<button class="btn btn-primary" type="submit"><i class="align-middle" data-feather="search"></i></button>
-								<button class="btn btn-danger"><i class="align-middle" data-feather="refresh-cw"></i></button>
+								<button class="btn btn-danger" type="button" id="btnLeset"><i class="align-middle" data-feather="refresh-cw"></i></button>
 							</div>
 						</div>	
 					
@@ -378,6 +378,15 @@
 		$("#xminList").submit();	// 그 가져온 객체를 전달한다.
 	}
 
+	$("#btnLeset").on("click", function(){
+		var answer = confirm ("검색정보가 초기화 되며, 초기화면으로 돌아갑니다.")
+			
+		if(answer){
+			$(location).attr("href","/xmin/memberList")
+		} else {
+			return false
+		} 
+	});
 	
 </script>	
 	

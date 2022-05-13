@@ -8,24 +8,7 @@
 
     <resultMap id="resultMapObj" type="com.jeonguggu.matnam.xmin.member.Member"></resultMap>
 
-	
-	<select id="selectOneCount" resultType="Integer">
-		SELECT
-			count(*)
-		FROM
-			matnamMember
-		WHERE 1=1
-			AND mnMmDelNy = 0;
-	</select>	
-	
-	<select id="selectList" resultMap="resultMapObj">
-		SELECT
-			a.mnMmSeq
-			, a.mnMmId
-			, a.mnMmGenderCd
-			, a.mnMmName
-			, b.mnmpNumber
-			, a.mnMmRankCd
+	<sql id="selectCommon">
 		FROM
 			matnamMember a
 		LEFT JOIN matnamMemberPhone b on b.mnMmSeq = a.mnMmSeq
@@ -50,6 +33,23 @@
 			<choose>
 				<when test="shValueName">AND mnMmName LIKE concat('%',#{shValueName},'%')</when>
 			</choose>
+	</sql>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT
+			count(*)
+		<include refid="selectCommon" />
+	</select>	
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			, a.mnMmId
+			, a.mnMmGenderCd
+			, a.mnMmName
+			, b.mnmpNumber
+			, a.mnMmRankCd
+	<include refid="selectCommon" />
 		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
 	

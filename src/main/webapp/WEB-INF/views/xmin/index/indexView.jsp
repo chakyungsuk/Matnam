@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   <!--  -- c:out -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  <!-- -- 날짜나 시간 -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -294,41 +299,26 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td class="d-none d-xl-table-cell">hyunjune94</td>
-											<td class="d-none d-xl-table-cell">강현준</td>
-											<td>010-1234-5678</td>
-											<td class="d-none d-md-table-cell">2022-04-28</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td class="d-none d-xl-table-cell">2</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-danger">Cancelled</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td class="d-none d-xl-table-cell">3</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-										</tr>
-										<tr>
-											<td>4</td>
-											<td class="d-none d-xl-table-cell">4</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-warning">In progress</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-										</tr>
-										<tr>
-											<td>5</td>
-											<td class="d-none d-xl-table-cell">5</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>										
+										<c:forEach items="${list}" var="item" varStatus="status">
+											<tr>
+												<td class="d-none d-xl-table-cell"><c:out value="${item.mnMmSeq }"/></td>
+												<td class="d-none d-xl-table-cell"><c:out value="${item.mnMmId }"/></td>
+												<td class="d-none d-xl-table-cell"><c:out value="${item.mnMmName }"/></td>										
+												<td class="d-none d-md-table-cell">
+													<c:set var="mnmpNumber" value="${item.mnmpNumber}"/>
+													<c:choose>
+											      		<c:when test="${fn:length(mnmpNumber) eq 11}">
+												            <c:out value="${fn:substring(mnmpNumber,0,3)}"/>
+												            - <c:out value="${fn:substring(mnmpNumber,3,7)}"/>
+												            - <c:out value="${fn:substring(mnmpNumber,6,11)}"/>
+												        </c:when>	
+											        </c:choose>
+												</td>
+												<td class="d-none d-md-table-cell">
+													<fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd"/>
+												</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>
