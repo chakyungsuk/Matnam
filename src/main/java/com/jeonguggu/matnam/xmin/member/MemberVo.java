@@ -11,21 +11,31 @@ public class MemberVo {
 // matnamMemberPhone
 	private String mnmpNumber;
 	
+// common
+	private Integer shmemberDelNy;
+	private Integer shmemberGender;
+	private Integer shmemberRank;
+	private String shMemberId;
+	private String shMemberName;
+	private String shValueId;
+	private String shValueName;
+	
+	
 //paging
-private int thisPage = 1;									// 현재 페이지
-private int rowNumToShow = 5;								// 화면에 보여줄 데이터 줄 갯수
-private int pageNumToShow = 3;								// 화면에 보여줄 페이징 번호 갯수
-
-private int totalRows;										// 전체 데이터 갯수
-private int totalPages;										// 전체 페이지 번호
-private int startPage;										// 시작 페이지 번호
-private int endPage;										// 마지막 페이지 번호
-
-private int startRnumForOracle = 1;							// 쿼리 시작 ro
-private int endRnumForOracle;								// 쿼리 끝 row
-private Integer RNUM;
-
-private int startRnumForMysql = 0;							// 쿼리 시작 row
+	private int thisPage = 1;									// 현재 페이지
+	private int rowNumToShow = 10;								// 화면에 보여줄 데이터 줄 갯수
+	private int pageNumToShow = 3;								// 화면에 보여줄 페이징 번호 갯수
+	
+	private int totalRows;										// 전체 데이터 갯수
+	private int totalPages;										// 전체 페이지 번호
+	private int startPage;										// 시작 페이지 번호
+	private int endPage;										// 마지막 페이지 번호
+	
+	private int startRnumForOracle = 1;							// 쿼리 시작 ro
+	private int endRnumForOracle;								// 쿼리 끝 row
+	private Integer RNUM;
+	
+	private int startRnumForMysql = 0;							// 쿼리 시작 row
 
 //---------------------------------	
 	public void setParamsPaging(int totalRowsParam) {
@@ -61,15 +71,17 @@ private int startRnumForMysql = 0;							// 쿼리 시작 row
 		startRnumForMysql = ((rowNumToShow * (thisPage-1)));
 	}
 	
-	System.out.println("getThisPage():" + thisPage);
-	System.out.println("getTotalRows():" + totalRows);
-	System.out.println("getRowNumToShow():" + rowNumToShow);
-	System.out.println("getTotalPages():" + totalPages);
-	System.out.println("getStartPage():" + startPage);
-	System.out.println("getEndPage():" + endPage);		
-	System.out.println("getStartRnumForOracle():" + startRnumForOracle);
-	System.out.println("getEndRnumForOracle():" + endRnumForOracle);
-	System.out.println("getStartRnumForMysql(): " + startRnumForMysql);
+	/*
+	 * System.out.println("getThisPage():" + thisPage);
+	 * System.out.println("getTotalRows():" + totalRows);
+	 * System.out.println("getRowNumToShow():" + rowNumToShow);
+	 * System.out.println("getTotalPages():" + totalPages);
+	 * System.out.println("getStartPage():" + startPage);
+	 * System.out.println("getEndPage():" + endPage);
+	 * System.out.println("getStartRnumForOracle():" + startRnumForOracle);
+	 * System.out.println("getEndRnumForOracle():" + endRnumForOracle);
+	 * System.out.println("getStartRnumForMysql(): " + startRnumForMysql);
+	 */
 	
 	}
 
@@ -200,6 +212,63 @@ private int startRnumForMysql = 0;							// 쿼리 시작 row
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
 	}
+
+	public Integer getShmemberDelNy() {
+		return shmemberDelNy;
+	}
+
+	public void setShmemberDelNy(Integer shmemberDelNy) {
+		this.shmemberDelNy = shmemberDelNy;
+	}
+
+	public Integer getShmemberGender() {
+		return shmemberGender;
+	}
+
+	public void setShmemberGender(Integer shmemberGender) {
+		this.shmemberGender = shmemberGender;
+	}
+
+	public String getShMemberId() {
+		return shMemberId;
+	}
+
+	public void setShMemberId(String shMemberId) {
+		this.shMemberId = shMemberId;
+	}
+
+	public String getShMemberName() {
+		return shMemberName;
+	}
+
+	public void setShMemberName(String shMemberName) {
+		this.shMemberName = shMemberName;
+	}
+
+	public Integer getShmemberRank() {
+		return shmemberRank;
+	}
+
+	public void setShmemberRank(Integer shmemberRank) {
+		this.shmemberRank = shmemberRank;
+	}
+
+	public String getShValueId() {
+		return shValueId;
+	}
+
+	public void setShValueId(String shValueId) {
+		this.shValueId = shValueId;
+	}
+
+	public String getShValueName() {
+		return shValueName;
+	}
+
+	public void setShValueName(String shValueName) {
+		this.shValueName = shValueName;
+	}
+
 	
 		
 }

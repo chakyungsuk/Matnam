@@ -22,12 +22,34 @@
 		SELECT
 			a.mnMmSeq
 			, a.mnMmId
+			, a.mnMmGenderCd
 			, a.mnMmName
 			, b.mnmpNumber
 			, a.mnMmRankCd
 		FROM
 			matnamMember a
 		LEFT JOIN matnamMemberPhone b on b.mnMmSeq = a.mnMmSeq
+		WHERE 1=1
+			<choose>
+				<when test="shmemberDelNy == 0">AND mnMmDelNy = 0</when>
+				<when test="shmemberDelNy == 1">AND mnMmDelNy = 1</when>
+			</choose>
+			<choose>
+				<when test="shmemberGender == 0">AND mnMmGenderCd = 0</when>
+				<when test="shmemberGender == 1">AND mnMmGenderCd = 1</when>
+				<when test="shmemberGender == 2">AND mnMmGenderCd = 2</when>
+			</choose>
+			<choose>
+				<when test="shmemberRank == 0">AND mnMmRankCd = 0</when>
+				<when test="shmemberRank == 1">AND mnMmRankCd = 1</when>
+				<when test="shmemberRank == 2">AND mnMmRankCd = 2</when>
+			</choose>
+			<choose>
+				<when test="shValueId">AND mnMmId LIKE concat('%',#{shValueId},'%')</when>
+			</choose>
+			<choose>
+				<when test="shValueName">AND mnMmName LIKE concat('%',#{shValueName},'%')</when>
+			</choose>
 		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
 	

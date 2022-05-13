@@ -8,6 +8,7 @@ public class Member {
 	private String mnMmId;
 	private String mnMmName;
 	private String mnMmRankCd;
+	private String mnMmGenderCd;
 	
 	// matnamMemberPhone
 	private String mnmpNumber;
@@ -55,6 +56,12 @@ public class Member {
 	}
 	public void setMnmpNumber(String mnmpNumber) {
 		this.mnmpNumber = mnmpNumber;
+	}
+	public String getMnMmGenderCd() {
+		return mnMmGenderCd;
+	}
+	public void setMnMmGenderCd(String mnMmGenderCd) {
+		this.mnMmGenderCd = mnMmGenderCd;
 	}	
 	
 }

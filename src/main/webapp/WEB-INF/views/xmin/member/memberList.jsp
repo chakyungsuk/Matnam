@@ -46,6 +46,7 @@
 <form id="xminList" name="xminList" method="post" action="/xmin/memberList">	
 <input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+<input type="hidden" id="mnMmSeq" name="mnMmSeq">
 
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
@@ -230,49 +231,40 @@
 						</div>
 						<div class="row" style="padding: 10px 10px 10px 10px;">
 							<div class="col-6 col-md-3">							
-							    <select class="form-select" aria-label="Default select example">
-									<option selected>가입 일자</option>
-									<option value="1">1년 이내</option>
-									<option value="2">1년~2년</option>
-									<option value="3">2년~3년</option	>
-									<option value="3">3년 이상</option	>
+							    <select class="form-select" aria-label="Default select example" name="shmemberDelNy">
+									<option value="">삭제여부</option>
+									<option value="0" <c:if test="${vo.shmemberDelNy eq 0 }">selected</c:if>>보관</option>
+									<option value="1" <c:if test="${vo.shmemberDelNy eq 1 }">selected</c:if>>삭제</option>
 								</select>								
 							</div>
 							<div class="col-6 col-md-3">
-							    <select class="form-select" aria-label="Default select example">
-									<option selected>연령</option>
-									<option value="1">8세 이하</option>
-									<option value="2">청소년</option>
-									<option value="3">성인</option>
+							    <select class="form-select" aria-label="Default select example" name="shmemberGender">
+									<option value="">성별</option>
+									<option value="0" <c:if test="${vo.shmemberGender eq 0}">selected</c:if>>남자</option>
+									<option value="1" <c:if test="${vo.shmemberGender eq 1}">selected</c:if>>여자</option>
+									<option value="2" <c:if test="${vo.shmemberGender eq 2}">selected</c:if>>기타</option>
 								</select>
 							</div>
 							<div class="col-6 col-md-3">
-							    <select class="form-select" aria-label="Default select example">
-									<option selected>성별</option>
-									<option value="1">남</option>
-									<option value="2">여</option>
+							    <select class="form-select" aria-label="Default select example" name="shmemberRank">
+									<option value="">회원등급</option>
+									<option value="0" <c:if test="${vo.shmemberRank eq 0 }">selected</c:if>>골드</option>
+									<option value="1" <c:if test="${vo.shmemberRank eq 1 }">selected</c:if>>실버</option>
+									<option value="2" <c:if test="${vo.shmemberRank eq 2 }">selected</c:if>>브론즈</option>
 								</select>
 							</div>
 							<div class="col-6 col-md-3">
-								<select class="form-select" aria-label="Default select example">
-									<option selected>검색구분</option>
-									<option value="1">남</option>
-									<option value="2">여</option>
-								</select>
 							</div>
 						</div>
 						<div class="row" style="padding: 0px 10px 10px 10px;">
 							<div class="col-6 col-md-3">
-							    <input type="text" class="form-control" placeholder="검색" aria-label="Username" aria-describedby="basic-addon1">
+							    <input type="text" class="form-control" placeholder="ID 검색" aria-label="Username" aria-describedby="basic-addon1" name="shValueId" autocomplete="off" value="${vo.shValueId }">
 							</div>
 							<div class="col-6 col-md-3">
-							    <input type="text" class="form-control" placeholder="검색" aria-label="Username" aria-describedby="basic-addon1">
+							    <input type="text" class="form-control" placeholder="이름 검색" aria-label="Username" aria-describedby="basic-addon1" name="shValueName" autocomplete="off" value="${vo.shValueName }">
 							</div>
 							<div class="col-6 col-md-3">
-							    <input type="text" class="form-control" placeholder="검색" aria-label="Username" aria-describedby="basic-addon1">
-							</div>
-							<div class="col-6 col-md-3">
-								<button class="btn btn-primary"><i class="align-middle" data-feather="search"></i></button>
+								<button class="btn btn-primary" type="submit"><i class="align-middle" data-feather="search"></i></button>
 								<button class="btn btn-danger"><i class="align-middle" data-feather="refresh-cw"></i></button>
 							</div>
 						</div>	
@@ -290,6 +282,7 @@
 									<tr>
 										<th class="d-none d-xl-table-cell">no</th>
 										<th>아이디</th>
+										<th>성별</th>
 										<th>사용자 이름</th>										
 										<th class="d-none d-md-table-cell">전화번호</th>
 										<th class="d-none d-xl-table-cell">회원등급</th>
@@ -300,6 +293,19 @@
 										<tr>
 											<td class="d-none d-xl-table-cell"><c:out value="${item.mnMmSeq }"/></td>
 											<td><c:out value="${item.mnMmId }"/></td>
+											<td>
+												<c:choose>
+													<c:when test="${item.mnMmGenderCd eq 0}">
+														남성
+													</c:when>
+													<c:when test="${item.mnMmGenderCd eq 1}">
+														여성
+													</c:when>
+													<c:when test="${item.mnMmGenderCd eq 2}">
+														기타
+													</c:when>
+												</c:choose>
+											</td>
 											<td><a href="/xmin/memberView"><c:out value="${item.mnMmName }"/></a></td>										
 											<td class="d-none d-md-table-cell">
 												<c:set var="mnmpNumber" value="${item.mnmpNumber}"/>
@@ -311,7 +317,19 @@
 											        </c:when>	
 										        </c:choose>
 											</td>
-											<td class="d-none d-xl-table-cell"><c:out value="${item.mnMmRankCd }"/></td>
+											<td class="d-none d-xl-table-cell">
+												<c:choose>
+													<c:when test="${item.mnMmRankCd eq 0}">
+														<span class="badge bg-warning">골드</span>
+													</c:when>
+													<c:when test="${item.mnMmRankCd eq 1}">
+														<span class="badge bg-secondary">실버</span>
+													</c:when>
+													<c:when test="${item.mnMmRankCd eq 2}">
+														<span class="badge bg-success">브론즈</span>
+													</c:when>
+												</c:choose>
+											</td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -360,6 +378,7 @@
 		$("#xminList").submit();	// 그 가져온 객체를 전달한다.
 	}
 
+	
 </script>	
 	
 </form>
