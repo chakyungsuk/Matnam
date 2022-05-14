@@ -28,7 +28,6 @@
 		FROM
 			matnamMember a
 		LEFT JOIN matnamMemberPhone b on b.mnMmSeq = a.mnMmSeq
-		WHERE 1=1
 		ORDER BY a.mnMmSeq DESC
 		LIMIT 0,5
 	</select>
