@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jeonguggu.matnam.xmin.index.IndexMpp">
+
+    <resultMap id="resultMapObj" type="com.jeonguggu.matnam.xmin.index.Index"></resultMap>
+    
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT
+			count(*)
+		FROM 
+			matnamMember
+		WHERE 1=1
+			AND mnMmDelNy = 0;
+	</select>	
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			, a.mnMmId
+			, a.mnMmName
+			, b.mnmpNumber
+			, a.regDateTime
+		FROM
+			matnamMember a
+		LEFT JOIN matnamMemberPhone b on b.mnMmSeq = a.mnMmSeq
+		WHERE 1=1
+		ORDER BY a.mnMmSeq DESC
+		LIMIT 0,5
+	</select>
+	 
+</mapper>

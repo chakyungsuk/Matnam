@@ -1,17 +1,19 @@
 package com.jeonguggu.matnam.xmin.index;
 
-public class IndexVo {
-	
+import java.util.Date;
+
+public class Index {
+
 //member
 	private String mnMmSeq;
 	private String mnMmId;
 	private String mnMmName;
 	private String mnmpNumber;
 	
+//Date
+	private Date RegDateTime;
 	
-	
-//------------------------------
-	
+//---------------------------------
 	public String getMnMmSeq() {
 		return mnMmSeq;
 	}
@@ -36,7 +38,13 @@ public class IndexVo {
 	public void setMnmpNumber(String mnmpNumber) {
 		this.mnmpNumber = mnmpNumber;
 	}
-
+	public Date getRegDateTime() {
+		return RegDateTime;
+	}
+	public void setRegDateTime(Date regDateTime) {
+		RegDateTime = regDateTime;
+	}
+	
 	
 	
 }
