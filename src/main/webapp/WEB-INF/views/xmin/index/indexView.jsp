@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  <!-- -- 날짜나 시간 -->
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<fmt:formatDate value="${item.mnevStartDate }" pattern="yyyy-MM-dd"/>
+<fmt:formatDate value="${item.mnevEndDate }" pattern="yyyy-MM-dd HH"/>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -337,21 +339,17 @@
 										</tr>
 									</thead>
 									<tbody>
+									<c:forEach items="${listEvent}" var="item" varStatus="status">
 										<tr>
-											<td>친구 초청 이벤트</td>
-											<td class="d-none d-xl-table-cell"><small>22-04-21</small></td>
-											<td class="d-none d-xl-table-cell"><small>22-04-25</small></td>
+											<td><small><c:out value="${item.mnevTitle }"/></small></td>
+											<td class="d-none d-xl-table-cell"><small>
+												<fmt:formatDate value="${item.mnevStartDate }" pattern="yyyy-MM-dd"/>		
+											</small></td>
+											<td class="d-none d-xl-table-cell"><small>
+												<fmt:formatDate value="${item.mnevEndDate }" pattern="yyyy-MM-dd"/>
+											</small></td>
 										</tr>
-										<tr>
-											<td>무료 매칭 이벤트</td>
-											<td class="d-none d-xl-table-cell"><small>22-04-21</small></td>
-											<td class="d-none d-xl-table-cell"><small>22-04-25</small></td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td class="d-none d-xl-table-cell"><small>22-04-21</small></td>
-											<td class="d-none d-xl-table-cell"><small>22-04-25</small></td>
-										</tr>
+									</c:forEach>	
 									</tbody>
 								</table>
 							</div>

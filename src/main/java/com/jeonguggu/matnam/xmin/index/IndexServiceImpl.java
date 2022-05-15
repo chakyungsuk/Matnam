@@ -21,6 +21,14 @@ public class IndexServiceImpl implements IndexService{
 		return dao.selectList(vo);
 	}
 
+//	event
+	@Override
+	public int selectOneCountEvent(IndexVo vo) throws Exception {
+		return dao.selectOneCountEvent(vo);
+	}
 
-
+	@Override
+	public List<Index> selectListEvent(IndexVo vo) throws Exception {
+		return dao.selectListEvent(vo);
+	}
 }

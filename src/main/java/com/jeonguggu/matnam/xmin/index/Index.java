@@ -13,7 +13,14 @@ public class Index {
 //Date
 	private Date RegDateTime;
 	
+//event
+	private String mnevSeq;
+	private String mnevTitle;
+	private Date mnevStartDate;
+	private Date mnevEndDate;
+
 //---------------------------------
+
 	public String getMnMmSeq() {
 		return mnMmSeq;
 	}
@@ -44,7 +51,29 @@ public class Index {
 	public void setRegDateTime(Date regDateTime) {
 		RegDateTime = regDateTime;
 	}
-	
-	
+	public String getMnevSeq() {
+		return mnevSeq;
+	}
+	public void setMnevSeq(String mnevSeq) {
+		this.mnevSeq = mnevSeq;
+	}
+	public String getMnevTitle() {
+		return mnevTitle;
+	}
+	public void setMnevTitle(String mnevTitle) {
+		this.mnevTitle = mnevTitle;
+	}
+	public Date getMnevStartDate() {
+		return mnevStartDate;
+	}
+	public void setMnevStartDate(Date mnevStartDate) {
+		this.mnevStartDate = mnevStartDate;
+	}
+	public Date getMnevEndDate() {
+		return mnevEndDate;
+	}
+	public void setMnevEndDate(Date mnevEndDate) {
+		this.mnevEndDate = mnevEndDate;
+	}
 	
 }

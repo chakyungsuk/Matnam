@@ -27,7 +27,18 @@ public class IndexController {
 			// by pass
 		}
 		
+//-------------------------------------event----------------------------------------
+		int countEvent = service.selectOneCountEvent(vo);
+		
+		if (countEvent != 0) {
+			List<Index> list = service.selectListEvent(vo);
+			model.addAttribute("listEvent", list);
+		} else {
+			// by pass
+		}
+		
+		
 		return "/xmin/index/indexView";
 	}
-		
+
 }

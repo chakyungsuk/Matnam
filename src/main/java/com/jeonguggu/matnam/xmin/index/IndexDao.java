@@ -20,4 +20,8 @@ public class IndexDao {
 	public int selectOneCount(IndexVo vo) { return sqlSession.selectOne(namespace + ".selectOneCount", vo);}	
 	public List<Index> selectList(IndexVo vo) { List<Index> list = sqlSession.selectList(namespace + ".selectList", vo); return list;}
 	
+//	event
+	public int selectOneCountEvent(IndexVo vo) { return sqlSession.selectOne(namespace + ".selectOneCountEvent", vo);}	
+	public List<Index> selectListEvent(IndexVo vo) { List<Index> list = sqlSession.selectList(namespace + ".selectListEvent", vo); return list;}
+	
 }

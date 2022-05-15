@@ -8,7 +8,11 @@ public class IndexVo {
 	private String mnMmName;
 	private String mnmpNumber;
 	
-	
+//event
+	private String mnevSeq;	
+	private String mnevTitle;
+	private String mnevStartDate;
+	private String mnevEndDate;
 	
 //------------------------------
 	
@@ -36,7 +40,30 @@ public class IndexVo {
 	public void setMnmpNumber(String mnmpNumber) {
 		this.mnmpNumber = mnmpNumber;
 	}
-
-	
+	public String getMnevSeq() {
+		return mnevSeq;
+	}
+	public void setMnevSeq(String mnevSeq) {
+		this.mnevSeq = mnevSeq;
+	}
+	public String getMnevTitle() {
+		return mnevTitle;
+	}
+	public void setMnevTitle(String mnevTitle) {
+		this.mnevTitle = mnevTitle;
+	}
+	public String getMnevStartDate() {
+		return mnevStartDate;
+	}
+	public void setMnevStartDate(String mnevStartDate) {
+		this.mnevStartDate = mnevStartDate;
+	}
+	public String getMnevEndDate() {
+		return mnevEndDate;
+	}
+	public void setMnevEndDate(String mnevEndDate) {
+		this.mnevEndDate = mnevEndDate;
+	}
+		
 	
 }

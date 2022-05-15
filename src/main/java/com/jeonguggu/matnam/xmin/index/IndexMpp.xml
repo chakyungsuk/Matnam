@@ -31,5 +31,26 @@
 		ORDER BY a.mnMmSeq DESC
 		LIMIT 0,5
 	</select>
+
+<!-- event -->
+	<select id="selectOneCountEvent" resultType="Integer">
+		SELECT
+			count(*)
+		FROM 
+			matnamEvent
+		WHERE 1=1
+			AND mnevDelNy = 0;
+	</select>	
+	
+	<select id="selectListEvent" resultMap="resultMapObj">
+		SELECT
+			mnevSeq
+			, mnevTitle
+			, mnevStartDate
+			, mnevEndDate
+		FROM
+			matnamEvent
+		LIMIT 0,5
+	</select>
 	 
 </mapper>
