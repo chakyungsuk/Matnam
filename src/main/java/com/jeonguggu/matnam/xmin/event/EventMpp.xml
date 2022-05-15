@@ -15,7 +15,13 @@
 		FROM 
 			matnamEvent
 		WHERE 1=1
-			AND mnevDelNy = 0;
+			<choose>
+				<when test="shMnevUseNy == 1">And mnevUseNy = 1</when>
+				<when test="shMnevUseNy == 0">And mnevUseNy = 0</when>
+			</choose>
+			<if test="shMnevTitle != null and !shMnevTitle.equals('')"> AND mnevTitle LIKE concat('%',#{shMnevTitle},'%')</if>	
+			<if test="shMnevContent != null and !shMnevContent.equals('')"> AND mnevContent LIKE concat('%',#{shMnevContent},'%')</if>
+			limit #{startRnumForMysql}, #{rowNumToShow}
 	</select>	
 	
 	<select id="selectList" resultMap="resultMapObj">
