@@ -110,6 +110,11 @@
 	</div><!-- End Map -->
 
 <!-- Content ================================================== -->
+
+	<form id="formList" name="formList" method="post" action="/user/profileView">
+		<input type="hidden" id="mnMmSeq" name="mnMmSeq">
+	</form>
+
 	<div class="container margin_60_35">
 	    <div class="row">
 	        <div class="col-lg-3">
@@ -173,7 +178,7 @@
 						</c:otherwise>
 					</c:choose>
 				</div>
-				<button type="button" class="btn btn-outline-secondary" onclick = "location.href = '/user/friendSelect' ">돌아가기</button>
+				<button type="button" class="btn btn-outline-secondary" onclick = "javascript:goForm(${sessSeq})">돌아가기</button>
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->
@@ -253,7 +258,11 @@
         });
     });
     
-    
+    goForm = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/friendSelect");
+		$("#formList").submit();
+	} 
 </script>
 </body>
 </html>
