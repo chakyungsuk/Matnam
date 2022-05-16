@@ -14,7 +14,7 @@ public class UserServiceDao {
 	@Inject
 //	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
-	private static String namespace = "com.jeonguggu.matnam.user.store.StoreMpp";
+	private static String namespace = "com.jeonguggu.matnam.user.userService.UserServiceMpp";
 	
 	
 	public List<UserService> selectListService(){return sqlSession.selectList(namespace + ".selectListService");}

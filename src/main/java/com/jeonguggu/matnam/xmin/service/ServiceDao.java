@@ -17,5 +17,5 @@ public class ServiceDao {
 	
 	private static String namespace = "com.jeonguggu.matnam.xmin.service.ServiceMpp";
 	
-	public List<Service> selectxminserviceList(Service dto){ return sqlSession.selectList(namespace + ".selectxminserviceList", dto);}
+	public List<Service> selectListMember(){ return sqlSession.selectList(namespace + ".selectListMember");}
 }

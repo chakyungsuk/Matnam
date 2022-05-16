@@ -38,79 +38,33 @@
                     	<table class="table table-hover my-0" style="text-align:center;">
 								<thead style="border-bottom:none;">
 									<tr>
-										<th class="d-none d-xl-table-cell">no</th>
+										<th>번호</th>
 										<th>아이디</th>
-										<th class="d-none d-xl-table-cell">접수일</th>
+										<th>접수일</th>
 										<th>제목</th>										
-										<th class="d-none d-md-table-cell">카테고리</th>
-										<th class="d-none d-xl-table-cell">답변여부</th>
+										<th>카테고리</th>
+										<th>답변여부</th>
 									</tr>
 								</thead>
+								
 								<tbody>
-									<tr>
-										<td class="d-none d-xl-table-cell">1</td>
-										<td>hyunjune94</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><a href="/user/userServiceView">매칭시스템이 어떤식으로 되는건지 궁금합니다</a></td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-warning">직원 불친절 / 기타 불만</span></td>
-										<td class="d-none d-md-table-cell">X</td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span></td>
-										<td class="d-none d-md-table-cell">X</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td class="d-none d-xl-table-cell">hohohohoho</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td><a href="/user/userServiceView">욕설신고합니다</a></td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-primary">웹사이트 사용관련 질의</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-primary">사용자 매칭에 대한 질의</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-primary">음식점 추천기준에 대한 질의</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>6</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
-									<tr>
-										<td>8</td>
-										<td class="d-none d-xl-table-cell">01/01/2021</td>
-										<td class="d-none d-xl-table-cell">31/06/2021</td>
-										<td>직원 불친절 / 기타 불만</td>
-										<td class="d-none d-md-table-cell"><span class="badge bg-warning">기타 불만</span></td>
-										<td class="d-none d-md-table-cell">O</td>
-									</tr>
+									<c:choose>
+										<c:when test="${fn:length(list) eq 0}">
+											데이터가 없습니다.
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${list}" var="item" varStatus="status">
+												<tr>
+													<td><c:out value="${item.mnsvSeq}"/></td>
+													<td><c:out value="${item.mnMmId}"/></td>
+													<td><fmt:formatDate value="${item.mnsvReceiptDate}" pattern="yyyy-MM-dd"/></td>
+													<td><a href="/user/userServiceView"><c:out value="${item.mnsvTitle}"/></a></td>
+													<td><span class="badge bg-warning">직원 불친절 / 기타 불만</span></td>
+													<td><c:out value="${item.mnsvDoneNy}"/></td>
+												</tr>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
 								</tbody>
 							</table>
 							

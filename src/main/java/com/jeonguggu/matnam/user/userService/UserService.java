@@ -1,22 +1,34 @@
 package com.jeonguggu.matnam.user.userService;
 
+import java.util.Date;
+
 public class UserService {
 	
+	//matnamMember
+	private String mnMmId;
 	
+	// matnamServices
 	private String mnsvSeq;
 	private String mnsvTitle;
-	private String mnsvDateReceipt;
+	private Date mnsvDateReceipt;
 	private String mnsvDoneNy;
 	private String mnsvDesc;
 	private String mnMmSeq;
+	private Date mnsvReceiptDate;
 	
 	
+	//matnamServicesReply
 	private String mnsrSeq;
 	private String mnsrContent;
 	private String mnsrDate;
 	private String mnsrDesc;
 	
-	
+	public String getMnMmId() {
+		return mnMmId;
+	}
+	public void setMnMmId(String mnMmId) {
+		this.mnMmId = mnMmId;
+	}
 	public String getMnsvSeq() {
 		return mnsvSeq;
 	}
@@ -29,10 +41,10 @@ public class UserService {
 	public void setMnsvTitle(String mnsvTitle) {
 		this.mnsvTitle = mnsvTitle;
 	}
-	public String getMnsvDateReceipt() {
+	public Date getMnsvDateReceipt() {
 		return mnsvDateReceipt;
 	}
-	public void setMnsvDateReceipt(String mnsvDateReceipt) {
+	public void setMnsvDateReceipt(Date mnsvDateReceipt) {
 		this.mnsvDateReceipt = mnsvDateReceipt;
 	}
 	public String getMnsvDoneNy() {
@@ -52,6 +64,12 @@ public class UserService {
 	}
 	public void setMnMmSeq(String mnMmSeq) {
 		this.mnMmSeq = mnMmSeq;
+	}
+	public Date getMnsvReceiptDate() {
+		return mnsvReceiptDate;
+	}
+	public void setMnsvReceiptDate(Date mnsvReceiptDate) {
+		this.mnsvReceiptDate = mnsvReceiptDate;
 	}
 	public String getMnsrSeq() {
 		return mnsrSeq;
@@ -77,6 +95,9 @@ public class UserService {
 	public void setMnsrDesc(String mnsrDesc) {
 		this.mnsrDesc = mnsrDesc;
 	}
+	
+	
+	
 	
 	
 	

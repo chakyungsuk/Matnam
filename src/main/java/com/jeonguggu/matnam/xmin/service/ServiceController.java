@@ -1,13 +1,23 @@
 package com.jeonguggu.matnam.xmin.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ServiceController {
 	
+	@Autowired
+	ServiceServiceImp service;
+	
 	@RequestMapping(value = "/xmin/serviceList")
-	public String serviceList() {
+	public String selectListMember(Model model) throws Exception {
+		
+		List<Service> list = service.selectListMember();
+		model.addAttribute("list", list);
 		
 		return "/xmin/service/serviceList";
 	}		

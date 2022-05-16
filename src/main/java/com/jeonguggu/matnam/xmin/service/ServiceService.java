@@ -6,7 +6,7 @@ import java.util.List;
 public interface ServiceService {
 	
 	
-	public List<Service> selectListService(Service vo) throws Exception;
+	public List<Service> selectListMember() throws Exception;
 	
 
 }

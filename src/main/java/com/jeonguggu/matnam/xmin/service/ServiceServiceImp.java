@@ -4,16 +4,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
+@org.springframework.stereotype.Service
 public class ServiceServiceImp implements ServiceService {
 	
 	@Autowired
 	ServiceDao dao;
 
 	@Override
-	public List<Service> selectListService(Service vo) throws Exception 
-	{
-		return dao.selectxminserviceList(vo);
+	public List<Service> selectListMember() throws Exception {
+		return dao.selectListMember();
 	}
+
+	
 
 	
 	

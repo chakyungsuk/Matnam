@@ -63,199 +63,50 @@
 		</div><!--End col-md -->
         
 		<div class="col-lg-9">
-        
-        
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>힘난다버거 강남</h3>
-							<div class="type">
-								페스트푸드 / 햄버거
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
+        <c:choose>
+        	<c:when test="${fn:length(list) eq 0}">
+							
+					There is no data@
+								
+			</c:when>
+	      		<c:otherwise>
+	      		<c:forEach items="${list}" var="item" varStatus="status">
+				<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
+					<div class="ribbon_1">
+						Popular
+					</div>
+					<div class="row">
+						<div class="col-md-9">
+							<div class="desc">
+								<div class="thumb_strip">
+									<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
+								</div>
+								<div class="rating">
+									<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<c:out value="${item.mnrtAvg}"/>)
+								</div>
+								<h3><c:out value="${item.mnrtName}"/></h3>
+								<div class="type">
+									<c:out value="${item.mnrtFoodCate}"/>
+								</div>
+								<div class="location">
+									<c:out value="${item.mnrtAddressFull}"/><br><span class="opening">영업시간:<c:out value="${item.mnrtTime}"/></span><br>브레이크타임:<c:out value="${item.mnrtBreakTime}"/>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="/user/storeDetail" class="btn_1">바로가기</a>
+						<div class="col-md-3">
+							<div class="go_to">
+								<div>
+									<a href="/user/storeDetail?mnrtSeq=${item.mnrtSeq}" class="btn_1">바로가기</a>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
+					</div><!-- End row-->
+				</div><!-- End strip_list-->
+				</c:forEach>
+				</c:otherwise>
+			</c:choose>
 			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>버거킹 강남점</h3>
-							<div class="type">
-								페스트푸드 / 햄버거
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
 			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>미스터피자 강남점</h3>
-							<div class="type">
-								페스트푸드 / 피자
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>피자헛 강남점</h3>
-							<div class="type">
-								페스트푸드 / 피자
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>롯데리아 강남점</h3>
-							<div class="type">
-								페스트푸드 / 햄버거
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-			
-			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>신난다버거 강남</h3>
-							<div class="type">
-								페스트푸드 / 햄버거
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">바로가기</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list--> 
             
 			
             <nav aria-label="Page navigation example" style="margin-top:20px;">

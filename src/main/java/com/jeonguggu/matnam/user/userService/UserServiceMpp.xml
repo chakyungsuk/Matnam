@@ -8,17 +8,15 @@
 <resultMap id="resultMapObj" type="com.jeonguggu.matnam.user.userService.UserService"></resultMap>
 
 	<select id="selectListService" resultMap="resultMapObj">
-		select 
+		select
 			a.mnsvSeq
-		    ,b.mnMmId
-		    ,a.mnsvDateReceipt
+			,b.mnMmId
+			,a.mnsvReceiptDate
 		    ,a.mnsvTitle
-		    ,a.mnsvDesc
 		    ,a.mnsvDoneNy
-		from matnam.matnamServices a
-			left join matnamMember b on b.mnMmSeq = a.mnMmSeq;
+		from matnamServices a
+		left join matnamMember b on b.mnMmSeq = a.mnMmSeq;
 
-		
 	</select>
 	
 
