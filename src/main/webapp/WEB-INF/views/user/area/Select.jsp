@@ -255,7 +255,9 @@
 										</div>
 										<h3><c:out value="${item.mnMmName}"/> 님</h3>
 										<div class="type">
-											<c:out value="${item.age}"/>세 / 남성
+											<c:out value="${item.age}"/>세 / 
+											<c:if test="${item.mnMmGenderCd eq 1}">남성</c:if>
+											<c:if test="${item.mnMmGenderCd eq 2}">여성</c:if>
 										</div>
 										<div class="location">
 											<c:out value="${item.mnmaAddress1}"/>

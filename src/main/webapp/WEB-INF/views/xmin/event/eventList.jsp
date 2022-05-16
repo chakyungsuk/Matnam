@@ -310,16 +310,17 @@
 										<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
 											<c:choose>
 												<c:when test="${i.index eq vo.thisPage}">
-										        <li class="page-item active"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+										        	<li class="page-item active"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
 												</c:when>
 												<c:otherwise>             
-										        <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+										        	<li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
 												</c:otherwise>
 											</c:choose>
 										</c:forEach>     
 										<c:if test="${vo.endPage ne vo.totalPages}">                
 										        <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.endPage + 1}'/>);">Next</a></li>
 										</c:if>   
+										<c:out value="${vo.pageNumToShow}"></c:out>
 									</ul>
 								</nav>
 							</div>

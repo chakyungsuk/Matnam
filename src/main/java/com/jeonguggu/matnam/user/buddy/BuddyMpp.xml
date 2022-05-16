@@ -78,7 +78,7 @@
 			,a.mnMmName
 			,a.mnMmIntroduce
 			,a.mnMmDob_Year
-			,a.mnMmDob_Gender_Cd
+			,a.mnMmGenderCd
 			,a.mnMmLike
 			,b.mnmaAddress1
 		FROM

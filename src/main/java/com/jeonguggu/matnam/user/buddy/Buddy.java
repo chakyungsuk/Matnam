@@ -10,7 +10,7 @@ public class Buddy {
 	private String mnMmName = "";
 	private String mnMmIntroduce = "";
 	private String mnMmDob_Year = "";
-	private String mnMmDob_Gender_Cd = "";
+	private String mnMmGenderCd = "";
 	private String mnmaAddress1 = "";
 	private String mnMmLike = "";
 	private Integer age = 0;
@@ -60,11 +60,11 @@ public class Buddy {
 		this.setAge(mnMmDob_Year);
 		this.mnMmDob_Year = mnMmDob_Year;
 	}
-	public String getMnMmDob_Gender_Cd() {
-		return mnMmDob_Gender_Cd;
+	public String getMnMmGenderCd() {
+		return mnMmGenderCd;
 	}
-	public void setMnMmDob_Gender_Cd(String mnMmDob_Gender_Cd) {
-		this.mnMmDob_Gender_Cd = mnMmDob_Gender_Cd;
+	public void setMnMmGenderCd(String mnMmGenderCd) {
+		this.mnMmGenderCd = mnMmGenderCd;
 	}
 	public String getMnmaAddress1() {
 		return mnmaAddress1;
