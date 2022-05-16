@@ -29,9 +29,9 @@
 				<a class="sidebar-brand" href="index.html">
           <span class="align-middle">AdminKit</span>
         </a>
-				<!-- nav -->
-				<%@include file="../include/memberNav.jsp" %>
-				<!-- nav -->
+		<!-- nav -->
+		<%@include file="../include/memberNav.jsp" %>
+		<!-- nav -->
 			</div>
 		</nav>
 				
@@ -201,176 +201,142 @@
 				<div class="container-fluid p-0">
 
 					<div class="mb-3">
-						<h1 class="h3 d-inline align-middle">Forms</h1>
-						<a class="badge bg-dark text-white ms-2" href="upgrade-to-pro.html">
-      Get more form examples
-  </a>
+						<h1 class="h3 d-inline align-middle">Xmin Forms</h1>
+						<a class="badge bg-dark text-white ms-2" href="upgrade-to-pro.html">관리자 회원가입</a>
 					</div>
 					<div class="row">
 						<div class="col-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title mb-0">Input</h5>
+									<h5 class="card-title mb-0">인적사항</h5>
 								</div>
 								<div class="card-body">
-									<input type="text" class="form-control" placeholder="Input">
-								</div>
-							</div>
-
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Textarea</h5>
-								</div>
-								<div class="card-body">
-									<textarea class="form-control" rows="2" placeholder="Textarea"></textarea>
-								</div>
-							</div>
-
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Checkboxes</h5>
-								</div>
-								<div class="card-body">
-									<div>
-										<label class="form-check">
-            <input class="form-check-input" type="checkbox" value="">
-            <span class="form-check-label">
-              Option one is this and that&mdash;be sure to include why it's great
-            </span>
-          </label>
-										<label class="form-check">
-            <input class="form-check-input" type="checkbox" value="" disabled>
-            <span class="form-check-label">
-              Option two is disabled
-            </span>
-          </label>
+								<label>아이디</label>
+									<input type="text" class="form-control mb-3" placeholder="">
+								<div class="row">
+									<div class="col-12 col-lg-6">
+									<label>이름</label>
+										<input type="text" class="form-control mb-3" placeholder="">
 									</div>
-									<div>
-										<label class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="option1">
-            <span class="form-check-label">
-              1
-            </span>
-          </label>
-										<label class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="option2">
-            <span class="form-check-label">
-              2
-            </span>
-          </label>
-										<label class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="option3" disabled>
-            <span class="form-check-label">
-              3
-            </span>
-          </label>
+									<div class="col-12 col-lg-6">
+									<label>성별</label>
+											<div class="form-check" style="margin-top: 8px; margin-left: 12px;">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="gender" id="gender" value="" checked><label class="form-check-label" for="inlineRadio1">남</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="gender" id="gender" value=""> <label class="form-check-label" for="inlineRadio2">여</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="gender" id="gender" value=""> <label class="form-check-label" for="inlineRadio3">기타</label>
+												</div>
+											</div>
 									</div>
 								</div>
+								<label>비밀번호</label>
+									<input type="text" class="form-control mb-3" placeholder="">
+									<input type="text" class="form-control mb-3" placeholder="비밀번호확인">
+								<div class="form-group">
+		                        	<label>생년월일</label>
+			                		<div class="row">
+				                    	<div class="col-md-4 col-sm-4 mb-3">
+				                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="년(4자)">
+				                        </div>
+				                    	<div class="col-md-4 col-sm-4">
+				                            <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
+				                                <option value="" selected>월</option>
+				                                <option value="1">1</option>
+				                                <option value="2">2</option>
+				                                <option value="3">3</option>
+				                                <option value="4">4</option>
+				                                <option value="5">5</option>
+				                                <option value="6">6</option>
+				                                <option value="7">7</option>
+				                                <option value="8">8</option>
+				                                <option value="9">9</option>
+				                                <option value="10">10</option>
+				                                <option value="11">11</option>
+				                                <option value="12">12</option>
+				                            </select>
+				                        </div>
+					                    <div class="col-md-4 col-sm-4">
+			                            	<input type="text" id="pcode_oder" name="pcode_oder" class="form-control" placeholder="일">
+					                    </div>
+										<label for="formGroupExampleInput" class="form-label">모바일</label>
+					  					<div class="input-group">
+											<input type="text" class="form-control" aria-label="mn1" value="">
+											<span class="input-group-text">-</span> 
+											<input type="text" class="form-control" aria-label="mn2" value="">
+											<span class="input-group-text">-</span> 
+											<input type="text" class="form-control" aria-label="mn3" value="">
+										</div>
+									</div>
+								</div>
+								</div>
 							</div>
 
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Read only</h5>
-								</div>
-								<div class="card-body">
-									<input class="form-control" type="text" placeholder="Readonly input" readonly>
-								</div>
-							</div>
 						</div>
 
 						<div class="col-12 col-lg-6">
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title mb-0">Radios</h5>
+									<h5 class="card-title mb-0">프로필사진</h5>
 								</div>
-								<div class="card-body">
-									<div>
-										<label class="form-check">
-            <input class="form-check-input" type="radio" value="option1" name="radios-example" checked>
-            <span class="form-check-label">
-              Option one is this and that&mdash;be sure to include why it's great
-            </span>
-          </label>
-										<label class="form-check">
-            <input class="form-check-input" type="radio" value="option2" name="radios-example">
-            <span class="form-check-label">
-              Option two can be something else and selecting it will deselect option one
-            </span>
-          </label>
-										<label class="form-check">
-            <input class="form-check-input" type="radio" value="option3" name="radios-example" disabled>
-            <span class="form-check-label">
-              Option three is disabled
-            </span>
-          </label>
-									</div>
-									<div>
-										<label class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inline-radios-example" value="option1">
-            <span class="form-check-label">
-              1
-            </span>
-          </label>
-										<label class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inline-radios-example" value="option2">
-            <span class="form-check-label">
-              2
-            </span>
-          </label>
-										<label class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inline-radios-example" value="option3" disabled>
-            <span class="form-check-label">
-              3
-            </span>
-          </label>
-									</div>
+								<div class="card-body text-center">
+									<img src="/resources/admin/img/avatars/avatar-4.jpg" alt="" class="img-fluid rounded-circle mb-2" width="128" height="128" />
 								</div>
 							</div>
-
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title mb-0">Selects</h5>
+									<h5 class="card-title mb-0">등급</h5>
 								</div>
 								<div class="card-body">
-									<select class="form-select mb-3">
-          <option selected>Open this select menu</option>
-          <option>One</option>
-          <option>Two</option>
-          <option>Three</option>
-        </select>
-
-									<select multiple class="form-control">
-          <option>One</option>
-          <option>Two</option>
-          <option>Three</option>
-          <option>Four</option>
-        </select>
+									<div class="row">
+										<div class="col-12 col-lg-6" style="margin-top: 8px;">
+											<label>회원등급</label>
+											<div class="form-check">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="a" id="a" value="" checked> <label class="form-check-label" for="">골드</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="a" id="a" value=""> <label class="form-check-label" for="">실버</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="a" id="a" value=""> <label class="form-check-label" for="">브론즈</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-12 col-lg-6" style="margin-top: 8px;">
+											<label>권 한</label>
+											<div class="form-check">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="b" id="b" value="" checked> <label class="form-check-label" for="">관리자</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="b" id="b" value=""> <label class="form-check-label" for="">사용자</label>
+												</div>
+											</div>
+										</div>
+									</div>	
 								</div>
 							</div>
-
+							
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title mb-0">Disabled</h5>
+									<h5 class="card-title mb-0">주 소</h5>
 								</div>
 								<div class="card-body">
-									<div class="mb-3">
-										<label class="form-label">Disabled input</label>
-										<input type="text" class="form-control" placeholder="Disabled input" disabled>
+									<div class="input-group mb-2">
+											<input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode" readonly>
+											<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
+											<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
 									</div>
-									<div class="mb-3">
-										<label class="form-label">Disabled select menu</label>
-										<select class="form-control" disabled>
-            <option>Disabled select</option>
-          </select>
-									</div>
-									<label class="form-check">
-          <input class="form-check-input" type="checkbox" value="" disabled>
-          <span class="form-check-label">
-            Can't check this
-          </span>
-        </label>
+								    <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1" readonly>
+								    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
+								    <input type="text" class="form-control mb-2" id="ifmaAddress2" name="ifmaAddress2" placeholder="상세주소" required>
 								</div>
 							</div>
+
 						</div>
 					</div>
 

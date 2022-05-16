@@ -54,9 +54,9 @@
 				<a class="sidebar-brand" href="index.html">
           <span class="align-middle">AdminKit</span>
         </a>
-				<!-- nav -->
-				<%@include file="../include/memberNav.jsp" %>
-				<!-- nav -->
+		<!-- nav -->
+		<%@include file="../include/memberNav.jsp" %>
+		<!-- nav -->
 			</div>
 		</nav>
 
@@ -339,6 +339,12 @@
 									</c:forEach>
 								</tbody>
 							</table>
+							<div style="padding: 25px 25px 0px 0px; text-align:right;">
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="location.href='/xmin/memberForm';">
+									<i data-feather="plus"></i>등록
+								</button>
+							</div>
 							<nav aria-label="Page navigation example" style="margin-top:20px;">
 								<ul class="pagination" style="justify-content: center;">
 									<!-- Previous -->

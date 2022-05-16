@@ -234,12 +234,7 @@
 							<div class="card mb-3" style="height:740px;">
 								<div class="card-body text-center">
 									<img src="/resources/admin/img/avatars/avatar-4.jpg" alt="" class="img-fluid rounded-circle mb-2" width="128" height="128" />
-									<h5 class="card-title mb-0">hyunjune94</h5>
-									<div class="text-muted mb-2">강 현준</div>
-
-									<div>
-										<a class="btn btn-primary btn-sm" href="#"><span data-feather="message-square"></span> Message</a>
-									</div>
+									<h5 class="card-title mb-0" style="margin-top: 10px;">관리자</h5>
 								</div>
 								<hr class="my-0" />
 								<div class="card-body">
