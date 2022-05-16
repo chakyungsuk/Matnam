@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Buddy {
-
+ 
 //	유저 정보
 	private String mnMmSeq = "";
 	private String mnMmName = "";
