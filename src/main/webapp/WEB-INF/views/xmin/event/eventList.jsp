@@ -320,7 +320,6 @@
 										<c:if test="${vo.endPage ne vo.totalPages}">                
 										        <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.endPage + 1}'/>);">Next</a></li>
 										</c:if>   
-										<c:out value="${vo.pageNumToShow}"></c:out>
 									</ul>
 								</nav>
 							</div>
