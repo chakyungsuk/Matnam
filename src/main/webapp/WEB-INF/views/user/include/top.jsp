@@ -80,7 +80,6 @@
                 <li class="submenu">
                 <a href="javascript:void(0);" class="show-submenu">Pages<i class="icon-down-open-mini"></i></a>
                 <ul>
-                    <li><a href="/xmin/indexView">Admin section</a></li>
                     <li><a href="/user/userForm">User Register</a></li>
                 </ul> 
                 </li>
@@ -93,6 +92,9 @@
                 <!-- <li><a href="/user/loginForm">Login</a></li> -->
                 <c:choose>
 	        		<c:when test="${not empty sessSeq}">
+	        			<c:if test="${sessAdminNy eq 1}">
+	        				<li><a href="/xmin/indexView">관리자 페이지</a></li>
+	        			</c:if>
 	        			<%-- <li><a href="javascript:goForm(${sessSeq})"><c:out value="${sessName}"></c:out> 님</a></li> --%>
 	        			<li class="submenu">
 			                <a href="javascript:goForm(${sessSeq})" class="show-submenu"><c:out value="${sessName}"></c:out> 님<i class="icon-down-open-mini"></i></a>

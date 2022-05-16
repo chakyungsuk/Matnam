@@ -15,6 +15,7 @@
 			,a.mnMmId
 			,a.mnMmName
 			,a.mnMmPassword
+			,a.mnMmAdminNy
 		FROM
 			matnamMember a
 		WHERE 1=1

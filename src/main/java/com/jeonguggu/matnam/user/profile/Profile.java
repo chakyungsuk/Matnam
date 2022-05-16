@@ -14,6 +14,7 @@ public class Profile {
 	private String mnMmDob_Month_Cd = "";
 	private String mnMmDob_Day = "";
 	private String mnMmGenderCd = "";
+	private String mnMmAdminNy = "";
 	
 	//프로필 주소
 	private String mnmaZipcode = "";
@@ -105,6 +106,12 @@ public class Profile {
 	}
 	public void setMnmaAddress2(String mnmaAddress2) {
 		this.mnmaAddress2 = mnmaAddress2;
+	}
+	public String getMnMmAdminNy() {
+		return mnMmAdminNy;
+	}
+	public void setMnMmAdminNy(String mnMmAdminNy) {
+		this.mnMmAdminNy = mnMmAdminNy;
 	}
 	
 }

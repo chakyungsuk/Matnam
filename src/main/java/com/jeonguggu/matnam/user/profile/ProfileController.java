@@ -39,6 +39,7 @@ public class ProfileController {
 			httpSession.setAttribute("sessSeq", rtMember.getMnMmSeq());
 			httpSession.setAttribute("sessId", rtMember.getMnMmId());
 			httpSession.setAttribute("sessName", rtMember.getMnMmName()); 
+			httpSession.setAttribute("sessAdminNy", rtMember.getMnMmAdminNy()); 
 			
 			returnMap.put("rt", "success");
 		} else {
