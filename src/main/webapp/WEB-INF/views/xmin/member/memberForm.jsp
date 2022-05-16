@@ -275,6 +275,19 @@
 								</div>
 							</div>
 							
+
+						</div>
+
+						<div class="col-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">프로필사진</h5>
+								</div>
+								<div class="card-body text-center">
+									<img src="/resources/admin/img/avatars/avatar-4.jpg" alt="" class="img-fluid rounded-circle mb-2" width="180" height="180" />
+								</div>
+							</div>
+							
 							<div class="card">
 								<div class="card-header">
 									<h5 class="card-title mb-0">주 소</h5>
@@ -290,18 +303,7 @@
 								    <input type="text" class="form-control mb-2" id="ifmaAddress2" name="ifmaAddress2" placeholder="상세주소" required>
 								</div>
 							</div>
-
-						</div>
-
-						<div class="col-12 col-lg-6">
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">프로필사진</h5>
-								</div>
-								<div class="card-body text-center">
-									<img src="/resources/admin/img/avatars/avatar-4.jpg" alt="" class="img-fluid rounded-circle mb-2" width="200" height="200" />
-								</div>
-							</div>
+							
 							<div class="card">
 								<div class="card-header">
 									<h5 class="card-title mb-0">등급</h5>
@@ -333,7 +335,11 @@
 												</div>
 											</div>
 										</div>
-									</div>	
+									</div>
+									<div class="btn_area text-center" style="margin-top: 50px;">
+										<button type="button" class="btn btn-outline-secondary"	onclick="location.href='/xmin/memberList';">목록</button>	
+										<button type="button" class="btn btn-outline-primary" onclick="location.href='/xmin/memberView';">등록</button>
+									</div>
 								</div>
 							</div>
 							
