@@ -274,6 +274,22 @@
 								</div>
 								</div>
 							</div>
+							
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">주 소</h5>
+								</div>
+								<div class="card-body">
+									<div class="input-group mb-2">
+											<input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode" readonly>
+											<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
+											<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
+									</div>
+								    <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1" readonly>
+								    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
+								    <input type="text" class="form-control mb-2" id="ifmaAddress2" name="ifmaAddress2" placeholder="상세주소" required>
+								</div>
+							</div>
 
 						</div>
 
@@ -283,7 +299,7 @@
 									<h5 class="card-title mb-0">프로필사진</h5>
 								</div>
 								<div class="card-body text-center">
-									<img src="/resources/admin/img/avatars/avatar-4.jpg" alt="" class="img-fluid rounded-circle mb-2" width="128" height="128" />
+									<img src="/resources/admin/img/avatars/avatar-4.jpg" alt="" class="img-fluid rounded-circle mb-2" width="200" height="200" />
 								</div>
 							</div>
 							<div class="card">
@@ -321,21 +337,6 @@
 								</div>
 							</div>
 							
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">주 소</h5>
-								</div>
-								<div class="card-body">
-									<div class="input-group mb-2">
-											<input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode" readonly>
-											<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
-											<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
-									</div>
-								    <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1" readonly>
-								    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
-								    <input type="text" class="form-control mb-2" id="ifmaAddress2" name="ifmaAddress2" placeholder="상세주소" required>
-								</div>
-							</div>
 
 						</div>
 					</div>
