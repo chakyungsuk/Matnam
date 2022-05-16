@@ -82,7 +82,6 @@
                 <ul>
                     <li><a href="/xmin/indexView">Admin section</a></li>
                     <li><a href="/user/userForm">User Register</a></li>
-                    <li><a href="/user/friendSelect">친구목록</a></li>
                 </ul> 
                 </li>
                 <li class="submenu">
@@ -94,7 +93,15 @@
                 <!-- <li><a href="/user/loginForm">Login</a></li> -->
                 <c:choose>
 	        		<c:when test="${not empty sessSeq}">
-	        			<li><a href="javascript:goForm(${sessSeq})"><c:out value="${sessName}"></c:out> 님</a></li>
+	        			<%-- <li><a href="javascript:goForm(${sessSeq})"><c:out value="${sessName}"></c:out> 님</a></li> --%>
+	        			<li class="submenu">
+			                <a href="javascript:goForm(${sessSeq})" class="show-submenu"><c:out value="${sessName}"></c:out> 님<i class="icon-down-open-mini"></i></a>
+			                <ul>
+			                    <li><a href="javascript:goFriendSelect(${sessSeq})">친구목록</a></li>
+<!-- 			                    <li><a href="/user/friendSelect">친구목록</a></li> -->
+			                    <li><a href="">리뷰목록</a></li>
+			                </ul> 
+		                </li>
 						<li><a href="#" id="btnLogout" onclick="btnLogout();">Logout</a></li>
 	        		</c:when>
 	        		<c:otherwise>
@@ -149,6 +156,12 @@
 	goForm = function(seq){
 		$("#mnMmSeq").val(seq);
 		$("#formList").attr("action","/user/profileView");
+		$("#formList").submit();
+	} 
+	
+	goFriendSelect = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/friendSelect");
 		$("#formList").submit();
 	} 
 </script>
