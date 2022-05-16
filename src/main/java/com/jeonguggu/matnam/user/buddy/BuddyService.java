@@ -4,19 +4,22 @@ import java.util.List;
 
 public interface BuddyService {
 
-//	Ä£±¸ ¸ñ·Ï Á¶È¸
+//	ì¹œêµ¬ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListFriend(BuddyVo vo) throws Exception;
 	
-//	Â÷´Ü Ä£±¸ ¸ñ·Ï Á¶È¸
+//	ì°¨ë‹¨ ì¹œêµ¬ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListFriendBlock(BuddyVo vo) throws Exception;
 	
-//	¹ŞÀº Ä£±¸¿äÃ» ¸ñ·Ï Á¶È¸
+//	ë°›ì€ ì¹œêµ¬ìš”ì²­ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListUserFriendRequestReceive(BuddyVo vo) throws Exception;
 	
-//	º¸³½ Ä£±¸¿äÃ» ¸ñ·Ï Á¶È¸
+//	ë³´ë‚¸ ì¹œêµ¬ìš”ì²­ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListUserFriendRequestSend(BuddyVo vo) throws Exception;
 	
-//	¸ÅÄª ¸ñ·Ï Á¶È¸
+//	ë§¤ì¹­ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListArea(BuddyVo vo) throws Exception;
+	
+//	ì‚¬ìš©ì í”„ë¡œí•„ ì¡°íšŒ
+	public Buddy selectOneUser(BuddyVo vo) throws Exception;
 	
 }

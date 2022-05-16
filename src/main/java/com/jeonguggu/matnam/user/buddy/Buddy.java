@@ -5,9 +5,12 @@ import java.util.Calendar;
 
 public class Buddy {
  
-//	À¯Àú Á¤º¸
+//	ìœ ì € ì •ë³´
 	private String mnMmSeq = "";
 	private String mnMmName = "";
+	private String mnMmId = "";
+	private String mnMmMobile = "";
+	private String mnMmEmail = "";
 	private String mnMmIntroduce = "";
 	private String mnMmDob_Year = "";
 	private String mnMmGenderCd = "";
@@ -15,10 +18,10 @@ public class Buddy {
 	private String mnMmLike = "";
 	private Integer age = 0;
 	
-	//Ä£±¸ ¸ñ·Ï
+	//ì¹œêµ¬ ëª©ë¡
 	private String mnfdFriendSeq = "";
 	
-//	Ä£±¸¿äÃ»
+//	ì¹œêµ¬ìš”ì²­
 	private String mnfdMessage = "";
 	
 //	----------------------------------------
@@ -84,18 +87,36 @@ public class Buddy {
 	public void setAge(String age) {
 		this.age = getAge(age);
 	}
-	
 	public Integer getAge(String dobYear) {
-		//ÇöÀç ³âµµ ±¸ÇÏ±â
-		Calendar now = Calendar.getInstance(); //³â¿ùÀÏ½ÃºĞÃÊ
+		//í˜„ì¬ ë…„ë„ êµ¬í•˜ê¸°
+		Calendar now = Calendar.getInstance(); //ë…„ì›”ì¼ì‹œë¶„ì´ˆ
 		Integer currentYear = now.get(Calendar.YEAR);
 		
-		//ÅÂ¾î³­³âµµ¸¦ À§ÇÑ ¼¼ÆÃ
+		//íƒœì–´ë‚œë…„ë„ë¥¼ ìœ„í•œ ì„¸íŒ…
 		SimpleDateFormat format = new SimpleDateFormat("yyyy");
-		//ÅÂ¾î³­ ³âµµ
+		//íƒœì–´ë‚œ ë…„ë„
 		Integer birthYear = Integer.parseInt(dobYear);
 		
-		// ÇöÀç ³âµµ - ÅÂ¾î³­ ³âµµ => ³ªÀÌ (¸¸³ªÀÌX)		 
+		// í˜„ì¬ ë…„ë„ - íƒœì–´ë‚œ ë…„ë„ => ë‚˜ì´ (ë§Œë‚˜ì´X)		 
 		return (currentYear - birthYear +1);
 	}
+	public String getMnMmId() {
+		return mnMmId;
+	}
+	public void setMnMmId(String mnMmId) {
+		this.mnMmId = mnMmId;
+	}
+	public String getMnMmMobile() {
+		return mnMmMobile;
+	}
+	public void setMnMmMobile(String mnMmMobile) {
+		this.mnMmMobile = mnMmMobile;
+	}
+	public String getMnMmEmail() {
+		return mnMmEmail;
+	}
+	public void setMnMmEmail(String mnMmEmail) {
+		this.mnMmEmail = mnMmEmail;
+	}
+	
 }

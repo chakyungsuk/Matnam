@@ -2,7 +2,7 @@ package com.jeonguggu.matnam.user.buddy;
 
 public class BuddyVo {
 	
-//	Ä£±¸¸ñ·Ï
+//	ì‚¬ìš©ì ì¡°íšŒ
 	private String mnMmSeq = "";
 	private String mnmaAddress1 = "";
 	

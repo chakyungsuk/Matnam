@@ -2,7 +2,7 @@ package com.jeonguggu.matnam.user.profile;
 
 public class Profile {
 	
-	//ÇÁ·ÎÇÊ
+	//ìœ ì € ì •ë³´
 	private String mnMmSeq = "";
 	private String mnMmId = "";
 	private String mnMmPassword = "";
@@ -16,7 +16,7 @@ public class Profile {
 	private String mnMmGenderCd = "";
 	private String mnMmAdminNy = "";
 	
-	//ÇÁ·ÎÇÊ ÁÖ¼Ò
+	//ìœ ì € ì£¼ì†Œ
 	private String mnmaZipcode = "";
 	private String mnmaAddress1 = "";
 	private String mnmaAddress2 = "";

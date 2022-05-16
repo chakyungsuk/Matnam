@@ -56,7 +56,10 @@ public class BuddyController {
 	}
 	
 	@RequestMapping(value = "/user/friendDetail")
-	public String friendDetail() {
+	public String friendDetail(BuddyVo vo, Model model) throws Exception {
+		
+		Buddy rt = service.selectOneUser(vo);
+		model.addAttribute("rt", rt);
 		
 		return "/user/buddy/friendDetail";
 	}

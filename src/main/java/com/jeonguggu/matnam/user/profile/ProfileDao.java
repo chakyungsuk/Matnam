@@ -15,17 +15,17 @@ public class ProfileDao {
 	
 	private static String namespace = "com.jeonguggu.matnam.user.profile.ProfileMpp";
 	
-//	·Î±×ÀÎ
+//	ë¡œê·¸ì¸
 	public Profile selectOneLogin(Profile dto) {
 		return sqlSession.selectOne(namespace + ".selectOneLogin", dto);
 	}
 	
-//	È¸¿ø ÇÁ·ÎÇÊ Á¶È¸
+//	íšŒì› í”„ë¡œí•„ ì¡°íšŒ
 	public Profile selectOneProfile(ProfileVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneProfile", vo);
 	}
 	
-//	È¸¿ø Á¤º¸ Á¶È¸
+//	íšŒì› ì •ë³´ ì¡°íšŒ
 	public Profile selectOneUserMember(ProfileVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneUserMember", vo);
 	}

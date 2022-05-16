@@ -17,29 +17,34 @@ public class BuddyDao {
 	
 	private static String namespace = "com.jeonguggu.matnam.user.buddy.BuddyMpp";
 	
-//	Ä£±¸ ¸ñ·Ï Á¶È¸
+//	ì¹œêµ¬ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListFriend(BuddyVo vo) {
 		return sqlSession.selectList(namespace + ".selectListFriend", vo);
 	}
 	
-//	Â÷´ÜÄ£±¸ ¸ñ·Ï Á¶È¸
+//	ì°¨ë‹¨ì¹œêµ¬ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListFriendBlock(BuddyVo vo) {
 		return sqlSession.selectList(namespace + ".selectListFriendBlock", vo);
 	}
 	
-//	¹ŞÀº Ä£±¸¿äÃ» ¸ñ·Ï Á¶È¸
+//	ë°›ì€ ì¹œêµ¬ìš”ì²­ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListUserFriendRequestReceive(BuddyVo vo) {
 		return sqlSession.selectList(namespace + ".selectListUserFriendRequestReceive", vo);
 	}
 	
-//	º¸³½ Ä£±¸¿äÃ» ¸ñ·Ï Á¶È¸
+//	ë³´ë‚¸ ì¹œêµ¬ìš”ì²­ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListUserFriendRequestSend(BuddyVo vo) {
 		return sqlSession.selectList(namespace + ".selectListUserFriendRequestSend", vo);
 	}
 	
-//	¸ÅÄª ¸ñ·Ï Á¶È¸
+//	ë§¤ì¹­ ëª©ë¡ ì¡°íšŒ
 	public List<Buddy> selectListArea(BuddyVo vo) {
 		return sqlSession.selectList(namespace + ".selectListArea", vo);
+	}
+	
+//	ì‚¬ìš©ì í”„ë¡œí•„ ì¡°íšŒ
+	public Buddy selectOneUser(BuddyVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneUser", vo);
 	}
 
 }

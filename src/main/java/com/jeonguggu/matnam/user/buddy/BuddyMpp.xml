@@ -86,7 +86,27 @@
 			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq
 		WHERE 1=1
 			AND b.mnmaAddress1 LIKE concat('%',#{mnmaAddress1},'%')
+			<choose>
+				<when test="mnMmSeq != null and !mnMmSeq.equals('')">AND a.mnMmSeq != #{mnMmSeq}</when>
+			</choose>
 	</select>
 	<!-- 매칭 목록 조회 끝 -->
     
+    <!-- 사용자 프로필 조회 시작 -->
+    <select id="selectOneUser" resultMap="resultMapObj">
+		SELECT
+			a.mnMmSeq
+			,a.mnMmId
+			,a.mnMmName
+			,a.mnMmMobile
+			,a.mnMmEmail
+			,a.mnMmIntroduce
+			,b.mnmaAddress1
+		FROM
+			matnamMember a
+			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq
+		WHERE 1=1
+			AND a.mnMmSeq = #{mnMmSeq}
+	</select>
+    <!-- 사용자 프로필 조회 끝 -->
 </mapper>

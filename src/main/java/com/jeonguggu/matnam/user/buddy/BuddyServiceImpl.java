@@ -11,39 +11,46 @@ public class BuddyServiceImpl implements BuddyService {
 	@Autowired
 	BuddyDao dao;
 
-//	Ä£±¸ ¸ñ·Ï Á¶È¸
+//	ì¹œêµ¬ ëª©ë¡ ì¡°íšŒ
 	@Override
 	public List<Buddy> selectListFriend(BuddyVo vo) throws Exception {
 		
 		return dao.selectListFriend(vo);
 	}
 	
-//	Â÷´Ü Ä£±¸ ¸ñ·Ï Á¶È¸
+//	ì°¨ë‹¨ ì¹œêµ¬ ëª©ë¡ ì¡°íšŒ
 	@Override
 	public List<Buddy> selectListFriendBlock(BuddyVo vo) throws Exception {
 		
 		return dao.selectListFriendBlock(vo);
 	}
 	
-//	¹ŞÀº Ä£±¸¿äÃ» ¸ñ·Ï Á¶È¸
+//	ë°›ì€ ì¹œêµ¬ìš”ì²­ ëª©ë¡ ì¡°íšŒ
 	@Override
 	public List<Buddy> selectListUserFriendRequestReceive(BuddyVo vo) throws Exception {
 		
 		return dao.selectListUserFriendRequestReceive(vo);
 	}
 	
-//	º¸³½ Ä£±¸¿äÃ» ¸ñ·Ï Á¶È¸
+//	ë³´ë‚¸ ì¹œêµ¬ìš”ì²­ ëª©ë¡ ì¡°íšŒ
 	@Override
 	public List<Buddy> selectListUserFriendRequestSend(BuddyVo vo) throws Exception {
 		
 		return dao.selectListUserFriendRequestSend(vo);
 	}
 	
-//	¸ÅÄª ¸ñ·Ï Á¶È¸
+//	ë§¤ì¹­ ëª©ë¡ ì¡°íšŒ
 	@Override
 	public List<Buddy> selectListArea(BuddyVo vo) throws Exception {
 		
 		return dao.selectListArea(vo);
+	}
+	
+//	ì‚¬ìš©ì í”„ë¡œí•„ ì¡°íšŒ
+	@Override
+	public Buddy selectOneUser(BuddyVo vo) throws Exception {
+		
+		return dao.selectOneUser(vo);
 	}
 
 }

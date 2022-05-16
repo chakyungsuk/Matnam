@@ -9,20 +9,20 @@ public class ProfileServiceImpl implements ProfileService {
 	@Autowired
 	ProfileDao dao;
 
-//	·Î±×ÀÎ
+//	ë¡œê·¸ì¸
 	@Override
 	public Profile selectOneLogin(Profile dto) throws Exception {
 		return dao.selectOneLogin(dto);
 	}
 	
-//	È¸¿ø ÇÁ·ÎÇÊ Á¶È¸
+//	íšŒì› í”„ë¡œí•„ ì¡°íšŒ
 	@Override
 	public Profile selectOneProfile(ProfileVo vo) throws Exception {
 		
 		return dao.selectOneProfile(vo);
 	}
 	
-//	È¸¿ø Á¤º¸ Á¶È¸
+//	íšŒì› ì •ë³´ ì¡°íšŒ
 	@Override
 	public Profile selectOneUserMember(ProfileVo vo) throws Exception {
 		

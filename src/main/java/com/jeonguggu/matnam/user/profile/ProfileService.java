@@ -2,13 +2,13 @@ package com.jeonguggu.matnam.user.profile;
 
 public interface ProfileService {
 
-//	·Î±×ÀÎ
+//	ë¡œê·¸ì¸
 	public Profile selectOneLogin(Profile dto) throws Exception;
 	
-//	È¸¿ø ÇÁ·ÎÇÊ Á¶È¸
+//	íšŒì› í”„ë¡œí•„ ì¡°íšŒ
 	public Profile selectOneProfile(ProfileVo vo) throws Exception;
 	
-//	È¸¿ø Á¤º¸ Á¶È¸
+//	íšŒì› ì •ë³´ ì¡°íšŒ
 	public Profile selectOneUserMember(ProfileVo vo) throws Exception;
 	
 }
