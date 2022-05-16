@@ -19,7 +19,7 @@ public class BuddyController {
 		List<Buddy> listFriend = service.selectListFriend(vo);
 		model.addAttribute("listFriend", listFriend);
 		
-		vo.setMnmaAddress1("¼­¿ï");
+		vo.setMnmaAddress1("ì„œìš¸");
 		List<Buddy> list = service.selectListArea(vo);
 		model.addAttribute("list", list);
 		
