@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jeonguggu.matnam.code.codeMpp">
+
+    <resultMap id="resultMapObj" type="com.jeonguggu.matnam.code.Code"></resultMap>
+    
+    <select id="selectListForCache" resultMap="resultMapObj">
+		SELECT
+			a.mncdSeq
+			, a.mncdName
+			, a.mncdDelNy
+			, a.mncgSeq
+		FROM
+			matnamCode a
+		WHERE 1=1
+			AND mncdDelNy = 0
+			AND mncdUseNy = 1
+	</select>
+    
+</mapper>
