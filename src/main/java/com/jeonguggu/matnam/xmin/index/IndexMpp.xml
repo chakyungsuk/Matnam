@@ -25,6 +25,7 @@
 			, a.mnMmName
 			, b.mnmpNumber
 			, a.regDateTime
+			, a.mnMmRankCd
 		FROM
 			matnamMember a
 		LEFT JOIN matnamMemberPhone b on b.mnMmSeq = a.mnMmSeq

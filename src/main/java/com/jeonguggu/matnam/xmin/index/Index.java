@@ -9,6 +9,7 @@ public class Index {
 	private String mnMmId;
 	private String mnMmName;
 	private String mnmpNumber;
+	private Integer mnMmRankCd;
 	
 //Date
 	private Date RegDateTime;
@@ -74,6 +75,12 @@ public class Index {
 	}
 	public void setMnevEndDate(Date mnevEndDate) {
 		this.mnevEndDate = mnevEndDate;
+	}
+	public Integer getMnMmRankCd() {
+		return mnMmRankCd;
+	}
+	public void setMnMmRankCd(Integer mnMmRankCd) {
+		this.mnMmRankCd = mnMmRankCd;
 	}
 	
 }

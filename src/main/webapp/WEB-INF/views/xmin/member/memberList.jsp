@@ -286,6 +286,7 @@
 										<th>사용자 이름</th>										
 										<th class="d-none d-md-table-cell">전화번호</th>
 										<th class="d-none d-xl-table-cell">회원등급</th>
+										<th class="d-none d-xl-table-cell">등록일</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -334,6 +335,9 @@
 														<span class="badge bg-success">브론즈</span>
 													</c:when>
 												</c:choose>
+											</td>
+											<td class="d-none d-xl-table-cell">
+												<fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd"/>
 											</td>
 										</tr>
 									</c:forEach>

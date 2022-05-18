@@ -297,6 +297,7 @@
 											<th>아이디</th>
 											<th>사용자 이름</th>										
 											<th class="d-none d-md-table-cell">전화번호</th>
+											<th class="d-none d-md-table-cell">등급</th>
 											<th class="d-none d-xl-table-cell">등록일</th>
 										</tr>
 									</thead>
@@ -309,12 +310,30 @@
 												<td class="d-none d-md-table-cell">
 													<c:set var="mnmpNumber" value="${item.mnmpNumber}"/>
 													<c:choose>
-											      		<c:when test="${fn:length(mnmpNumber) eq 11}">
+											      		<c:when test="${fn:length(mnmpNumber) eq 10 }">
+												            <c:out value="${fn:substring(mnmpNumber,0,3)}"/>
+												            - <c:out value="${fn:substring(mnmpNumber,3,6)}"/>
+												            - <c:out value="${fn:substring(mnmpNumber,6,10)}"/>
+												        </c:when>	
+														<c:otherwise>
 												            <c:out value="${fn:substring(mnmpNumber,0,3)}"/>
 												            - <c:out value="${fn:substring(mnmpNumber,3,7)}"/>
-												            - <c:out value="${fn:substring(mnmpNumber,6,11)}"/>
-												        </c:when>	
+												            - <c:out value="${fn:substring(mnmpNumber,7,11)}"/>
+												        </c:otherwise>
 											        </c:choose>
+												</td>
+												<td class="d-none d-xl-table-cell">
+													<c:choose>
+														<c:when test="${item.mnMmRankCd eq 0}">
+															<span class="badge bg-warning">골드</span>
+														</c:when>
+														<c:when test="${item.mnMmRankCd eq 1}">
+															<span class="badge bg-secondary">실버</span>
+														</c:when>
+														<c:when test="${item.mnMmRankCd eq 2}">
+															<span class="badge bg-success">브론즈</span>
+														</c:when>
+													</c:choose>
 												</td>
 												<td class="d-none d-md-table-cell">
 													<fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd"/>

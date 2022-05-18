@@ -49,20 +49,119 @@
 			, a.mnMmName
 			, b.mnmpNumber
 			, a.mnMmRankCd
+			, a.regDateTime
 	<include refid="selectCommon" />
 		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
 	
+	<select id="selectListMemberUploaded" resultMap = "resultMapObj">
+		SELECT
+			seq
+			, type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName 
+			, ext
+			, size
+			, delNy
+			, pseq
+			, path
+		FROM
+			matnamUploaded
+		WHERE 1=1
+			AND pseq = #{mnMmSeq}
+		ORDER BY
+			sort
+	</select>
+	 
 	<insert id="insert">
 		INSERT INTO matnamMember (
-			mnMmName
+			mnMmAdminNy
 			, mnMmId
+			, mnMmPassword
+			, mnMmName
+			, mnMmDob_Year
+			, mnMmDob_Month_Cd
+			, mnMmDob_Day
+			, mnMmGenderCd
+			, mnMmRankCd
 			, mnMmDelNy
+			, regDateTime
 		) VALUES (
-			#{mnMmName}
+			#{mnMmAdminNy}
 			, #{mnMmId}
+			, #{mnMmPassword}
+			, #{mnMmName}
+			, #{mnMmDob_Year}
+			, #{mnMmDob_Month_Cd}
+			, #{mnMmDob_Day}
+			, #{mnMmGenderCd}
+			, #{mnMmRankCd}
 			, 0
+			, #{regDateTime}
 		)
+		<selectKey resultType="String" keyProperty="mnMmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<insert id="insertMemberAddress">
+		INSERT INTO matnamMemberAddress (
+			mnmaDefaultNy
+			, mnmaAddress1
+			, mnmaAddress2
+			, mnmaZipcode
+			, mnmaDelNy
+			, mnMmSeq
+		) VALUES (
+			1
+			, #{mnmaAddress1}
+			, #{mnmaAddress2}
+			, #{mnmaZipcode}
+			, 0
+			, #{mnMmSeq}
+		)
+	</insert>
+	
+		<insert id="insertMemberPhone">
+		INSERT INTO matnamMemberPhone (
+			mnmpDefaultNy
+			, mnmpNumber
+			, mnmpDelNy
+			, mnMmSeq
+		) VALUES (
+			1
+			, #{mnmpNumber}
+			, 0
+			, #{mnMmSeq}
+		)
+	</insert>
+	
+	<insert id="insertUploaded">
+	INSERT INTO ${TableName} (
+		type
+		, defaultNy 
+		, sort
+		, originalName
+		, uuidName
+		, ext
+		, size
+		, DelNy
+		, path
+		, pseq
+	) VALUES (
+		#{type}
+		, #{defaultNy} 
+		, #{sort}
+		, #{originalName}
+		, #{uuidName}
+		, #{ext}
+		, #{size}
+		, 0
+		, #{path}
+		, #{pseq}
+	)	
 	</insert>
 	
 	<select id="selectOne" resultMap="resultMapObj">

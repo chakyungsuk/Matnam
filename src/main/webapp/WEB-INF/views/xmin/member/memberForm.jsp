@@ -23,6 +23,9 @@
 </head>
 
 <body>
+
+<form id="formInst" name="formInst" method="post" action="/xmin/memberInst" enctype="multipart/form-data">
+
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -212,38 +215,41 @@
 								</div>
 								<div class="card-body">
 								<label>아이디</label>
-									<input type="text" class="form-control mb-3" placeholder="">
+									<input type="text" class="form-control mb-3" name="mnMmId" id="" placeholder="" autocomplete="off">
 								<div class="row">
 									<div class="col-12 col-lg-6">
 									<label>이름</label>
-										<input type="text" class="form-control mb-3" placeholder="">
+										<input type="text" class="form-control mb-3" name="mnMmName" id="" placeholder="" autocomplete="off">
 									</div>
 									<div class="col-12 col-lg-6">
 									<label>성별</label>
 											<div class="form-check" style="margin-top: 8px; margin-left: 12px;">
 												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="radio" name="gender" id="gender" value="" checked><label class="form-check-label" for="inlineRadio1">남</label>
+													<input class="form-check-input" type="radio" name="mnMmGenderCd" id="gender0" value="0" checked>
+													<label class="form-check-label" for="gender0">남</label>
 												</div>
 												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="radio" name="gender" id="gender" value=""> <label class="form-check-label" for="inlineRadio2">여</label>
+													<input class="form-check-input" type="radio" name="mnMmGenderCd" id="gender1" value="1"> 
+													<label class="form-check-label" for="gender1">여</label>
 												</div>
 												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="radio" name="gender" id="gender" value=""> <label class="form-check-label" for="inlineRadio3">기타</label>
+													<input class="form-check-input" type="radio" name="mnMmGenderCd" id="gender2" value="2">
+													<label class="form-check-label" for="gender2">기타</label>
 												</div>
 											</div>
 									</div>
 								</div>
 								<label>비밀번호</label>
-									<input type="text" class="form-control mb-3" placeholder="">
+									<input type="text" class="form-control mb-3" name="mnMmPassword" id="" placeholder="" autocomplete="off">
 									<input type="text" class="form-control mb-3" placeholder="비밀번호확인">
 								<div class="form-group">
 		                        	<label>생년월일</label>
 			                		<div class="row">
 				                    	<div class="col-md-4 col-sm-4 mb-3">
-				                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="년(4자)">
+				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="년(4자)">
 				                        </div>
 				                    	<div class="col-md-4 col-sm-4">
-				                            <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
+				                            <select class="form-control" name="mnMmDob_Month_Cd" id="">
 				                                <option value="" selected>월</option>
 				                                <option value="1">1</option>
 				                                <option value="2">2</option>
@@ -260,15 +266,11 @@
 				                            </select>
 				                        </div>
 					                    <div class="col-md-4 col-sm-4">
-			                            	<input type="text" id="pcode_oder" name="pcode_oder" class="form-control" placeholder="일">
+			                            	<input type="text" id="" name="mnMmDob_Day" class="form-control" placeholder="일">
 					                    </div>
 										<label for="formGroupExampleInput" class="form-label">모바일</label>
 					  					<div class="input-group">
-											<input type="text" class="form-control" aria-label="mn1" value="">
-											<span class="input-group-text">-</span> 
-											<input type="text" class="form-control" aria-label="mn2" value="">
-											<span class="input-group-text">-</span> 
-											<input type="text" class="form-control" aria-label="mn3" value="">
+											<input type="text" class="form-control" name="mnmpNumber" id="" placeholder="숫자만입력" autocapitalize="off">
 										</div>
 									</div>
 								</div>
@@ -283,9 +285,13 @@
 								<div class="card-header">
 									<h5 class="card-title mb-0">프로필사진</h5>
 								</div>
-								<div class="card-body text-center">
-									<img src="/resources/admin/img/avatars/avatar-4.jpg" alt="" class="img-fluid rounded-circle mb-2" width="180" height="180" />
+								<div class="card-body text-center" id="image_container">
+									<label for="file0">
+										<img id="image_hide" src="/resources/admin/img/avatars/avatar-4.jpg" class="img-fluid rounded-circle mb-2" width="180" height="180" />
+										<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" multiple="multiple" onchange="setThumbnail(event);"/>									
+									</label>									
 								</div>
+									<label style="text-align: center;">그림을 눌러 사진을 첨부해주세요</label><br>
 							</div>
 							
 							<div class="card">
@@ -294,13 +300,13 @@
 								</div>
 								<div class="card-body">
 									<div class="input-group mb-2">
-											<input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode" readonly>
-											<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
-											<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
+										<input type="text" class="form-control" id="mnmaZipcode" name="mnmaZipcode" readonly>
+										<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
+										<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
 									</div>
-								    <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1" readonly>
+							    		<input type="text" class="form-control mb-2" id="mnmaAddress1" name="mnmaAddress1" readonly>
 								    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
-								    <input type="text" class="form-control mb-2" id="ifmaAddress2" name="ifmaAddress2" placeholder="상세주소" required>
+								    <input type="text" class="form-control mb-2" id="mnmaAddress2" name="mnmaAddress2" placeholder="상세주소" required>
 								</div>
 							</div>
 							
@@ -314,13 +320,16 @@
 											<label>회원등급</label>
 											<div class="form-check">
 												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="radio" name="a" id="a" value="" checked> <label class="form-check-label" for="">골드</label>
+													<input class="form-check-input" type="radio" name="mnMmRankCd" id="Rank0" value="0" checked> 
+													<label class="form-check-label" for="Rank0">골드</label>
 												</div>
 												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="radio" name="a" id="a" value=""> <label class="form-check-label" for="">실버</label>
+													<input class="form-check-input" type="radio" name="mnMmRankCd" id="Rank1" value="1">
+													<label class="form-check-label" for="Rank1">실버</label>
 												</div>
 												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="radio" name="a" id="a" value=""> <label class="form-check-label" for="">브론즈</label>
+													<input class="form-check-input" type="radio" name="mnMmRankCd" id="Rank2" value="2">
+													<label class="form-check-label" for="Rank2">브론즈</label>
 												</div>
 											</div>
 										</div>
@@ -328,32 +337,117 @@
 											<label>권 한</label>
 											<div class="form-check">
 												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="radio" name="b" id="b" value="" checked> <label class="form-check-label" for="">관리자</label>
+													<input class="form-check-input" type="radio" name="mnMmAdminNy" id="Admin0" value="1" checked>
+													<label class="form-check-label" for="Admin0">관리자</label>
 												</div>
 												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="radio" name="b" id="b" value=""> <label class="form-check-label" for="">사용자</label>
+													<input class="form-check-input" type="radio" name="mnMmAdminNy" id="Admin1" value="0"> 
+													<label class="form-check-label" for="Admin1">사용자</label>
 												</div>
 											</div>
 										</div>
 									</div>
 									<div class="btn_area text-center" style="margin-top: 50px;">
 										<button type="button" class="btn btn-outline-secondary"	onclick="location.href='/xmin/memberList';">목록</button>	
-										<button type="button" class="btn btn-outline-primary" onclick="location.href='/xmin/memberView';">등록</button>
+										<button type="submit" class="btn btn-outline-primary" name="btnSubmit" id="btnSubmit">등록</button>
 									</div>
 								</div>
 							</div>
-							
-
 						</div>
 					</div>
-
 				</div>
 			</main>
 			<%@ include file="/WEB-INF/views/xmin/include/footer.jsp"%>
 		</div>
 	</div>
+</form>		
+	
+<script src="/resources/admin/js/app.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-	<script src="/resources/admin/js/app.js"></script>
+<script>
+<!-- 등록S -->
+$("#btnSubmit").on("click", function(){
+	var answer = confirm("등록 하시겠습니까?");
+	
+	if(answer){
+		$("#btnSubmit").attr("action", "/xmin/memberInst");
+		$("#btnSubmit").submit(); 
+	} else {
+		return false;
+	}
+
+});
+<!-- 등록E -->
+
+<!-- 메인사진 업로드 S -->
+/* function setThumbnail(event) { 
+	var reader = new FileReader(); 
+	reader.onload = function(event) { 
+		
+			var img = document.createElement("img"); 
+			img.width = 180;
+		    img.height = 180;
+			img.setAttribute("src", event.target.result);
+			$("#image_hide").hide();
+			document.querySelector("div#image_container").appendChild(img); 
+			
+		}; 
+			reader.readAsDataURL(event.target.files[0]); 
+		}  */
+<!-- 메인사진 업로드 E -->
+
+<!-- 주소S -->
+function execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+            if(data.userSelectedType === 'R'){
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraAddr !== ''){
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+                // 조합된 참고항목을 해당 필드에 넣는다.
+                //document.getElementById("ifmaAddress3").value = extraAddr;
+            
+            } else {
+               // document.getElementById("ifmaAddress3").value = '';
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('mnmaZipcode').value = data.zonecode;
+            document.getElementById("mnmaAddress1").value = addr;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("mnmaAddress2").focus();
+        }
+    }).open();
+}
+<!-- 주소E -->
+</script>
 
 </body>
 
