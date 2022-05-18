@@ -98,13 +98,14 @@
 			a.mnMmSeq
 			,a.mnMmId
 			,a.mnMmName
-			,a.mnMmMobile
+			,c.mnmpNumber
 			,a.mnMmEmail
 			,a.mnMmIntroduce
 			,b.mnmaAddress1
 		FROM
 			matnamMember a
 			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq
+			LEFT JOIN matnamMemberPhone c ON c.mnmpDelNy = 0  AND c.mnmpDefaultNy = 1 AND c.mnMmSeq = a.mnMmSeq
 		WHERE 1=1
 			AND a.mnMmSeq = #{mnMmSeq}
 	</select>
