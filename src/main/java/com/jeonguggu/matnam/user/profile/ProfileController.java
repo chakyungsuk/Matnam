@@ -8,8 +8,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * Handles requests for the application home page.
@@ -66,6 +68,14 @@ public class ProfileController {
 		return "/user/member/userForm";
 	}
 	
+	@RequestMapping(value = "/user/userInst")
+	public String userInst(Profile dto) throws Exception {
+		
+		service.insert(dto);
+		
+		return "redirect:/user/loginForm";
+	}
+	
 	@RequestMapping(value = "/user/userEdit")
 	public String userEdit(ProfileVo vo, Model model) throws Exception {
 		
@@ -93,9 +103,27 @@ public class ProfileController {
 		return "/user/member/profileEdit";
 	}
 	
-//	@RequestMapping(value = "/top")
-//	public String top() {
+	@RequestMapping(value = "/user/profileUpdt")
+	public String profileUpdt(@ModelAttribute("vo") ProfileVo vo, Profile dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
+		
+		
+		System.out.println("--------------" + dto.getMnmaAddress1());
+		service.update(dto);
+		
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());	//get
+		
+		return "redirect:/user/profileView";
+	}
+	
+//	@RequestMapping(value = "/test")
+//	public String test() {
 //		
-//		return "/user/include/top";
+//		return "/user/member/test";
+//	}
+//	
+//	@RequestMapping(value = "/index2")
+//	public String index2() {
+//		
+//		return "/user/member/index2";
 //	}
 }

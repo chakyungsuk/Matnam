@@ -144,7 +144,7 @@
 	        </div><!-- End col -->
 	        <div class="col-lg-5"> 
 	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">고구마 님의 프로필</h2>
+	                <h2 class="inner" style="text-align: center;"><c:out value="${rt.mnMmName}"/> 님의 프로필</h2>
 	                <!-- <div style="text-align: center;">
 						<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 							<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -167,7 +167,7 @@
 	                	<a class="btn_1" href="friendSelect" style="width:200px;">친구 관리</a>
 	                </div> -->
 	                <!-- Start Profile tab-pane -->
-		            <div class="tab-pane" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab" >
+		            <div class="tab-pane" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
 		                <!-- Start profile content -->
 		                <div>
 		                    <div class="user-profile-img">
@@ -178,25 +178,20 @@
 		                            <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" style="width:150px;" alt="">
 		                        </div>
 		   
-		                        <h5 class="fs-17 mb-1 text-truncate">Dushane Daniel</h5>
-		                        <p class="text-muted fs-14 text-truncate mb-0">Front end Developer</p>
+		                        <h5 class="fs-17 mb-1 text-truncate"><c:out value="${rt.mnMmName}"/></h5>
+		                        <p class="text-muted fs-14 text-truncate mb-0"><c:out value="${rt.mnMmIntroduce}"/></p>
 		                    </div>
 		                    <!-- End profile user -->
 		
 		                    <!-- Start user-profile-desc -->
 		                    <div class="p-4 profile-desc" style="height:500px;" data-simplebar>
-		                        <div class="text-muted">
-		                            <p class="mb-3">A professional profile is an introductory section on your resume that highlights your
-		                                relevant qualifications and skills.</p>
-		                        </div>
-		
-		                        <div class="border-bottom border-bottom-dashed mb-4 pb-2">
+		                        <div class="mb-4 pb-2">
 		                            <div class="d-flex py-2 align-items-center">
 		                                <div class="flex-shrink-0 me-3">
 		                                    <i class="bx bx-user align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0">Dushane Daniel</p>
+		                                    <p class="mb-0"><c:out value="${rt.mnMmName}"/></p>
 		                                </div>
 		                            </div>
 		
@@ -205,7 +200,7 @@
 		                                    <i class="ri-phone-line align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0">+(365) 1456 12584</p>
+		                                    <p class="mb-0"><c:out value="${rt.mnMmMobile}"/></p>
 		                                </div>
 		                            </div>
 		
@@ -214,7 +209,7 @@
 		                                    <i class="ri-message-2-line align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="fw-medium mb-0">dushanedaniel@gmail.com</p>
+		                                    <p class="fw-medium mb-0"><c:out value="${rt.mnMmEmail}"/></p>
 		                                </div>
 		                            </div>
 		
@@ -223,7 +218,7 @@
 		                                    <i class="ri-map-pin-2-line align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0">California, USA</p>
+		                                    <p class="mb-0"><c:out value="${rt.mnmaAddress1}"/></p>
 		                                </div>
 		                            </div>
 		                        </div>

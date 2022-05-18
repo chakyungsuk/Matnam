@@ -175,7 +175,7 @@
 		                                    <i class="ri-phone-line align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0"><c:out value="${rt.mnMmMobile}"/></p>
+		                                    <p class="mb-0"><c:out value="${rt.mnmpNumber}"/></p>
 		                                </div>
 		                            </div>
 		

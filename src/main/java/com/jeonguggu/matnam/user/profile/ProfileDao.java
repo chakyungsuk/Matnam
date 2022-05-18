@@ -25,8 +25,34 @@ public class ProfileDao {
 		return sqlSession.selectOne(namespace + ".selectOneProfile", vo);
 	}
 	
+//	회원 프로필 수정
+	public int updateProfile(Profile dto) {
+		return sqlSession.update(namespace + ".updateProfile", dto);
+	}
+	public int updateProfilePhone(Profile dto) {
+		return sqlSession.update(namespace + ".updateProfilePhone", dto);
+	}
+	public int updateProfileAddress(Profile dto) {
+		return sqlSession.update(namespace + ".updateProfileAddress", dto);
+	}
+	
 //	회원 정보 조회
 	public Profile selectOneUserMember(ProfileVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneUserMember", vo);
 	}
+	
+//	회원가입
+	public int insertUserMember(Profile dto) {
+		return sqlSession.insert(namespace + ".insertUserMember", dto);
+	}
+	public int insertUserMemberPhone(Profile dto) {
+		return sqlSession.insert(namespace + ".insertUserMemberPhone", dto);
+	}
+	public int insertUserMemberTaste(Profile dto) {
+		return sqlSession.insert(namespace + ".insertUserMemberTaste", dto);
+	}
+	public int insertUserMemberAddress(Profile dto) {
+		return sqlSession.insert(namespace + ".insertUserMemberAddress", dto);
+	}
+	
 }

@@ -30,17 +30,46 @@
 			a.mnMmSeq
 			,a.mnMmId
 			,a.mnMmName
-			,a.mnMmMobile
+			,c.mnmpNumber
 			,a.mnMmEmail
 			,a.mnMmIntroduce
 			,b.mnmaAddress1
 		FROM
 			matnamMember a
 			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq
+			LEFT JOIN matnamMemberPhone c ON c.mnmpDelNy = 0  AND c.mnmpDefaultNy = 1 AND c.mnMmSeq = a.mnMmSeq
 		WHERE 1=1
 			AND a.mnMmSeq = #{mnMmSeq}
 	</select>
 	<!-- 회원 프로필 조회 끝 -->
+	
+    <!-- 회원 프로필 수정 시작 -->
+	<select id="updateProfile" resultMap="resultMapObj">
+		UPDATE
+			matnamMember
+		SET
+			mnMmEmail = #{mnMmEmail}
+			,mnMmIntroduce = #{mnMmIntroduce}
+		WHERE 1=1
+			AND mnMmSeq = #{mnMmSeq}
+	</select>
+	<select id="updateProfilePhone" resultMap="resultMapObj">
+		UPDATE
+			matnamMemberPhone
+		SET
+			mnmpNumber = #{mnmpNumber}
+		WHERE 1=1
+			AND mnMmSeq = #{mnMmSeq}
+	</select>
+	<select id="updateProfileAddress" resultMap="resultMapObj">
+		UPDATE
+			matnamMemberAddress
+		SET
+			mnmaAddress1 = #{mnmaAddress1}
+		WHERE 1=1
+			AND mnMmSeq = #{mnMmSeq}
+	</select>
+	<!-- 회원 프로필 수정 끝 -->
 	
     <!-- 회원 정보 조회 시작 -->
 	<select id="selectOneUserMember" resultMap="resultMapObj">
@@ -52,16 +81,109 @@
 			,a.mnMmDob_Month_Cd
 			,a.mnMmDob_Day
 			,a.mnMmGenderCd
-			,a.mnMmMobile
+			,c.mnmpNumber
 			,b.mnmaZipcode
 			,b.mnmaAddress1
 			,b.mnmaAddress2
 		FROM
 			matnamMember a
 			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq
+			LEFT JOIN matnamMemberPhone c ON c.mnmpDelNy = 0  AND c.mnmpDefaultNy = 1 AND c.mnMmSeq = a.mnMmSeq
 		WHERE 1=1
 			AND a.mnMmSeq = #{mnMmSeq}
 	</select>
 	<!-- 회원 정보 조회 끝 -->
 	
+	<!-- 회원 가입 시작 -->
+	<!-- 기본 회원정보 -->
+	<insert id="insertUserMember">
+		INSERT INTO matnamMember(
+			mnMmId
+			,mnMmPassword
+			,mnMmName
+			,mnMmDob_Year
+			,mnMmDob_Month_Cd
+			,mnMmDob_Day
+			,mnMmAdminNy
+			,mnMmGenderCd
+			,mnMmDelNy
+			,regDateTime
+			,modDateTime
+		) VALUES (
+			#{mnMmId}
+			,#{mnMmPassword}
+			,#{mnMmName}
+			,#{mnMmDob_Year}
+			,#{mnMmDob_Month_Cd}
+			,#{mnMmDob_Day}
+			,0
+			,#{mnMmGenderCd}
+			,0
+			,#{regDateTime}
+			,#{modDateTime}
+		)
+		<selectKey resultType="string" keyProperty="mnMmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<!-- 모바일 회원정보 -->
+	<insert id="insertUserMemberPhone">
+		INSERT INTO matnamMemberPhone(
+			mnMmSeq
+			,mnmpNumber
+			,mnmpDefaultNy
+			,mnmpDelNy
+			,regDateTime
+			,modDateTime
+		) VALUES (
+			#{mnMmSeq}
+			,#{mnmpNumber}
+			,1
+			,0
+			,#{regDateTime}
+			,#{modDateTime}
+		)
+	</insert>
+	
+	<!-- 취향 회원정보 -->
+	<insert id="insertUserMemberTaste">
+		INSERT INTO matnamMemberTaste(
+			mnMmSeq
+			,mnmtTasteCd
+			,mnmtDelNy
+			,regDateTime
+			,modDateTime
+		) VALUES (
+			#{mnMmSeq}
+			,#{mnmtTasteCd}
+			,0
+			,#{regDateTime}
+			,#{modDateTime}
+		)
+	</insert>
+	
+	<!-- 주소 회원정보 -->
+	<insert id="insertUserMemberAddress">
+		INSERT INTO matnamMemberAddress(
+			mnMmSeq
+			,mnmaAddress1
+			,mnmaAddress2
+			,mnmaZipcode
+			,mnmaDefaultNy
+			,mnmaDelNy
+			,regDateTime
+			,modDateTime
+		) VALUES (
+			#{mnMmSeq}
+			,#{mnmaAddress1}
+			,#{mnmaAddress2}
+			,#{mnmaZipcode}
+			,1
+			,0
+			,#{regDateTime}
+			,#{modDateTime}
+		)
+	</insert>
+	<!-- 회원 가입 끝 -->
 </mapper>

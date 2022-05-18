@@ -243,9 +243,12 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${list}" var="item" varStatus="status">	
+						<form id="formList" name="formList" method="post" action="">
+							<input type="hidden" id="mnMmSeq" name="mnMmSeq">
+						</form>
 						<div class="strip_list wow fadeIn" data-wow-delay="0.4s">
 							<div class="row">
-								<div class="col-md-9" style="cursor: pointer;" onclick="location.href='/user/friendDetail?mnMmSeq=<c:out value="${item.mnMmSeq}"/>';">
+								<div class="col-md-9" style="cursor: pointer;" onclick="javascript:goForm(${item.mnMmSeq});">
 									<div class="desc">
 										<div class="thumb_strip">
 											<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
@@ -273,7 +276,7 @@
 								<div class="col-md-3">
 									<div class="go_to">
 										<div>
-											<a href="" class="btn_1">친구요청</a>
+											<button class="btn_1" data-bs-toggle="modal" data-bs-target="#friendModal" data-bs-whatever="${item.mnMmName}">친구요청</button>
 										</div>
 									</div>
 								</div>
@@ -289,6 +292,7 @@
 	</div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->
+
 
 <%@include file="../include/footer.jsp" %>
 
@@ -350,6 +354,27 @@
             grid: true
         });
     });
+    
+    const friendModal = document.getElementById('friendModal')
+    friendModal.addEventListener('show.bs.modal', event => {
+		// Button that triggered the modal
+		const button = event.relatedTarget
+		// Extract info from data-bs-* attributes
+		const recipient = button.getAttribute('data-bs-whatever')
+		// If necessary, you could initiate an AJAX request here
+		// and then do the updating in a callback.
+		//
+		// Update the modal's content.
+		const modalTitle = friendModal.querySelector('.modal-title')
+		
+		modalTitle.textContent = recipient + ' 님을 친구 추가 하시겠습니까?'
+    })
+    
+    goForm = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formList").attr("action","/user/friendDetail");
+		$("#formList").submit();
+	} 
 </script>
 </body>
 </html>

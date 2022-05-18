@@ -1,5 +1,7 @@
 package com.jeonguggu.matnam.user.profile;
 
+import java.util.Date;
+
 public class Profile {
 	
 	//유저 정보
@@ -7,7 +9,6 @@ public class Profile {
 	private String mnMmId = "";
 	private String mnMmPassword = "";
 	private String mnMmName = "";
-	private String mnMmMobile = "";
 	private String mnMmEmail = "";
 	private String mnMmIntroduce = "";
 	private String mnMmDob_Year = "";
@@ -15,6 +16,15 @@ public class Profile {
 	private String mnMmDob_Day = "";
 	private String mnMmGenderCd = "";
 	private String mnMmAdminNy = "";
+	private Date regDateTime;
+	private Date modDateTime;
+	
+	//유저 모바일
+	private String mnmpNumber = "";
+	
+	//유저 취향
+	private String mnmtTasteCd = "";
+	private String[] mnmtTasteCdArray;
 	
 	//유저 주소
 	private String mnmaZipcode = "";
@@ -47,12 +57,6 @@ public class Profile {
 	public void setMnMmName(String mnMmName) {
 		this.mnMmName = mnMmName;
 	}
-	public String getMnMmMobile() {
-		return mnMmMobile;
-	}
-	public void setMnMmMobile(String mnMmMobile) {
-		this.mnMmMobile = mnMmMobile;
-	}
 	public String getMnMmEmail() {
 		return mnMmEmail;
 	}
@@ -64,12 +68,6 @@ public class Profile {
 	}
 	public void setMnMmIntroduce(String mnMmIntroduce) {
 		this.mnMmIntroduce = mnMmIntroduce;
-	}
-	public String getMnmaAddress1() {
-		return mnmaAddress1;
-	}
-	public void setMnmaAddress1(String mnmaAddress1) {
-		this.mnmaAddress1 = mnmaAddress1;
 	}
 	public String getMnMmDob_Year() {
 		return mnMmDob_Year;
@@ -95,11 +93,47 @@ public class Profile {
 	public void setMnMmGenderCd(String mnMmGenderCd) {
 		this.mnMmGenderCd = mnMmGenderCd;
 	}
+	public String getMnMmAdminNy() {
+		return mnMmAdminNy;
+	}
+	public void setMnMmAdminNy(String mnMmAdminNy) {
+		this.mnMmAdminNy = mnMmAdminNy;
+	}
+	public Date getRegDateTime() {
+		return regDateTime;
+	}
+	public void setRegDateTime(Date regDateTime) {
+		this.regDateTime = regDateTime;
+	}
+	public Date getModDateTime() {
+		return modDateTime;
+	}
+	public void setModDateTime(Date modDateTime) {
+		this.modDateTime = modDateTime;
+	}
+	public String getMnmpNumber() {
+		return mnmpNumber;
+	}
+	public void setMnmpNumber(String mnmpNumber) {
+		this.mnmpNumber = mnmpNumber;
+	}
+	public String getMnmtTasteCd() {
+		return mnmtTasteCd;
+	}
+	public void setMnmtTasteCd(String mnmtTasteCd) {
+		this.mnmtTasteCd = mnmtTasteCd;
+	}
 	public String getMnmaZipcode() {
 		return mnmaZipcode;
 	}
 	public void setMnmaZipcode(String mnmaZipcode) {
 		this.mnmaZipcode = mnmaZipcode;
+	}
+	public String getMnmaAddress1() {
+		return mnmaAddress1;
+	}
+	public void setMnmaAddress1(String mnmaAddress1) {
+		this.mnmaAddress1 = mnmaAddress1;
 	}
 	public String getMnmaAddress2() {
 		return mnmaAddress2;
@@ -107,11 +141,15 @@ public class Profile {
 	public void setMnmaAddress2(String mnmaAddress2) {
 		this.mnmaAddress2 = mnmaAddress2;
 	}
-	public String getMnMmAdminNy() {
-		return mnMmAdminNy;
+	public String[] getMnmtTasteCdArray() {
+		return mnmtTasteCdArray;
 	}
-	public void setMnMmAdminNy(String mnMmAdminNy) {
-		this.mnMmAdminNy = mnMmAdminNy;
+	public void setMnmtTasteCdArray(String[] mnmtTasteCdArray) {
+		this.mnmtTasteCdArray = mnmtTasteCdArray;
 	}
+	
+
+	
+	
 	
 }
