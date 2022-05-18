@@ -54,7 +54,7 @@
 		LIMIT #{startRnumForMysql},#{rowNumToShow}
 	</select>
 	
-	<select id="selectListMemberUploaded" resultMap = "resultMapObj">
+<!-- 	<select id="selectListMemberUploaded" resultMap = "resultMapObj">
 		SELECT
 			seq
 			, type
@@ -73,7 +73,7 @@
 			AND pseq = #{mnMmSeq}
 		ORDER BY
 			sort
-	</select>
+	</select> -->
 	 
 	<insert id="insert">
 		INSERT INTO matnamMember (
@@ -138,7 +138,7 @@
 		)
 	</insert>
 	
-	<insert id="insertUploaded">
+	<!-- <insert id="insertUploaded">
 	INSERT INTO ${TableName} (
 		type
 		, defaultNy 
@@ -162,7 +162,7 @@
 		, #{path}
 		, #{pseq}
 	)	
-	</insert>
+	</insert> -->
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
