@@ -265,7 +265,8 @@
 								<button type="button" class="btn btn-outline-primary" onclick="location.href='javascript:goEdit(<c:out value="${item.mnevSeq}"/>)';">수정</button>
 								<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 									삭제
-								</button>										
+								</button>
+								<button type="button" class="btn btn-outline-secondary" onclick="location.href='/xmin/eventList';">목록</button>										
 								<!-- Modal -->
 								<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 									<div class="modal-dialog">
@@ -279,7 +280,7 @@
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" onclick="location.href='eventDele?mnevSeq=<c:out value="${item.mnevSeq}"/>';">삭제</button>
-												<button type="button" class="btn btn-outline-secondary" onclick="location.href='/xmin/eventView';">취소</button>
+												<button type="button" class="btn btn-outline-secondary" onclick="location.href='/xmin/eventView?mnevSeq=<c:out value="${item.mnevSeq}"/>';">취소</button>
 											</div>
 										</div>
 									</div>
