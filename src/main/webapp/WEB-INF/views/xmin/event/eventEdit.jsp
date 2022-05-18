@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -211,8 +212,10 @@
 					</ul>
 				</div>
 			</nav>
-
+			
+		<form id="eventList" name="eventList" method="post" action="/xmin/eventUpdt">
 			<main class="content">
+			<input type="hidden" id="mnevSeq" name="mnevSeq" value="<c:out value="${item.mnevSeq }"/>">
 				<div class="container-fluid p-0">
 					<h1 class="h3 mb-3" style="text-align:center;">이벤트 등록수정</h1>					
 					<div class="card">
@@ -220,7 +223,7 @@
 							<div class="col-2">					
 							</div>
 							<div class="col-8">
-								<input type="text" class="form-control" placeholder="친구초대 이벤트!">	
+								<input type="text" class="form-control" id="mnevTitle" name="mnevTitle" placeholder="친구초대 이벤트!" value="<c:out value="${item.mnevTitle}"/>">	
 							</div>
 							<div class="col-2">
 							</div>
@@ -231,13 +234,13 @@
 							<div class="col-3">							
 						  		<div class="input-group mb-3">
 									<span class="input-group-text" id="basic-addon1">시작일</span>
-									<input type="date" class="form-control" value="2022-04-28" aria-label="" aria-describedby="basic-addon1">
+									<input type="text" class="form-control" id="mnevStartDate" name="mnevStartDate" aria-label="" aria-describedby="basic-addon1" value="<c:out value="${item.mnevStartDate}"/>">
 								</div>
 							</div>
 							<div class="col-3">
 								<div class="input-group mb-3">
 									<span class="input-group-text" id="basic-addon1">종료일</span>
-									<input type="date" class="form-control" value="2022-05-28" aria-label="" aria-describedby="basic-addon1">
+									<input type="text" class="form-control" id="mnevEndDate" name="mnevEndDate" aria-label="" aria-describedby="basic-addon1" value="<c:out value="${item.mnevEndDate}"/>">
 								</div>
 							</div>
 							<div class="col-3">
@@ -252,26 +255,19 @@
 								<h5 class="card-title mb-0">이벤트 내용</h5>
 							</div>							
 							<div class="input-group" style="padding: 15px 15px 15px 15px;">
-								<textarea class="form-control" aria-label="With textarea" style="min-height:200px;">
-									따스한 봄볕이 내리쬐면서 아침에 비해서는 10도가량 기온이 크게 올랐습니다.
-									하지만 오늘까지는 한낮에도 예년보다 3∼4도 낮은 기온이 예상됩니다.								
-									여기에 일교차도 10도 이상 크게 날 것으로 보입니다.								
-									감기에 걸리기 쉬운 날씨니까요, 외출하실 때는 체온 조절을 할 수 있는 따뜻한 겉옷 꼭 챙기시기 바랍니다.								
-									오늘 전국적으로 맑은 하늘이 펼쳐지고 있습니다.								
-									다만, 대기가 건조해진 영동과 경북 동해안에는 오늘 11시부터 다시 건조특보가 내려졌습니다.								
-									특히 이 지역에는 고온건조한 강풍, '양간지풍'까지 불 것으로 보이는데요,								
-									산간에는 초속 25m 이상, 영동 지역으로도 초속 20m 이상의 돌풍이 예상됩니다.								
-									대형 산불 위험이 큰 만큼 불씨 관리 잘 해주시기 바랍니다.
+								<textarea class="form-control" id="mnevContent" name="mnevContent" aria-label="With textarea" style="min-height:200px;">
+									<c:out value="${item.mnevContent}"/>
 								</textarea>
 							</div>		
 							<div style="padding: 0px 0px 25px 0px; text-align:center;">
-								<button type="button" class="btn btn-outline-primary"	onclick="location.href='/xmin/eventView';">수정</button>
+								<button type="submit" class="btn btn-outline-primary"	onclick="location.href='/xmin/eventView';">수정</button>
 								<button type="button" class="btn btn-outline-secondary"	onclick="location.href='/xmin/eventView';">취소</button>
 							</div>	
 						</div>
 					</div>
 				</div>
 			</main>
+		</form>	
 			<%@ include file="/WEB-INF/views/xmin/include/footer.jsp"%>
 		</div>
 	</div>

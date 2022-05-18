@@ -1,5 +1,6 @@
 package com.jeonguggu.matnam.xmin.event;
 
+
 public class Event {
 	
 	private String mnevSeq;
@@ -9,6 +10,7 @@ public class Event {
 	private Integer mnevDelNy;
 	private String mnevStartDate;
 	private String mnevEndDate;
+
 	
 // --------------------------------
 	
@@ -54,5 +56,6 @@ public class Event {
 	public void setMnevEndDate(String mnevEndDate) {
 		this.mnevEndDate = mnevEndDate;
 	}
+	
 	
 }

@@ -211,7 +211,7 @@
 					</ul>
 				</div>
 			</nav>
-
+		<form method="post" action="/xmin/eventInst">
 			<main class="content">
 				<div class="container-fluid p-0">
 					<h1 class="h3 mb-3" style="text-align:center;">이벤트 등록</h1>					
@@ -220,7 +220,7 @@
 							<div class="col-2">					
 							</div>
 							<div class="col-8">
-								<input type="text" class="form-control" placeholder="title">	
+								<input type="text" class="form-control" id="mnevTitle" name="mnevTitle" placeholder="title">	
 							</div>
 							<div class="col-2">
 							</div>
@@ -231,13 +231,13 @@
 							<div class="col-3">							
 						  		<div class="input-group mb-3">
 									<span class="input-group-text" id="basic-addon1">시작일</span>
-									<input type="date" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+									<input type="date" class="form-control" id="mnevStartDate" name="mnevStartDate" placeholder="" aria-label="" aria-describedby="basic-addon1">
 								</div>
 							</div>
 							<div class="col-3">
 								<div class="input-group mb-3">
 									<span class="input-group-text" id="basic-addon1">종료일</span>
-									<input type="date" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+									<input type=date class="form-control" id="mnevEndDate" name="mnevEndDate" placeholder="" aria-label="" aria-describedby="basic-addon1">
 								</div>
 							</div>
 							<div class="col-3">
@@ -252,23 +252,25 @@
 								<h5 class="card-title mb-0">이벤트 내용</h5>
 							</div>							
 							<div class="input-group" style="padding: 15px 15px 15px 15px;">
-								<textarea class="form-control" aria-label="With textarea" style="min-height:200px;"></textarea>
+								<textarea class="form-control" id="mnevContent" name="mnevContent" aria-label="With textarea" style="min-height:200px;"></textarea>
 							</div>		
 							<div style="padding: 0px 0px 25px 0px; text-align:center;">
-								<button type="button" class="btn btn-outline-primary"	onclick="location.href='/xmin/eventView';">등록</button>
+								<button type="submit" class="btn btn-outline-primary"	onclick="location.href='/xmin/eventView';">등록</button>
 								<button type="button" class="btn btn-outline-secondary"	onclick="location.href='/xmin/eventList';">취소</button>
 							</div>	
 						</div>
 					</div>
 				</div>
 			</main>
+		</form>	
 			<%@ include file="/WEB-INF/views/xmin/include/footer.jsp"%>
 		</div>
 	</div>
 
 	<script src="/resources/admin/js/app.js"></script>
 	<script src="/resources/admin/js/app2.js"></script>
-
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
 
 </html>

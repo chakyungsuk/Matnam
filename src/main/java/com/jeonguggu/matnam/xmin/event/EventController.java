@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 
 
@@ -35,20 +37,49 @@ public class EventController {
 	}		
 	
 	@RequestMapping(value = "/xmin/eventView")
-	public String eventView() {
+	public String eventView(Model model, EventVo vo) throws Exception {
 		
+		Event item = service.selectOne(vo);
+		
+		model.addAttribute("item", item);
+				
 		return "/xmin/event/eventView";
 	}		
 	
 	@RequestMapping(value = "/xmin/eventForm")
-	public String eventForm() {
+	public String eventForm(Model model) throws Exception {
 		
 		return "/xmin/event/eventForm";
 	}		
 	
+	@RequestMapping(value = "/xmin/eventInst")
+	public String eventInst(Model model, Event dto) throws Exception {
+		
+		service.insert(dto);
+		return "redirect:/xmin/eventList";
+	}		
+	
 	@RequestMapping(value = "/xmin/eventEdit")
-	public String eventEdit() {
+	public String eventEdit(EventVo vo, Model model) throws Exception {
+		
+		Event item = service.selectOne(vo);
+		
+		model.addAttribute("item", item);
 		
 		return "/xmin/event/eventEdit";
+	}		
+	
+	@RequestMapping(value = "/xmin/eventUpdt")
+	public String eventUpdt(Event dto) throws Exception {
+		
+		service.update(dto);
+		return "redirect:/xmin/eventView?mnevSeq=" + dto.getMnevSeq();
+	}		
+	
+	@RequestMapping(value = "/xmin/eventDele")
+	public String eventDele(EventVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.delete(vo);
+		return "redirect:/xmin/eventList";
 	}		
 }

@@ -48,10 +48,14 @@
 		INSERT INTO matnamEvent (
 			mnevTitle
 			, mnevContent
+			, mnevStartDate
+			, mnevEndDate
 			, mnevDelNy
 		) VALUES (
 			#{mnevTitle}
 			, #{mnevContent}
+			, #{mnevStartDate}
+			, #{mnevEndDate}
 			, 0
 		)
 	</insert>
@@ -61,20 +65,24 @@
 			mnevSeq
 			, mnevTitle
 			, mnevContent
+			, mnevStartDate
+			, mnevEndDate
 			, mnevDelNy
 		FROM
 			matnamEvent
 		WHERE 1=1
-			AND mnevDelNy = 0;
+			AND mnevDelNy = 0
 			AND mnevSeq = #{mnevSeq}
 	</select>
 	
 	<update id="update">
 		UPDATE matnamEvent SET
 			mnevTitle = #{mnevTitle}
+			, mnevStartDate = #{mnevStartDate}
+			, mnevEndDate = #{mnevEndDate}
 			, mnevContent = #{mnevContent}
 		WHERE 1=1
-			and mnevSeq = #{mnevSeq}
+			AND mnevSeq = #{mnevSeq}
 	</update>
 
 	<delete id="delete">

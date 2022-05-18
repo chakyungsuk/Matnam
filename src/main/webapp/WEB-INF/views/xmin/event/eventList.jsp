@@ -208,7 +208,7 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <img src="/resources/admin/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
@@ -288,7 +288,7 @@
 														<th style="width:10%;"><c:out value="${item.mnevSeq}" /></th>
 														<td style="width:20%;"><c:out value="${item.mnevStartDate}" /></td>
 														<td style="width:20%;"><c:out value="${item.mnevEndDate}" /></td>
-														<td style="width:25%;"><c:out value="${item.mnevTitle}" /></td>
+														<td style="width:25%;"><a href="javascript:goForm(<c:out value="${item.mnevSeq}"/>)"><c:out value="${item.mnevTitle}" /></a></td>
 														<td style="width:25%;"><c:out value="${item.mnevContent}" /></td>
 													</tr>
 												</c:forEach>
@@ -338,6 +338,12 @@
 	<script type="text/javascript">
 		goList = function(seq) {
 			$("#thisPage").val(seq);
+			$("#eventList").submit();
+		};
+		
+		goForm = function(seq) {
+			$("#mnevSeq").val(seq);
+			$("#eventList").attr("action","/xmin/eventView");
 			$("#eventList").submit();
 		};
 	</script>
