@@ -33,21 +33,27 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int insert(Member dto) throws Exception {
 		
-		
-		/*
-		 * for(MultipartFile multipartFile : dto.getFile0() ) { String pathModule =
-		 * this.getClass().getSimpleName().toString().toLowerCase().replace(
-		 * "serviceimpl", ""); UtilUpload.upload(multipartFile, pathModule, dto );
-		 * 
-		 * dto.setTableName("matnamUploaded"); dto.setType(0); dto.setDefaultNy(0);
-		 * dto.setSort(0); dto.setPseq(dto.getMnMmSeq());
-		 * 
-		 * dao.insertUploaded(dto); }
-		 */
-		
 		dto.setRegDateTime(UtilDateTime.nowDate());		// 날짜
 		
 		dao.insert(dto);
+		
+		for(MultipartFile multipartFile : dto.getFile0() ) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.upload(multipartFile, pathModule, dto );
+				
+			dto.setTableName("matnamUploaded");
+			dto.setType(0);
+			dto.setDefaultNy(0);
+			dto.setSort(0);
+			dto.setPseq(dto.getMnMmSeq());
+			
+			/*
+			 * dto.setTableName("fdmemberuploaded"); dto.setType(0); dto.setDefaultNy(0);
+			 * dto.setSort(j); dto.setPseq(dto.getIfmmSeq());
+			 */			  
+			  dao.insertUploaded(dto);
+		}
+		 
 		dao.insertMemberAddress(dto);
 		dao.insertMemberPhone(dto);
 		
@@ -84,6 +90,5 @@ public class MemberServiceImpl implements MemberService{
 		return dao.delete(vo); 
 	}
 
-
-	
 }
+	

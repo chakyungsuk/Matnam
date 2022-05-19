@@ -288,7 +288,7 @@
 								<div class="card-body text-center" id="image_container">
 									<label for="file0">
 										<img id="image_hide" src="/resources/admin/img/avatars/avatar-4.jpg" class="img-fluid rounded-circle mb-2" width="180" height="180" />
-										 <input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" multiple="multiple" onchange="setThumbnail(event);"/> 									
+										<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail(event);"/> 									
 									</label>									
 								</div>
 									<label style="text-align: center;">그림을 눌러 사진을 첨부해주세요</label><br>
@@ -368,7 +368,7 @@
 
 <script>
 <!-- 등록S -->
-$("#btnSubmit").on("click", function(){
+ $("#btnSubmit").on("click", function(){
 	var answer = confirm("등록 하시겠습니까?");
 	
 	if(answer){
@@ -378,7 +378,7 @@ $("#btnSubmit").on("click", function(){
 		return false;
 	}
 
-});
+}); 
 <!-- 등록E -->
 
 <!-- 메인사진 업로드 S -->

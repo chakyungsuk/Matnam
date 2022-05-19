@@ -47,7 +47,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "/xmin/memberInst")
 	public String memberInst(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
-		
+		System.out.println(dto.getMnMmId());
 		service.insert(dto);
 		
 		redirectAttributes.addFlashAttribute("vo", vo);
