@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <ul class="sidebar-nav">
+				<a class="sidebar-brand" href="/index/matnamMain">
+         	 		<span class="align-middle">Matnam</span>
+        		</a>
 					<li class="sidebar-header">
 						Pages
 					</li>
