@@ -55,7 +55,10 @@
 		</nav>
 
 		<div class="main">
-			<nav class="navbar navbar-expand navbar-light navbar-bg">
+			<!-- header -->
+			<%@include file="../include/top.jsp" %>
+			<!-- header -->
+			<%-- <nav class="navbar navbar-expand navbar-light navbar-bg">
 				<a class="sidebar-toggle js-sidebar-toggle">
 		          <i class="hamburger align-self-center"></i>
 		        </a>
@@ -106,14 +109,9 @@
 				            </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="javascript:goForm(${sessSeq})"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
+								<a class="dropdown-item" href="#" id="btnLogout" onclick="btnLogout();"><i class="align-middle me-1" data-feather="log-out"></i> Log out</a>
 							</div>
-							<a href="#" id="btnLogout" onclick="btnLogout();">Logout</a>
 						</li>
 	        			</c:if>						
 	        		</c:when>
@@ -122,7 +120,7 @@
 						
 					</ul>
 				</div>
-			</nav>
+			</nav> --%>
 
 			<main class="content">
 				<div class="container-fluid p-0">
@@ -290,7 +288,7 @@
 
 	<script src="/resources/admin/js/app.js"></script>
 	<script src="/resources/admin/js/app2.js"></script>
-	<script src="/resources/user/js/jquery-3.6.0.min.js"></script>
+	<!-- <script src="/resources/user/js/jquery-3.6.0.min.js"></script> -->
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
@@ -513,7 +511,7 @@
 			});
 		});
 		
-		$("#btnLogout").on("click",function(){
+		/* $("#btnLogout").on("click",function(){
 			$.ajax({
 				async: true 
 				,cache: false
@@ -537,7 +535,7 @@
 			$("#mnMmSeq").val(seq);
 			$("#formList").attr("action","/xmin/memberView");
 			$("#formList").submit();
-		} 
+		}  */
 	</script>
 
 </body>
