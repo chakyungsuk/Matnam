@@ -22,6 +22,7 @@
 	<link href="/resources/user/css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	
 	<style>
 		.card-header{
@@ -234,13 +235,13 @@
 							<div class="col-3">							
 						  		<div class="input-group mb-3">
 									<span class="input-group-text" id="basic-addon1">시작일</span>
-									<input type="text" class="form-control" id="mnevStartDate" name="mnevStartDate" aria-label="" aria-describedby="basic-addon1" value="<c:out value="${item.mnevStartDate}"/>">
+									<input type="text" class="form-control" id="datepickerS" name="mnevStartDate" value="<c:out value="${item.mnevStartDate}"/>">
 								</div>
 							</div>
 							<div class="col-3">
 								<div class="input-group mb-3">
 									<span class="input-group-text" id="basic-addon1">종료일</span>
-									<input type="text" class="form-control" id="mnevEndDate" name="mnevEndDate" aria-label="" aria-describedby="basic-addon1" value="<c:out value="${item.mnevEndDate}"/>">
+									<input type="text" class="form-control" id="datepickerE" name="mnevEndDate" value="<c:out value="${item.mnevEndDate}"/>">
 								</div>
 							</div>
 							<div class="col-3">
@@ -274,7 +275,44 @@
 
 	<script src="/resources/admin/js/app.js"></script>
 	<script src="/resources/admin/js/app2.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+	<script type="text/javascript">	
+		$(document).ready(function(){
+			 $("#datepickerS").datepicker();
+		}); 
+	
+		$.datepicker.setDefaults({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    showMonthAfterYear: true,
+		    yearSuffix: '년'
+		});
+		
+		$(document).ready(function(){
+			 $("#datepickerE").datepicker();
+		}); 
+	
+		$.datepicker.setDefaults({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    showMonthAfterYear: true,
+		    yearSuffix: '년'
+		});
+	</script>
 </body>
 
 </html>
