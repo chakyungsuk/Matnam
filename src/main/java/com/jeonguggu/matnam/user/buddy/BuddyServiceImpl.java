@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BuddyServiceImpl implements BuddyService {
-	
+	 
 	@Autowired
 	BuddyDao dao;
 

@@ -3,7 +3,7 @@ package com.jeonguggu.matnam.user.buddy;
 import java.util.List;
 
 public interface BuddyService {
-
+ 
 //	친구 목록 조회
 	public List<Buddy> selectListFriend(BuddyVo vo) throws Exception;
 	

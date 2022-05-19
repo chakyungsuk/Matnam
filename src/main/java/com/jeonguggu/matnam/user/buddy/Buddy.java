@@ -17,7 +17,7 @@ public class Buddy {
 	private String mnmaAddress1 = "";
 	private String mnMmLike = "";
 	private Integer age = 0;
-	
+	 
 	//친구 목록
 	private String mnfdFriendSeq = "";
 	

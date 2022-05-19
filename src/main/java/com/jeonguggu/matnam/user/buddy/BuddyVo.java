@@ -1,7 +1,7 @@
 package com.jeonguggu.matnam.user.buddy;
 
 public class BuddyVo {
-	
+	 
 //	사용자 조회
 	private String mnMmSeq = "";
 	private String mnmaAddress1 = "";

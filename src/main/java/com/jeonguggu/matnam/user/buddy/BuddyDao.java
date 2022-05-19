@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class BuddyDao {
-
+ 
 	@Inject
 	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
