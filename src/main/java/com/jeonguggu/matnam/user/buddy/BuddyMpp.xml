@@ -16,8 +16,8 @@
 			,a.mnMmIntroduce
 		FROM
 			matnamMember a
-			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 1
-			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 1
+			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 4
+			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 4
 		WHERE 1=1
 			AND b.mnMmSeq = #{mnMmSeq}
 			OR c.mnfdFriendSeq = #{mnMmSeq}
@@ -32,8 +32,8 @@
 			,a.mnMmIntroduce
 		FROM
 			matnamMember a
-			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 2
-			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 2
+			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 5
+			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 5
 		WHERE 1=1
 			AND b.mnMmSeq = #{mnMmSeq}
 			OR c.mnfdFriendSeq = #{mnMmSeq}
@@ -49,7 +49,7 @@
 			,c.mnfdMessage
 		FROM
 			matnamMember a
-			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 3
+			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 6
 		WHERE 1=1
 			AND c.mnfdFriendSeq = #{mnMmSeq}
 	</select>
@@ -64,7 +64,7 @@
 			,b.mnfdMessage
 		FROM
 			matnamMember a
-			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 3
+			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 6
 		WHERE 1=1
 			AND b.mnMmSeq = #{mnMmSeq}
 	</select>
