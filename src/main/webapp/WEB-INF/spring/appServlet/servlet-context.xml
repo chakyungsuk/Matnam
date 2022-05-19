@@ -30,7 +30,7 @@
 		<beans:property name="maxUploadSize" value="10485760"/> <!-- 10MB -->
 		<!-- <beans:property name="maxInMemorySize" value="1048576"/> --> <!-- 1MB -->
 	</beans:bean>
-	<!-- fileUpload e 2022.04.07 -->
+	<!-- fileUpload e 2022.04.07 --> 
 	
 	
 </beans:beans>
