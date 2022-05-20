@@ -332,7 +332,10 @@
 										<div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">모바일</label>
 						  					<div class="input-group">
-												<h5><c:out value="${item.mobile }"/></h5>
+												<h5>
+													<fmt:formatNumber var="mnmpNumber" value="${item.mnmpNumber }" pattern="###,####,####"/>
+		                                    		<p class="mb-0">0<c:out value="${fn:replace(mnmpNumber, ',', '-')}" /></p>
+												</h5>
 											</div>
 									    </div>
 									    <div class="col-12 col-md-6">

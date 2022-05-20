@@ -183,7 +183,7 @@
 			, b.mnmaZipcode
 			, b.mnmaAddress1
 			, b.mnmaAddress2
-			, concat(substring(c.mnmpNumber,1,3),"","-","",substring(c.mnmpNumber,4,4),"","-","",substring(c.mnmpNumber,7,4)) as mobile
+			, c.mnmpNumber
 		FROM
 			matnamMember a
 		LEFT JOIN matnamMemberAddress b on b.mnMmSeq = a.mnMmSeq
