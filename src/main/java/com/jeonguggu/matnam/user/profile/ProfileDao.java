@@ -1,5 +1,7 @@
 package com.jeonguggu.matnam.user.profile;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -41,7 +43,21 @@ public class ProfileDao {
 		return sqlSession.selectOne(namespace + ".selectOneUserMember", vo);
 	}
 	
+//	회원 정보 수정
+	public int updateUserMember(Profile dto) {
+		return sqlSession.update(namespace + ".updateUserMember", dto);
+	}
+	public int updateUserMemberPhone(Profile dto) {
+		return sqlSession.update(namespace + ".updateUserMemberPhone", dto);
+	}
+	public int updateUserMemberAddress(Profile dto) {
+		return sqlSession.update(namespace + ".updateUserMemberAddress", dto);
+	}
+	
 //	회원가입
+	public int checkId(ProfileVo vo) {
+		return sqlSession.selectOne(namespace + ".checkId", vo);
+	}
 	public int insertUserMember(Profile dto) {
 		return sqlSession.insert(namespace + ".insertUserMember", dto);
 	}
@@ -54,5 +70,7 @@ public class ProfileDao {
 	public int insertUserMemberAddress(Profile dto) {
 		return sqlSession.insert(namespace + ".insertUserMemberAddress", dto);
 	}
-	
+	public int insertUserMemberAddressProfile(Profile dto) {
+		return sqlSession.insert(namespace + ".insertUserMemberAddressProfile", dto);
+	}
 }

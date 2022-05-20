@@ -117,7 +117,7 @@
 		<div class="container margin_60_35">
 		    <div class="row justify-content-center">
 		        <div class="col-5">
-		        	<form id="formList" name="formList" method="get" action="/user/profileUpdt">
+		        	<form id="formList" name="formList" method="post" action="/user/profileUpdt">
 						<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
 			            <div class="box_style_2" id="order_process">
 			                <h2 class="inner" style="text-align: center;">프로필 변경</h2>
@@ -198,17 +198,65 @@
 		                                        </div>
 		                                        
 		                                        <div class="mt-3">
-		                                            <label for="mnmpNumber" class="form-label text-muted fs-13">전화번호</label>
+		                                            <div class="row mt-2">
+		                                            	<label for="mnmpNumber" class="form-label text-muted fs-13 col-3">전화번호</label>
+		                                            	<div class="float-end offset-4 col-5 row">
+			                                            	<div class="form-check col-auto">
+																<input class="form-check-input" type="radio" name="mnMmMobilePublicNy" id="mnMmMobilePublicNy1" value="1" <c:if test="${rt.mnMmMobilePublicNy eq 1}">checked</c:if>>
+																<label class="form-check-label text-muted fs-13" for="mnMmMobilePublicNy1">
+																	공개
+																</label>
+															</div>
+															<div class="form-check col-auto">
+																<input class="form-check-input" type="radio" name="mnMmMobilePublicNy" id="mnMmMobilePublicNy2" value="0" <c:if test="${rt.mnMmMobilePublicNy eq 0}">checked</c:if>>
+																<label class="form-check-label text-muted fs-13" for="mnMmMobilePublicNy2">
+																	비공개
+																</label>
+															</div>
+														</div>
+		                                            </div>
 		                                            <input type="text" class="form-control" id="mnmpNumber" name="mnmpNumber" value="<c:out value="${rt.mnmpNumber}"/>" placeholder="Enter phone no" >
 		                                        </div>
 		
 		                                        <div class="mt-3">
-		                                            <label for="mnMmEmail" class="form-label text-muted fs-13">이메일</label>
+		                                            <div class="row mt-2">
+			                                            <label for="mnMmEmail" class="form-label text-muted fs-13 col-3">이메일</label>
+		                                            	<div class="float-end offset-4 col-5 row">
+			                                            	<div class="form-check col-auto">
+																<input class="form-check-input" type="radio" name="mnMmEmailPublicNy" id="mnMmEmailPublicNy1" value="1" <c:if test="${rt.mnMmEmailPublicNy eq 1}">checked</c:if>>
+																<label class="form-check-label text-muted fs-13" for="mnMmEmailPublicNy1">
+																	공개
+																</label>
+															</div>
+															<div class="form-check col-auto">
+																<input class="form-check-input" type="radio" name="mnMmEmailPublicNy" id="mnMmEmailPublicNy2" value="0" <c:if test="${rt.mnMmEmailPublicNy eq 0}">checked</c:if>>
+																<label class="form-check-label text-muted fs-13" for="mnMmEmailPublicNy2">
+																	비공개
+																</label>
+															</div>
+														</div>
+		                                            </div>
 		                                            <input type="text" class="form-control" id="mnMmEmail" name="mnMmEmail" value="<c:out value="${rt.mnMmEmail}"/>" placeholder="Enter email" >
 		                                        </div>
 		
 		                                        <div class="mt-3">
-		                                            <label for="mnmaAddress1" class="form-label text-muted fs-13">주소</label>
+		                                            <div class="row mt-2">
+			                                            <label for="mnmaAddress1" class="form-label text-muted fs-13 col-3">주소</label>
+		                                            	<div class="float-end offset-4 col-5 row">
+			                                            	<div class="form-check col-auto">
+																<input class="form-check-input" type="radio" name="mnMmAddressPublicNy" id="mnMmAddressPublicNy1" value="1" <c:if test="${rt.mnMmAddressPublicNy eq 1}">checked</c:if>>
+																<label class="form-check-label text-muted fs-13" for="mnMmAddressPublicNy1">
+																	공개
+																</label>
+															</div>
+															<div class="form-check col-auto">
+																<input class="form-check-input" type="radio" name="mnMmAddressPublicNy" id="mnMmAddressPublicNy2" value="0" <c:if test="${rt.mnMmAddressPublicNy eq 0}">checked</c:if>> 
+																<label class="form-check-label text-muted fs-13" for="mnMmAddressPublicNy2">
+																	비공개
+																</label>
+															</div>
+														</div>
+		                                            </div>
 		                                            <input type="text" class="form-control" id="mnmaAddress1" name="mnmaAddress1" value="<c:out value="${rt.mnmaAddress1}"/>" placeholder="Location" >
 		                                        </div>
 			                                </div>

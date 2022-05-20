@@ -16,6 +16,9 @@ public class Profile {
 	private String mnMmDob_Day = "";
 	private String mnMmGenderCd = "";
 	private String mnMmAdminNy = "";
+	private String mnMmMobilePublicNy = "";
+	private String mnMmEmailPublicNy = "";
+	private String mnMmAddressPublicNy = "";
 	private Date regDateTime;
 	private Date modDateTime;
 	
@@ -146,6 +149,24 @@ public class Profile {
 	}
 	public void setMnmtTasteCdArray(String[] mnmtTasteCdArray) {
 		this.mnmtTasteCdArray = mnmtTasteCdArray;
+	}
+	public String getMnMmMobilePublicNy() {
+		return mnMmMobilePublicNy;
+	}
+	public void setMnMmMobilePublicNy(String mnMmMobilePublicNy) {
+		this.mnMmMobilePublicNy = mnMmMobilePublicNy;
+	}
+	public String getMnMmEmailPublicNy() {
+		return mnMmEmailPublicNy;
+	}
+	public void setMnMmEmailPublicNy(String mnMmEmailPublicNy) {
+		this.mnMmEmailPublicNy = mnMmEmailPublicNy;
+	}
+	public String getMnMmAddressPublicNy() {
+		return mnMmAddressPublicNy;
+	}
+	public void setMnMmAddressPublicNy(String mnMmAddressPublicNy) {
+		this.mnMmAddressPublicNy = mnMmAddressPublicNy;
 	}
 	
 

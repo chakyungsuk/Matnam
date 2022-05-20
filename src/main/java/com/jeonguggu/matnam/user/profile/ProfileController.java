@@ -1,6 +1,7 @@
 package com.jeonguggu.matnam.user.profile;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -68,6 +69,35 @@ public class ProfileController {
 		return "/user/member/userForm";
 	}
 	
+//	@ResponseBody
+//	@RequestMapping(value = "/IdCheckService")
+//	public Map<String, Object> IdCheckService(ProfileVo vo) throws Exception {
+//		Map<String, Object> returnMap = new HashMap<String, Object>();
+//		
+//		int member = service.checkId(vo);
+//		
+//		if (member == 0) {
+//			returnMap.put("rt", "success");
+//		} else {
+//			returnMap.put("rt", "fail");
+//		}
+//		
+//		return returnMap;
+//	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/IdCheckService")
+	public Boolean IdCheckService(ProfileVo vo) throws Exception {
+		
+		int member = service.checkId(vo);
+		
+		if (member == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	@RequestMapping(value = "/user/userInst")
 	public String userInst(Profile dto) throws Exception {
 		
@@ -83,6 +113,16 @@ public class ProfileController {
 		model.addAttribute("rt", rt);
 		
 		return "/user/member/userEdit";
+	}
+	
+	@RequestMapping(value = "/user/userUpdt")
+	public String userUpdt(@ModelAttribute("vo") ProfileVo vo, Profile dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.updateUserMember(dto);
+		
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());	//get
+		
+		return "redirect:/user/profileView";
 	}
 	
 	@RequestMapping(value = "/user/profileView")
@@ -106,20 +146,18 @@ public class ProfileController {
 	@RequestMapping(value = "/user/profileUpdt")
 	public String profileUpdt(@ModelAttribute("vo") ProfileVo vo, Profile dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
 		
-		
-		System.out.println("--------------" + dto.getMnmaAddress1());
-		service.update(dto);
+		service.updateProfile(dto);
 		
 		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());	//get
 		
 		return "redirect:/user/profileView";
 	}
 	
-//	@RequestMapping(value = "/test")
-//	public String test() {
-//		
-//		return "/user/member/test";
-//	}
+	@RequestMapping(value = "/test")
+	public String test() {
+		
+		return "/user/member/test";
+	}
 //	
 //	@RequestMapping(value = "/index2")
 //	public String index2() {

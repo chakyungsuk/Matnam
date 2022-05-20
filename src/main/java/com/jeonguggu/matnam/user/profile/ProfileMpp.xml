@@ -30,13 +30,16 @@
 			a.mnMmSeq
 			,a.mnMmId
 			,a.mnMmName
-			,c.mnmpNumber
 			,a.mnMmEmail
 			,a.mnMmIntroduce
+			,a.mnMmMobilePublicNy
+			,a.mnMmEmailPublicNy
+			,a.mnMmAddressPublicNy
 			,b.mnmaAddress1
+			,c.mnmpNumber
 		FROM
 			matnamMember a
-			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq
+			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq AND b.mnmaTypeCd = 13
 			LEFT JOIN matnamMemberPhone c ON c.mnmpDelNy = 0  AND c.mnmpDefaultNy = 1 AND c.mnMmSeq = a.mnMmSeq
 		WHERE 1=1
 			AND a.mnMmSeq = #{mnMmSeq}
@@ -44,31 +47,35 @@
 	<!-- 회원 프로필 조회 끝 -->
 	
     <!-- 회원 프로필 수정 시작 -->
-	<select id="updateProfile" resultMap="resultMapObj">
+	<update id="updateProfile">
 		UPDATE
 			matnamMember
 		SET
 			mnMmEmail = #{mnMmEmail}
 			,mnMmIntroduce = #{mnMmIntroduce}
+			,mnMmMobilePublicNy = #{mnMmMobilePublicNy}
+			,mnMmEmailPublicNy = #{mnMmEmailPublicNy}
+			,mnMmAddressPublicNy = #{mnMmAddressPublicNy}
 		WHERE 1=1
 			AND mnMmSeq = #{mnMmSeq}
-	</select>
-	<select id="updateProfilePhone" resultMap="resultMapObj">
+	</update>
+	<update id="updateProfilePhone">
 		UPDATE
 			matnamMemberPhone
 		SET
 			mnmpNumber = #{mnmpNumber}
 		WHERE 1=1
 			AND mnMmSeq = #{mnMmSeq}
-	</select>
-	<select id="updateProfileAddress" resultMap="resultMapObj">
+	</update>
+	<update id="updateProfileAddress">
 		UPDATE
 			matnamMemberAddress
 		SET
 			mnmaAddress1 = #{mnmaAddress1}
 		WHERE 1=1
 			AND mnMmSeq = #{mnMmSeq}
-	</select>
+			AND mnmaTypeCd = 13
+	</update>
 	<!-- 회원 프로필 수정 끝 -->
 	
     <!-- 회원 정보 조회 시작 -->
@@ -87,20 +94,63 @@
 			,b.mnmaAddress2
 		FROM
 			matnamMember a
-			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq
+			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq AND b.mnmaTypeCd = 12
 			LEFT JOIN matnamMemberPhone c ON c.mnmpDelNy = 0  AND c.mnmpDefaultNy = 1 AND c.mnMmSeq = a.mnMmSeq
 		WHERE 1=1
 			AND a.mnMmSeq = #{mnMmSeq}
 	</select>
 	<!-- 회원 정보 조회 끝 -->
+	<!-- 회원 정보 수정 시작 -->
+	<update id="updateUserMember">
+		UPDATE
+			matnamMember
+		SET
+			mnMmPassword = #{mnMmPassword}
+			,mnMmDob_Year = #{mnMmDob_Year}
+			,mnMmDob_Month_Cd = #{mnMmDob_Month_Cd}
+			,mnMmDob_Day = #{mnMmDob_Day}
+		WHERE 1=1
+			AND mnMmSeq = #{mnMmSeq}
+	</update>
+	<update id="updateUserMemberPhone">
+		UPDATE
+			matnamMemberPhone
+		SET
+			mnmpNumber = #{mnmpNumber}
+		WHERE 1=1
+			AND mnMmSeq = #{mnMmSeq}
+	</update>
+	<update id="updateUserMemberAddress">
+		UPDATE
+			matnamMemberAddress
+		SET
+			mnmaAddress1 = #{mnmaAddress1}
+			,mnmaAddress2 = #{mnmaAddress2}
+			,mnmaZipcode = #{mnmaZipcode}
+		WHERE 1=1
+			AND mnMmSeq = #{mnMmSeq}
+			AND mnmaTypeCd = 12
+	</update>
+	<!-- 회원 정보 수정 끝 -->
 	
 	<!-- 회원 가입 시작 -->
+	<!-- id 중복 체크 -->
+	<select id="checkId" resultType="Integer">
+		SELECT
+			count(*)
+		FROM
+			matnamMember
+		WHERE 1=1
+			AND mnMmId = #{mnMmId}
+	</select>
+	
 	<!-- 기본 회원정보 -->
 	<insert id="insertUserMember">
 		INSERT INTO matnamMember(
 			mnMmId
 			,mnMmPassword
 			,mnMmName
+			,mnMmEmail
 			,mnMmDob_Year
 			,mnMmDob_Month_Cd
 			,mnMmDob_Day
@@ -113,6 +163,7 @@
 			#{mnMmId}
 			,#{mnMmPassword}
 			,#{mnMmName}
+			,' '
 			,#{mnMmDob_Year}
 			,#{mnMmDob_Month_Cd}
 			,#{mnMmDob_Day}
@@ -170,6 +221,7 @@
 			,mnmaAddress1
 			,mnmaAddress2
 			,mnmaZipcode
+			,mnmaTypeCd
 			,mnmaDefaultNy
 			,mnmaDelNy
 			,regDateTime
@@ -179,11 +231,34 @@
 			,#{mnmaAddress1}
 			,#{mnmaAddress2}
 			,#{mnmaZipcode}
+			,12
 			,1
 			,0
 			,#{regDateTime}
 			,#{modDateTime}
 		)
 	</insert>
+	
+	<!-- 프로필 관련 시작 -->
+	<insert id="insertUserMemberAddressProfile">
+		INSERT INTO matnamMemberAddress(
+			mnMmSeq
+			,mnmaAddress1
+			,mnmaTypeCd
+			,mnmaDefaultNy
+			,mnmaDelNy
+			,regDateTime
+			,modDateTime
+		) VALUES (
+			#{mnMmSeq}
+			,#{mnmaAddress1}
+			,13
+			,1
+			,0
+			,#{regDateTime}
+			,#{modDateTime}
+		)
+	</insert>
+	<!-- 프로필 관련 끝 -->
 	<!-- 회원 가입 끝 -->
 </mapper>

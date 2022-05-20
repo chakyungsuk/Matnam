@@ -115,7 +115,7 @@
 		                <h2 class="inner" style="text-align: center;">회원가입</h2>
 		                <div class="form-group">
 		                    <label>아이디</label>
-		                    <input type="text" class="form-control" id="mnMmId" name="mnMmId" placeholder="" required>
+		                    <input type="text" class="form-control" id="mnMmId" name="mnMmId" placeholder="">
 		                </div>
 		                <div class="form-group">
 		                    <label>비밀번호</label>
@@ -254,7 +254,9 @@
 <script src="/resources/user/js/ion.rangeSlider.js"></script>
 
 <!-- BootstrapValidator JS -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script> -->
 
 <script> 
     $(function () {
@@ -344,7 +346,7 @@
 	    })
 	})() */
 	
-	$(document).ready(function() {
+	/* $(document).ready(function() {
     	$('#profileForm').bootstrapValidator({
 	    	feedbackIcons: {
 	            valid: 'glyphicon glyphicon-ok',
@@ -392,8 +394,104 @@
 	            }
 	        }
 	    });
-	});
+	}); */
 	
+	$( document ).ready( function () {
+		$( "#profileForm" ).validate( {
+			rules: {
+				mnMmId: {
+					required: true,
+					rangelength: [2,10],
+					/* pattern:"/^[A-Za-z0-9,_-]{2,20}$/" */
+					remote: {
+						url: "/IdCheckService",
+						type: "post"
+						/* data: {mnMmId: mnMmId},
+						success : function(response){
+							if(response.rt == "success"){
+								$('#checkId').html('사용 가능한 아이디입니다.');
+								$('#checkId').attr('color','green');
+							} else{
+								$('#checkId').html('불가능한 아이디입니다.');
+								$('#checkId').attr('color','red');
+							}
+						},
+						error : function(){
+							alert("서버요청실패");
+						} */
+					}
+				},
+				mnMmPassword: {
+					required: true,
+					minlength: 5
+				},
+				mnMmPasswordAgain: { 
+					required: true,
+					equalTo: "#mnMmPassword"
+				},
+				mnMmName: "required",
+				mnmpNumber: {
+					required: true,
+					digits: true
+				}
+			},
+			messages: {
+				mnMmId: {
+					required: "아이디를 입력하세요.",
+					rangelength: "2글자 이상 10글자 이하로 입력하세요",
+					/* pattern: "유효하지 않은 아이디입니다" */
+					remote:"중복된 아이디입니다"
+				},
+				mnMmPassword: {
+					required: "비밀번호를 입력하세요",
+					minlength: "5글자 이상 입력하세요"
+				},
+				mnMmPasswordAgain: {
+					required: "비밀번호를 다시 입력하세요",
+					equalTo: "비밀번호가 같지 않습니다."
+				},
+				mnmpNumber: {
+					required: "번호를 입력하세요",
+					digits: "숫자만 입력하세요"
+				},
+				mnMmName: "이름을 입력하세요"
+			},
+			errorElement: "em",
+			errorPlacement: function ( error, element ) {
+				// Add the `help-block` class to the error element
+				error.addClass( "help-block" );
+
+				// Add `has-feedback` class to the parent div.form-group
+				// in order to add icons to inputs
+				element.parents( ".col-md-4" ).addClass( "has-feedback" );
+
+				if ( element.prop( "type" ) === "checkbox" ) {
+					error.insertAfter( element.parent( "label" ) );
+				} else {
+					error.insertAfter( element );
+				}
+
+				// Add the span element, if doesn't exists, and apply the icon classes to it.
+				if ( !element.next( "span" )[ 0 ] ) {
+					$( "<span class='glyphicon glyphicon-remove form-control-feedback'></span>" ).insertAfter( element );
+				}
+			},
+			success: function ( label, element ) {
+				// Add the span element, if doesn't exists, and apply the icon classes to it.
+				if ( !$( element ).next( "span" )[ 0 ] ) {
+					$( "<span class='glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
+				}
+			},
+			highlight: function ( element, errorClass, validClass ) {
+				$( element ).parents( ".col-md-4" ).addClass( "has-error" ).removeClass( "has-success" );
+				$( element ).next( "span" ).addClass( "glyphicon-remove" ).removeClass( "glyphicon-ok" );
+			},
+			unhighlight: function ( element, errorClass, validClass ) {
+				$( element ).parents( ".col-md-4" ).addClass( "has-success" ).removeClass( "has-error" );
+				$( element ).next( "span" ).addClass( "glyphicon-ok" ).removeClass( "glyphicon-remove" );
+			}
+		} );
+	} );
 	
 </script>
 </body>
