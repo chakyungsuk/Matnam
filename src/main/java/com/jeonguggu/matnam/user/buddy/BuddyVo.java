@@ -4,6 +4,7 @@ public class BuddyVo {
 	 
 //	사용자 조회
 	private String mnMmSeq = "";
+	private String mnMmName = "";
 	private String mnmaAddress1 = "";
 	
 //	----------------------------
@@ -23,4 +24,12 @@ public class BuddyVo {
 		this.mnmaAddress1 = mnmaAddress1;
 	}
 
+	public String getMnMmName() {
+		return mnMmName;
+	}
+
+	public void setMnMmName(String mnMmName) {
+		this.mnMmName = mnMmName;
+	}
+	
 }

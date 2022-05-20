@@ -24,6 +24,17 @@
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
     
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.min.css"/> -->
+
+    <!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
+
+    <!-- BootstrapValidator CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+
+    
+    
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
@@ -43,7 +54,6 @@
     <link href="/resources/user/css/ion.rangeSlider.css" rel="stylesheet">
     <link href="/resources/user/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" >
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
 
     <!-- YOUR CUSTOM CSS -->
     <link href="/resources/user/css/custom.css" rel="stylesheet">
@@ -54,6 +64,13 @@
 			text-decoration: none;
 		}
 	</style>
+	
+	<!-- jQuery and Bootstrap JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- BootstrapValidator JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
 </head>
 
 <body>
@@ -116,10 +133,10 @@
 	                        <label>생년월일</label>
 		                		<div class="row">
 		                    	<div class="col-md-4 col-sm-4">
-		                            <input type="text" id="mnMmDob_Year" name="mnMmDob_Year" class="form-control" placeholder="년(4자)" required>
+		                            <input type="text" id="mnMmDob_Year" name="mnMmDob_Year" class="form-control" placeholder="년(4자)">
 		                        </div>
 		                    	<div class="col-md-4 col-sm-4">
-		                            <select class="form-select" name="mnMmDob_Month_Cd" id="mnMmDob_Month_Cd" required>
+		                            <select class="form-select" name="mnMmDob_Month_Cd" id="mnMmDob_Month_Cd">
 		                                <option value="" selected>월</option>
 		                                <option value="1">1</option>
 		                                <option value="2">2</option>
@@ -136,13 +153,13 @@
 		                            </select>
 		                        </div>
 			                    <div class="col-md-4 col-sm-4">
-			                            <input type="text" id="mnMmDob_Day" name="mnMmDob_Day" class="form-control" placeholder="일" required>
+			                            <input type="text" id="mnMmDob_Day" name="mnMmDob_Day" class="form-control" placeholder="일">
 			                    </div>
 		                    </div>
 		                </div>
 		                <div class="form-group">
 		                    <label>성별</label>
-		                    <select class="form-select" name="mnMmGenderCd" id="mnMmGenderCd" required>
+		                    <select class="form-select" name="mnMmGenderCd" id="mnMmGenderCd">
 	                            <option value="" selected>성별</option>
 	                            <option value="1">남성</option>
 	                            <option value="2">여성</option>
@@ -190,7 +207,7 @@
 							</div>
 						    <input type="text" class="form-control mb-2" id="mnmaAddress1" name="mnmaAddress1" readonly>
 						    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
-						    <input type="text" class="form-control mb-2" id="mnmaAddress2" name="mnmaAddress2" placeholder="상세주소" required>
+						    <input type="text" class="form-control mb-2" id="mnmaAddress2" name="mnmaAddress2" placeholder="상세주소">
 					  	</div>
 		                <div style="text-align: center; padding:10px; "> 
 		                	<button type="submit" class="btn_1" style="width:200px;">가입하기</button>
@@ -220,7 +237,6 @@
 		</form>
 	</div>
 	<!-- End Search Menu -->
-    
 <!-- COMMON SCRIPTS -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -236,7 +252,9 @@
 <script src="/resources/user/js/map.js"></script>
 <script src="/resources/user/js/infobox.js"></script>
 <script src="/resources/user/js/ion.rangeSlider.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+
+<!-- BootstrapValidator JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
 
 <script> 
     $(function () {
@@ -328,39 +346,47 @@
 	
 	$(document).ready(function() {
     	$('#profileForm').bootstrapValidator({
-    		message: 'This value is not valid',
 	    	feedbackIcons: {
 	            valid: 'glyphicon glyphicon-ok',
 	            invalid: 'glyphicon glyphicon-remove',
 	            validating: 'glyphicon glyphicon-refresh'
 	        },
 	        fields: {
-	            firstName: {
-	                container: '#firstNameMessage',
+	        	mnMmId: {
 	                validators: {
 	                    notEmpty: {
-	                        message: 'The first name is required and cannot be empty'
+	                        message: '아이디를 입력하세요'
 	                    }
 	                }
 	            },
-	            lastName: {
-	                container: '.lastNameMessage',
+	            mnMmPassword: {
 	                validators: {
 	                    notEmpty: {
-	                        message: 'The last name is required and cannot be empty'
+	                        message: '비밀번호를 입력하세요.'
+	                    }
+	                }
+	            },
+	            mnMmPasswordAgain: {
+	                validators: {
+	                    notEmpty: {
+	                        message: '비밀번호를 한번 더 입력하세요.'
+	                    }
+	                }
+	            },
+	            mnMmName: {
+	                validators: {
+	                    notEmpty: {
+	                        message: '이름을 입력하세요.'
 	                    }
 	                }
 	            },
 	            mnmpNumber: {
-	                message: 'The username is not valid',
 	                validators: {
 	                    notEmpty: {
-	                        message: 'The username is required and cannot be empty'
+	                        message: '번호를 입력하세요.'
 	                    },
 	                    stringLength: {
-	                        min: 6,
-	                        max: 30,
-	                        message: 'The username must be more than 6 and less than 30 characters long'
+	                        min: 11
 	                    }
 	                }
 	            }

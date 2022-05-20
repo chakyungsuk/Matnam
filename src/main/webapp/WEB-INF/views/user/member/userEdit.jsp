@@ -85,105 +85,104 @@
 
 <!-- Content ================================================== -->
 
-	<form id="formList" name="formList" method="post" action="/user/profileView">
-		<input type="hidden" id="mnMmSeq" name="mnMmSeq">
-	</form>
-
-	<div class="container margin_60_35">
-	    <div class="row">
-	        <div class="col-lg-3">
-	        </div><!-- End col -->
-	        <div class="col-lg-6">
-	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">개인정보 변경</h2>
-	                <div class="form-group">
-	                    <label>아이디</label>
-	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" value="${rt.mnMmId}" disabled>
-	                </div>
-	                <div class="form-group">
-	                    <label>비밀번호</label>
-	                    <input type="password" class="form-control" id="lastname_order" name="lastname_order" placeholder="">
-	                </div>
-	                <div class="form-group">
-	                    <label>비밀번호 재확인</label>
-	                    <input type="password" id="tel_order" name="tel_order" class="form-control" placeholder="">
-	                </div>
-	                <div class="form-group">
-	                    <label>이름</label>
-	                    <input type="text" id="email_booking_2" name="email_order" class="form-control" value="${rt.mnMmName}" disabled>
-	                </div>
-                    <div class="form-group">
-                        <label>생년월일</label>
-	                		<div class="row">
-	                    	<div class="col-md-4 col-sm-4">
-	                            <input type="text" id="city_order" name="city_order" class="form-control" value="${rt.mnMmDob_Year}" placeholder="년(4자)">
-	                        </div>
-	                    	<div class="col-md-4 col-sm-4">
-	                            <select class="form-select" name="delivery_schedule_day" id="delivery_schedule_day">
-	                                <option value="" selected>월</option>
-	                                <option value="1">1</option>
-	                                <option value="2">2</option>
-	                                <option value="3">3</option>
-	                                <option value="4">4</option>
-	                                <option value="5">5</option>
-	                                <option value="6">6</option>
-	                                <option value="7">7</option>
-	                                <option value="8">8</option>
-	                                <option value="9">9</option>
-	                                <option value="10">10</option>
-	                                <option value="11">11</option>
-	                                <option value="12">12</option>
-	                            </select>
-	                        </div>
-		                    <div class="col-md-4 col-sm-4">
-		                            <input type="text" id="pcode_oder" name="pcode_oder" class="form-control" placeholder="일">
+	
+		<div class="container margin_60_35">
+		    <div class="row">
+		        <div class="col-lg-3">
+		        </div><!-- End col -->
+		        <div class="col-lg-6">
+		        	<form id="formUnderList" name="formUnderList" method="post" action="">
+					<input type="hidden" id="mnMmSeqUnder" name="mnMmSeq">
+		            <div class="box_style_2" id="order_process">
+		                <h2 class="inner" style="text-align: center;">개인정보 변경</h2>
+		                <div class="form-group">
+		                    <label>아이디</label>
+		                    <input type="text" id="mnMmId" name="mnMmId" class="form-control" value="${rt.mnMmId}" disabled>
+		                </div>
+		                <div class="form-group">
+		                    <label>비밀번호</label>
+		                    <input type="password" class="form-control" id="mnMmPassword" name="mnMmPassword" placeholder="">
+		                </div>
+		                <div class="form-group">
+		                    <label>비밀번호 재확인</label>
+		                    <input type="password" id="mnMmPasswordAgain" name="mnMmPasswordAgain" class="form-control" placeholder="">
+		                </div>
+		                <div class="form-group">
+		                    <label>이름</label>
+		                    <input type="text" id="mnMmName" name="mnMmName" class="form-control" value="${rt.mnMmName}" disabled>
+		                </div>
+	                    <div class="form-group">
+	                        <label>생년월일</label>
+		                		<div class="row">
+		                    	<div class="col-md-4 col-sm-4">
+		                            <input type="text" id="mnMmDob_Year" name="mnMmDob_Year" class="form-control" value="${rt.mnMmDob_Year}" placeholder="년(4자)">
+		                        </div>
+		                    	<div class="col-md-4 col-sm-4">
+		                            <select class="form-select" name="mnMmDob_Month_Cd" id="mnMmDob_Month_Cd">
+		                                <option value="" selected>월</option>
+		                                <option value="1" <c:if test="${rt.mnMmDob_Month_Cd eq 1}">selected</c:if>>1</option>
+		                                <option value="2" <c:if test="${rt.mnMmDob_Month_Cd eq 2}">selected</c:if>>2</option>
+		                                <option value="3" <c:if test="${rt.mnMmDob_Month_Cd eq 3}">selected</c:if>>3</option>
+		                                <option value="4" <c:if test="${rt.mnMmDob_Month_Cd eq 4}">selected</c:if>>4</option>
+		                                <option value="5" <c:if test="${rt.mnMmDob_Month_Cd eq 5}">selected</c:if>>5</option>
+		                                <option value="6" <c:if test="${rt.mnMmDob_Month_Cd eq 6}">selected</c:if>>6</option>
+		                                <option value="7" <c:if test="${rt.mnMmDob_Month_Cd eq 7}">selected</c:if>>7</option>
+		                                <option value="8" <c:if test="${rt.mnMmDob_Month_Cd eq 8}">selected</c:if>>8</option>
+		                                <option value="9" <c:if test="${rt.mnMmDob_Month_Cd eq 9}">selected</c:if>>9</option>
+		                                <option value="10" <c:if test="${rt.mnMmDob_Month_Cd eq 10}">selected</c:if>>10</option>
+		                                <option value="11" <c:if test="${rt.mnMmDob_Month_Cd eq 11}">selected</c:if>>11</option>
+		                                <option value="12" <c:if test="${rt.mnMmDob_Month_Cd eq 12}">selected</c:if>>12</option>
+		                            </select>
+		                        </div>
+			                    <div class="col-md-4 col-sm-4">
+			                            <input type="text" id="mnMmDob_Day" name="mnMmDob_Day" class="form-control" value="${rt.mnMmDob_Day}" placeholder="일">
+			                    </div>
 		                    </div>
-	                    </div>
-	                </div>
-	                <div class="form-group">
-	                    <label>성별</label>
-	                    <select class="form-select" name="delivery_schedule_day" id="delivery_schedule_day">
-                            <option value="" selected>성별</option>
-                            <option value="1">남성</option>
-                            <option value="2">여성</option>
-                            <option value="3">기타</option>
-                        </select>
-	                </div>
-	                <div class="form-group">
-                        <label>휴대전화</label>
-                		<div class="row">
-	                    	<div class="col-md-8 col-sm-8">
-	                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="전화번호 입력">
-	                        </div>
-	                    	<div class="col-md-4 col-sm-4">
-	                            <button class="btn_full">인증번호 받기</button>
-	                        </div>
-	                    	<div class="col-12">
-	                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="">
-	                        </div>
-                    	</div>
-               		</div>
-               		<div class="form-group">
-					  	<label>주소</label>
-					  	<div class="input-group mb-2">
-							<input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode" readonly>
-							<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
-							<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
-						</div>
-					    <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1" readonly>
-					    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
-					    <input type="text" class="form-control mb-2" id="ifmaAddress2" name="ifmaAddress2" placeholder="상세주소" required>
-					    <input type="text" class="form-control" id="ifmaAddress3" name="ifmaAddress3" placeholder="참고항목">
-				  	</div>
-	                <div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" onclick = "location.href = '/user/profileView' " style="width:200px;">수정하기</button>
-	                	<!-- <a class="btn_1" href="profileView" style="width:200px;">수정하기</a> -->
-	                </div>
-	            </div><!-- End box_style_1 -->
-	            <button type="button" class="btn btn-outline-secondary" onclick = "javascript:goForm(${sessSeq})">돌아가기</button>
-	        </div><!-- End col -->
-	    </div><!-- End row -->
-	</div><!-- End container -->
+		                </div>
+		                <div class="form-group">
+		                    <label>성별</label>
+		                    <select class="form-select" name="mnMmGenderCd" id="mnMmGenderCd" readonly>
+	                            <option value="" selected>성별</option>
+	                            <option value="1" <c:if test="${rt.mnMmGenderCd eq 1}">selected</c:if>>남성</option>
+	                            <option value="2" <c:if test="${rt.mnMmGenderCd eq 2}">selected</c:if>>여성</option>
+	                            <option value="3" <c:if test="${rt.mnMmGenderCd eq 3}">selected</c:if>>기타</option>
+	                        </select>
+		                </div>
+		                <div class="form-group">
+	                        <label>휴대전화</label>
+	                		<div class="row">
+		                    	<div class="col-md-8 col-sm-8">
+		                            <input type="text" id="mnmpNumber" name="mnmpNumber" class="form-control" value="${rt.mnmpNumber }" placeholder="전화번호 입력">
+		                        </div>
+		                    	<div class="col-md-4 col-sm-4">
+		                            <button class="btn_full">인증번호 받기</button>
+		                        </div>
+		                    	<div class="col-12">
+		                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="">
+		                        </div>
+	                    	</div>
+	               		</div>
+	               		<div class="form-group">
+						  	<label>주소</label>
+						  	<div class="input-group mb-2">
+								<input type="text" class="form-control" id="mnmaZipcode" name="mnmaZipcode" value="${rt.mnmaZipcode }" readonly>
+								<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
+								<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
+							</div>
+						    <input type="text" class="form-control mb-2" id="mnmaAddress1" name="mnmaAddress1" value="${rt.mnmaAddress1 }" readonly>
+						    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
+						    <input type="text" class="form-control mb-2" id="mnmaAddress2" name="mnmaAddress2" value="${rt.mnmaAddress2 }" placeholder="상세주소" required>
+					  	</div>
+		                <div style="text-align: center; padding:10px; "> 
+		                	<button type="button" class="btn_1" onclick = "javascript:goUpdt(${sessSeq})" style="width:200px;">수정하기</button>
+		                	<!-- <a class="btn_1" href="profileView" style="width:200px;">수정하기</a> -->
+		                </div>
+		            </div><!-- End box_style_1 -->
+		            <button type="button" class="btn btn-outline-secondary" onclick = "javascript:goForm(${sessSeq})">돌아가기</button>
+					</form>
+		        </div><!-- End col -->
+		    </div><!-- End row -->
+		</div><!-- End container -->
 
 <!-- End Content =============================================== -->
 
@@ -237,6 +236,62 @@
 		$("#formList").attr("action","/user/profileView");
 		$("#formList").submit();
 	} 
+    
+    goUpdt = function(seq){
+		$("#mnMmSeqUnder").val(seq);
+		$("#formUnderList").attr("action","/user/userUpdt");
+		$("#formUnderList").submit();
+	} 
+    
+    <!-- 지도 -->
+    function execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    //document.getElementById("ifmaAddress3").value = extraAddr;
+                
+                } else {
+                   // document.getElementById("ifmaAddress3").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('mnmaZipcode').value = data.zonecode;
+                document.getElementById("mnmaAddress1").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("mnmaAddress2").focus();
+            }
+        }).open();
+    }
+	<!-- 지도 -->
 </script>
 </body>
 </html>

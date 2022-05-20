@@ -110,11 +110,6 @@
 	</div><!-- End Map -->
 
 <!-- Content ================================================== -->
-
-	<form id="formList" name="formList" method="post" action="/user/profileView">
-		<input type="hidden" id="mnMmSeq" name="mnMmSeq">
-	</form>
-
 	<div class="container margin_60_35">
 	    <div class="row">
 	        <div class="col-lg-3">
@@ -260,8 +255,8 @@
     
     goForm = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/friendSelect");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/friendSelect");
+		$("#formTopList").submit();
 	} 
 </script>
 </body>

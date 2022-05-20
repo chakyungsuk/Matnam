@@ -20,6 +20,7 @@ public class Buddy {
 	 
 	//친구 목록
 	private String mnfdFriendSeq = "";
+	private String mnfdSeq = "";
 	
 //	친구요청
 	private String mnfdMessage = "";
@@ -117,6 +118,12 @@ public class Buddy {
 	}
 	public void setMnMmEmail(String mnMmEmail) {
 		this.mnMmEmail = mnMmEmail;
+	}
+	public String getMnfdSeq() {
+		return mnfdSeq;
+	}
+	public void setMnfdSeq(String mnfdSeq) {
+		this.mnfdSeq = mnfdSeq;
 	}
 	
 }

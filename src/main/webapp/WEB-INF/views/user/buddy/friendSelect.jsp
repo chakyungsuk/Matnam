@@ -107,10 +107,6 @@
 
 <!-- Content ================================================== -->
 
-	<form id="formList" name="formList" method="post" action="/user/profileView">
-		<input type="hidden" id="mnMmSeq" name="mnMmSeq">
-	</form>
-
 	<div class="container margin_60_35">
 	    <div class="row">
 	        <div class="col-lg-3">
@@ -316,20 +312,20 @@
     
     goForm = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/profileView");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/profileView");
+		$("#formTopList").submit();
 	} 
     
     goBlockFriendSelect = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/blockFriendSelect");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/blockFriendSelect");
+		$("#formTopList").submit();
 	} 
     
     goUserFriendRequest = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/userFriendRequest");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/userFriendRequest");
+		$("#formTopList").submit();
 	} 
 </script>
 </body>

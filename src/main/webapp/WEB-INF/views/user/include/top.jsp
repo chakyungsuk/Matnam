@@ -78,12 +78,6 @@
              	<li><a href="/user/storeView">지도검색</a></li>
              	<li><a href="javascript:goAreaSelect(${sessSeq})">친구매칭</a></li>
                 <li class="submenu">
-                <a href="javascript:void(0);" class="show-submenu">Pages<i class="icon-down-open-mini"></i></a>
-                <ul>
-                    <li><a href="/user/userForm">User Register</a></li>
-                </ul> 
-                </li>
-                <li class="submenu">
                 <a href="javascript:void(0);" class="show-submenu">고객센터<i class="icon-down-open-mini"></i></a>
                 <ul>
                     <li><a href="/user/userServiceList">문의하기</a></li>
@@ -97,7 +91,7 @@
 	        			</c:if>
 	        			<%-- <li><a href="javascript:goForm(${sessSeq})"><c:out value="${sessName}"></c:out> 님</a></li> --%>
 	        			<li class="submenu">
-			                <a href="javascript:goForm(${sessSeq})" class="show-submenu"><c:out value="${sessName}"></c:out> 님<i class="icon-down-open-mini"></i></a>
+			                <a href="javascript:goProfileView(${sessSeq})" class="show-submenu"><c:out value="${sessName}"></c:out> 님<i class="icon-down-open-mini"></i></a>
 			                <ul>
 			                    <li><a href="javascript:goFriendSelect(${sessSeq})">친구목록</a></li>
 <!-- 			                    <li><a href="/user/friendSelect">친구목록</a></li> -->
@@ -107,6 +101,7 @@
 						<li><a href="#" id="btnLogout" onclick="btnLogout();">Logout</a></li>
 	        		</c:when>
 	        		<c:otherwise>
+	        			<li><a href="/user/userForm">User Register</a></li>
 						<li><a href="/user/loginForm">Login</a></li>
 	        		</c:otherwise>
 	       		</c:choose>
@@ -116,8 +111,9 @@
     </div><!-- End row -->
 </div><!-- End container -->
 
-<form id="formList" name="formList" method="post" action="/user/profileView">
+<form id="formTopList" name="formTopList" method="post" action="/user/profileView">
 	<input type="hidden" id="mnMmSeq" name="mnMmSeq">
+	<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
 </form>
 
 </header>
@@ -155,22 +151,22 @@
 		});
 	});
     
-	goForm = function(seq){
+	goProfileView = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/profileView");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/profileView");
+		$("#formTopList").submit();
 	} 
 	
 	goFriendSelect = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/friendSelect");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/friendSelect");
+		$("#formTopList").submit();
 	} 
 	
 	goAreaSelect = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/areaSelect");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/areaSelect");
+		$("#formTopList").submit();
 	} 
 </script>
 
