@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   <!--  -- c:out -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  <!-- -- 날짜나 시간 -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -49,6 +54,10 @@
 </head>
 
 <body>
+
+<form id="formUpdt" name="formUpdt" method="get" action="/xmin/memberUpdt">
+<input type="hidden" name="mnMmSeq" id="mnMmSeq" value="<c:out value="${vo.mnMmSeq}"/>">
+
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -231,7 +240,16 @@
 							<div class="card mb-3" style="height:740px;">
 								<div class="card-body text-center">
 									<img src="/resources/admin/img/avatars/avatar-4.jpg" alt="" class="img-fluid rounded-circle mb-2" width="128" height="128" />
-									<h5 class="card-title mb-0" style="margin-top: 10px;">관리자</h5>
+									<h5 class="card-title mb-0" style="margin-top: 10px;">
+										<c:choose>
+											<c:when test="${item.mnMmAdminNy eq 0}">
+												사용자
+											</c:when>
+											<c:when test="${item.mnMmAdminNy eq 1}">
+												관리자
+											</c:when>
+										</c:choose>
+									</h5>
 								</div>
 								<hr class="my-0" />
 								<div class="card-body">
@@ -277,11 +295,11 @@
 									<div class="d-flex align-items-start">
 										<div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">아이디</label>
-											<input type="text" class="form-control" id="id" value="hyunjune94" style="width:80%">
+											<input type="text" class="form-control" id="mnMmId" name="mnMmId" value="<c:out value="${item.mnMmId}"/>" style="width:80%">
 									    </div>
 									    <div class="col-12 col-md-6">
 									    	<label for="formGroupExampleInput" class="form-label">이름</label>
-									    	<input type="text" class="form-control" id="name" value="강현준" style="width:80%">
+									    	<input type="text" class="form-control" id="mnMmName" name="mnMmName" value="<c:out value="${item.mnMmName}"/>" style="width:80%">
 									    </div>
 									</div>
 									<hr />
@@ -289,10 +307,24 @@
 									<div class="d-flex align-items-start">
 										<div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">비밀번호</label>
-						  					<input type="text" class="form-control" id="password" value="***********" style="width:80%">
+						  					<input type="text" class="form-control" id="password" value="<c:out value="${item.mnMmPassword }"/>" style="width:80%">
 									    </div>
 									    <div class="col-12 col-md-6">
-						
+											<label for="formGroupExampleInput" class="form-label">회원등급</label><br>
+											<div class="form-check"  style="margin-top: 8px;">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="mnMmRankCd" id="Rank0" value="0"> 
+													<label class="form-check-label" for="Rank0">골드</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="mnMmRankCd" id="Rank1" value="1">
+													<label class="form-check-label" for="Rank1">실버</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="mnMmRankCd" id="Rank2" value="2">
+													<label class="form-check-label" for="Rank2">브론즈</label>
+												</div>
+											</div>
 									    </div>
 									</div>
 									<hr />
@@ -301,46 +333,36 @@
 										<div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">모바일</label>
 						  					<div class="input-group">
-												<input type="text" class="form-control" aria-label="mn1" value="010">
-												<span class="input-group-text">-</span> 
-												<input type="text" class="form-control" aria-label="mn2" value="7335">
-												<span class="input-group-text">-</span> 
-												<input type="text" class="form-control" aria-label="mn3" value="2901">
+												<input type="text" class="form-control" aria-label="mn1" value="<c:out value="${item.mobile }"/>">
 											</div>
 									    </div>
-									    <div class="col-12 col-md-6">
-											<label for="formGroupExampleInput" class="form-label">전화번호</label>
-						  					<div class="input-group	">
-												<select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-													<option selected>지역</option>
-													<option value="1">02)</option>
-													<option value="2" selected>031)</option>
-													<option value="3">033)</option>
-													<option value="4">051)</option>
-													<option value="5">064)</option>
-												</select> 
-												<input type="text" class="form-control" aria-label="mn1" value="922">
-												<span class="input-group-text">-</span> 
-												<input type="text" class="form-control" aria-label="mn2" value="9001">
-											</div>
-									    </div>
+								       <div class="col-12 col-md-6">
+											<label for="formGroupExampleInput" class="form-label">이메일</label>
+					  						<input type="text" class="form-control" id="name" value="<c:out value="${item.mnMmEmail }"/>" style="width:80%">
+								   		 </div>
 									</div>
 									<hr />
 									
 									<div class="d-flex align-items-start">
 										<div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">생일</label>
-						  					<input type="date" class="form-control" id="name" value="1994-07-28" style="width:80%">
+											<input type="text" class="form-control" id="name" value="<c:out value="${item.mnMmDob_Year }"/><c:out value="${item.mnMmDob_Month_Cd }"/><c:out value="${item.mnMmDob_Day }"/>" style="width:80%">
 									    </div>
 									    <div class="col-12 col-md-6">
 											<label for="formGroupExampleInput" class="form-label">성별</label>
-						  					<div class="form-check">
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="gender" id="gender" value="M" checked> <label class="form-check-label" for="inlineRadio1">남</label>
-											</div>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="gender" id="gender" value="W"> <label class="form-check-label" for="inlineRadio2">녀</label>
-											</div>
+											<div class="form-check" style="margin-top: 8px; margin-left: 12px;">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="mnMmGenderCd" id="gender0" value="0"	>
+													<label class="form-check-label" for="gender0">남</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="mnMmGenderCd" id="gender1" value="1"> 
+													<label class="form-check-label" for="gender1">여</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio" name="mnMmGenderCd" id="gender2" value="2">
+													<label class="form-check-label" for="gender2">기타</label>
+												</div>
 											</div>
 									    </div>
 									</div>
@@ -349,24 +371,26 @@
 									<div class="d-flex align-items-start">
 										<div class="col-12 col-md-12">
 											<label for="formGroupExampleInput" class="form-label">우편번호</label>
-						  					<input type="text" class="form-control" id="zipCode" value="444-111" style="width:40%">
+						  					<input type="text" class="form-control" id="mnmaZipcode" name="mnmaZipcode" readonly>
+						  					<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
 									    </div>
 									</div>
 									<br>
 									<div class="d-flex align-items-start">
 										<div class="col-6 col-md-6">
-											<label for="formGroupExampleInput" class="form-label">주소1</label>
-											<input type="text" class="form-control" id="address1" value="경기도 고양시 일산서구 주엽2동" style="width:80%">
+											<label for="formGroupExampleInput" class="form-label">주소</label>
+											<input type="text" class="form-control mb-2" id="mnmaAddress1" name="mnmaAddress1" value="<c:out value="${item.mnmaAddress1 }"/>" readonly>
+											
 									    </div>
 										<div class="col-6 col-md-6">
-											<label for="formGroupExampleInput" class="form-label">주소2</label>
-											<input type="text" class="form-control" id="address2" value="202222동 111111111호" style="width:80%">
+											<label for="formGroupExampleInput" class="form-label">상세주소</label>
+											<input type="text" class="form-control mb-2" id="mnmaAddress2" name="mnmaAddress2" value="<c:out value="${item.mnmaAddress2 }"/>" required>
 									    </div>
 									</div>
 									<hr />
 																		
 									<div class="btn_area">
-										<button type="button" class="btn btn-outline-primary"	onclick="location.href='/xmin/memberView';">수정</button>
+										<button type="submit" id="" name="" class="btn btn-outline-primary">수정</button>
 										<button type="button" class="btn btn-outline-secondary"	onclick="location.href='/xmin/memberView';">취소</button>
 									</div>
 								</div>
@@ -375,12 +399,20 @@
 					</div>
 				</div>
 			</main>
-			<%@ include file="/WEB-INF/views/xmin/include/footer.jsp"%>
 		</div>
 	</div>
+</form>
+			<%@ include file="/WEB-INF/views/xmin/include/footer.jsp"%>
 
-	<script src="/resources/admin/js/app.js"></script>
-	<script src="/resources/admin/js/app2.js"></script>
+<script src="/resources/admin/js/app.js"></script>
+<script src="/resources/admin/js/app2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+
+
+</script>
 
 </body>
 

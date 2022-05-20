@@ -29,6 +29,8 @@ public class MemberDao {
 	
 	public Member selectOne(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOne", vo);}	
 	public int update(Member dto) { return sqlSession.update(namespace + ".update", dto);}	
+	public int updateMobile(Member dto) { return sqlSession.update(namespace + ".updateMobile", dto);}	
+	public int updateAddress(Member dto) { return sqlSession.update(namespace + ".updateAddress", dto);}	
 	public int delete(MemberVo vo) { return sqlSession.delete(namespace + ".delete", vo);}	
 	
 }

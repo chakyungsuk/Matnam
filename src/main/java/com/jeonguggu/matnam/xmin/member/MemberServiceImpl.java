@@ -10,8 +10,8 @@ import com.jeonguggu.matnam.common.util.UtilDateTime;
 import com.jeonguggu.matnam.common.util.UtilUpload;
 
 @Service
-public class MemberServiceImpl implements MemberService{
-	
+public class MemberServiceImpl implements MemberService {
+
 	@Autowired
 	MemberDao dao;
 
@@ -22,41 +22,37 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<Member> selectList(MemberVo vo) throws Exception {
-		return dao.selectList(vo); 
+		return dao.selectList(vo);
 	}
 
 	@Override
 	public List<Member> selectListMemberUploaded(MemberVo vo) throws Exception {
 		return dao.selectListMemberUploaded(vo);
 	}
-	
+
 	@Override
 	public int insert(Member dto) throws Exception {
-		
-		dto.setRegDateTime(UtilDateTime.nowDate());		// 날짜
-		
+
+		dto.setRegDateTime(UtilDateTime.nowDate()); // 날짜
+
 		dao.insert(dto);
+
+		 dao.insertMemberAddress(dto); 
 		
-		for(MultipartFile multipartFile : dto.getFile0() ) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.upload(multipartFile, pathModule, dto );
-				
-			dto.setTableName("matnamUploaded");
-			dto.setType(0);
-			dto.setDefaultNy(0);
-			dto.setSort(0);
-			dto.setPseq(dto.getMnMmSeq());
-			
-			/*
-			 * dto.setTableName("fdmemberuploaded"); dto.setType(0); dto.setDefaultNy(0);
-			 * dto.setSort(j); dto.setPseq(dto.getIfmmSeq());
-			 */			  
-			  dao.insertUploaded(dto);
-		}
+		 dao.insertMemberPhone(dto); 
+		
+		/*
+		 * for(MultipartFile multipartFile : dto.getFile0() ) { String pathModule =
+		 * this.getClass().getSimpleName().toString().toLowerCase().replace(
+		 * "serviceimpl", ""); UtilUpload.upload(multipartFile, pathModule, dto );
+		 * 
+		 * dto.setTableName("matnamUploaded"); dto.setType(0); dto.setDefaultNy(0);
+		 * dto.setSort(0); dto.setPseq(dto.getMnMmSeq());
+		 * 
+		 * dao.insertUploaded(dto); }
+		 */
 		 
-		dao.insertMemberAddress(dto);
-		dao.insertMemberPhone(dto);
-		
+
 		return 1;
 	}
 
@@ -74,7 +70,7 @@ public class MemberServiceImpl implements MemberService{
 	public int insertUploaded(Member dto) throws Exception {
 		return dao.insertUploaded(dto);
 	}
-	
+
 	@Override
 	public Member selectOne(MemberVo vo) throws Exception {
 		return dao.selectOne(vo);
@@ -82,13 +78,27 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int update(Member dto) throws Exception {
-		return dao.update(dto); 
+		
+		dao.update(dto);
+		dao.updateAddress(dto);
+		dao.updateMobile(dto);
+		
+		return 1;
 	}
 
 	@Override
 	public int delete(MemberVo vo) throws Exception {
-		return dao.delete(vo); 
+		return dao.delete(vo);
+	}
+
+	@Override
+	public int updateMobile(Member dto) throws Exception {
+		return dao.updateMobile(dto);
+	}
+
+	@Override
+	public int updateAddress(Member dto) throws Exception {
+		return dao.updateAddress(dto);
 	}
 
 }
-	

@@ -15,12 +15,14 @@ public class Member {
 	private String mnMmId;
 	private String mnMmName;
 	private String mnMmPassword;
+	private String mnMmEmail;
 	private Integer mnMmRankCd;
 	private Integer mnMmGenderCd;
 	
 	// matnamMemberPhone
 	private Integer mnmpDefaultNy;
 	private String mnmpNumber;
+	private String mobile;
 	private Integer mnmpDelNy;
 	
 	// matnamMemberAddress
@@ -314,6 +316,22 @@ public class Member {
 
 	public void setFile0(MultipartFile[] file0) {
 		this.file0 = file0;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getMnMmEmail() {
+		return mnMmEmail;
+	}
+
+	public void setMnMmEmail(String mnMmEmail) {
+		this.mnMmEmail = mnMmEmail;
 	}
 	
 }

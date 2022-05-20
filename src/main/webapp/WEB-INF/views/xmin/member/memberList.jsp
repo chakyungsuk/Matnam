@@ -304,7 +304,7 @@
 													</c:when>
 												</c:choose>
 											</td>
-											<td><a href="/xmin/memberView"><c:out value="${item.mnMmName }"/></a></td>										
+											<td><a href="javascript:goView(<c:out value="${item.mnMmSeq}"/>)"><c:out value="${item.mnMmName }"/></a></td>										
 											<td class="d-none d-md-table-cell">
 												<c:set var="mnmpNumber" value="${item.mnmpNumber}"/>
 												<c:choose>
@@ -400,6 +400,12 @@
 		} 
 	});
 	
+	
+	goView = function(seq){
+		$("#mnMmSeq").val(seq)	
+		$("#xminList").attr("action","/xmin/memberView");
+		$("#xminList").submit();
+	}
 </script>	
 	
 </form>

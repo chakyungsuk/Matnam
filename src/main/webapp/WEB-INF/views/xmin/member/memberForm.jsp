@@ -262,12 +262,16 @@
 				                                <option value="12">12</option>
 				                            </select>
 				                        </div>
-					                    <div class="col-md-4 col-sm-4">
+					                    <div class="col-md-4 col-sm-4 ">
 			                            	<input type="text" id="" name="mnMmDob_Day" class="form-control" placeholder="일">
 					                    </div>
 										<label for="formGroupExampleInput" class="form-label">모바일</label>
 					  					<div class="input-group">
-											<input type="text" class="form-control" name="mnmpNumber" id="" placeholder="숫자만입력" autocapitalize="off">
+											<input type="text" class="form-control mb-3" name="mnmpNumber" id="" placeholder="숫자만입력" autocapitalize="off">
+										</div>
+										<label for="formGroupExampleInput" class="form-label">이메일</label>
+					  					<div class="input-group">
+											<input type="text" class="form-control" name="mnMmEmail" id="" placeholder="" autocapitalize="off">
 										</div>
 									</div>
 								</div>

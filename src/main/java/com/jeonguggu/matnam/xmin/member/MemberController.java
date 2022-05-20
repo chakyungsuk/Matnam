@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 @Controller
 public class MemberController {
 	
@@ -34,8 +35,10 @@ public class MemberController {
 	}	
 	
 	@RequestMapping(value = "/xmin/memberView")
-	public String memberView() {
+	public String memberView(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+		Member rt = service.selectOne(vo);
 		
+		model.addAttribute("item", rt);
 		return "/xmin/member/memberView";
 	}	
 	
@@ -47,7 +50,6 @@ public class MemberController {
 	
 	@RequestMapping(value = "/xmin/memberInst")
 	public String memberInst(Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
-		System.out.println(dto.getMnMmId());
 		service.insert(dto);
 		
 		redirectAttributes.addFlashAttribute("vo", vo);
@@ -56,8 +58,24 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/xmin/memberEdit")
-	public String memberEdit() {
+	public String memberEdit(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+		
+		Member rt = service.selectOne(vo);
+		
+		model.addAttribute("item", rt);
 		
 		return "/xmin/member/memberEdit";
 	}		
+	
+	@RequestMapping(value = "/xmin/memberUpdt")
+	public String memberUpdt(@ModelAttribute("vo") Member dto, MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		//수정 프로세스 실행
+		service.update(dto);
+		
+		/* vo.setIfmmSeq(dto.getIfmmSeq()); */
+
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/xmin/memberView";
+	}
 }
