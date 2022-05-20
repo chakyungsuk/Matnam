@@ -26,7 +26,7 @@ public class ProfileServiceImpl implements ProfileService {
 	
 //	회원 프로필 수정
 	@Override
-	public int update(Profile dto) throws Exception {
+	public int updateProfile(Profile dto) throws Exception {
 		dao.updateProfile(dto);
 		dao.updateProfilePhone(dto);
 		dao.updateProfileAddress(dto);
@@ -40,8 +40,23 @@ public class ProfileServiceImpl implements ProfileService {
 		
 		return dao.selectOneUserMember(vo);
 	}
+	
+//	회원 정보 수정
+	@Override
+	public int updateUserMember(Profile dto) throws Exception {
+		dao.updateUserMember(dto);
+		dao.updateUserMemberAddress(dto);
+		dao.updateUserMemberPhone(dto);
+		
+		return 1;
+	}
 
 //	회원 가입
+	@Override
+	public int checkId(ProfileVo vo) throws Exception {
+		return dao.checkId(vo);
+	}
+	
 	@Override
 	public int insert(Profile dto) throws Exception {
 		
@@ -51,6 +66,7 @@ public class ProfileServiceImpl implements ProfileService {
 		dao.insertUserMember(dto);
 		dao.insertUserMemberPhone(dto);
 		dao.insertUserMemberAddress(dto);
+		dao.insertUserMemberAddressProfile(dto);
 		
 		for(int i = 0; i < dto.getMnmtTasteCdArray().length; i++) {
 			dto.setMnmtTasteCd(dto.getMnmtTasteCdArray()[i]);
@@ -60,4 +76,6 @@ public class ProfileServiceImpl implements ProfileService {
 		
 		return 1;
 	}
+
+	
 }

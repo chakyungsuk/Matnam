@@ -110,11 +110,6 @@
 	</div><!-- End Map -->
 
 <!-- Content ================================================== -->
-
-	<form id="formList" name="formList" method="post" action="/user/profileEdit">
-		<input type="hidden" id="mnMmSeq" name="mnMmSeq">
-	</form>
-
 	<div class="container margin_60_35">
 	    <div class="row justify-content-center">
 	        <div class="col-5"> 
@@ -175,8 +170,10 @@
 		                                    <i class="ri-phone-line align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0"><c:out value="${rt.mnmpNumber}"/></p>
+		                                	<fmt:formatNumber var="mnmpNumber" value="${rt.mnmpNumber }" pattern="###,####,####"/>
+		                                    <p class="mb-0">0<c:out value="${fn:replace(mnmpNumber, ',', '-')}" /></p>
 		                                </div>
+		                                <label for="mnMmMobilePublicNy" class="form-label text-muted fs-13"><c:if test="${rt.mnMmMobilePublicNy eq 1}">공개</c:if><c:if test="${rt.mnMmMobilePublicNy eq 0}">비공개</c:if></label>
 		                            </div>
 		
 		                            <div class="d-flex py-2 align-items-center">
@@ -186,6 +183,7 @@
 		                                <div class="flex-grow-1">
 		                                    <p class="fw-medium mb-0"><c:out value="${rt.mnMmEmail}"/></p>
 		                                </div>
+		                                <label for="mnMmEmailPublicNy" class="form-label text-muted fs-13"><c:if test="${rt.mnMmEmailPublicNy eq 1}">공개</c:if><c:if test="${rt.mnMmEmailPublicNy eq 0}">비공개</c:if></label>
 		                            </div>
 		
 		                            <div class="d-flex py-2 align-items-center">
@@ -195,6 +193,7 @@
 		                                <div class="flex-grow-1">
 		                                    <p class="mb-0"><c:out value="${rt.mnmaAddress1}"/></p>
 		                                </div>
+		                                <label for="mnMmAddressPublicNy" class="form-label text-muted fs-13"><c:if test="${rt.mnMmAddressPublicNy eq 1}">공개</c:if><c:if test="${rt.mnMmAddressPublicNy eq 0}">비공개</c:if></label>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -269,20 +268,20 @@
     
     goProfileEdit = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/profileEdit");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/profileEdit");
+		$("#formTopList").submit();
 	} 
     
     goUserEdit = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/userEdit");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/userEdit");
+		$("#formTopList").submit();
 	} 
     
     goFriendSelect = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/friendSelect");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/friendSelect");
+		$("#formTopList").submit();
 	} 
 </script>
 </body>
