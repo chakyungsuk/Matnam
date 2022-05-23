@@ -13,7 +13,6 @@
     <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>QuickFood - Quality delivery or take away food</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -178,7 +177,7 @@
 		                	<!-- <a class="btn_1" href="profileView" style="width:200px;">수정하기</a> -->
 		                </div>
 		            </div><!-- End box_style_1 -->
-		            <button type="button" class="btn btn-outline-secondary" onclick = "javascript:goForm(${sessSeq})">돌아가기</button>
+		            <button type="button" class="btn btn-outline-secondary" onclick = "javascript:goViewForm(${sessSeq})">돌아가기</button>
 					</form>
 		        </div><!-- End col -->
 		    </div><!-- End row -->
@@ -234,10 +233,10 @@
         });
     });
     
-    goForm = function(seq){
+    goViewForm = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/profileView");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/profileView");
+		$("#formTopList").submit();
 	} 
     
     goUpdt = function(seq){

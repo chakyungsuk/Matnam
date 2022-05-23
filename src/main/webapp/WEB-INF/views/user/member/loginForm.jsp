@@ -13,7 +13,6 @@
     <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>QuickFood - Quality delivery or take away food</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -96,50 +95,56 @@
 	</div><!-- End Map -->
 
 <!-- Content ================================================== -->
-
-	<div class="container margin_60_35">
-	    <div class="row justify-content-center">
-	        <!-- <div class="col-lg-4">
-	        </div>End col -->
-	        <div class="col-5">
-	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">로그인</h2>
-	                <div class="form-group">
-	                    <label>아이디</label>
-	                    <input type="text" class="form-control" id="mnMmId" name="firstname_order" placeholder="아이디">
-	                </div>
-	                <div class="form-group">
-	                    <label>비밀번호</label>
-	                    <input type="password" class="form-control" id="mnMmPassword" name="lastname_order" placeholder="비밀번호">
-	                </div>
-	                <div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							로그인 상태 유지
-						</label>
-					</div>
-					<div style="text-align: center; padding:10px; "> 
-	                	<button type="button" class="btn_1" id="btnLogin" style="width:200px;">로그인</button>
-	                </div>
-	                <div style="text-align: center; padding:10px;">
-	                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
-	                </div> 
-	                <div class="row justify-content-center" style="margin-top:10px;">  
-	                	<div class="col-auto">
-		                	<a href="" class="login_text" style="color: black;">아이디 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto"> 
-	                		<a href="" class="login_text" style="color: black;">비밀번호 찾기</a>
-	                	</div>
-	                	<div class="login_search col-auto">
-	                		<a href="userForm" class="login_text" style="color: black;">회원가입</a>
-	                	</div> 
-	                </div>
-	            </div><!-- End box_style_1 -->
-	        </div><!-- End col -->
-	        
-	    </div><!-- End row -->
-	</div><!-- End container -->
+	<form action="" method="post" id="loginForm" name="loginForm">
+		<div class="container margin_60_35">
+		    <div class="row justify-content-center">
+		        <div class="col-2">
+		        	<div class="box_style_2 info d-none d-sm-block justify-content-center">
+		                <button type="button" id="userLogin" class="btn btn-outline-success btn-lg">사용자 계정 로그인</button>
+		                <hr>
+		                <button type="button" id="adminLogin" class="btn btn-outline-secondary btn-lg">관리자 계정 로그인</button>
+		            </div><!-- End box_style_1 -->
+		        </div>
+		        <div class="col-5">
+		            <div class="box_style_2" id="order_process">
+		                <h2 class="inner" style="text-align: center;">로그인</h2>
+		                <div class="form-group">
+		                    <label>아이디</label>
+		                    <input type="text" class="form-control" id="mnMmId" name="firstname_order" placeholder="아이디" value="guest1">
+		                </div>
+		                <div class="form-group">
+		                    <label>비밀번호</label>
+		                    <input type="password" class="form-control" id="mnMmPassword" name="lastname_order" placeholder="비밀번호" value="guest1">
+		                </div>
+		                <div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+							<label class="form-check-label" for="flexCheckDefault">
+								로그인 상태 유지
+							</label>
+						</div>
+						<div style="text-align: center; padding:10px; "> 
+		                	<button type="button" class="btn_1" id="btnLogin" style="width:200px;">로그인</button>
+		                </div>
+		                <div style="text-align: center; padding:10px;">
+		                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
+		                </div> 
+		                <div class="row justify-content-center" style="margin-top:10px;">  
+		                	<div class="col-auto">
+			                	<a href="" class="login_text" style="color: black;">아이디 찾기</a>
+		                	</div>
+		                	<div class="login_search col-auto"> 
+		                		<a href="" class="login_text" style="color: black;">비밀번호 찾기</a>
+		                	</div>
+		                	<div class="login_search col-auto">
+		                		<a href="userForm" class="login_text" style="color: black;">회원가입</a>
+		                	</div> 
+		                </div>
+		            </div><!-- End box_style_1 -->
+		        </div><!-- End col -->
+		        
+		    </div><!-- End row -->
+		</div><!-- End container -->
+	</form>
 
 
 <!-- End Content =============================================== -->
@@ -224,6 +229,46 @@
     		return true;
     	}
     }
+    
+	$("#userLogin").on("click",function(){
+ 		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/user/loginProc"
+			,data : { "mnMmId" : "guest1", "mnMmPassword" : "guest1"}
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/index/matnamMain";
+				} else {
+					alert("회원없음");
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+ 	});
+	
+	$("#adminLogin").on("click",function(){
+ 		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/user/loginProc"
+			,data : { "mnMmId" : "admin1", "mnMmPassword" : "admin1"}
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/index/matnamMain";
+				} else {
+					alert("회원없음");
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+ 	});
 </script>
 </body>
 </html>
