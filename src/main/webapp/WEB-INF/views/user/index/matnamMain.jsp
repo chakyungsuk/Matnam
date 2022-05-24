@@ -327,20 +327,21 @@
         </div>End container
     </div>End hight_light -->
     <!-- <section class="parallax-window" data-parallax="" data-image-src="/resources/user/image/carousel-3.jpg" data-natural-width="1200" data-natural-height="600"> -->
-<div class="map_wrap">
-    <div id="map" style="width:100%;height:500px;position:relative;overflow:hidden;"></div>
-    <ul id="category">
-        <li id="FD6" data-order="1"> 
-            <span class="category_bg mart"></span>
-            음식점
-        </li>  
-        <li id="CS2" data-order="5"> 
-            <span class="category_bg store"></span>
-            편의점
-        </li>      
-    </ul>
-</div>
-        
+<div class="container">
+	<div class="map_wrap">
+	    <div id="map" style="width:100%;height:500px;position:relative;overflow:hidden;"></div>
+	    <ul id="category">
+	        <li id="FD6" data-order="1"> 
+	            <span class="category_bg mart"></span>
+	            음식점
+	        </li>  
+	        <li id="CS2" data-order="5"> 
+	            <span class="category_bg store"></span>
+	            편의점
+	        </li>      
+	    </ul>
+	</div>
+</div>        
 <!--   <div class="container">
        <img src="/resources/user/image/carousel-3.jpg" class="" style="width: 100%; height: 600px; position: relative;">
          <div class="parallax-content">
