@@ -7,13 +7,25 @@ public class BuddyVo {
 	private String mnMmName = "";
 	private String mnmaAddress1 = "";
 	
+//	친구 삭제
+	private String mnfdSeq = "";
+	
 //	----------------------------
+
 	public String getMnMmSeq() {
 		return mnMmSeq;
 	}
 
 	public void setMnMmSeq(String mnMmSeq) {
 		this.mnMmSeq = mnMmSeq;
+	}
+
+	public String getMnMmName() {
+		return mnMmName;
+	}
+
+	public void setMnMmName(String mnMmName) {
+		this.mnMmName = mnMmName;
 	}
 
 	public String getMnmaAddress1() {
@@ -24,12 +36,14 @@ public class BuddyVo {
 		this.mnmaAddress1 = mnmaAddress1;
 	}
 
-	public String getMnMmName() {
-		return mnMmName;
+	public String getMnfdSeq() {
+		return mnfdSeq;
 	}
 
-	public void setMnMmName(String mnMmName) {
-		this.mnMmName = mnMmName;
+	public void setMnfdSeq(String mnfdSeq) {
+		this.mnfdSeq = mnfdSeq;
 	}
+	
+	
 	
 }

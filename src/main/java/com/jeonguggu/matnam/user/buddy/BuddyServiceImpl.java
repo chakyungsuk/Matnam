@@ -53,4 +53,11 @@ public class BuddyServiceImpl implements BuddyService {
 		return dao.selectOneUser(vo);
 	}
 
+//	친구 삭제	
+	@Override
+	public int delete(BuddyVo vo) throws Exception {
+
+		return dao.delete(vo);
+	}
+
 }

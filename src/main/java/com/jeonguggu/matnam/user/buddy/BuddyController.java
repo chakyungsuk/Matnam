@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class BuddyController {
@@ -42,7 +43,6 @@ public class BuddyController {
 		
 		List<Buddy> list = service.selectListFriend(vo);
 		model.addAttribute("list", list);
-		
 		return "/user/buddy/friendSelect";
 	}
 	
@@ -62,6 +62,13 @@ public class BuddyController {
 		model.addAttribute("rt", rt);
 		
 		return "/user/buddy/friendDetail";
+	}
+	
+	@RequestMapping(value = "/user/friendDelete")
+	public String friendDelete(BuddyVo vo,  RedirectAttributes redirectAttributes) throws Exception {
+		System.out.println("asdakhsfbhabhkbkfakbhfabkhafbkh");
+		service.delete(vo);		
+		return "redirect:/user/friendSelect";
 	}
 	
 }

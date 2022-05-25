@@ -126,4 +126,13 @@
 			AND a.mnMmSeq = #{mnMmSeq}
 	</select>
     <!-- 사용자 프로필 조회 끝 -->
+    
+    <!-- 친구 삭제 시작 -->
+    <delete id="delete">
+    	DELETE FROM
+    		matnamFriend
+    	WHERE 1=1
+    		AND mnfdSeq = #{mnfdSeq}    		
+    </delete>
+    <!-- 친구 삭제 끝 -->
 </mapper>

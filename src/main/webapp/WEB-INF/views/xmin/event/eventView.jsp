@@ -114,7 +114,7 @@
 												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
 											<div class="modal-body">
-											 해당 이벤트를 삭제하시겠습니까?
+											 <c:out value="${item.mnevTitle}"/>해당 이벤트를 삭제하시겠습니까?
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" onclick="location.href='eventDele?mnevSeq=<c:out value="${item.mnevSeq}"/>';">삭제</button>
@@ -123,6 +123,7 @@
 										</div>
 									</div>
 								</div>
+								<!-- Modal -->
 							</div>	
 						</div>
 					</div>
