@@ -32,16 +32,38 @@
     </div><!-- End Map -->
 
     <!-- Content ================================================== -->
+    <form id="form" name="form" method="get" action="/user/userServiceUpdt">
+    <input type="hidden" id="mnMmSeq" name="mnMmSeq" value="<c:out value="${rtService.mnMmSeq}"/>">
+    <input type="hidden" id="mnsvSeq" name="mnsvSeq" value="<c:out value="${rtService.mnsvSeq}"/>">
     <div class="container margin_60_35">
         <div class="row"> 
             <div class="col-lg-12">
                 <div class="box_style_2">
                     <h2 class="inner">문의하기</h2> 
-                    <h5>속도가 너무느립니다.</h2>
-                    <span class="badge bg-danger">욕설/모욕적 언어사용 신고</span>
+                    <h5><input type="text" class="form-control" id="mnsvTitle" name="mnsvTitle"value="<c:out value="${rtService.mnsvTitle}"/>"></h5>
+                    <c:choose>
+						<c:when test="${rtService.mnsvTypeCd eq '14'}">
+								<span class="badge bg-danger">직원 불친절 / 기타 불만</span>
+						</c:when>
+						<c:when test="${rtService.mnsvTypeCd eq '15'}">
+								<span class="badge bg-danger">욕설/모욕적 언어사용 신고</span> 
+						</c:when>
+						<c:when test="${rtService.mnsvTypeCd eq '16'}">
+								<span class="badge bg-danger">웹사이트 사용관련 질의</span> <
+						</c:when>
+						<c:when test="${rtService.mnsvTypeCd eq '17'}">
+								<<span class="badge bg-danger">사용자 매칭에 대한 질의사용자 매칭에 대한 질의</span> </td>
+						</c:when>
+						<c:when test="${rtService.mnsvTypeCd eq '18'}">
+								<span class="badge bg-danger">음식점 추천기준에 대한 질의</span> 
+						</c:when>
+						<c:otherwise>
+							데이터가없습니다
+						</c:otherwise>
+					</c:choose>
                    <div class="mb-3">
 					  <label for="exampleFormControlTextarea1" class="form-label"></label>
-					  <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="서비스 이용시 불편사항에대해 남겨주세요." >속도가 너무느려서 사이트를 이용할수가없습니다.</textarea>
+					  <textarea class="form-control" id="exampleFormControlTextarea1" name="mnsvDesc" rows="10" placeholder="서비스 이용시 불편사항에대해 남겨주세요." ><c:out value="${rtService.mnsvDesc}"/></textarea>
 					</div>
 					
 					<div class="mb-3">
@@ -51,7 +73,7 @@
                    
                     <div class="button_service_view">
                     	<div>
-	                   		<a href="/user/userServiceView"><button type="button" class="btn btn-outline-success">수정하기</button></a>
+	                   		<button type="submit" class="btn btn-outline-success">수정하기</button>
 	                   		<a href="/user/userServiceView"><button type="button" class="btn btn-outline-danger">취소</button></a>
 	                   	</div>
                    	</div>
@@ -60,6 +82,7 @@
         </div><!-- End row -->
     </div><!-- End container -->
     <!-- End Content =============================================== -->
+    </form>
 
 	<!-- Footer -->
 	<%@include file="../include/footer.jsp" %>

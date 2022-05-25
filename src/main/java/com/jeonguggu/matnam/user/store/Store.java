@@ -1,5 +1,7 @@
 package com.jeonguggu.matnam.user.store;
 
+import java.util.Date;
+
 public class Store {
 	
 	
@@ -28,6 +30,7 @@ public class Store {
 	private String mnrvDelNy;
 	private String mnrvScore;
 	private String mnrvText;
+	private Date regDateTime;
 	
 	
 	// matnamMember
@@ -35,8 +38,6 @@ public class Store {
 	private String mnMmId;
 	private String mnMmPassword;
 	private String mnMmName;
-	
-	
 	
 	public String getMnrtSeq() {
 		return mnrtSeq;
@@ -128,12 +129,6 @@ public class Store {
 	public void setMnrtHoliday(String mnrtHoliday) {
 		this.mnrtHoliday = mnrtHoliday;
 	}
-	public String getMnmpSeq() {
-		return mnmpSeq;
-	}
-	public void setMnmpSeq(String mnmpSeq) {
-		this.mnmpSeq = mnmpSeq;
-	}
 	public String getMnrtAvg() {
 		return mnrtAvg;
 	}
@@ -145,6 +140,12 @@ public class Store {
 	}
 	public void setMnrtText(String mnrtText) {
 		this.mnrtText = mnrtText;
+	}
+	public String getMnmpSeq() {
+		return mnmpSeq;
+	}
+	public void setMnmpSeq(String mnmpSeq) {
+		this.mnmpSeq = mnmpSeq;
 	}
 	public String getMnrvSeq() {
 		return mnrvSeq;
@@ -170,6 +171,12 @@ public class Store {
 	public void setMnrvText(String mnrvText) {
 		this.mnrvText = mnrvText;
 	}
+	public Date getRegDateTime() {
+		return regDateTime;
+	}
+	public void setRegDateTime(Date regDateTime) {
+		this.regDateTime = regDateTime;
+	}
 	public String getMnMmSeq() {
 		return mnMmSeq;
 	}
@@ -194,6 +201,10 @@ public class Store {
 	public void setMnMmName(String mnMmName) {
 		this.mnMmName = mnMmName;
 	}
+	
+	
+	
+	
 
 	
 	

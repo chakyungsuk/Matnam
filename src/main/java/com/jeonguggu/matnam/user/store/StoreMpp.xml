@@ -23,6 +23,7 @@
 	<select id="selectOneStore" resultMap="resultMapObj">
 		SELECT
 			a.mnrtName
+			,a.mnrtSeq
 			,a.mnrtAddressFull
 		    ,a.mnrtFoodCate
 		    ,a.mnrtTime
@@ -33,22 +34,80 @@
 		    ,a.mnrtAvg
 		FROM matnam.matnamRestaurant a
 		WHERE 1=1
-		AND a.mnrtSeq = ${mnrtSeq}
+		AND a.mnrtSeq = #{mnrtSeq}
 		
 	</select>
 	
 	<select id="selectListReview" resultMap="resultMapObj">
 		SELECT
-			a.mnrvScore
+			a.mnrtSeq
+			,a.mnMmSeq
+			,a.mnrvScore
 	        ,a.mnrvText
+	        ,a.regDateTime
 	        ,b.mnMmName
 	    FROM matnam.matnamReview a
 	    left join matnam.matnamMember b ON b.mnMmSeq = a.mnMmSeq
 	    where 1=1
-	    and mnrtSeq = ${mnrtSeq};
+	    and mnrtSeq = #{mnrtSeq};
 	</select>
 	
-
+	<select id="selectOneReview" resultMap="resultMapObj">
+		select 
+			a.mnrtSeq
+			,a.mnMmSeq
+			,a.mnrvScore
+			,a.mnrvText
+			,b.mnMmName
+		from matnam.matnamReview a
+		left join matnam.matnamMember b on b.mnMmSeq = a.mnMmSeq
+		where 1=1
+		and a.mnrtSeq = #{mnrtSeq}
+		and a.mnMmSeq = #{mnMmSeq};
+	</select>
+	
+	
+	<!-- 등록  -->
+	<insert id="insertReview">
+		insert into matnam.matnamReview(
+			mnrvText
+	        ,mnrvDelNy
+	        ,mnrtSeq
+	        ,mnMmSeq
+	    )value(
+			#{mnrvText}
+			,0
+	        ,#{mnrtSeq}
+	        ,#{mnMmSeq}
+	    );
+    </insert>
+	<!-- 등록  -->
+	
+	
+	
+	<!-- 업데이트  -->
+	
+	<update id="updateReview">
+			UPDATE matnam.matnamReview SET 
+				mnrvText  = #{mnrvText}
+			WHERE 1=1
+				AND mnrtSeq = #{mnrtSeq}
+                AND mnMmSeq = #{mnMmSeq};
+	</update>
+	<!-- 업데이트  -->
+	
+	
+	
+	<!-- 삭제  -->
+	
+	<delete id="deleteReview">
+		DELETE 
+    	FROM matnam.matnamReview
+		WHERE 1=1
+			AND mnrtSeq = #{mnrtSeq}
+			AND mnMmSeq = #{mnMmSeq};
+	</delete>
+	<!-- 삭제  -->	
 
 
 </mapper>

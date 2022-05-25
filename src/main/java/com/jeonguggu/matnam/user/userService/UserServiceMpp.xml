@@ -10,14 +10,94 @@
 	<select id="selectListService" resultMap="resultMapObj">
 		select
 			a.mnsvSeq
+			,b.mnMmSeq
 			,b.mnMmId
-			,a.mnsvReceiptDate
+			<!-- ,a.mnsvReceiptDate -->
 		    ,a.mnsvTitle
 		    ,a.mnsvDoneNy
+		    ,a.mnsvTypeCd
 		from matnamServices a
 		left join matnamMember b on b.mnMmSeq = a.mnMmSeq;
 
 	</select>
+	
+	<select id="selectOneService" resultMap="resultMapObj">
+		select 
+			a.mnMmSeq
+			,a.mnsvSeq
+			,a.mnsvTitle
+	        ,a.mnsvDesc
+			,a.mnsvDoneNy
+			,a.mnsvTypeCd
+	    from matnamServices a
+	    where 1=1
+	   	 and a.mnMmSeq =  #{mnMmSeq}
+	    	and a.mnsvSeq = #{mnsvSeq};
+	</select>
+	
+	<select id="selectOneServiceReply" resultMap="resultMapObj">
+		select 
+		a.mnsrSeq
+		,a.mnsrDesc
+        ,a.mnsvSeq
+    from matnamServicesReply a
+    where 1=1
+   	 	and a.mnsvSeq = #{mnsvSeq};
+	</select>
+	
+	
+	
+	
+	
+	
+	<!-- 	등록 -->
+
+	<insert id="insertService">
+		insert into matnam.matnamServices(
+		     mnsvTitle
+		    ,mnsvDesc
+		    ,mnsvTypeCd
+		    ,mnsvReceiptDate
+		    ,mnsvDelNy
+		    ,mnsvDoneNy
+		    ,mnMmSeq
+	    )value(
+		    #{mnsvTitle}
+		    ,#{mnsvDesc}
+		    ,#{mnsvTypeCd}
+		    ,now()
+		    ,0
+		    ,0
+		    ,#{sessSeq}
+	    );
+    </insert>
+	<!-- 	등록 -->
+	
+	
+	<!-- 업데이트  -->
+	
+	<update id="userServiceUpdt">
+	
+	
+			  update matnam.matnamServices set
+			  	mnsvTitle = #{mnsvTitle}
+				,mnsvDesc = #{mnsvDesc}
+			where 1=1
+       			and mnsvSeq = #{mnsvSeq}
+        		and mnMmSeq = #{mnMmSeq};
+	</update>
+	<!-- 업데이트  -->
+		
+	
+	<!-- 삭제 -->
+	<delete id="userServiceDelete">
+	
+		delete 
+		from matnam.matnamServices
+		where 1=1
+			and mnsvSeq = #{mnsvSeq}; 
+	</delete>
+	<!-- 삭제 -->
 	
 
 

@@ -14,4 +14,10 @@ public class MatnamMainController {
 		
 		return "/user/index/matnamMain";
 	}
+	
+	@RequestMapping(value = "/")
+	public String matnamDomain() {
+		
+		return "redirect:/index/matnamMain";
+	}
 }

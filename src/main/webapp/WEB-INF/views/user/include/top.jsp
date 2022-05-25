@@ -42,6 +42,12 @@
     
     <!-- Modernizr -->
 	<script src="/resources/user/js/modernizr.js"></script> 
+	
+	<!-- KaKao Map -->
+<!-- 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d80e2a3ed34412759bd6b1eea6603bb"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d80e2a3ed34412759bd6b1eea6603bb&libraries=LIBRARY"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d80e2a3ed34412759bd6b1eea6603bb&libraries=services"></script> -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d80e2a3ed34412759bd6b1eea6603bb&libraries=services,clusterer,drawing"></script>
 </head>
 
 <body>

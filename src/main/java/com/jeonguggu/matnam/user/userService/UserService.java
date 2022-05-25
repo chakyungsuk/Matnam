@@ -6,15 +6,17 @@ public class UserService {
 	
 	//matnamMember
 	private String mnMmId;
+	private String sessSeq;
+	private String sessName;
 	
 	// matnamServices
 	private String mnsvSeq;
 	private String mnsvTitle;
-	private Date mnsvDateReceipt;
 	private String mnsvDoneNy;
 	private String mnsvDesc;
 	private String mnMmSeq;
 	private Date mnsvReceiptDate;
+	private String mnsvTypeCd;
 	
 	
 	//matnamServicesReply
@@ -29,6 +31,18 @@ public class UserService {
 	public void setMnMmId(String mnMmId) {
 		this.mnMmId = mnMmId;
 	}
+	public String getSessSeq() {
+		return sessSeq;
+	}
+	public void setSessSeq(String sessSeq) {
+		this.sessSeq = sessSeq;
+	}
+	public String getSessName() {
+		return sessName;
+	}
+	public void setSessName(String sessName) {
+		this.sessName = sessName;
+	}
 	public String getMnsvSeq() {
 		return mnsvSeq;
 	}
@@ -40,12 +54,6 @@ public class UserService {
 	}
 	public void setMnsvTitle(String mnsvTitle) {
 		this.mnsvTitle = mnsvTitle;
-	}
-	public Date getMnsvDateReceipt() {
-		return mnsvDateReceipt;
-	}
-	public void setMnsvDateReceipt(Date mnsvDateReceipt) {
-		this.mnsvDateReceipt = mnsvDateReceipt;
 	}
 	public String getMnsvDoneNy() {
 		return mnsvDoneNy;
@@ -95,6 +103,14 @@ public class UserService {
 	public void setMnsrDesc(String mnsrDesc) {
 		this.mnsrDesc = mnsrDesc;
 	}
+	public String getMnsvTypeCd() {
+		return mnsvTypeCd;
+	}
+	public void setMnsvTypeCd(String mnsvTypeCd) {
+		this.mnsvTypeCd = mnsvTypeCd;
+	}
+	
+	
 	
 	
 	

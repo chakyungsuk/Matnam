@@ -27,7 +27,27 @@ public class StoreDao {
 	// 음식점 리뷰 출력
 	public List<Store> selectListReview(StoreVo vo){return sqlSession.selectList(namespace + ".selectListReview", vo);}
 	
-
+	// 리뷰 카운터
+	public int selectCount(StoreVo vo) {return sqlSession.selectOne(namespace +  ".selectCount", vo);}
+	
+	
+	//리뷰 상세정보
+	public Store selectOneReview(StoreVo vo) {return sqlSession.selectOne(namespace + ".selectOneReview" ,vo);} 
+	
+	
+	//////////////// 등록
+	
+	public int insertReview(Store dto) {return sqlSession.insert(namespace + ".insertReview" , dto);}
+	
+	///////////////// 업데이트
+	
+	public int updateReview(Store dto) {return sqlSession.update(namespace + ".updateReview", dto);}
+	
+	
+	
+	/////////////////삭제
+	
+	public int deleteReview(StoreVo vo) {return sqlSession.delete(namespace + ".deleteReview", vo ); } 
 	
 
 }

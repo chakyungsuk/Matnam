@@ -55,6 +55,7 @@ public class EventController {
 	@RequestMapping(value = "/xmin/eventInst")
 	public String eventInst(Model model, Event dto) throws Exception {
 		
+		System.out.println(dto.getMnevTitle());
 		service.insert(dto);
 		return "redirect:/xmin/eventList";
 	}		
