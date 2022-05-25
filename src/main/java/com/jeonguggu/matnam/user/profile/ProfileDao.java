@@ -73,4 +73,9 @@ public class ProfileDao {
 	public int insertUserMemberAddressProfile(Profile dto) {
 		return sqlSession.insert(namespace + ".insertUserMemberAddressProfile", dto);
 	}
+	
+	//회원 리뷰 조회
+	public List<Profile> selectListReview(ProfileVo vo) {
+		return sqlSession.selectList(namespace + ".selectListReview", vo);
+	}
 }

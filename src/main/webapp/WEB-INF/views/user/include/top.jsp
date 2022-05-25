@@ -100,7 +100,7 @@
 			                <ul>
 			                    <li><a href="javascript:goFriendSelect(${sessSeq})">친구목록</a></li>
 <!-- 			                    <li><a href="/user/friendSelect">친구목록</a></li> -->
-			                    <li><a href="">리뷰목록</a></li>
+			                    <li><a href="javascript:goReview(${sessSeq})">리뷰목록</a></li>
 			                </ul> 
 		                </li>
 						<li><a href="#" id="btnLogout" onclick="btnLogout();">Logout</a></li>
@@ -171,6 +171,12 @@
 	goAreaSelect = function(seq){
 		$("#mnMmSeq").val(seq);
 		$("#formTopList").attr("action","/user/areaSelect");
+		$("#formTopList").submit();
+	} 
+	
+	goReview = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formTopList").attr("action","/user/reviewView");
 		$("#formTopList").submit();
 	} 
 </script>

@@ -153,11 +153,20 @@ public class ProfileController {
 		return "redirect:/user/profileView";
 	}
 	
-	@RequestMapping(value = "/test")
-	public String test() {
+	@RequestMapping(value = "/user/reviewView")
+	public String reviewView(ProfileVo vo, Model model) throws Exception {
 		
-		return "/user/member/test";
+		List<Profile> list = service.selectListReview(vo);
+		model.addAttribute("list", list);
+		
+		return "/user/member/reviewView";
 	}
+	
+//	@RequestMapping(value = "/test")
+//	public String test() {
+//		
+//		return "/user/member/test";
+//	}
 //	
 //	@RequestMapping(value = "/index2")
 //	public String index2() {

@@ -1,5 +1,7 @@
 package com.jeonguggu.matnam.user.profile;
 
+import java.util.List;
+
 public interface ProfileService {
 
 //	로그인
@@ -20,5 +22,8 @@ public interface ProfileService {
 //	회원 가입
 	public int checkId(ProfileVo vo) throws Exception;
 	public int insert(Profile dto) throws Exception;
+	
+//	회원 리뷰 조회
+	public List<Profile> selectListReview(ProfileVo vo) throws Exception;
 	
 }

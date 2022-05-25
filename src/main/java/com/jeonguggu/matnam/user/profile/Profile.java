@@ -34,6 +34,14 @@ public class Profile {
 	private String mnmaAddress1 = "";
 	private String mnmaAddress2 = "";
 	
+	//유저 리뷰
+	private String mnrvSeq;
+	private String mnrvScore;
+	private String mnrvText;
+	
+	//레스토랑
+	private String mnrtName;
+	
 //	----------------------------------------
 	
 	public String getMnMmSeq() {
@@ -168,9 +176,29 @@ public class Profile {
 	public void setMnMmAddressPublicNy(String mnMmAddressPublicNy) {
 		this.mnMmAddressPublicNy = mnMmAddressPublicNy;
 	}
-	
-
-	
-	
+	public String getMnrvSeq() {
+		return mnrvSeq;
+	}
+	public void setMnrvSeq(String mnrvSeq) {
+		this.mnrvSeq = mnrvSeq;
+	}
+	public String getMnrvScore() {
+		return mnrvScore;
+	}
+	public void setMnrvScore(String mnrvScore) {
+		this.mnrvScore = mnrvScore;
+	}
+	public String getMnrvText() {
+		return mnrvText;
+	}
+	public void setMnrvText(String mnrvText) {
+		this.mnrvText = mnrvText;
+	}
+	public String getMnrtName() {
+		return mnrtName;
+	}
+	public void setMnrtName(String mnrtName) {
+		this.mnrtName = mnrtName;
+	}
 	
 }

@@ -1,5 +1,7 @@
 package com.jeonguggu.matnam.user.profile;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -77,5 +79,11 @@ public class ProfileServiceImpl implements ProfileService {
 		return 1;
 	}
 
-	
+//	리뷰 조회
+	@Override
+	public List<Profile> selectListReview(ProfileVo vo) throws Exception {
+		
+		return dao.selectListReview(vo);
+	}
+
 }
