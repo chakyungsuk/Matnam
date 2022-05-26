@@ -147,7 +147,7 @@
 	                            <option value="3" <c:if test="${rt.mnMmGenderCd eq 3}">selected</c:if>>기타</option>
 	                        </select>
 		                </div>
-		                <div class="form-group">
+		                <%-- <div class="form-group">
 	                        <label>휴대전화</label>
 	                		<div class="row">
 		                    	<div class="col-md-8 col-sm-8">
@@ -160,7 +160,11 @@
 		                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="">
 		                        </div>
 	                    	</div>
-	               		</div>
+	               		</div> --%>
+	               		<div class="form-group">
+		                    <label>휴대전화</label>
+		                    <input type="text" id="mnmpNumber" name="mnmpNumber" class="form-control" placeholder="전화번호 입력" required>
+		                </div>
 	               		<div class="form-group">
 						  	<label>주소</label>
 						  	<div class="input-group mb-2">
