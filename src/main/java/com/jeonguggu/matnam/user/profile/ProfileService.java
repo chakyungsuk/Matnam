@@ -10,8 +10,11 @@ public interface ProfileService {
 //	회원 프로필 조회
 	public Profile selectOneProfile(ProfileVo vo) throws Exception;
 	
+//	음식 취향 조회
+	public List<Profile> selectListFriendRegion(Profile dto) throws Exception;
+	
 //	회원 프로필 수정
-	public int updateProfile(Profile dto) throws Exception;
+	public int updateProfile(Profile dto, ProfileVo vo) throws Exception;
 	
 //	회원 정보 조회
 	public Profile selectOneUserMember(ProfileVo vo) throws Exception;

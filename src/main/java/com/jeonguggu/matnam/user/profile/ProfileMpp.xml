@@ -46,6 +46,18 @@
 	</select>
 	<!-- 회원 프로필 조회 끝 -->
 	
+	<!-- 지역 불러오기 -->
+    <select id="selectListFriendRegion" resultMap="resultMapObj">
+		SELECT
+			a.mnmlLocationCd
+		FROM
+			matnamMemberRegion a
+		WHERE 1=1
+			AND a.mnMmSeq = #{mnMmSeq}
+			AND a.mnmlDelNy = 0
+	</select>
+    <!-- 지역 불러오기 -->
+	
     <!-- 회원 프로필 수정 시작 -->
 	<update id="updateProfile">
 		UPDATE
@@ -77,6 +89,27 @@
 			AND mnmaTypeCd = 13
 	</update>
 	<!-- 회원 프로필 수정 끝 -->
+	
+	<!-- 회원 프로필 지역 수정 -->
+	<insert id="insertMemberRegion">
+		INSERT INTO matnamMemberRegion(
+			mnMmSeq
+			,mnmlLocationCd
+			,mnmlDelNy
+		) VALUES (
+			#{mnMmSeq}
+			,#{mnmlLocationCd}
+			,0
+		)
+	</insert>
+	<delete id="deleteMemberRegion">
+		DELETE
+		FROM
+			matnamMemberRegion
+		WHERE 1=1
+			AND mnMmSeq = #{mnMmSeq}
+	</delete>
+	<!-- 회원 프로필 지역 수정 -->
 	
     <!-- 회원 정보 조회 시작 -->
 	<select id="selectOneUserMember" resultMap="resultMapObj">
@@ -154,6 +187,7 @@
 			,mnMmDob_Year
 			,mnMmDob_Month_Cd
 			,mnMmDob_Day
+			,mnMmLike
 			,mnMmAdminNy
 			,mnMmGenderCd
 			,mnMmDelNy
@@ -167,6 +201,7 @@
 			,#{mnMmDob_Year}
 			,#{mnMmDob_Month_Cd}
 			,#{mnMmDob_Day}
+			,0
 			,0
 			,#{mnMmGenderCd}
 			,0

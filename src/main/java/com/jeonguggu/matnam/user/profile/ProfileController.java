@@ -135,10 +135,13 @@ public class ProfileController {
 	}
 	
 	@RequestMapping(value = "/user/profileEdit")
-	public String profileEdit(ProfileVo vo, Model model) throws Exception {
+	public String profileEdit(ProfileVo vo, Profile dto, Model model) throws Exception {
 		
 		Profile rt = service.selectOneProfile(vo);
 		model.addAttribute("rt", rt);
+		
+		List<Profile> regionList = service.selectListFriendRegion(dto);
+		model.addAttribute("regionList", regionList);
 		
 		return "/user/member/profileEdit";
 	}
@@ -146,7 +149,7 @@ public class ProfileController {
 	@RequestMapping(value = "/user/profileUpdt")
 	public String profileUpdt(@ModelAttribute("vo") ProfileVo vo, Profile dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
 		
-		service.updateProfile(dto);
+		service.updateProfile(dto, vo);
 		
 		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());	//get
 		

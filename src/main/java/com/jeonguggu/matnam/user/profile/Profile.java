@@ -39,6 +39,11 @@ public class Profile {
 	private String mnrvScore;
 	private String mnrvText;
 	
+	//유저 지역
+	private String mnmlLocationCd;
+	
+	private String[] mnmlLocationCdArray;
+	
 	//레스토랑
 	private String mnrtName;
 	
@@ -199,6 +204,18 @@ public class Profile {
 	}
 	public void setMnrtName(String mnrtName) {
 		this.mnrtName = mnrtName;
+	}
+	public String getMnmlLocationCd() {
+		return mnmlLocationCd;
+	}
+	public void setMnmlLocationCd(String mnmlLocationCd) {
+		this.mnmlLocationCd = mnmlLocationCd;
+	}
+	public String[] getMnmlLocationCdArray() {
+		return mnmlLocationCdArray;
+	}
+	public void setMnmlLocationCdArray(String[] mnmlLocationCdArray) {
+		this.mnmlLocationCdArray = mnmlLocationCdArray;
 	}
 	
 }

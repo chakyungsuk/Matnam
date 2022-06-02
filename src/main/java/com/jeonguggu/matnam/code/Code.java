@@ -6,6 +6,7 @@ import java.util.List;
 public class Code {
 
 	private String mncdSeq;
+	private String mncdSeqAnother;
 	private String mncdName;
 	private String mncdDelNy;
 	private String mncgSeq;
@@ -45,6 +46,12 @@ public class Code {
 	}
 	public void setMncdUseNy(String mncdUseNy) {
 		this.mncdUseNy = mncdUseNy;
+	}
+	public String getMncdSeqAnother() {
+		return mncdSeqAnother;
+	}
+	public void setMncdSeqAnother(String mncdSeqAnother) {
+		this.mncdSeqAnother = mncdSeqAnother;
 	}
 	
 	
