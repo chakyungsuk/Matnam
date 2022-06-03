@@ -104,7 +104,8 @@
 			LEFT JOIN matnamMemberRegion c ON c.mnmlDelNy = 0  AND c.mnMmSeq = a.mnMmSeq
 			LEFT JOIN matnamMemberTaste d ON d.mnmtDelNy = 0  AND d.mnMmSeq = a.mnMmSeq
 		WHERE 
-			<if test="mnMmSeq != null and !mnMmSeq.equals('') or sesSeq != null and !sesSeq.equals('')">(</if>
+			<if test="mnMmSeq != null and !mnMmSeq.equals('')">(</if>
+<!-- 			<if test="mnMmSeq != null and !mnMmSeq.equals('') or sesSeq != null and !sesSeq.equals('')">(</if> -->
 			1=1
 			<choose>
 				<when test="mnmlLocationCdArray != null and !mnmlLocationCdArray.equals('')">
@@ -131,6 +132,12 @@
 							</when>
 						</choose>
 					</foreach>
+					OR c.mnmlLocationCd = 97
+					<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">
+						<foreach item="itemTaste" collection="mnmtTasteCdArray">
+							AND d.mnmtTasteCd = #{itemTaste}
+						</foreach>
+					</if>
 				</when>
 				<otherwise>
 					<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">
@@ -143,7 +150,7 @@
 				</otherwise>
 			</choose>
 		<if test="mnMmSeq != null and !mnMmSeq.equals('')">)AND a.mnMmSeq != #{mnMmSeq}</if>
-		<if test="sesSeq != null and !sesSeq.equals('')">)AND a.mnMmSeq != #{sesSeq}</if>
+		<!-- <if test="sesSeq != null and !sesSeq.equals('')">)AND a.mnMmSeq != #{sesSeq}</if> -->
 		GROUP BY
 			a.mnMmName
 	</select>
@@ -191,7 +198,8 @@
 			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq AND b.mnmaTypeCd = 13
 			LEFT JOIN matnamMemberPhone c ON c.mnmpDelNy = 0  AND c.mnmpDefaultNy = 1 AND c.mnMmSeq = a.mnMmSeq
 		WHERE 1=1
-			AND a.mnMmSeq = #{mnMmSeq2}
+			AND a.mnMmSeq = #{mnMmSeq}
+<!-- 			AND a.mnMmSeq = #{mnMmSeq2} -->
 	</select>
     <!-- 사용자 프로필 조회 끝 -->
     
@@ -206,7 +214,8 @@
 			matnamReview b
 		    LEFT JOIN matnamRestaurant c ON c.mnrtSeq = b.mnrtSeq
 		WHERE 1=1
-			AND b.mnMmSeq = #{mnMmSeq2}
+			AND b.mnMmSeq = #{mnMmSeq}
+<!-- 			AND b.mnMmSeq = #{mnMmSeq2} -->
 		    AND b.mnrvDelNy = 0
 	</select>
     <!-- 사용자 리뷰 조회 끝 -->

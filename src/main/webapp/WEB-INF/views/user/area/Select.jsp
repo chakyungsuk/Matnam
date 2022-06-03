@@ -85,8 +85,7 @@
 		<div class="col-lg-9">  
 			<div class="p-3 mb-2" style="border:1px solid gray">
 				<form id="searchForm" name="" action="/user/areaSelect" method="post">
-					<input type="hidden" id="mnMmSeq2" name="mnMmSeq2">
-					<input type="hidden" id="sesSeq" name="sesSeq" value="${sessSeq}">
+					<input type="hidden" id="mnMmSeqB" name="mnMmSeq">
 					<div style="text-align:center;">
 						<label for="" class="form-label text-muted fs-13 col-auto">검색</label>
 					</div>
@@ -336,7 +335,7 @@
     })
     
     goForm = function(seq){
-		$("#mnMmSeq2").val(seq);
+		$("#mnMmSeqB").val(seq);
 		$("#searchForm").attr("action","/user/friendDetail");
 		$("#searchForm").submit();
 	} 

@@ -4,8 +4,6 @@ public class BuddyVo {
 	 
 //	사용자 조회
 	private String mnMmSeq = "";
-	private String mnMmSeq2 = "";
-	private String sesSeq = "";
 	private String mnMmName = "";
 	private String mnmaAddress1 = "";
 	
@@ -53,22 +51,6 @@ public class BuddyVo {
 
 	public void setMnfdSeq(String mnfdSeq) {
 		this.mnfdSeq = mnfdSeq;
-	}
-
-	public String getMnMmSeq2() {
-		return mnMmSeq2;
-	}
-
-	public void setMnMmSeq2(String mnMmSeq2) {
-		this.mnMmSeq2 = mnMmSeq2;
-	}
-
-	public String getSesSeq() {
-		return sesSeq;
-	}
-
-	public void setSesSeq(String sesSeq) {
-		this.sesSeq = sesSeq;
 	}
 
 	public String[] getMnmlLocationCdArray() {

@@ -144,7 +144,8 @@
 	</div><!-- End Map -->
 
 	<!-- Content ================================================== -->
-	<form id="listForm" name="" method="post" action="">
+	<form id="listForm" name="" method="get" action="">
+		<input type="hidden" id="mnMmSeqC" name="mnMmSeq" value="${sessSeq}">
 		<c:forEach items="${vo.mnmtTasteCdArray}" var="itemTaste" varStatus="statusTaste">
 			<input type="hidden" id="itemTasteCd<c:out value="${itemTaste}"/>" name="mnmtTasteCdArray" value="${itemTaste}" autocomplete="off">
 		</c:forEach>
@@ -294,7 +295,7 @@
 												<h5 style="text-align: center;"><c:out value="${rt.mnMmName}"/>님이 작성한 리뷰가 없습니다.</h5>
 										</c:when>
 										<c:otherwise>
-											<c:forEach items="${list}" var="item" varStatus="status" end="4">	
+											<c:forEach items="${list}" var="item" varStatus="status">	
 												<div class="border-bottom border-bottom-dashed mb-4 pb-4">
 				                                    <a href="#">
 				                                        <h5 style="display:inline-block;"><c:out value="${item.mnrtName}"/></h5>
@@ -309,10 +310,6 @@
 											</c:forEach>
 										</c:otherwise>
 									</c:choose>
-									<input type="hidden" id="showBack">
-									<div class="flex-shrink-0" style="text-align:center;">
-	                                    <a href="#" onclick="showMore();" id="showMoreA" class="fw-medium fs-12 d-block">Show all</a>
-	                                </div>
 		                        </div>
 		                    </div>
 		                    <!-- end user-profile-desc -->
@@ -350,7 +347,7 @@
      <!-- Search Menu -->
 	<div class="search-overlay-menu">
 		<span class="search-overlay-close"><i class="icon_close"></i></span>
-		<form role="search" id="searchform" method="get">
+		<form role="search" id="searchform" method="post">
 			<input value="" name="q" type="search" placeholder="Search..." />
 			<button type="submit"><i class="icon-search-6"></i>
 			</button>
@@ -420,7 +417,7 @@
     	alert("로그인이 필요한 기능입니다.");
     }
     
-    $("#friendForm").on("click",function(){
+    $("#confirmFriend").on("click",function(){
     	if(!checkNull($("#mnfdMessage"), $("#mnfdMessage").val(), "인사말을 입력하세요.")) return false;
     	
 		$.ajax({
@@ -428,7 +425,7 @@
 			,cache: false
 			,type: "post"
 			,url: "/user/friendProc"
-			,data : { "mnMmSeq" : $("#Seq").val(), "mnfdFriendSeq" : $("#mnfdFriendSeq").val()}
+			,data : { "mnMmSeq" : $("#mnMmSeqC").val(), "mnfdFriendSeq" : $("#mnfdFriendSeq").val()}
 			,success: function(response) {
 				if(response.rt == "success") {
 					$("#friendForm").submit();
@@ -448,22 +445,12 @@
 	} 
     
     showMore = function(){
-    	$("#showMoreA").css({
-    		visibility:hidden
-    	});
-    	<c:forEach items="${list}" var="item" varStatus="status" begin="5">	
-			<div class="border-bottom border-bottom-dashed mb-4 pb-4">
-	            <a href="#">
-	                <h5 style="display:inline-block;"><c:out value="${item.mnrtName}"/></h5>
-	            </a>
-	            <span class="star">
-					★★★★★
-					<span style="width:${item.mnrvScore}0%;">★★★★★</span>
-				</span>
-				<br>
-				<span class="myText mx-3"><c:out value="${item.mnrvText}" /></span>
-	        </div>
-		</c:forEach>
+    	/* $("#showMoreA").css({
+    		"visibility":"hidden"
+    	}); */
+    	/* <c:forEach items="${list}" var="item" varStatus="status" begin="5">	
+    		$('<div class="border-bottom border-bottom-dashed mb-4 pb-4"><a href="javascript:;"><h5 style="display:inline-block;"><c:out value="${item.mnrtName}"/></h5></a><span class="star">★★★★★<span style="width:${item.mnrvScore}0%;">★★★★★</span></span><br><span class="myText mx-3"><c:out value="${item.mnrvText}" /></span></div>').prependTo('#showBack');
+		</c:forEach> */
     }
 </script>
 </body>

@@ -108,9 +108,14 @@ public class BuddyController {
 	}
 	
 	@RequestMapping(value = "/user/friendInsert")
-	public String friendInsert(Buddy dto, Model model) throws Exception {
+	public String friendInsert(BuddyVo vo, Buddy dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
 		
 		service.insertFriend(dto);
+		
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		redirectAttributes.addAttribute("mnmtTasteCdArray", vo.getMnmtTasteCdArray());
+		redirectAttributes.addAttribute("mnmlLocationCdArray", vo.getMnmlLocationCdArray());
+		
 		
 		return "redirect:/user/areaSelect";
 	}
