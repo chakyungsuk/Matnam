@@ -6,27 +6,44 @@ public class Service {
 
 	//matnamMember
 	private String mnMmId;
-		
+	private String sessSeq;
+	private String sessName;
+	
 	// matnamServices
 	private String mnsvSeq;
 	private String mnsvTitle;
-	private Date mnsvDateReceipt;
 	private String mnsvDoneNy;
 	private String mnsvDesc;
 	private String mnMmSeq;
 	private Date mnsvReceiptDate;
+	private String mnsvTypeCd;
 	
 	
 	//matnamServicesReply
 	private String mnsrSeq;
 	private String mnsrContent;
-	private Date mnsrDate;
+	private String mnsrDate;
 	private String mnsrDesc;
+	private String mnsrDelNy;
+	
+	
 	public String getMnMmId() {
 		return mnMmId;
 	}
 	public void setMnMmId(String mnMmId) {
 		this.mnMmId = mnMmId;
+	}
+	public String getSessSeq() {
+		return sessSeq;
+	}
+	public void setSessSeq(String sessSeq) {
+		this.sessSeq = sessSeq;
+	}
+	public String getSessName() {
+		return sessName;
+	}
+	public void setSessName(String sessName) {
+		this.sessName = sessName;
 	}
 	public String getMnsvSeq() {
 		return mnsvSeq;
@@ -39,12 +56,6 @@ public class Service {
 	}
 	public void setMnsvTitle(String mnsvTitle) {
 		this.mnsvTitle = mnsvTitle;
-	}
-	public Date getMnsvDateReceipt() {
-		return mnsvDateReceipt;
-	}
-	public void setMnsvDateReceipt(Date mnsvDateReceipt) {
-		this.mnsvDateReceipt = mnsvDateReceipt;
 	}
 	public String getMnsvDoneNy() {
 		return mnsvDoneNy;
@@ -70,6 +81,12 @@ public class Service {
 	public void setMnsvReceiptDate(Date mnsvReceiptDate) {
 		this.mnsvReceiptDate = mnsvReceiptDate;
 	}
+	public String getMnsvTypeCd() {
+		return mnsvTypeCd;
+	}
+	public void setMnsvTypeCd(String mnsvTypeCd) {
+		this.mnsvTypeCd = mnsvTypeCd;
+	}
 	public String getMnsrSeq() {
 		return mnsrSeq;
 	}
@@ -82,10 +99,10 @@ public class Service {
 	public void setMnsrContent(String mnsrContent) {
 		this.mnsrContent = mnsrContent;
 	}
-	public Date getMnsrDate() {
+	public String getMnsrDate() {
 		return mnsrDate;
 	}
-	public void setMnsrDate(Date mnsrDate) {
+	public void setMnsrDate(String mnsrDate) {
 		this.mnsrDate = mnsrDate;
 	}
 	public String getMnsrDesc() {
@@ -94,6 +111,16 @@ public class Service {
 	public void setMnsrDesc(String mnsrDesc) {
 		this.mnsrDesc = mnsrDesc;
 	}
+	public String getMnsrDelNy() {
+		return mnsrDelNy;
+	}
+	public void setMnsrDelNy(String mnsrDelNy) {
+		this.mnsrDelNy = mnsrDelNy;
+	}
+	
+	
+	
+	
 }
 	
 	

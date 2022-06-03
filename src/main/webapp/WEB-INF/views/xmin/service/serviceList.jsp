@@ -115,16 +115,17 @@
 							<table class="table table-hover my-0" style="text-align:center;">
 								<thead style="border-bottom:none;">
 									<tr>
-										<th class="d-none d-xl-table-cell">no</th>
+										<th>번호</th>
 										<th>아이디</th>
-										<th class="d-none d-xl-table-cell">접수일</th>
+										<th>접수일</th>
 										<th>제목</th>										
-										<th class="d-none d-md-table-cell">카테고리</th>
-										<th class="d-none d-xl-table-cell">답변여부</th>
+										<th>카테고리</th>
+										<th>답변여부</th>
 									</tr>
 								</thead>
+								
 								<tbody>
-								<c:choose>
+									<c:choose>
 										<c:when test="${fn:length(list) eq 0}">
 											데이터가 없습니다.
 										</c:when>
@@ -134,14 +135,41 @@
 													<td><c:out value="${item.mnsvSeq}"/></td>
 													<td><c:out value="${item.mnMmId}"/></td>
 													<td><fmt:formatDate value="${item.mnsvReceiptDate}" pattern="yyyy-MM-dd"/></td>
-													<td><a href="/xmin/serviceView"><c:out value="${item.mnsvTitle}"/></a></td>
-													<td><span class="badge bg-warning">직원 불친절 / 기타 불만</span></td>
-													<td><c:out value="${item.mnsvDoneNy}"/></td>
+													<td><a href="/xmin/serviceView?mnMmSeq=<c:out value="${item.mnMmSeq}"/>&mnsvSeq=<c:out value="${item.mnsvSeq}"/>"><c:out value="${item.mnsvTitle}"/></a></td>
+													
+														<c:choose>
+															<c:when test="${item.mnsvTypeCd eq '14'}">
+																	<td><span class="badge bg-danger">직원 불친절 / 기타 불만</span> </td>
+															</c:when>
+															<c:when test="${item.mnsvTypeCd eq '15'}">
+																	<td><span class="badge bg-danger">욕설/모욕적 언어사용 신고</span> </td>
+															</c:when>
+															<c:when test="${item.mnsvTypeCd eq '16'}">
+																	<td><span class="badge bg-danger">웹사이트 사용관련 질의</span> </td>
+															</c:when>
+															<c:when test="${item.mnsvTypeCd eq 17}">
+																	<td><span class="badge bg-danger">사용자 매칭에 대한 질의사용자 매칭에 대한 질의</span> </td>
+															</c:when>
+															<c:when test="${item.mnsvTypeCd eq 18}">
+																	<td><span class="badge bg-danger">음식점 추천기준에 대한 질의</span> </td>
+															</c:when>
+															<c:otherwise>
+																<td>데이터가없습니다</td>
+															</c:otherwise>
+														</c:choose>
+														<c:choose>
+															<c:when test="${item.mnsvDoneNy eq 0}">
+																<td>미답변</td>
+															</c:when>
+															<c:when test="${item.mnsvDoneNy eq 1}">
+																<td>답변완료</td>
+															</c:when>
+														</c:choose>
 												</tr>
 											</c:forEach>
 										</c:otherwise>
 									</c:choose>
-									</tbody>
+								</tbody>
 							</table>
 							<nav aria-label="Page navigation example" style="margin-top:20px;">
 								<ul class="pagination" style="justify-content: center;">

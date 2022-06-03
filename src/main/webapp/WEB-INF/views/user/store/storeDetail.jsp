@@ -54,51 +54,64 @@
                         <li>휴무일<span><c:out value="${rtStore.mnrtHoliday}"/></span></li>
                     </ul>
                 </div>
-                <div class="box_style_2 d-none d-sm-block" id="help">
-                    <i class="icon_lifesaver"></i>
-                    <h4>Need <span>Help?</span></h4>
-                    <a href="tel://004542344599" class="phone">+45 423 445 99</a>
-                    <small>Monday to Friday 9.00am - 7.30pm</small>
-                </div>
             </div>
             <div class="col-lg-8">
                 <div class="box_style_2">
-                    <h2 class="inner">Description</h2>
+                    <h2 class="inner">상세정보</h2>
                    	
                     <h3><c:out value="${rtStore.mnrtName}"/>
                     	<div id="general_rating">
-                             Reviews
                             <div class="rating">
                                 <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                                (11)
+                                (<c:out value="${rtStore.mnrtAvg}"/>)
                             </div>
                         </div>
                      </h3>
-                    
-                 
+                                <img src="/resources/user/image/store/himnandaLogo.png" alt="">
+   
                     <p class="add_bottom_30">
                         <c:out value="${rtStore.mnrtText}"/>
                     </p>
                    
                     
                     <div class="review_strip_single">
-                        <img src="img/avatar1.jpg" alt="" class="rounded-circle">
-                        <small> - 2022.04 -</small>
-                        <h4><c:out value="${rtReview.mnMmName}"/></h4>
-                        <p>
-                            직원분이 친절하시고 맛있어서 또올거같아요.
-                        </p>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="rating">
-                                    <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
-                                </div>
-                            </div>
-                        </div><!-- End row -->
-                        
+                       <h3>Reviews(<c:out value="${sessSeq}"/>)</h3>
+                       <br>
+                    <c:choose>
+	                    <c:when test="${fn:length(rtReview) eq 0 }">
+	                    	데이터가없습니다!
+	          
+    	                </c:when>
+    	                <c:otherwise>
+	    	                <c:forEach items="${rtReview}" var="item" varStatus="status">
+		                        <img src="img/avatar1.jpg" alt="" class="rounded-circle">
+		                        <small>-<fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd"/>-</small>
+		                        <h4><c:out value="${item.mnMmName}"/></h4>
+		                        <p>
+		                            	<c:out value="${item.mnrvText }"/>
+		                        </p>
+		                        <div class="row">
+		                            <div class="col-md-3">
+		                                <div class="rating">
+		                                    <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
+		                                    (<c:out value="${item.mnrvScore }"/>)
+			    	                		<a href="/user/storeReviewView?mnrtSeq=<c:out value="${item.mnrtSeq}"/>&mnMmSeq=<c:out value="${item.mnMmSeq}"/>" style="text-decoration: none ">
+		                               	     	<button type="button" class="btn btn-outline-success">수정</button>
+				                            </a>
+		                                </div>
+		                            </div>
+		                        </div><!-- End row -->
+		                        <br>
+	                        </c:forEach>
+                        </c:otherwise>
+                       </c:choose>
                     </div><!-- End review strip -->
-                    
-                   	<a href="/user/userReviewForm"><button type="button" class="btn btn-outline-success">리뷰작성</button></a>
+                    <div class="mb-3">
+                    	c:out value="${sessName}"/>
+					  <label for="exampleFormControlTextarea1" class="form-label"></label>
+					  <textarea class="form-control" id="exampleFormControlTextarea1" name="mnrvText" rows="10" placeholder="음식점의 맛,양,직원들의 친절상태등 음식점에 대한 솔직한 리뷰를 남겨주세요."></textarea>
+					</div>
+                   	<a href="/user/userReviewForm?mnrtSeq=<c:out value="${rtStore.mnrtSeq}"/>"><button type="button" class="btn btn-outline-success">리뷰작성</button></a>
                 </div><!-- End box_style_1 -->
                 	<a href="/user/storeView"><button type="button" class="btn btn-outline-primary">목록</button></a>
             </div>

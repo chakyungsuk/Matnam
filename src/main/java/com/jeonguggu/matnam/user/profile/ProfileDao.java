@@ -27,6 +27,11 @@ public class ProfileDao {
 		return sqlSession.selectOne(namespace + ".selectOneProfile", vo);
 	}
 	
+//	지역 목록 조회
+	public List<Profile> selectListFriendRegion(Profile dto) {
+		return sqlSession.selectList(namespace + ".selectListFriendRegion", dto);
+	}
+	
 //	회원 프로필 수정
 	public int updateProfile(Profile dto) {
 		return sqlSession.update(namespace + ".updateProfile", dto);
@@ -36,6 +41,12 @@ public class ProfileDao {
 	}
 	public int updateProfileAddress(Profile dto) {
 		return sqlSession.update(namespace + ".updateProfileAddress", dto);
+	}
+	public int insertMemberRegion(Profile dto) {
+		return sqlSession.insert(namespace + ".insertMemberRegion", dto);
+	}
+	public int deleteMemberRegion(ProfileVo vo) {
+		return sqlSession.delete(namespace + ".deleteMemberRegion", vo);
 	}
 	
 //	회원 정보 조회
@@ -72,5 +83,10 @@ public class ProfileDao {
 	}
 	public int insertUserMemberAddressProfile(Profile dto) {
 		return sqlSession.insert(namespace + ".insertUserMemberAddressProfile", dto);
+	}
+	
+	//회원 리뷰 조회
+	public List<Profile> selectListReview(ProfileVo vo) {
+		return sqlSession.selectList(namespace + ".selectListReview", vo);
 	}
 }

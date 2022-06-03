@@ -135,10 +135,13 @@ public class ProfileController {
 	}
 	
 	@RequestMapping(value = "/user/profileEdit")
-	public String profileEdit(ProfileVo vo, Model model) throws Exception {
+	public String profileEdit(ProfileVo vo, Profile dto, Model model) throws Exception {
 		
 		Profile rt = service.selectOneProfile(vo);
 		model.addAttribute("rt", rt);
+		
+		List<Profile> regionList = service.selectListFriendRegion(dto);
+		model.addAttribute("regionList", regionList);
 		
 		return "/user/member/profileEdit";
 	}
@@ -146,18 +149,27 @@ public class ProfileController {
 	@RequestMapping(value = "/user/profileUpdt")
 	public String profileUpdt(@ModelAttribute("vo") ProfileVo vo, Profile dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
 		
-		service.updateProfile(dto);
+		service.updateProfile(dto, vo);
 		
 		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());	//get
 		
 		return "redirect:/user/profileView";
 	}
 	
-	@RequestMapping(value = "/test")
-	public String test() {
+	@RequestMapping(value = "/user/reviewView")
+	public String reviewView(ProfileVo vo, Model model) throws Exception {
 		
-		return "/user/member/test";
+		List<Profile> list = service.selectListReview(vo);
+		model.addAttribute("list", list);
+		
+		return "/user/member/reviewView";
 	}
+	
+//	@RequestMapping(value = "/test")
+//	public String test() {
+//		
+//		return "/user/member/test";
+//	}
 //	
 //	@RequestMapping(value = "/index2")
 //	public String index2() {

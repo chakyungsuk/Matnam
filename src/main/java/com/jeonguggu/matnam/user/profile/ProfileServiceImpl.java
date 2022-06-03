@@ -1,10 +1,11 @@
 package com.jeonguggu.matnam.user.profile;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jeonguggu.matnam.common.util.UtilDateTime;
-
 @Service
 public class ProfileServiceImpl implements ProfileService {
 	
@@ -26,12 +27,27 @@ public class ProfileServiceImpl implements ProfileService {
 	
 //	회원 프로필 수정
 	@Override
-	public int updateProfile(Profile dto) throws Exception {
+	public int updateProfile(Profile dto, ProfileVo vo) throws Exception {
 		dao.updateProfile(dto);
 		dao.updateProfilePhone(dto);
 		dao.updateProfileAddress(dto);
 		
+		dao.deleteMemberRegion(vo);
+		
+		for(int i = 0; i < dto.getMnmlLocationCdArray().length; i++) {
+			dto.setMnmlLocationCd(dto.getMnmlLocationCdArray()[i]);
+			
+			dao.insertMemberRegion(dto);
+		}
+		
 		return 1;
+	}
+	
+//	지역 조회
+	@Override
+	public List<Profile> selectListFriendRegion(Profile dto) throws Exception {
+		
+		return dao.selectListFriendRegion(dto);
 	}
 	
 //	회원 정보 조회
@@ -77,5 +93,11 @@ public class ProfileServiceImpl implements ProfileService {
 		return 1;
 	}
 
-	
+//	리뷰 조회
+	@Override
+	public List<Profile> selectListReview(ProfileVo vo) throws Exception {
+		
+		return dao.selectListReview(vo);
+	}
+
 }

@@ -13,7 +13,6 @@
     <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>QuickFood - Quality delivery or take away food</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -58,11 +57,11 @@
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
+    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/profileSub.jpg" data-natural-width="1400" data-natural-height="550">
         <div id="subheader">
             <div id="sub_content">
                 <h1>24 results in your zone</h1>
-                <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+                <div><i class="icon_pin"></i> 맛남의 광장</div>
             </div><!-- End sub_content -->
         </div><!-- End subheader -->
     </section><!-- End section -->
@@ -148,7 +147,7 @@
 	                            <option value="3" <c:if test="${rt.mnMmGenderCd eq 3}">selected</c:if>>기타</option>
 	                        </select>
 		                </div>
-		                <div class="form-group">
+		                <%-- <div class="form-group">
 	                        <label>휴대전화</label>
 	                		<div class="row">
 		                    	<div class="col-md-8 col-sm-8">
@@ -161,7 +160,11 @@
 		                            <input type="text" id="city_order" name="city_order" class="form-control" placeholder="">
 		                        </div>
 	                    	</div>
-	               		</div>
+	               		</div> --%>
+	               		<div class="form-group">
+		                    <label>휴대전화</label>
+		                    <input type="text" id="mnmpNumber" name="mnmpNumber" class="form-control" placeholder="전화번호 입력" required>
+		                </div>
 	               		<div class="form-group">
 						  	<label>주소</label>
 						  	<div class="input-group mb-2">
@@ -178,7 +181,7 @@
 		                	<!-- <a class="btn_1" href="profileView" style="width:200px;">수정하기</a> -->
 		                </div>
 		            </div><!-- End box_style_1 -->
-		            <button type="button" class="btn btn-outline-secondary" onclick = "javascript:goForm(${sessSeq})">돌아가기</button>
+		            <button type="button" class="btn btn-outline-secondary" onclick = "javascript:goViewForm(${sessSeq})">돌아가기</button>
 					</form>
 		        </div><!-- End col -->
 		    </div><!-- End row -->
@@ -234,10 +237,10 @@
         });
     });
     
-    goForm = function(seq){
+    goViewForm = function(seq){
 		$("#mnMmSeq").val(seq);
-		$("#formList").attr("action","/user/profileView");
-		$("#formList").submit();
+		$("#formTopList").attr("action","/user/profileView");
+		$("#formTopList").submit();
 	} 
     
     goUpdt = function(seq){

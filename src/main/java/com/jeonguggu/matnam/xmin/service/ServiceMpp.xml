@@ -20,6 +20,86 @@
 		
 	</select>
 	
+	
+	<select id="selectListService" resultMap="resultMapObj">
+		select
+			a.mnsvSeq
+			,b.mnMmSeq
+			,b.mnMmId
+			<!-- ,a.mnsvReceiptDate -->
+		    ,a.mnsvTitle
+		    ,a.mnsvDoneNy
+		    ,a.mnsvTypeCd
+		from matnamServices a
+		left join matnamMember b on b.mnMmSeq = a.mnMmSeq;
+
+	</select>
+	
+	
+	
+	<select id="selectOneService" resultMap="resultMapObj">
+		select 
+			a.mnMmSeq
+			,a.mnsvSeq
+			,a.mnsvTitle
+	        ,a.mnsvDesc
+			,a.mnsvDoneNy
+			,a.mnsvTypeCd
+	    from matnamServices a
+	    where 1=1
+	   	 and a.mnMmSeq =  #{mnMmSeq}
+	    and a.mnsvSeq = #{mnsvSeq};
+	</select>
+	
+	<select id="selectOneServiceReply" resultMap="resultMapObj">
+		select 
+		 a.mnsrSeq
+    	,a.mnsrDesc
+		from matnam.matnamServicesReply a
+	where 1=1
+	and a.mnsvSeq = #{mnsvSeq} ; 
+	</select>
+	
+	
+	<insert id="insertService">
+		insert into matnam.matnamServicesReply(
+    
+			mnsrDesc
+	        ,mnsrDate
+	        ,mnsrDelNy
+	        ,mnsvSeq
+    	)value(
+	    
+			#{mnsrDesc}
+	        ,now()
+	        ,0
+	        ,#{mnsvSeq}
+   	 	);
+	</insert>
+	
+	
+	<update id="updateServiceDoneNy">
+		update matnam.matnamServices set
+			mnsvDoneNy = 1
+		where 1=1
+			and  mnsvSeq = #{mnsvSeq};
+	</update>
+	
+	
+	
+	<delete id="deleteService">
+		delete 
+		from matnam.matnamServices
+		where 1=1
+		and mnsvSeq = #{mnsvSeq}; 
+	</delete>
+	
+	<delete id="deleteServiceReply">
+		delete 
+		from matnam.matnamServicesReply
+		where 1=1
+		and mnsvSeq = #{mnsvSeq}; 
+	</delete>
 
 
 

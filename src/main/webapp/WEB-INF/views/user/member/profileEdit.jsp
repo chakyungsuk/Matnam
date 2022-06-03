@@ -4,6 +4,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="CodeServiceImpl" class="com.jeonguggu.matnam.code.CodeServiceImpl"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,6 @@
     <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>QuickFood - Quality delivery or take away food</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -35,6 +36,7 @@
     <link href="/resources/user/css/fontello/css/fontello.min.css" rel="stylesheet">
     <link href="/resources/user/css/magnific-popup.css" rel="stylesheet">
     <link href="/resources/user/css/pop_up.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     
     <!-- Radio and check inputs -->
     <link href="/resources/user/css/skins/square/grey.css" rel="stylesheet">
@@ -77,6 +79,22 @@
 			text-decoration: none;
 		}
 		
+		.city a:link{
+			color: black;
+			text-decoration: none;
+		}
+		.city a:hover{
+			color: black;
+			text-decoration: underline;
+		}
+		button{
+			background:none;
+			border:none;
+		}
+		.on a:link{
+			color:blue;
+			text-decoration: none;
+		}
     </style> 
 </head>
 
@@ -86,11 +104,11 @@
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
+    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/profileSub.jpg" data-natural-width="1400" data-natural-height="550">
         <div id="subheader">
             <div id="sub_content">
                 <h1>24 results in your zone</h1>
-                <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+                <div><i class="icon_pin"></i> 맛남의 광장</div>
             </div><!-- End sub_content -->
         </div><!-- End subheader -->
     </section><!-- End section -->
@@ -187,7 +205,7 @@
 				                    <!-- End profile user -->
 				
 				                    <!-- Start User profile description -->
-				                    <div class="user-setting mt-5" style="height:400px;" data-simplebar>
+				                    <div class="user-setting mt-5" style="height:650px;" data-simplebar>
 				                        <div id="settingprofile" class="accordion accordion-flush">
 			                                <div id="personalinfo" class="accordion-collapse collapse show" aria-labelledby="headerpersonalinfo"
 			                                    data-bs-parent="#settingprofile">
@@ -238,10 +256,10 @@
 		                                            </div>
 		                                            <input type="text" class="form-control" id="mnMmEmail" name="mnMmEmail" value="<c:out value="${rt.mnMmEmail}"/>" placeholder="Enter email" >
 		                                        </div>
-		
+		                                        
 		                                        <div class="mt-3">
 		                                            <div class="row mt-2">
-			                                            <label for="mnmaAddress1" class="form-label text-muted fs-13 col-3">주소</label>
+			                                            <label for="mnMmEmail" class="form-label text-muted fs-13 col-3">주소</label>
 		                                            	<div class="float-end offset-4 col-5 row">
 			                                            	<div class="form-check col-auto">
 																<input class="form-check-input" type="radio" name="mnMmAddressPublicNy" id="mnMmAddressPublicNy1" value="1" <c:if test="${rt.mnMmAddressPublicNy eq 1}">checked</c:if>>
@@ -258,6 +276,34 @@
 														</div>
 		                                            </div>
 		                                            <input type="text" class="form-control" id="mnmaAddress1" name="mnmaAddress1" value="<c:out value="${rt.mnmaAddress1}"/>" placeholder="Location" >
+		                                        </div>
+		
+		                                        <div class="mt-3">
+		                                            <div class="row mt-2">
+			                                            <label for="mnmaAddress1" class="form-label text-muted fs-13 col-3">지역</label>
+		                                            </div>
+		                                            <%-- <input type="text" class="form-control" id="mnmaAddress1" name="mnmaAddress1" value="<c:out value="${rt.mnmaAddress1}"/>" placeholder="Location" > --%>
+		                                            <!-- <div>
+		                                            	<div>
+		                                            		<div id="dev_sch_area_name" style="border:1px solid gray;">
+		                                            			<span class="hiCity mx-2"></span>
+		                                            		</div>
+		                                            	</div>
+		                                            	<div style="border:1px solid gray;" class="mt-3">
+		                                            		<ul style="list-style: none;">
+		                                            			<li id="dev_area_gu_code_Q000" class="city"><a href="javascript:sch_area_si_chg('Q000', '고양시')">고양시</a></li>
+		                                            		</ul>
+		                                            	</div>
+		                                            </div> -->
+	                                            	<div class="form-group">
+														<div class="mb-3">
+															<c:set var="listCodeSeoul" value="${CodeServiceImpl.selectListCachedCode('7')}"/>
+															<c:forEach items="${listCodeSeoul}" var="itemSeoul" varStatus="statusRegion">
+																<input type="checkbox" class="btn-check" id="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>" name="mnmlLocationCdArray" value="${itemSeoul.mncdSeq}" autocomplete="off">
+																<label class="btn btn-outline-primary" for="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>"><c:out value="${itemSeoul.mncdName}"/></label>
+															</c:forEach>
+														</div> 
+													</div>
 		                                        </div>
 			                                </div>
 			                            </div>
@@ -308,6 +354,12 @@
 <script src="/resources/user/js/ion.rangeSlider.js"></script>
 
 <script>
+	$(document).ready(function(){
+		<c:forEach items="${regionList}" var="itemRegion" varStatus="statusRegion">
+			$("input[id=itemSeoulCd"+${itemRegion.mnmlLocationCd}+"]").prop("checked",true);
+		</c:forEach>
+	});
+
     $(function () {
 		 'use strict';
         $("#range").ionRangeSlider({
@@ -349,6 +401,58 @@
         a.addEventListener("load", function() {
             e.src = a.result
         }, !1), t && a.readAsDataURL(t)
+    });
+    
+    /* function sch_area_si_chg(s_code, s_name){	//구 검색
+    	var max_cnt = 5;
+		if($("#dev_sch_area_name span").length >= max_cnt) {
+			alert("최대 "+ max_cnt +"개까지 선택할 수 있습니다.");
+			$("#dev_area_gu_code_"+s_code).attr("checked",false);
+		} else {
+			if($("#dev_area_gu_code_"+s_code).hasClass("on")==true){
+			}else{
+				$('<span class="citySelect'+s_code+'">'+s_name+'<button type="button" onclick="sch_area_del(\''+s_code+'\')"><i class="bi bi-x-circle"></i></button></span>').appendTo('.hiCity');
+				$('#dev_area_gu_code_'+s_code).addClass("on");
+			}
+		}
+    }
+    
+    function sch_area_del(d_code){
+    	$('.citySelect'+d_code+'').remove();
+    	$("#dev_area_gu_code_"+d_code).removeClass("on");
+    } */
+    
+    function sch_area_si_chg(d_code){	//구 검색
+    	if(d_code.length == 4 && d_code.substr(1, 3) == "000") { //시,도 전체
+    		$("#dev_area_gu_code_"+ d_code).removeClass("on");
+    	} else {
+    		$("#dev_area_dong_code_"+d_code).attr("checked", false);
+    		sch_item_unsel("dev_area_dong_code_"+ d_code);
+    	}
+    }
+    
+    $(document).ready(function(){
+    	$("#itemSeoulCd97").click(function(){
+    		if($("#itemSeoulCd97").is(":checked")) {
+    			$("input[type='checkbox']").prop("checked", false);
+    			$(this).prop("checked", true);
+    		}
+    	});
+    	
+    	$("input[type='checkbox']").on("click",function(){
+    		let count = $("input:checked[type='checkbox']").length;
+    		
+    		if(count > 5){
+    			$(this).prop("checked", false);
+    			alert("5개 이하만 선택 가능합니다.");
+    		}
+    		
+    		if($("#itemSeoulCd97").is(":checked")) {
+    			if($(this).attr("id") != "itemSeoulCd97"){
+    				$("#itemSeoulCd97").prop("checked", false);
+    			}
+    		}
+    	});
     });
 </script>
 

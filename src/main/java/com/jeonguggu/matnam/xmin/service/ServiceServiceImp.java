@@ -17,6 +17,53 @@ public class ServiceServiceImp implements ServiceService {
 	}
 
 	
+	@Override
+	public List<Service> selectListService() throws Exception {
+		return dao.selectListService();
+	}
+
+
+	@Override
+	public Service selectOneService(ServiceVo vo) throws Exception {
+		return dao.selectOneService(vo);
+	}
+
+
+	@Override
+	public int insertService(Service dto) throws Exception {
+		return dao.insertService(dto);
+	}
+
+
+	@Override
+	public int updateServiceDoneNy(Service dto) throws Exception {
+		return dao.updateServiceDoneNy(dto);
+	}
+
+
+	@Override
+	public Service selectOneServiceReply(ServiceVo vo) throws Exception {
+		return dao.selectOneServiceReply(vo);
+	}
+
+
+	@Override
+	public int deleteService(ServiceVo vo) throws Exception {
+		return dao.deleteService(vo);
+	}
+	
+	@Override
+	public int deleteServiceReply(ServiceVo vo) throws Exception {
+		return dao.deleteServiceReply(vo);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	

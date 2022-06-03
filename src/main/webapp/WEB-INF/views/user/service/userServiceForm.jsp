@@ -32,23 +32,27 @@
     </div><!-- End Map -->
 
     <!-- Content ================================================== -->
+    <form id="form" name="form" method="get" action="/user/userServiceInst">
+    <input type="hidden" id="sessSeq" name="sessSeq" value="<c:out value="${sessSeq}"/>">
+
     <div class="container margin_60_35">
         <div class="row"> 
             <div class="col-lg-12">
                 <div class="box_style_2">
                     <h2 class="inner">문의하기</h2> 
-                    <select class="form-select" aria-label="Default select example">
+                    <c:out value="${sessName}"/>
+                    <select class="form-select" aria-label="Default select example" id="mnsvTypeCd" name="mnsvTypeCd">
 					  <option selected>문의 유형을 선택해주세요</option>
-					  <option value="1">직원 불친절 / 기타 불만</option>
-					  <option value="2">욕설/모욕적 언어사용 신고</option>
-					  <option value="3">웹사이트 사용관련 질의</option>
-					  <option value="3">사용자 매칭에 대한 질의</option>
-					  <option value="3">음식점 추천기준에 대한 질의</option>
+					  <option value="14">직원 불친절 / 기타 불만</option>
+					  <option value="15">욕설/모욕적 언어사용 신고</option>
+					  <option value="16">웹사이트 사용관련 질의</option>
+					  <option value="17">사용자 매칭에 대한 질의</option>
+					  <option value="18">음식점 추천기준에 대한 질의</option>
 					</select>
-                    <input class="form-control" type="text" placeholder="제목" aria-label="default input example">
+                    <input class="form-control" type="text" id="mnsvTitle" name="mnsvTitle"  placeholder="제목" aria-label="default input example">
                    <div class="mb-3">
 					  <label for="exampleFormControlTextarea1" class="form-label"></label>
-					  <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="서비스 이용시 불편사항에대해 남겨주세요."></textarea>
+					  <textarea class="form-control" id="exampleFormControlTextarea1" name="mnsvDesc" rows="10" placeholder="서비스 이용시 불편사항에대해 남겨주세요."></textarea>
 					</div>
 					
 					<div class="mb-3">
@@ -57,13 +61,14 @@
 					</div>
                    
                     
-                   	<a href="/user/userServiceList"><button type="button" class="btn btn-outline-success">문의하기</button></a>
+                   	<button type="submit" class="btn btn-outline-success">문의하기</button>
                    	<a href="/user/userServiceList"><button type="button" class="btn btn-outline-danger">취소</button></a>
                 </div><!-- End box_style_1 -->
             </div>
         </div><!-- End row -->
     </div><!-- End container -->
     <!-- End Content =============================================== -->
+    </form>
 
 	<!-- Footer -->
 	<%@include file="../include/footer.jsp" %>

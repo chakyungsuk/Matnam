@@ -13,10 +13,9 @@
     <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>QuickFood - Quality delivery or take away food</title>
+    <title>matnam</title>
 
     <!-- Favicons-->
-    <link rel="shortcut icon" href="/resources/user/image/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="/resources/user/image/apple-touch-icon-57x57-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/resources/user/image/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/resources/user/image/apple-touch-icon-114x114-precomposed.png">
@@ -43,6 +42,12 @@
     
     <!-- Modernizr -->
 	<script src="/resources/user/js/modernizr.js"></script> 
+	
+	<!-- KaKao Map -->
+<!-- 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d80e2a3ed34412759bd6b1eea6603bb"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d80e2a3ed34412759bd6b1eea6603bb&libraries=LIBRARY"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d80e2a3ed34412759bd6b1eea6603bb&libraries=services"></script> -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d80e2a3ed34412759bd6b1eea6603bb&libraries=services,clusterer,drawing"></script>
 </head>
 
 <body>
@@ -95,7 +100,7 @@
 			                <ul>
 			                    <li><a href="javascript:goFriendSelect(${sessSeq})">친구목록</a></li>
 <!-- 			                    <li><a href="/user/friendSelect">친구목록</a></li> -->
-			                    <li><a href="">리뷰목록</a></li>
+			                    <li><a href="javascript:goReview(${sessSeq})">리뷰목록</a></li>
 			                </ul> 
 		                </li>
 						<li><a href="#" id="btnLogout" onclick="btnLogout();">Logout</a></li>
@@ -166,6 +171,12 @@
 	goAreaSelect = function(seq){
 		$("#mnMmSeq").val(seq);
 		$("#formTopList").attr("action","/user/areaSelect");
+		$("#formTopList").submit();
+	} 
+	
+	goReview = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formTopList").attr("action","/user/reviewView");
 		$("#formTopList").submit();
 	} 
 </script>

@@ -14,7 +14,7 @@ public class UserServiceController {
 	UserServiceServiceImp service;
 	
 	
-	@RequestMapping(value="user/userServiceList")
+	@RequestMapping(value="/user/userServiceList")
 	public String userServiceList (Model model,UserService dto)throws Exception
 	{
 		List<UserService> list = service.selectListService();
@@ -31,17 +31,54 @@ public class UserServiceController {
 	}
 	
 	@RequestMapping(value="user/userServiceView")
-	public String userServiceView ()throws Exception
+	public String userServiceView (Model model, UserServiceVo vo)throws Exception
 	{
+		UserService rtService = service.selectOneService(vo);
 		
+		UserService rtServiceReply = service.selectOneServiceReply(vo);
+		
+		model.addAttribute("rtService" , rtService);
+		model.addAttribute("rtServiceReply" , rtServiceReply);
+		
+
 		return "user/service/userServiceView";
 	}
 	
 	@RequestMapping(value="user/userServiceEdit")
-	public String userServiceEdit ()throws Exception
+	public String userServiceEdit (Model model, UserServiceVo vo)throws Exception
 	{
 		
+		UserService rtService = service.selectOneService(vo);
+		
+		model.addAttribute("rtService" , rtService);
+		
 		return "user/service/userServiceEdit";
+	}
+	
+	@RequestMapping(value="/user/userServiceInst")
+	public String userServiceInst(Model model,UserService dto)throws Exception
+	{
+		service.insertService(dto);
+		
+		return "redirect:/user/userServiceList";
+	}
+	
+	@RequestMapping(value="/user/userServiceUpdt")
+	public String userServiceUpdt(Model model,UserService dto)throws Exception
+	{
+		service.userServiceUpdt(dto);
+	
+		
+		return "redirect:/user/userServiceList";
+	}
+	
+	@RequestMapping(value="/user/userServiceDele")
+	public String userServiceDele(Model model,UserServiceVo vo)throws Exception
+	{
+		service.userServiceDelete(vo);
+		
+		
+		return "redirect:/user/userServiceList";
 	}
 
 }

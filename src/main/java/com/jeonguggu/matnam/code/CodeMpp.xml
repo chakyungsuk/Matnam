@@ -11,6 +11,7 @@
     <select id="selectListForCache" resultMap="resultMapObj">
 		SELECT
 			a.mncdSeq
+			,a.mncdSeqAnother
 			, a.mncdName
 			, a.mncdDelNy
 			, a.mncgSeq
