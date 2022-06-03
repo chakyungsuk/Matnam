@@ -25,4 +25,10 @@ public interface BuddyService {
 //	친구 삭제
 	int delete(BuddyVo vo) throws Exception;
 	
+//	차단목록 추가
+	int friendBlock(Buddy dto) throws Exception;
+	
+//	차단목록 해제
+	int friendNonBlock(Buddy dto) throws Exception;
+	
 }

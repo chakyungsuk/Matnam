@@ -115,6 +115,8 @@
 	        <div class="col-lg-3">
 	        </div><!-- End col -->
 	        <div class="col-lg-6">
+	        	<form id="" name="" method="post">
+				<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
 	        	<div class="box_style_2" id="order_process">
 	                <h2 class="inner" style="text-align: center;">차단 친구 목록</h2>
 		            <!-- <div class="row my-5"> 
@@ -164,9 +166,11 @@
 									<div class="col-8">
 										<label><c:out value="${item.mnMmName}"/></label><br>
 										<span><c:out value="${item.mnMmIntroduce}"/></span>
+										<span><c:out value="${item.mnfdSeq}"/></span>
 									</div>
 									<div class="col-1">
-										<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><h6><span class="badge bg-primary">차단해제</span></h6></a>
+									<a href="/user/friendNonBlock?mnfdSeq=<c:out value="${item.mnfdSeq}"/>"><span class="badge bg-primary">차단해제</span></a>
+										<!-- <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><h6><span class="badge bg-primary">차단해제</span></h6></a> -->
 									</div>
 								</div>
 							</c:forEach>
@@ -174,6 +178,7 @@
 					</c:choose>
 				</div>
 				<button type="button" class="btn btn-outline-secondary" onclick = "javascript:goForm(${sessSeq})">돌아가기</button>
+	        </form>
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->

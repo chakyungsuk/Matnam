@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -66,9 +67,28 @@ public class BuddyController {
 	
 	@RequestMapping(value = "/user/friendDelete")
 	public String friendDelete(BuddyVo vo,  RedirectAttributes redirectAttributes) throws Exception {
-		System.out.println("asdakhsfbhabhkbkfakbhfabkhafbkh");
-		service.delete(vo);		
+		service.delete(vo);	
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		
 		return "redirect:/user/friendSelect";
+	}
+	
+	@RequestMapping(value = "/user/friendBlock")
+	public String friendBlock(@ModelAttribute("vo") BuddyVo vo, Buddy dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
+	
+		service.friendBlock(dto);		
+		
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		return "redirect:/user/friendSelect";
+	}
+	
+	@RequestMapping(value = "/user/friendNonBlock")
+	public String friendNonBlock(@ModelAttribute("vo") BuddyVo vo, Buddy dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.friendNonBlock(dto);		
+		
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		return "redirect:/user/blockFriendSelect";
 	}
 	
 }

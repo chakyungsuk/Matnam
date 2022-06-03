@@ -51,5 +51,15 @@ public class BuddyDao {
 	public int delete(BuddyVo vo) {
 		return sqlSession.delete(namespace + ".delete", vo);
 	}
+	
+//	차단목록 추가	
+	public int friendBlock(Buddy dto) {
+		return sqlSession.update(namespace + ".friendBlock", dto);
+	}
+	
+//	차단목록 해제	
+	public int friendNonBlock(Buddy dto) {
+		return sqlSession.update(namespace + ".friendNonBlock", dto);
+	}
 
 }

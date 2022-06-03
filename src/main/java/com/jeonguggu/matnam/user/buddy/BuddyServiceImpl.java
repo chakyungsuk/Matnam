@@ -60,4 +60,16 @@ public class BuddyServiceImpl implements BuddyService {
 		return dao.delete(vo);
 	}
 
+//	차단목록 추가
+	@Override
+	public int friendBlock(Buddy dto) throws Exception {
+		return dao.friendBlock(dto);
+	}
+	
+//	차단목록 해제
+	@Override
+	public int friendNonBlock(Buddy dto) throws Exception {
+		return dao.friendNonBlock(dto);
+	}
+
 }
