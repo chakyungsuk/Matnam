@@ -49,7 +49,7 @@ public class BuddyDao {
 	
 //	친구 삭제	
 	public int delete(BuddyVo vo) {
-		return sqlSession.delete(namespace + ".delete", vo);
+		return sqlSession.delete(namespace + ".delete", vo); 
 	}
 	
 //	차단목록 추가	
