@@ -46,6 +46,20 @@ public class BuddyServiceImpl implements BuddyService {
 		return dao.selectListArea(vo);
 	}
 	
+//	음식 취향 조회
+	@Override
+	public List<Buddy> selectListFriendTaste(Buddy dto) throws Exception {
+		
+		return dao.selectListFriendTaste(dto);
+	}
+	
+//	지역 조회
+	@Override
+	public List<Buddy> selectListFriendRegion(Buddy dto) throws Exception {
+		
+		return dao.selectListFriendRegion(dto);
+	}
+	
 //	사용자 프로필 조회
 	@Override
 	public Buddy selectOneUser(BuddyVo vo) throws Exception {
@@ -70,6 +84,26 @@ public class BuddyServiceImpl implements BuddyService {
 	@Override
 	public int friendNonBlock(Buddy dto) throws Exception {
 		return dao.friendNonBlock(dto);
+	}
+	
+//	사용자 리뷰 조회
+	@Override
+	public List<Buddy> selectListUserReview(BuddyVo vo) throws Exception {
+		return dao.selectListUserReview(vo);
+	}
+	
+//	친구 추가
+	@Override
+	public int insertFriend(Buddy dto) throws Exception {
+		dao.insertFriend(dto);
+		
+		return 1;
+	}
+	
+//	친구 추가 전 확인
+	@Override
+	public List<Buddy> selectListFriendConfirm(BuddyVo vo) throws Exception {
+		return dao.selectListFriendConfirm(vo);
 	}
 
 }

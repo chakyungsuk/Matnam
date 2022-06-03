@@ -4,6 +4,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="CodeServiceImpl" class="com.jeonguggu.matnam.code.CodeServiceImpl"/>
+
 
 	<link rel="stylesheet" href="https://contents.albamon.kr/webpack/dist/css/recruit-sv-202204210917.css" />
 	<!-- top -->
@@ -30,7 +32,7 @@
 		<div class="col-lg-3">
 			<div id="filters_col">
 				<div class="collapse show" id="collapseFilters">
-					<div class="filter_type">
+					<!-- <div class="filter_type">
                     	<h6>Distance</h6>
                         <input type="text" id="range" value="" name="range">						
 					</div>
@@ -53,67 +55,69 @@
 							<i class="icon_heart" style="color:red;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i><i class="icon_heart" style="color:#E6E6E6; padding-left:3px;"></i>
 							</label></li>
 						</ul>
-					</div>
-					<!-- <div class="filter_type">
-						<h6>친구목록</h6>
-						<ul>
-							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>김승태</li>
-							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>차경석</li>
-							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>한예린</li>
-							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>강현준</li>
-							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>홍길동</li>
-							<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i>아무개</li>
-						</ul>
-					</div> -->		
-					<c:choose>
-						<c:when test="${fn:length(friendList) eq 0}">
-						</c:when>
-						<c:otherwise>
-							<div class="filter_type">
+					</div> -->
+					<div class="filter_type">
+						<c:choose>
+							<c:when test="${fn:length(friendList) eq 0}">
+								<c:choose>
+									<c:when test="${not empty sessSeq}">
+										<h6>친구목록</h6>
+										<h5>친구를 추가해보세요!</h5>
+									</c:when>
+									<c:otherwise>
+										<h5>로그인이 필요한 기능입니다!</h5>
+									</c:otherwise>
+								</c:choose>
+							</c:when>
+							<c:otherwise>
 								<h6>친구목록</h6>
 								<c:forEach items="${friendList}" var="itemFriend" varStatus="status">	
-									<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i><c:out value="${itemFriend.mnMmName}"/></li>
+								<!-- <i class="color_1" style="float:left; margin-right:10px;"></i> -->
+									<li style="margin-bottom:3px;"><i class="icon_heart" style="color:red; padding-left:3px; margin-right:10px;"></i><c:out value="${itemFriend.mnMmName}"/></li>
 								</c:forEach>
-							</div>
-						</c:otherwise>
-					</c:choose>			
+							</c:otherwise>
+						</c:choose>			
+					</div>
 				</div><!--End collapse -->
 			</div><!--End filters col-->
 		</div><!--End col-md -->
         
 		<div class="col-lg-9">  
-			<!-- <div id="tools" style="border:none">
-				<div class="row">
-					<div class="col-3">
-						<select class="form-select" aria-label="Default select example">
-							<option selected>도시</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
-					</div>							
-					<div class="col-3">
-						<select class="form-select" aria-label="Default select example">
-							<option selected>상세 도시</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
-					</div>							
-					<div class="col-3">
-						<select class="form-select" aria-label="Default select example">
-							<option selected>상세 도시2</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>											
-					</div>					
-					<div class="col-3" style="text-align:center;">
-						<a href="detail_page.html" class="btn_1" style="text-align:center;">검색<i class="icon-search"></i></a>
-						<a href="detail_page.html" class="btn_1" style="text-align:center;">초기화<i class="icon-refresh"></i></a>	
-					</div>					
-				</div>					
-        	</div>	 -->
+			<div class="p-3 mb-2" style="border:1px solid gray">
+				<form id="searchForm" name="" action="/user/areaSelect" method="post">
+					<input type="hidden" id="mnMmSeq2" name="mnMmSeq2">
+					<input type="hidden" id="sesSeq" name="sesSeq" value="${sessSeq}">
+					<div style="text-align:center;">
+						<label for="" class="form-label text-muted fs-13 col-auto">검색</label>
+					</div>
+					<div style="background-color:gray; height:1px;"></div>
+					<div class="form-group">
+						<div class="mb-3 pt-2">
+							<label for="" class="form-label text-muted fs-13 col-auto">지역</label>
+							<c:set var="listCodeSeoul" value="${CodeServiceImpl.selectListCachedCode('7')}"/>
+							<c:forEach items="${listCodeSeoul}" var="itemSeoul" varStatus="statusTaste">
+								<input type="checkbox" class="btn-check" id="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>" name="mnmlLocationCdArray" value="${itemSeoul.mncdSeq}" autocomplete="off">
+								<label class="btn btn-outline-primary" for="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>"><c:out value="${itemSeoul.mncdName}"/></label>
+							</c:forEach>
+						</div> 
+					</div>
+					<div style="background-color:gray; height:1px;"></div>
+					<div class="form-group">
+						<div class="mb-3 pt-2">
+							<label for="" class="form-label text-muted fs-13 col-auto">음식취향</label>
+							<c:set var="listCodeTaste" value="${CodeServiceImpl.selectListCachedCode('4')}"/>
+							<c:forEach items="${listCodeTaste}" var="itemTaste" varStatus="statusTaste">
+								<input type="checkbox" class="btn-check" id="itemTasteCd<c:out value="${itemTaste.mncdSeq}"/>" name="mnmtTasteCdArray" value="${itemTaste.mncdSeq}" autocomplete="off">
+								<label class="btn btn-outline-primary" for="itemTasteCd<c:out value="${itemTaste.mncdSeq}"/>"><c:out value="${itemTaste.mncdName}"/></label>
+							</c:forEach>
+						</div> 
+					</div>
+					<div class="col" style="text-align:center;">
+						<button type="submit" class="btn_1" style="text-align:center;">검색<i class="icon-search"></i></button>
+						<button type="reset" class="btn_1" style="text-align:center;">초기화<i class="icon-refresh"></i></button>	
+					</div>
+				</form>
+        	</div>	
         	<!-- <div id="dev_sch_add_form_view">
 				<div class="resultSch">
 					<h2 class="skip">기본 결과내 검색 설정</h2>
@@ -167,143 +171,6 @@
 					</fieldset>
 				</div>
 			</div> -->
-			<!-- <div class="strip_list wow fadeIn" data-wow-delay="0.1s">
-				<div class="row">
-					<div class="col-md-9" style="cursor: pointer;" onclick="location.href='/user/friendDetail';">
-						<div class="desc">
-							<div class="rating">
-								<i class="icon_heart" style="color:red;"></i> x 37
-							</div>
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<h3>--예시-- 님</h3>
-							<div class="type">
-								15세 / 남성
-							</div>
-							<div class="location">
-								경기도 고양시 일산서구 주엽2동 222-2222
-							</div>
-							<ul>
-								<li>서울<i class="icon_check_alt2 ok"></i></li>
-								<li>일식<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-					</div>					 
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="#" class="btn_1" data-bs-toggle="modal" data-bs-target="#friendModal">친구요청</a>
-							</div>
-						</div>
-					</div>
-				</div>End row
-			</div>End strip_list -->
-            
-			<!-- <div class="strip_list wow fadeIn" data-wow-delay="0.2s">
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="rating">
-								<i class="icon_heart" style="color:red;"></i> x 65
-							</div>
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<h3>한예린 님</h3>
-							<div class="type">
-								26세 / 여성
-							</div>
-							<div class="location">
-								경기도 고양시 일산서구 주엽2동 222-2222
-							</div>
-							<ul>
-								<li>서울<i class="icon_check_alt2 ok"></i></li>
-								<li>양식<i class="icon_check_alt2 ok"></i></li>
-								<li>중식<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="" class="btn_1">친구요청</a>
-							</div>
-						</div>
-					</div>
-				</div>End row
-			</div>End strip_list
-            
-			<div class="strip_list wow fadeIn" data-wow-delay="0.3s">
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_heart" style="color:red;"></i> x 22
-							</div>
-							<h3>김승태 님</h3>
-							<div class="type">
-								45세 / 남성
-							</div>
-							<div class="location">
-								경기도 고양시 일산서구 주엽2동 222-2222
-							</div>
-							<ul>
-								<li>서울<i class="icon_check_alt2 ok"></i></li>
-								<li>일산<i class="icon_check_alt2 ok"></i></li>
-								<li>양식<i class="icon_check_alt2 ok"></i></li>
-								<li>한식<i class="icon_check_alt2 ok"></i></li>
-								<li>일식<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="" class="btn_1">친구요청</a>
-							</div>
-						</div>
-					</div>
-				</div>End row
-			</div>End strip_list            
-            
-			<div class="strip_list wow fadeIn" data-wow-delay="0.4s">
-				<div class="row">
-					<div class="col-md-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_heart" style="color:red;"></i> x 27
-							</div>
-							<h3>강현준 님</h3>
-							<div class="type">
-								29세 / 남성
-							</div>
-							<div class="location">
-								경기도 고양시 일산서구 주엽2동 222-2222
-							</div>
-							<ul>
-								<li>서울<i class="icon_check_alt2 ok"></i></li>
-								<li>일산<i class="icon_check_alt2 ok"></i></li>
-								<li>양식<i class="icon_check_alt2 ok"></i></li>
-								<li>한식<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="go_to">
-							<div>
-								<a href="" class="btn_1">친구요청</a>
-							</div>
-						</div>
-					</div>
-				</div>End row
-			</div>End strip_list -->
 			<c:choose>
 				<c:when test="${fn:length(list) eq 0}">
 						<h5 style="text-align: center;">해당 매칭유저가 없습니다.</h5>
@@ -334,10 +201,16 @@
 											<c:out value="${item.mnmaAddress1}"/>
 										</div> --%>
 										<ul>
-											<li>서울<i class="icon_check_alt2 ok"></i></li>
-											<li>일산<i class="icon_check_alt2 ok"></i></li>
+											<!-- <li>서울<i class="icon_check_alt2 ok"></i></li>
+											<li>일산<i class="icon_check_alt2 ok"></i></li> -->
+											<c:forEach items="${RegionList}" var="itemRegion" varStatus="status">
+												<c:if test="${itemRegion.mnMmSeq eq item.mnMmSeq}">
+													<li><c:out value="${itemRegion.mncdName}"/><i class="icon_check_alt2 ok"></i></li>
+												</c:if>
+											</c:forEach>
 											<!-- <li>양식<i class="icon_check_alt2 ok"></i></li>
 											<li>한식<i class="icon_check_alt2 ok"></i></li> -->
+											<br>
 											<c:forEach items="${tasteList}" var="itemTaste" varStatus="status">
 												<c:if test="${itemTaste.mnMmSeq eq item.mnMmSeq}">
 													<li><c:out value="${itemTaste.mncdName}"/><i class="icon_check_alt2 ok"></i></li>
@@ -422,6 +295,15 @@
 <script src="/resources/user/js/infobox.js"></script>
 <script src="/resources/user/js/ion.rangeSlider.js"></script>
 <script>
+	$(document).ready(function(){
+		<c:forEach items="${vo.mnmlLocationCdArray}" var="itemRegion" varStatus="statusRegion">
+			$("input[id=itemSeoulCd"+${itemRegion}+"]").prop("checked",true);
+		</c:forEach>
+		<c:forEach items="${vo.mnmtTasteCdArray}" var="itemTaste" varStatus="statusTaste">
+			$("input[id=itemTasteCd"+${itemTaste}+"]").prop("checked",true);
+		</c:forEach>
+	});
+
     $(function () {
 		 'use strict';
         $("#range").ionRangeSlider({
@@ -454,9 +336,9 @@
     })
     
     goForm = function(seq){
-		$("#mnMmSeq").val(seq);
-		$("#formTopList").attr("action","/user/friendDetail");
-		$("#formTopList").submit();
+		$("#mnMmSeq2").val(seq);
+		$("#searchForm").attr("action","/user/friendDetail");
+		$("#searchForm").submit();
 	} 
     
     setForm = function(seq){
@@ -653,6 +535,29 @@
     	}
     }
 
+    $(document).ready(function(){
+    	$("#itemSeoulCd97").click(function(){
+    		if($("#itemSeoulCd97").is(":checked")) {
+    			$("input[name='mnmlLocationCdArray']").prop("checked", false);
+    			$(this).prop("checked", true);
+    		}
+    	});
+    	
+    	$("input[name='mnmlLocationCdArray']").on("click",function(){
+    		let count = $("input:checked[name='mnmlLocationCdArray']").length;
+    		
+    		if(count > 5){
+    			$(this).prop("checked", false);
+    			alert("5개 이하만 선택 가능합니다.");
+    		}
+    		
+    		if($("#itemSeoulCd97").is(":checked")) {
+    			if($(this).attr("id") != "itemSeoulCd97"){
+    				$("#itemSeoulCd97").prop("checked", false);
+    			}
+    		}
+    	});
+    });
 </script>
 </body>
 </html>

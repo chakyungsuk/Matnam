@@ -165,6 +165,16 @@ public class ProfileController {
 		return "/user/member/reviewView";
 	}
 	
+	@RequestMapping(value = "/user/reviewDelete")
+	public String reviewDelete(ProfileVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
+
+		service.uptDelReview(vo);
+		
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		
+		return "redirect:/user/reviewView";
+	}
+	
 //	@RequestMapping(value = "/test")
 //	public String test() {
 //		

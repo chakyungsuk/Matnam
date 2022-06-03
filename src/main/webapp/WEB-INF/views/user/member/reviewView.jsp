@@ -162,7 +162,7 @@
 											★★★★★
 											<span style="width:${item.mnrvScore}0%;">★★★★★</span>
 										</span>
-										<button type="button" class="btn btn-danger btn-sm float-end mt-3">삭제</button><br>
+										<button type="button" class="btn btn-danger btn-sm float-end mt-3" onclick="javascript:setForm(${item.mnrvSeq});" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</button><br>
 										<span class="myText mx-3"><c:out value="${item.mnrvText}" /></span>
 	                                </div>
 								</c:forEach>
@@ -186,6 +186,36 @@
 <%@ include file="/WEB-INF/views/user/include/footer.jsp"%>
 <!-- End Footer =============================================== -->
 
+	<!-- Modal -->
+	
+	<!-- deleteModal -->
+	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteModalLabel">리뷰 삭제</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form action="/user/reviewDelete" id="reviewDeleteForm" name="reviewDeleteForm" method="get">
+					<input type="hidden" id="mnrvSeq" name="mnrvSeq">
+					<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+					<div class="modal-body">
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">리뷰를 삭제하시겠습니까?</label>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+						<button type="submit" id="confirmFriend" class="btn btn-primary">확인</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- end deleteModal -->
+	
+	<!-- end Modal -->
+
 <div class="layer"></div><!-- Mobile menu overlay mask -->
     
      <!-- Search Menu -->
@@ -204,6 +234,8 @@
 <script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
 <script src="/resources/user/assets/validate.js"></script>
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="http://maps.googleapis.com/maps/api/js"></script>
@@ -248,6 +280,10 @@
    	const drawStar = (target) => {
       document.querySelector('.star span').style.width = (target.value * 10) + '%';
     }
+   	
+   	setForm = function(seq){
+		$("#mnrvSeq").val(seq);
+	} 
 </script>
 </body>
 </html>

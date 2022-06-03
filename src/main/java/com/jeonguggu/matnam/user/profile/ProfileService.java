@@ -29,4 +29,7 @@ public interface ProfileService {
 //	회원 리뷰 조회
 	public List<Profile> selectListReview(ProfileVo vo) throws Exception;
 	
+//	회원 리뷰 삭제
+	public int uptDelReview(ProfileVo vo) throws Exception;
+	
 }

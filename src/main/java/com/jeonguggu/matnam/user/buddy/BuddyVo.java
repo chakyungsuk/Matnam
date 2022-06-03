@@ -4,8 +4,19 @@ public class BuddyVo {
 	 
 //	사용자 조회
 	private String mnMmSeq = "";
+	private String mnMmSeq2 = "";
+	private String sesSeq = "";
 	private String mnMmName = "";
 	private String mnmaAddress1 = "";
+	
+//	사용자 지역
+	private String[] mnmlLocationCdArray;
+	
+//	사용자 취향
+	private String[] mnmtTasteCdArray;
+	
+//	친구
+	private String mnfdFriendSeq;
 	
 //	친구 삭제
 	private String mnfdSeq = "";
@@ -42,6 +53,46 @@ public class BuddyVo {
 
 	public void setMnfdSeq(String mnfdSeq) {
 		this.mnfdSeq = mnfdSeq;
+	}
+
+	public String getMnMmSeq2() {
+		return mnMmSeq2;
+	}
+
+	public void setMnMmSeq2(String mnMmSeq2) {
+		this.mnMmSeq2 = mnMmSeq2;
+	}
+
+	public String getSesSeq() {
+		return sesSeq;
+	}
+
+	public void setSesSeq(String sesSeq) {
+		this.sesSeq = sesSeq;
+	}
+
+	public String[] getMnmlLocationCdArray() {
+		return mnmlLocationCdArray;
+	}
+
+	public void setMnmlLocationCdArray(String[] mnmlLocationCdArray) {
+		this.mnmlLocationCdArray = mnmlLocationCdArray;
+	}
+
+	public String[] getMnmtTasteCdArray() {
+		return mnmtTasteCdArray;
+	}
+
+	public void setMnmtTasteCdArray(String[] mnmtTasteCdArray) {
+		this.mnmtTasteCdArray = mnmtTasteCdArray;
+	}
+
+	public String getMnfdFriendSeq() {
+		return mnfdFriendSeq;
+	}
+
+	public void setMnfdFriendSeq(String mnfdFriendSeq) {
+		this.mnfdFriendSeq = mnfdFriendSeq;
 	}
 	
 	

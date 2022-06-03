@@ -102,6 +102,14 @@
 		div > a{
 			text-decoration: none;
 		}
+		.myText{
+			display:block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: 90%;
+			height: 20px;
+		}
     </style>  
 </head> 
 
@@ -111,11 +119,11 @@
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
+    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="" data-natural-width="1400" data-natural-height="550">
         <div id="subheader">
             <div id="sub_content">
                 <h1>24 results in your zone</h1>
-                <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+                <div><i class="icon_pin"></i> 맛남의 광장</div>
             </div><!-- End sub_content -->
         </div><!-- End subheader -->
     </section><!-- End section -->
@@ -136,6 +144,14 @@
 	</div><!-- End Map -->
 
 	<!-- Content ================================================== -->
+	<form id="listForm" name="" method="post" action="">
+		<c:forEach items="${vo.mnmtTasteCdArray}" var="itemTaste" varStatus="statusTaste">
+			<input type="hidden" id="itemTasteCd<c:out value="${itemTaste}"/>" name="mnmtTasteCdArray" value="${itemTaste}" autocomplete="off">
+		</c:forEach>
+		<c:forEach items="${vo.mnmlLocationCdArray}" var="itemRegion" varStatus="statusRegion">
+			<input type="hidden" id="itemTasteCd<c:out value="${itemRegion}"/>" name="mnmlLocationCdArray" value="${itemRegion}" autocomplete="off">
+		</c:forEach>
+	</form>
 
 	<div class="container margin_60_35">
 	    <div class="row">
@@ -183,7 +199,7 @@
 		                    <!-- End profile user -->
 		
 		                    <!-- Start user-profile-desc -->
-		                    <div class="p-4 profile-desc" style="height:500px;" data-simplebar>
+		                    <div class="p-4 profile-desc" data-simplebar style="height:auto;">
 		                        <div class="mb-4 pb-2">
 		                            <div class="d-flex py-2 align-items-center">
 		                                <div class="flex-shrink-0 me-3">
@@ -193,17 +209,17 @@
 		                                    <p class="mb-0"><c:out value="${rt.mnMmName}"/></p>
 		                                </div>
 		                            </div>
-		
-		                            <div class="d-flex py-2 align-items-center">
+		                            <%-- <div class="d-flex py-2 align-items-center">
 		                                <div class="flex-shrink-0 me-3">
 		                                    <i class="ri-phone-line align-middle text-muted fs-19"></i>
 		                                </div>
 		                                <div class="flex-grow-1">
-		                                    <p class="mb-0"><c:out value="${rt.mnMmMobile}"/></p>
+		                                    <fmt:formatNumber var="mnmpNumber" value="${rt.mnmpNumber }" pattern="###,####,####"/>
+		                                    <p class="mb-0">0<c:out value="${fn:replace(mnmpNumber, ',', '-')}" /></p>
 		                                </div>
-		                            </div>
+		                            </div> --%>
 		
-		                            <div class="d-flex py-2 align-items-center">
+		                            <%-- <div class="d-flex py-2 align-items-center">
 		                                <div class="flex-shrink-0 me-3">
 		                                    <i class="ri-message-2-line align-middle text-muted fs-19"></i>
 		                                </div>
@@ -219,6 +235,52 @@
 		                                <div class="flex-grow-1">
 		                                    <p class="mb-0"><c:out value="${rt.mnmaAddress1}"/></p>
 		                                </div>
+		                            </div> --%>
+		                            <div class="d-flex py-2 align-items-center">
+		                                <div class="flex-shrink-0 me-3">
+		                                    <i class="ri-phone-line align-middle text-muted fs-19"></i>
+		                                </div>
+		                                <c:choose>
+											<c:when test="${rt.mnMmMobilePublicNy eq 0}">
+												<label for="mnMmMobilePublicNy" class="form-label text-muted fs-13">비공개</label>
+											</c:when>
+											<c:otherwise>
+												<div class="flex-grow-1">
+				                                    <fmt:formatNumber var="mnmpNumber" value="${rt.mnmpNumber }" pattern="###,####,####"/>
+				                                    <p class="mb-0">0<c:out value="${fn:replace(mnmpNumber, ',', '-')}" /></p>
+				                                </div>
+											</c:otherwise>
+										</c:choose>		
+		                            </div>
+		                            <div class="d-flex py-2 align-items-center">
+		                                <div class="flex-shrink-0 me-3">
+		                                    <i class="ri-message-2-line align-middle text-muted fs-19"></i>
+		                                </div>
+		                                <c:choose>
+											<c:when test="${rt.mnMmEmailPublicNy eq 0}">
+												<label for="mnMmMobilePublicNy" class="form-label text-muted fs-13">비공개</label>
+											</c:when>
+											<c:otherwise>
+												<div class="flex-grow-1">
+				                                    <p class="fw-medium mb-0"><c:out value="${rt.mnMmEmail}"/></p>
+				                                </div>
+											</c:otherwise>
+										</c:choose>		
+		                            </div>
+		                            <div class="d-flex py-2 align-items-center">
+		                                <div class="flex-shrink-0 me-3">
+		                                    <i class="ri-map-pin-2-line align-middle text-muted fs-19"></i>
+		                                </div>
+		                                <c:choose>
+											<c:when test="${rt.mnMmAddressPublicNy eq 0}">
+												<label for="mnMmAddressPublicNy" class="form-label text-muted fs-13">비공개</label>
+											</c:when>
+											<c:otherwise>
+												<div class="flex-grow-1">
+				                                    <p class="mb-0"><c:out value="${rt.mnmaAddress1}"/></p>
+				                                </div>
+											</c:otherwise>
+										</c:choose>		
 		                            </div>
 		                        </div>
 		                        <div class="mb-4 pb-4">
@@ -226,27 +288,30 @@
 		                                <div class="flex-grow-1">
 		                                    <h5 class="fs-12 text-muted text-uppercase mb-0">작성 리뷰</h5>
 		                                </div>
-		                                <div class="flex-shrink-0">
-		                                    <a href="#" class="fw-medium fs-12 d-block">Show all</a>
-		                                </div>
 		                            </div>
-	                                <div class="border-bottom border-bottom-dashed mb-4 pb-4">
-	                                    <a href="#">
-	                                        <h5 style="display:inline-block;">힘난다 버거 강남역점</h5>
-	                                    </a>
-                                        <span class="star">
-											★★★★★
-											<span style="width:90%">★★★★★</span>
-										</span>
-	                                </div>
-	                                <div class="border-bottom border-bottom-dashed mb-4 pb-4">
-	                                    <a href="#">
-	                                        <h5 style="display:inline-block;">가장 맛있는 족발 강남역점</h5>
-	                                    </a>
-	                                    <span class="star">
-											★★★★★
-											<span style="width:80%">★★★★★</span>
-										</span>
+	                                <c:choose>
+										<c:when test="${fn:length(list) eq 0}">
+												<h5 style="text-align: center;"><c:out value="${rt.mnMmName}"/>님이 작성한 리뷰가 없습니다.</h5>
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${list}" var="item" varStatus="status" end="4">	
+												<div class="border-bottom border-bottom-dashed mb-4 pb-4">
+				                                    <a href="#">
+				                                        <h5 style="display:inline-block;"><c:out value="${item.mnrtName}"/></h5>
+				                                    </a>
+			                                        <span class="star">
+														★★★★★
+														<span style="width:${item.mnrvScore}0%;">★★★★★</span>
+													</span>
+													<br>
+													<span class="myText mx-3"><c:out value="${item.mnrvText}" /></span>
+				                                </div>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
+									<input type="hidden" id="showBack">
+									<div class="flex-shrink-0" style="text-align:center;">
+	                                    <a href="#" onclick="showMore();" id="showMoreA" class="fw-medium fs-12 d-block">Show all</a>
 	                                </div>
 		                        </div>
 		                    </div>
@@ -257,8 +322,15 @@
 		            <!-- End Profile tab-pane -->
             
             		<div style="text-align: center; padding:10px; "> 
-	                	<button class="btn_1" style="width:100px;" data-bs-toggle="modal" data-bs-target="#friendModal">친구추가</button>
-	                	<button class="btn_1" onclick="location.href = '/user/areaSelect'" style="width:100px;">목록으로</button>
+            			<c:choose>
+			        		<c:when test="${not empty sessSeq}">
+			        			<button class="btn_1" style="width:100px;" data-bs-toggle="modal" data-bs-target="#friendModal">친구요청</button>
+			        		</c:when>
+			        		<c:otherwise>
+			        			<button class="btn_1" style="width:100px;" onclick="friendAlert()">친구요청</button>
+			        		</c:otherwise>
+			       		</c:choose>
+	                	<button class="btn_1" onclick="javascript:goList();" style="width:100px;">목록으로</button>
 	                </div>
 	            </div><!-- End box_style_1 -->
 	        </div><!-- End col -->
@@ -291,21 +363,23 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="friendModalLabel">친구요청</h5>
+					<h5 class="modal-title" id="friendModalLabel">친구 요청</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<div class="modal-body">
-					<form>
-						<div class="mb-3">
-							<label for="recipient-name" class="col-form-label">고구마님께 친구요청하시겠습니까?</label>
-							<textarea class="form-control" id="message-text" placeholder="인사말을 남겨보세요." style="height:150px;"></textarea>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">send</button>
-				</div>
+				<form action="/user/friendInsert" id="friendForm" name="friendForm" method="get">
+					<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq" value="${rt.mnMmSeq}">
+					<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+					<div class="modal-body">
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label"><c:out value="${rt.mnMmName}"/>님께 친구요청하시겠습니까?</label>
+								<textarea class="form-control" id="mnfdMessage" name="mnfdMessage" placeholder="인사말을 남겨보세요." style="height:150px;"></textarea>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" id="confirmFriend" class="btn btn-primary">send</button>
+					</div>
+				</form>
 		  </div>
 		</div>
 	</div>
@@ -316,6 +390,7 @@
 <script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
 <script src="/resources/user/assets/validate.js"></script>
+<script src="/resources/common/js/validation.js"></script>
 <script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
@@ -341,6 +416,55 @@
         });
     });
     
+    friendAlert = function(){
+    	alert("로그인이 필요한 기능입니다.");
+    }
+    
+    $("#friendForm").on("click",function(){
+    	if(!checkNull($("#mnfdMessage"), $("#mnfdMessage").val(), "인사말을 입력하세요.")) return false;
+    	
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/user/friendProc"
+			,data : { "mnMmSeq" : $("#Seq").val(), "mnfdFriendSeq" : $("#mnfdFriendSeq").val()}
+			,success: function(response) {
+				if(response.rt == "success") {
+					$("#friendForm").submit();
+				} else {
+					alert("친구이거나 친구 신청한 사람입니다.");
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	});
+    
+    goList = function(){
+		$("#listForm").attr("action","/user/areaSelect");
+		$("#listForm").submit();
+	} 
+    
+    showMore = function(){
+    	$("#showMoreA").css({
+    		visibility:hidden
+    	});
+    	<c:forEach items="${list}" var="item" varStatus="status" begin="5">	
+			<div class="border-bottom border-bottom-dashed mb-4 pb-4">
+	            <a href="#">
+	                <h5 style="display:inline-block;"><c:out value="${item.mnrtName}"/></h5>
+	            </a>
+	            <span class="star">
+					★★★★★
+					<span style="width:${item.mnrvScore}0%;">★★★★★</span>
+				</span>
+				<br>
+				<span class="myText mx-3"><c:out value="${item.mnrvText}" /></span>
+	        </div>
+		</c:forEach>
+    }
 </script>
 </body>
 </html>

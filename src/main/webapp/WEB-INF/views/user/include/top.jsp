@@ -127,8 +127,6 @@
 <!-- COMMON SCRIPTS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
 <script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
-<script src="/resources/user/js/jquery-3.6.0.min.js"></script>
-<script src="/resources/user/js/common_scripts_min.js"></script>
 <script src="/resources/user/js/functions.js"></script>
 <script src="/resources/user/js/validate.js"></script>
 

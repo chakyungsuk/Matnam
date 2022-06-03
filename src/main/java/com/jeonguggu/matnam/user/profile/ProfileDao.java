@@ -89,4 +89,8 @@ public class ProfileDao {
 	public List<Profile> selectListReview(ProfileVo vo) {
 		return sqlSession.selectList(namespace + ".selectListReview", vo);
 	}
+	//회원 리뷰 삭제
+	public int uptDelReview(ProfileVo vo) {
+		return sqlSession.update(namespace + ".uptDelReview", vo);
+	}
 }

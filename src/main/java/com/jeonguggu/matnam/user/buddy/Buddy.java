@@ -9,14 +9,23 @@ public class Buddy {
 	private String mnMmSeq = "";
 	private String mnMmName = "";
 	private String mnMmId = "";
-	private String mnMmMobile = "";
+	private String mnmpNumber = "";
 	private String mnMmEmail = "";
 	private String mnMmIntroduce = "";
 	private String mnMmDob_Year = "";
 	private String mnMmGenderCd = "";
 	private String mnmaAddress1 = "";
 	private String mnMmLike = "";
+	private String mnMmMobilePublicNy = "";
+	private String mnMmEmailPublicNy = "";
+	private String mnMmAddressPublicNy = "";
 	private Integer age = 0;
+	
+//	음식 취향
+	private String mnmtSeq = "";
+	
+//	코드
+	private String mncdName = "";
 	 
 	//친구 목록
 	private String mnfdFriendSeq = "";
@@ -24,6 +33,17 @@ public class Buddy {
 	
 //	친구요청
 	private String mnfdMessage = "";
+	
+//	지역
+	private String mnmlSeq;
+	
+	//유저 리뷰
+	private String mnrvSeq;
+	private String mnrvScore;
+	private String mnrvText;
+	
+	//레스토랑
+	private String mnrtName;
 	
 //	----------------------------------------
 
@@ -107,12 +127,6 @@ public class Buddy {
 	public void setMnMmId(String mnMmId) {
 		this.mnMmId = mnMmId;
 	}
-	public String getMnMmMobile() {
-		return mnMmMobile;
-	}
-	public void setMnMmMobile(String mnMmMobile) {
-		this.mnMmMobile = mnMmMobile;
-	}
 	public String getMnMmEmail() {
 		return mnMmEmail;
 	}
@@ -124,6 +138,72 @@ public class Buddy {
 	}
 	public void setMnfdSeq(String mnfdSeq) {
 		this.mnfdSeq = mnfdSeq;
+	}
+	public String getMnmpNumber() {
+		return mnmpNumber;
+	}
+	public void setMnmpNumber(String mnmpNumber) {
+		this.mnmpNumber = mnmpNumber;
+	}
+	public String getMnrvSeq() {
+		return mnrvSeq;
+	}
+	public void setMnrvSeq(String mnrvSeq) {
+		this.mnrvSeq = mnrvSeq;
+	}
+	public String getMnrvScore() {
+		return mnrvScore;
+	}
+	public void setMnrvScore(String mnrvScore) {
+		this.mnrvScore = mnrvScore;
+	}
+	public String getMnrvText() {
+		return mnrvText;
+	}
+	public void setMnrvText(String mnrvText) {
+		this.mnrvText = mnrvText;
+	}
+	public String getMnrtName() {
+		return mnrtName;
+	}
+	public void setMnrtName(String mnrtName) {
+		this.mnrtName = mnrtName;
+	}
+	public String getMnMmMobilePublicNy() {
+		return mnMmMobilePublicNy;
+	}
+	public void setMnMmMobilePublicNy(String mnMmMobilePublicNy) {
+		this.mnMmMobilePublicNy = mnMmMobilePublicNy;
+	}
+	public String getMnMmEmailPublicNy() {
+		return mnMmEmailPublicNy;
+	}
+	public void setMnMmEmailPublicNy(String mnMmEmailPublicNy) {
+		this.mnMmEmailPublicNy = mnMmEmailPublicNy;
+	}
+	public String getMnMmAddressPublicNy() {
+		return mnMmAddressPublicNy;
+	}
+	public void setMnMmAddressPublicNy(String mnMmAddressPublicNy) {
+		this.mnMmAddressPublicNy = mnMmAddressPublicNy;
+	}
+	public String getMnmtSeq() {
+		return mnmtSeq;
+	}
+	public void setMnmtSeq(String mnmtSeq) {
+		this.mnmtSeq = mnmtSeq;
+	}
+	public String getMncdName() {
+		return mncdName;
+	}
+	public void setMncdName(String mncdName) {
+		this.mncdName = mncdName;
+	}
+	public String getMnmlSeq() {
+		return mnmlSeq;
+	}
+	public void setMnmlSeq(String mnmlSeq) {
+		this.mnmlSeq = mnmlSeq;
 	}
 	
 }

@@ -42,6 +42,16 @@ public class BuddyDao {
 		return sqlSession.selectList(namespace + ".selectListArea", vo);
 	}
 	
+//	음식 취향 목록 조회
+	public List<Buddy> selectListFriendTaste(Buddy dto) {
+		return sqlSession.selectList(namespace + ".selectListFriendTaste", dto);
+	}
+	
+//	지역 목록 조회
+	public List<Buddy> selectListFriendRegion(Buddy dto) {
+		return sqlSession.selectList(namespace + ".selectListFriendRegion", dto);
+	}
+	
 //	사용자 프로필 조회
 	public Buddy selectOneUser(BuddyVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneUser", vo);
@@ -61,5 +71,21 @@ public class BuddyDao {
 	public int friendNonBlock(Buddy dto) {
 		return sqlSession.update(namespace + ".friendNonBlock", dto);
 	}
+	
+//	사용자 리뷰 조회
+	public List<Buddy> selectListUserReview(BuddyVo vo) {
+		return sqlSession.selectList(namespace + ".selectListUserReview", vo);
+	}
+	
+//	친구 추가
+	public int insertFriend(Buddy dto) {
+		return sqlSession.insert(namespace + ".insertFriend", dto);
+	}
+	
+//	친구 추가 전 확인
+	public List<Buddy> selectListFriendConfirm(BuddyVo vo) {
+		return sqlSession.selectList(namespace + ".selectListFriendConfirm", vo);
+	}
+
 
 }

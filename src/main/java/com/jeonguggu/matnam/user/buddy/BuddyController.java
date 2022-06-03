@@ -1,12 +1,17 @@
 package com.jeonguggu.matnam.user.buddy;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -16,14 +21,22 @@ public class BuddyController {
 	BuddyServiceImpl service;
 	
 	@RequestMapping(value = "/user/areaSelect")
-	public String Select(BuddyVo vo, Model model) throws Exception {
+	public String Select(@ModelAttribute("vo") BuddyVo vo, Buddy dto, Model model) throws Exception {
 		
 		List<Buddy> listFriend = service.selectListFriend(vo);
 		model.addAttribute("listFriend", listFriend);
 		
-		vo.setMnmaAddress1("서울");
 		List<Buddy> list = service.selectListArea(vo);
 		model.addAttribute("list", list);
+		
+		List<Buddy> tasteList = service.selectListFriendTaste(dto);
+		model.addAttribute("tasteList", tasteList);
+		
+		List<Buddy> RegionList = service.selectListFriendRegion(dto);
+		model.addAttribute("RegionList", RegionList);
+		
+		List<Buddy> friendList = service.selectListFriend(vo);
+		model.addAttribute("friendList", friendList);
 		
 		return "/user/area/Select";
 	}
@@ -57,10 +70,13 @@ public class BuddyController {
 	}
 	
 	@RequestMapping(value = "/user/friendDetail")
-	public String friendDetail(BuddyVo vo, Model model) throws Exception {
+	public String friendDetail(@ModelAttribute("vo") BuddyVo vo, Model model) throws Exception {
 		
 		Buddy rt = service.selectOneUser(vo);
 		model.addAttribute("rt", rt);
+		
+		List<Buddy> list = service.selectListUserReview(vo);
+		model.addAttribute("list", list);
 		
 		return "/user/buddy/friendDetail";
 	}
@@ -91,4 +107,27 @@ public class BuddyController {
 		return "redirect:/user/blockFriendSelect";
 	}
 	
+	@RequestMapping(value = "/user/friendInsert")
+	public String friendInsert(Buddy dto, Model model) throws Exception {
+		
+		service.insertFriend(dto);
+		
+		return "redirect:/user/areaSelect";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/user/friendProc")
+	public Map<String, Object> friendProc(BuddyVo vo, HttpSession httpSession) throws Exception {
+		
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		List<Buddy> rtMember = service.selectListFriendConfirm(vo);
+
+		if(!rtMember.isEmpty()) {
+			returnMap.put("rt", "fail");
+		} else {
+			returnMap.put("rt", "success");
+		}
+		return returnMap;
+	}
 }

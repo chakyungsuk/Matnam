@@ -99,5 +99,13 @@ public class ProfileServiceImpl implements ProfileService {
 		
 		return dao.selectListReview(vo);
 	}
+	
+//	리뷰 삭제
+	@Override
+	public int uptDelReview(ProfileVo vo) throws Exception {
+		dao.uptDelReview(vo);
+		
+		return 1;
+	}
 
 }

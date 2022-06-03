@@ -80,11 +80,11 @@
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
+    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/profileSub.jpg" data-natural-width="1400" data-natural-height="550">
         <div id="subheader">
             <div id="sub_content">
                 <h1>24 results in your zone</h1>
-                <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+                <div><i class="icon_pin"></i> 맛남의 광장</div>
             </div><!-- End sub_content -->
         </div><!-- End subheader -->
     </section><!-- End section -->
