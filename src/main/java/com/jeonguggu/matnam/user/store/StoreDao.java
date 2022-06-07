@@ -28,7 +28,7 @@ public class StoreDao {
 	public List<Store> selectListReview(StoreVo vo){return sqlSession.selectList(namespace + ".selectListReview", vo);}
 	
 	// 리뷰 카운터
-	public int selectCount(StoreVo vo) {return sqlSession.selectOne(namespace +  ".selectCount", vo);}
+	public int selectCountReview(StoreVo vo) {return sqlSession.selectOne(namespace +  ".selectCountReview", vo);}
 	
 	
 	//리뷰 상세정보

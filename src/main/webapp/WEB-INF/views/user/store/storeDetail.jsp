@@ -42,7 +42,12 @@
         <div id="subheader">
             <div id="sub_content">
                 <div id="thumb"><img src="/resources/user/image/store/himnandaLogo.png" alt=""></div>
-                <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> ( <small><c:out value="${rtStore.mnrtAvg}"/></small> )</div>
+                <div class="rating"> 
+                	<span class="star">
+						★★★★★
+						<%-- <span style="width:${item.mnrvScore}0%;">★★★★★</span> --%>
+					</span>
+                </div>
                 <h1><c:out value="${rtStore.mnrtName}"/></h1>
                 <div><em><c:out value="${rtStore.mnrtFoodCate}"/></em></div>
                 <div><i class="icon_pin"></i> <c:out value="${rtStore.mnrtAddressFull}"/> <strong></strong></div>
@@ -93,8 +98,10 @@
 	                    <h3><c:out value="${rtStore.mnrtName}"/>
 	                    	<div id="general_rating">
 	                            <div class="rating">
-	                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-	                                (<c:out value="${rtStore.mnrtAvg}"/>)
+	                                <span class="star">
+										★★★★★
+										<%-- <span style="width:${item.mnrvScore}0%;">★★★★★</span> --%>
+									</span>
 	                            </div>
 	                        </div>
 	                     </h3>
@@ -106,7 +113,7 @@
 	                   
 	                    
 	                    <div class="review_strip_single">
-	                       <h3>Reviews()</h3>
+	                       <h3>Reviews(<c:out value="${rtCount}"/>)</h3>
 	                       <br>
 	                    <c:choose>
 		                    <c:when test="${fn:length(rtReview) eq 0 }">
@@ -116,19 +123,20 @@
 	    	                <c:otherwise>
 		    	                <c:forEach items="${rtReview}" var="item" varStatus="status">
 		    	                	<hr/>
+		    	         
 			                        <small>-<fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd"/>-</small>
 			                        <h4><c:out value="${item.mnMmName}"/></h4>
+			                        <span class="star">
+										★★★★★
+										<span style="width:${item.mnrvScore}0%;">★★★★★</span>
+									</span>
 			                        <p>
 			                            	<c:out value="${item.mnrvText }"/>
 			                        </p>
 			                        <div class="row">
 			                            <div class="col-md-3">
 			                                <div class="rating">
-			                                    <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
-			                                    (<c:out value="${item.mnrvScore }"/>)
-				    	                		<%-- <a href="/user/storeReviewView?mnrtSeq=<c:out value="${item.mnrtSeq}"/>&mnMmSeq=<c:out value="${item.mnMmSeq}"/>" style="text-decoration: none ">
-			                               	     	<button type="button" class="btn btn-outline-success">수정</button>
-					                            </a> --%>
+			                                    
 					                            <c:choose>
 					                            	<c:when test="${sessSeq eq item.mnMmSeq}">
 					                            	<a href="/user/storeReviewDele?mnrtSeq=<c:out value="${item.mnrtSeq}"/>&mnMmSeq=<c:out value="${item.mnMmSeq}"/>&mnrvSeq=<c:out value="${item.mnrvSeq}"/>">
@@ -153,8 +161,6 @@
 							  <span>★★★★★</span>
 							  <input type="range" oninput="drawStar(this)" id="mnrvScore" name="mnrvScore" value="1" step="1" min="0" max="10">
 							</span>
-	                   		<input type="range" class="form-range" min="0" max="10" step="1" id="customRange3" name="mnrvScore" oninput="document.getElementById('value1').innerHTML=this.value;">
-							<span id="value1"></span>
 						  <label for="exampleFormControlTextarea1" class="form-label"></label>
 						  <textarea class="form-control" id="exampleFormControlTextarea1" name="mnrvText" rows="10" placeholder="음식점의 맛,양,직원들의 친절상태등 음식점에 대한 솔직한 리뷰를 남겨주세요."></textarea>
 						</div>

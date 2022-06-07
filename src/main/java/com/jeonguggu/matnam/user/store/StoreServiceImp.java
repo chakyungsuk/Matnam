@@ -27,8 +27,8 @@ public class StoreServiceImp implements StoreService {
 	}
 
 	@Override
-	public int selectCount(StoreVo vo) throws Exception {
-		return dao.selectCount(vo);
+	public int selectCountReview(StoreVo vo) throws Exception {
+		return dao.selectCountReview(vo);
 	}
 
 	@Override

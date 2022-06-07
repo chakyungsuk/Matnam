@@ -67,6 +67,15 @@
 		and a.mnMmSeq = #{mnMmSeq};
 	</select>
 	
+	<select id="selectCountReview" resultType="Integer">
+		select 
+			count(*)
+		from matnamReview 
+		where 1=1
+			and mnrtSeq = #{mnrtSeq};
+		
+	</select>
+	
 	
 	<!-- 등록  -->
 	<insert id="insertReview">

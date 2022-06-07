@@ -36,7 +36,7 @@ public class Store {
 	// matnamReview
 	private String mnrvSeq;
 	private String mnrvDelNy;
-	private Integer mnrvScore;
+	private String mnrvScore;
 	private String mnrvText;
 	private Date regDateTime;
 	
@@ -167,10 +167,10 @@ public class Store {
 	public void setMnrvDelNy(String mnrvDelNy) {
 		this.mnrvDelNy = mnrvDelNy;
 	}
-	public Integer getMnrvScore() {
+	public String getMnrvScore() {
 		return mnrvScore;
 	}
-	public void setMnrvScore(Integer mnrvScore) {
+	public void setMnrvScore(String mnrvScore) {
 		this.mnrvScore = mnrvScore;
 	}
 	public String getMnrvText() {

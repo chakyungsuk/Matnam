@@ -13,7 +13,7 @@ public interface StoreService {
 	public Store selectOneStore(StoreVo vo) throws Exception;
 	
 	//리뷰 카운터
-	public int selectCount(StoreVo vo) throws Exception;
+	public int selectCountReview(StoreVo vo) throws Exception;
 	
 	//음식점 리뷰 출력
 	public List<Store> selectListReview(StoreVo vo) throws Exception;

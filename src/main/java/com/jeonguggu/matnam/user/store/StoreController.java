@@ -34,14 +34,19 @@ public class StoreController {
 	@RequestMapping(value = "user/storeDetail")
 	public String storeDetail(Model model,StoreVo vo) throws Exception {
 		
+		int rtCount = service.selectCountReview(vo);
+		vo.setTotalRows(rtCount);
 		
 		Store rtStore = service.selectOneStore(vo);
 		List <Store> rtReview = service.selectListReview(vo);
+		
+		System.out.println("vo.getTotalRows() : " + vo.getTotalRows());
 				
 		
 		
 		model.addAttribute("rtStore" , rtStore);
 		model.addAttribute("rtReview" , rtReview);
+		model.addAttribute("rtCount" , rtCount);
 		
 		return "/user/store/storeDetail";
 		
