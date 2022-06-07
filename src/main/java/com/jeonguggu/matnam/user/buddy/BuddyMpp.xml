@@ -112,10 +112,12 @@
 					<foreach item="itemLocation" index="index" collection="mnmlLocationCdArray">
 						<choose>
 							<when test="itemLocation == 97">
-								<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">
-									<foreach item="itemTaste" collection="mnmtTasteCdArray">
-										AND d.mnmtTasteCd = #{itemTaste} 
+								<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">AND (
+									<foreach item="itemTaste" collection="mnmtTasteCdArray" index="tasteIndex">
+										 <if test="tasteIndex != 0">OR</if>
+										 d.mnmtTasteCd = #{itemTaste} 
 									</foreach>
+									)
 								</if>
 								AND c.mnmlDelNy = 0
 								AND d.mnmtDelNy = 0
@@ -124,26 +126,32 @@
 								<if test="index == 0">AND</if>
 								<if test="index != 0">OR</if>
 								c.mnmlLocationCd = #{itemLocation}
-								<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">
-									<foreach item="itemTaste" collection="mnmtTasteCdArray">
-										AND d.mnmtTasteCd = #{itemTaste}
+								<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">AND(
+									<foreach item="itemTaste" collection="mnmtTasteCdArray" index="tasteIndex">
+										 <if test="tasteIndex != 0">OR</if>
+										 d.mnmtTasteCd = #{itemTaste} 
 									</foreach>
+									)
 								</if>
 							</when>
 						</choose>
 					</foreach>
 					OR c.mnmlLocationCd = 97
-					<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">
-						<foreach item="itemTaste" collection="mnmtTasteCdArray">
-							AND d.mnmtTasteCd = #{itemTaste}
+					<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">AND(
+						<foreach item="itemTaste" collection="mnmtTasteCdArray" index="tasteIndex">
+							 <if test="tasteIndex != 0">OR</if>
+							 d.mnmtTasteCd = #{itemTaste} 
 						</foreach>
+						)
 					</if>
 				</when>
 				<otherwise>
-					<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">
-						<foreach item="itemTaste" collection="mnmtTasteCdArray">
-							AND d.mnmtTasteCd = #{itemTaste} 
+					<if test="mnmtTasteCdArray != null and !mnmtTasteCdArray.equals('')">AND(
+						<foreach item="itemTaste" collection="mnmtTasteCdArray" index="tasteIndex">
+							 <if test="tasteIndex != 0">OR</if>
+							 d.mnmtTasteCd = #{itemTaste} 
 						</foreach>
+						)
 					</if>
 					AND c.mnmlDelNy = 0
 					AND d.mnmtDelNy = 0

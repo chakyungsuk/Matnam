@@ -85,7 +85,7 @@
 		<div class="col-lg-9">  
 			<div class="p-3 mb-2" style="border:1px solid gray">
 				<form id="searchForm" name="" action="/user/areaSelect" method="post">
-					<input type="hidden" id="mnMmSeqB" name="mnMmSeq">
+					<input type="hidden" id="mnMmSeqB" name="mnMmSeq" value="${sessSeq}">
 					<div style="text-align:center;">
 						<label for="" class="form-label text-muted fs-13 col-auto">검색</label>
 					</div>
