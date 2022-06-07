@@ -42,6 +42,9 @@ public class StoreServiceImp implements StoreService {
 	
 	@Override
 	public int insertReview(Store dto) throws Exception {
+		System.out.println("serviceImp:"+dto.getMnMmSeq());
+		System.out.println("serviceImp:"+dto.getMnrvText());
+		System.out.println("serviceImp:"+dto.getMnrtSeq());
 		return dao.insertReview(dto);
 	}
 	

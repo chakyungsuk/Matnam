@@ -5,6 +5,14 @@ import java.util.Date;
 public class Store {
 	
 	
+	// section
+	private String sessSeq;
+	private String sessName;
+	
+	
+	
+	
+	
 	// matnamRestaurant
 	private String mnrtSeq;
 	private String mnrtDelNy;
@@ -28,7 +36,7 @@ public class Store {
 	// matnamReview
 	private String mnrvSeq;
 	private String mnrvDelNy;
-	private String mnrvScore;
+	private Integer mnrvScore;
 	private String mnrvText;
 	private Date regDateTime;
 	
@@ -159,10 +167,10 @@ public class Store {
 	public void setMnrvDelNy(String mnrvDelNy) {
 		this.mnrvDelNy = mnrvDelNy;
 	}
-	public String getMnrvScore() {
+	public Integer getMnrvScore() {
 		return mnrvScore;
 	}
-	public void setMnrvScore(String mnrvScore) {
+	public void setMnrvScore(Integer mnrvScore) {
 		this.mnrvScore = mnrvScore;
 	}
 	public String getMnrvText() {
@@ -201,6 +209,20 @@ public class Store {
 	public void setMnMmName(String mnMmName) {
 		this.mnMmName = mnMmName;
 	}
+	public String getSessSeq() {
+		return sessSeq;
+	}
+	public void setSessSeq(String sessSeq) {
+		this.sessSeq = sessSeq;
+	}
+	public String getSessName() {
+		return sessName;
+	}
+	public void setSessName(String sessName) {
+		this.sessName = sessName;
+	}
+	
+	
 	
 	
 	

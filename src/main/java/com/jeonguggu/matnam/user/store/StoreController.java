@@ -1,12 +1,15 @@
 package com.jeonguggu.matnam.user.store;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -94,10 +97,27 @@ public class StoreController {
 	@RequestMapping(value="user/storeReviewInst")
 	public String storeReviewInst(StoreVo vo,Store dto) throws Exception {
 		
-		System.out.println(vo.getMnMmSeq());
-		System.out.println(dto.getMnMmSeq());
+		System.out.println(dto.getMnrvScore());
+		service.insertReview(dto);
 		
 		return "redirect:/user/storeDetail?mnrtSeq=" + vo.getMnrtSeq();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="user/reviewInst")
+	public Map<String , Object> storeReviewInstTest( Store dto , StoreVo vo) throws Exception {
+		Map<String , Object> rtReturn = new HashMap<String , Object>();
+		
+		System.out.println("dto.getMnrvScore()" + dto.getMnrvScore());
+		
+		service.insertReview(dto);
+		
+		
+		rtReturn.put("rt","success");
+		
+		
+		
+		return rtReturn;
 	}
 
 }

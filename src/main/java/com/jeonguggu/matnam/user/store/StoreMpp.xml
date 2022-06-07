@@ -41,6 +41,7 @@
 	<select id="selectListReview" resultMap="resultMapObj">
 		SELECT
 			a.mnrtSeq
+			,a.mnrvSeq
 			,a.mnMmSeq
 			,a.mnrvScore
 	        ,a.mnrvText
@@ -74,11 +75,17 @@
 	        ,mnrvDelNy
 	        ,mnrtSeq
 	        ,mnMmSeq
+	        ,mnmSeq
+	        ,mnrvScore
+	        ,regDateTime
 	    )value(
 			#{mnrvText}
 			,0
 	        ,#{mnrtSeq}
 	        ,#{mnMmSeq}
+	        ,0
+	        ,#{mnrvScore}
+	        ,now()
 	    );
     </insert>
 	<!-- 등록  -->
@@ -105,7 +112,8 @@
     	FROM matnam.matnamReview
 		WHERE 1=1
 			AND mnrtSeq = #{mnrtSeq}
-			AND mnMmSeq = #{mnMmSeq};
+			AND mnMmSeq = #{mnMmSeq}
+			AND mnrvSeq = #{mnrvSeq};
 	</delete>
 	<!-- 삭제  -->	
 

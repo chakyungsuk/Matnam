@@ -4,6 +4,7 @@ public class StoreVo {
 	
 	private String mnrtSeq;
 	private String mnMmSeq;
+	private String mnrvSeq;
 	
 	
 	
@@ -131,6 +132,15 @@ public class StoreVo {
 	public void setMnMmSeq(String mnMmSeq) {
 		this.mnMmSeq = mnMmSeq;
 	}
+
+	public String getMnrvSeq() {
+		return mnrvSeq;
+	}
+
+	public void setMnrvSeq(String mnrvSeq) {
+		this.mnrvSeq = mnrvSeq;
+	}
+	
 	
 	
 	

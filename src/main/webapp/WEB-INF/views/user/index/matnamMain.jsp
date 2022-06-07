@@ -97,9 +97,9 @@
     <img src="/resources/user/image/video_fix.png" alt="" class="header-video--media" data-video-src="" data-teaser-source="/resources/user/video/intro" data-provider="" data-video-width="1920" data-video-height="960">
     <div id="count" class="d-none d-md-block">
         <ul>
-            <li><span class="number">2650</span> Restaurant</li>
-            <li><span class="number">5350</span> Meeting</li>
-            <li><span class="number">12350</span> Registered Users</li>
+            <li><span class="number">2650</span> 음식점</li>
+            <li><span class="number">5350</span> 리뷰</li>
+            <li><span class="number">12350</span> 유저</li>
         </ul>
     </div>
     </section><!-- End Header video -->
