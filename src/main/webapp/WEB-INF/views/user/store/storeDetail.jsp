@@ -155,9 +155,9 @@
 	                       </c:choose>
 	                    </div><!-- End review strip -->
 	                    <div class="mb-3">
-	                   		<h3>리뷰를 작성해주세요</h3>
+	                   		<h3>리뷰를 작성해주세요</h3> 
 	                   		<span class="star">
-							  ★★★★★
+							  ★★★★★ 
 							  <span>★★★★★</span>
 							  <input type="range" oninput="drawStar(this)" id="mnrvScore" name="mnrvScore" value="1" step="1" min="0" max="10">
 							</span>
