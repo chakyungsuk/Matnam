@@ -8,15 +8,22 @@
 
 
 	<link rel="stylesheet" href="https://contents.albamon.kr/webpack/dist/css/recruit-sv-202204210917.css" />
+	
+	<style type="text/css">
+		a:link{
+			text-decoration: none;
+		}
+    </style>
+	
 	<!-- top -->
 	<%@include file="../include/top.jsp" %>
 	<!-- top -->
 	<!-- SubHeader =============================================== -->
-	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
+	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/buddySub.jpg" data-natural-width="1400" data-natural-height="350">
 	    <div id="subheader">
 	        <div id="sub_content">
-	            <h1>24 results in your zone</h1>
-	            <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+	            <h1>친구와 함께하는 맛있는 한끼</h1>
+	            <div><i class="icon_pin"></i> 맛남의 광장</div>
 	        </div><!-- End sub_content -->
 	    </div><!-- End subheader -->
 	</section><!-- End section -->
