@@ -1,8 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 <!doctype html>
 <html lang="en">
@@ -37,12 +33,15 @@
 	
 </head>
 
+<style>
+    .msg_card_body {
+        overflow-y: auto;
+        height: 500px;
+         border-radius: 15px !important;
+        background-color: rgba(0, 0, 0, 0.4) !important;
+    }
+</style>
 <body>
-
-<form id="chatView" name="chatView" method="get" action="/user/chatView">
-	<input type="hidden" id="mnMmSeq" name="mnMmSeq">
-	<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
-</form>
 
 <div class="layout-wrapper d-lg-flex">
 
@@ -97,15 +96,15 @@
                         <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" alt="" class="profile-user rounded-circle">
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="javascript:goProfileView(${sessSeq})">프로필 <i
+                        <a class="dropdown-item d-flex align-items-center justify-content-between" id=""
+                            data-bs-toggle="" href="/user/profileView" role="" target='_blank'>프로필 <i
                                 class="bx bx-user-circle text-muted ms-1"></i></a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="javascript:gouserEdit(${sessSeq})">개인정보변경 <i
+                        <a class="dropdown-item d-flex align-items-center justify-content-between" id=""
+                            data-bs-toggle="" href="/user/userEdit" role="" target='_blank'>개인정보변경 <i
                                 class="bx bx-cog text-muted ms-1" ></i></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="#" id="btnLogout" onclick="btnLogout();">Log out <i class="bx bx-log-out-circle text-muted ms-1"></i></a>
+                            href="/user/loginForm">Log out <i class="bx bx-log-out-circle text-muted ms-1"></i></a>
                     </div>
                 </li>
             </ul>
@@ -214,7 +213,7 @@
 
                     <!-- Start contact lists -->
                     <div class="chat-message-list chat-call-list" data-simplebar>
-                        <ul class="list-unstyled chat-list" id="callList">      
+                        <ul class="list-unstyled chat-list" id="">      
                   
                         </ul>
                     </div>
@@ -734,90 +733,7 @@
 
                     <!-- start chat conversation -->
 
-                    <div class="chat-conversation p-3 p-lg-4 " id="chat-conversation" data-simplebar>
-                        <ul class="list-unstyled chat-conversation-list" id="users-conversation">
-                        </ul>
-
-                        <!-- <div class="chat-list left" id="10">
-                            <div class="conversation-list">
-                                <div class="chat-avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
-                                </div>
-                                <div class="user-chat-content">
-                                    <div class="ctext-wrap">
-                                        <div class="message-img mb-0">
-                                            <div class="message-img-list">
-                                                <div>
-                                                    <iframe src="https://www.youtube.com/embed/PHcgN1GTjdU" title="YouTube video"
-                                                        class="w-100 rounded" autoplay allowfullscreen></iframe>
-                                                </div>
-
-                                                <div class="message-img-link">
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="list-inline-item dropdown">
-                                                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                                                aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bx bx-dots-horizontal-rounded"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item d-flex align-items-center justify-content-between"
-                                                                    href="assets/images/small/img-1.jpg" download="">
-                                                                    Download <i class="bx bx-download ms-2 text-muted"></i>
-                                                                </a>
-                                                                <a class="dropdown-item d-flex align-items-center justify-content-between"
-                                                                    href="#" data-bs-toggle="collapse" data-bs-target=".replyCollapse">
-                                                                    Reply <i class="bx bx-share ms-2 text-muted"></i>
-                                                                </a>
-                                                                <a class="dropdown-item d-flex align-items-center justify-content-between"
-                                                                    href="#" data-bs-toggle="modal" data-bs-target=".forwardModal">
-                                                                    Forward <i class="bx bx-share-alt ms-2 text-muted"></i>
-                                                                </a>
-                                                                <a class="dropdown-item d-flex align-items-center justify-content-between"
-                                                                    href="#">
-                                                                    Bookmark <i class="bx bx-bookmarks text-muted ms-2"></i>
-                                                                </a>
-                                                                <a class="dropdown-item d-flex align-items-center justify-content-between delete-image"
-                                                                    href="#">
-                                                                    Delete <i class="bx bx-trash ms-2 text-muted"></i>
-                                                                </a>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="conversation-name">
-                                        <small class="text-muted time">11:45 am</small>
-                                        <span class="text-success check-message-icon"><i class="bx bx-check-double"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="chat-list left" id="11">
-                            <div class="conversation-list">
-                                <div class="chat-avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
-                                </div>
-                                <div class="user-chat-content">
-                                    <div class="ctext-wrap">
-                                        <div class="message-img mb-0">
-                                            <div class="message-img-list">
-                                                <audio controls>
-                                                    <source src="http://w3codegenerator.com/audio/audio.mp3" type="audio/mpeg">
-                                                </audio>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="conversation-name">
-                                        <small class="text-muted time">11:45 am</small>
-                                        <span class="text-success check-message-icon"><i class="bx bx-check-double"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
+                    <div class="msg_card_body p-3 p-lg-4 " id="bodyContent" data-simplebar>
 
                     <div class="alert alert-warning alert-dismissible copyclipboard-alert px-4 fade show" id="copyClipBoard"
                         role="alert">
@@ -955,7 +871,7 @@
                                         </div>
                                         <input autocomplete="off" type="text"
                                             class="form-control form-control-lg bg-light border-0 chat-input" autofocus
-                                            id="chat-input" placeholder="Type your message...">
+                                            id="message" name="message" placeholder="Type your message...">
                                         <div class="chat-input-typing">
                                             <span class="typing-user d-flex">상대방 입력중
                                                 <span class="typing ms-2">
@@ -976,9 +892,10 @@
                                         </div>
                                         <div class="links-list-item">
                                             <button type="submit"
-                                                class="btn btn-primary btn-lg chat-send waves-effect waves-light">
+                                                class="btn btn-primary btn-lg chat-send waves-effect waves-light"
+                                                data-bs-toggle="collapse" data-bs-target=".chat-input-collapse1.show">
                                                 <i class="bx bxs-send align-middle" id="submit"></i>
-                                            </button>
+                                            </button> 
                                         </div>
                                     </div>
                                 </div>
@@ -1692,176 +1609,6 @@
                                                 </ul>
                                             </div>
 
-                                            <div>
-                                                <div class="contact-list-title">
-                                                    C
-                                                </div>
-
-                                                <ul class="list-unstyled contact-list">
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck3">
-                                                            <label class="form-check-label" for="memberCheck3">Craig
-                                                                Smiley</label>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <div class="contact-list-title">
-                                                    D
-                                                </div>
-
-                                                <ul class="list-unstyled contact-list">
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck4">
-                                                            <label class="form-check-label" for="memberCheck4">Daniel
-                                                                Clay</label>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <div class="contact-list-title">
-                                                    I
-                                                </div>
-
-                                                <ul class="list-unstyled contact-list">
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck5">
-                                                            <label class="form-check-label" for="memberCheck5">Iris
-                                                                Wells</label>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <div class="contact-list-title">
-                                                    J
-                                                </div>
-
-                                                <ul class="list-unstyled contact-list">
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck6">
-                                                            <label class="form-check-label" for="memberCheck6">Juan
-                                                                Flakes</label>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck7">
-                                                            <label class="form-check-label" for="memberCheck7">John
-                                                                Hall</label>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck8">
-                                                            <label class="form-check-label" for="memberCheck8">Joy
-                                                                Southern</label>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <div class="contact-list-title">
-                                                    M
-                                                </div>
-
-                                                <ul class="list-unstyled contact-list">
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck9">
-                                                            <label class="form-check-label" for="memberCheck9">Michael
-                                                                Hinton</label>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck10">
-                                                            <label class="form-check-label" for="memberCheck10">Mary
-                                                                Farmer</label>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <div class="contact-list-title">
-                                                    P
-                                                </div>
-
-                                                <ul class="list-unstyled contact-list">
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck11">
-                                                            <label class="form-check-label" for="memberCheck11">Phillis
-                                                                Griffin</label>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <div class="contact-list-title">
-                                                    R
-                                                </div>
-
-                                                <ul class="list-unstyled contact-list">
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck12">
-                                                            <label class="form-check-label" for="memberCheck12">Rocky
-                                                                Jackson</label>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <div class="contact-list-title">
-                                                    S
-                                                </div>
-
-                                                <ul class="list-unstyled contact-list">
-                                                    <li>
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input"
-                                                                id="memberCheck13">
-                                                            <label class="form-check-label" for="memberCheck13">Simon
-                                                                Velez</label>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
                                         </div>
                                     </div>
 
@@ -2535,267 +2282,6 @@
                         </div>
                         <!-- end contact list A -->
 
-                        <div class="mt-2">
-                            <div class="contact-list-title">
-                                C
-                            </div>
-
-                            <ul class="list-unstyled contact-list mb-0">
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-danger rounded-circle">
-                                                C
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Craig Smiley</h5>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- end contact list C -->
-
-                        <div class="mt-2">
-                            <div class="contact-list-title">
-                                D
-                            </div>
-
-                            <ul class="list-unstyled contact-list mb-0">
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="/resources/chat/dist/assets/images/users/avatar-4.jpg" alt=""
-                                                class="avatar-sm rounded-circle">
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Daniel Clay</h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="/resources/chat/dist/assets/images/users/avatar-8.jpg" alt=""
-                                                class="avatar-sm rounded-circle">
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Doris Brown</h5>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- end contact list D -->
-
-                        <div class="mt-2">
-                            <div class="contact-list-title">
-                                I
-                            </div>
-
-                            <ul class="list-unstyled contact-list mb-0">
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="/resources/chat/dist/assets/images/users/avatar-12.jpg" alt=""
-                                                class="avatar-sm rounded-circle">
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Iris Wells</h5>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- end contact list I -->
-
-                        <div class="mt-2">
-                            <div class="contact-list-title">
-                                J
-                            </div>
-
-                            <ul class="list-unstyled contact-list mb-0">
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-success rounded-circle">
-                                                J
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Juan Flakes</h5>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-info rounded-circle">
-                                                J
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">John Hall</h5>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="/resources/chat/dist/assets/images/users/avatar-3.jpg" alt=""
-                                                class="avatar-sm rounded-circle">
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Joy Southern</h5>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- end contact list J -->
-
-                        <div class="mt-2">
-                            <div class="contact-list-title">
-                                M
-                            </div>
-
-                            <ul class="list-unstyled contact-list mb-0">
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-primary rounded-circle">
-                                                M
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Mary Farmer</h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-dark rounded-circle">
-                                                M
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Mark Messer</h5>
-                                    </div>
-                                    <div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-warning rounded-circle">
-                                                M
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Michael Hinton</h5>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <!-- end contact list M -->
-
-                        <div class="mt-2">
-                            <div class="contact-list-title">
-                                O
-                            </div>
-
-                            <ul class="list-unstyled contact-list">
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="/resources/chat/dist/assets/images/users/avatar-6.jpg" alt=""
-                                                class="avatar-sm rounded-circle">
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Ossie Wilson</h5>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <!-- end contact list O -->
-
-                        <div class="mt-2">
-                            <div class="contact-list-title mb-0">
-                                P
-                            </div>
-
-                            <ul class="list-unstyled contact-list">
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="/resources/chat/dist/assets/images/users/avatar-10.jpg" alt=""
-                                                class="avatar-sm rounded-circle">
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Phillis Griffin</h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-info rounded-circle">
-                                                P
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Paul Haynes</h5>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- end contact list P -->
-
-                        <div class="mt-2">
-                            <div class="contact-list-title mb-0">
-                                R
-                            </div>
-
-                            <ul class="list-unstyled contact-list">
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-success rounded-circle">
-                                                R
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Rocky Jackson</h5>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <!-- end contact list R -->
-
-                        <div class="mt-2">
-                            <div class="contact-list-title">
-                                S
-                            </div>
-
-                            <ul class="list-unstyled contact-list mb-0">
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img src="/resources/chat/dist/assets/images/users/avatar-11.jpg" alt=""
-                                                class="avatar-sm rounded-circle">
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Sara Muller</h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-warning rounded-circle">
-                                                S
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Simon Velez</h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 avatar-sm">
-                                            <div class="avatar-title bg-danger rounded-circle">
-                                                S
-                                            </div>
-                                        </div>
-                                        <h5 class="fs-14 mb-0 ms-2">Steve Walker</h5>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <!-- end contact list S -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -2945,12 +2431,11 @@
     </div>
 </div>
 
+
 <!-- JAVASCRIPT -->
 <script src="/resources/chat/dist/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/resources/chat/dist/assets/libs/simplebar/simplebar.min.js"></script>
 <script src="/resources/chat/dist/assets/libs/node-waves/waves.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
-<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
 <!-- Modern colorpicker bundle -->
 <script src="/resources/chat/dist/assets/libs/@simonwep/pickr/pickr.min.js"></script>
@@ -2969,12 +2454,18 @@
 <script src="/resources/chat/dist/assets/js/app.js"></script>
 
 <!-- Fire base -->
-<script src=”https://www.gstatic.com/firebasejs/9.2.1/firebase-app.js”></script>
-<script src=”https://www.gstatic.com/firebasejs/9.2.1/firebase-database.js”></script>
 
+</body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+ 
+<!-- include firebase database -->
+<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+ 
 <!--  fire base script S -->
 <script type="module">
- 
+    // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
     import {
         getDatabase,
@@ -2985,28 +2476,45 @@
         onValue,
         onChildAdded
     } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+	import {
+    	getFirestore,
+  		collection,
+ 		addDoc,
+  		query,
+ 		orderBy,
+  		limit,
+  		onSnapshot,
+  		setDoc,
+  		updateDoc,
+  		doc,
+ 		 serverTimestamp,
+	} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
+	import {
+  		getStorage,
+  		uploadBytesResumable,
+  		getDownloadURL,
+	} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
+	import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-messaging.js";
+	import { getPerformance } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-performance.js";
 
-  	// TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
     const firebaseConfig = {
         apiKey: "AIzaSyDOwnSmV6IrU8U2BJeG-zXQQddLzPqYzNo",
-   		authDomain: "matnam-e9c16.firebaseapp.com",
-  		databaseURL: "https://matnam-e9c16-default-rtdb.firebaseio.com",
-   		projectId: "matnam-e9c16",
-   	 	storageBucket: "matnam-e9c16.appspot.com",
+   	 	authDomain: "matnam-e9c16.firebaseapp.com",
+    	databaseURL: "https://matnam-e9c16-default-rtdb.firebaseio.com",
+    	projectId: "matnam-e9c16",
+    	storageBucket: "matnam-e9c16.appspot.com",
     	messagingSenderId: "84472849491",
     	appId: "1:84472849491:web:b1401d16c6130d3db712a6"
      };
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+	const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
 
+	alert("여기까지 왔다");
     var myName = String("${sessName}");
-
-submit.addEventListener('click', (e) => {
+	
+    submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;
         var name = myName;
 
@@ -3018,77 +2526,37 @@ submit.addEventListener('click', (e) => {
         });
         document.getElementById('message').value = "";
         alert('message has sent');
-});
 
-const newMsg = ref(database, 'messages/');
+    });
+
+    const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
         if(data.val().name != myName) {
-            var divData = '<div class="d-flex justify-content-start mb-4" id="fromDiv">\n' +
-                '                        <div class="img_cont_msg">\n' +
-                '                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"\n' +
-                '                                 class="rounded-circle user_img_msg">\n' +
-                '                        </div>\n' +
+            var divData = '<ScrollView>\n' +
+				'<div class="d-flex justify-content-start mb-4" id="fromDiv">\n' +
                 '                        <div class="msg_cotainer" >\n' +
                 '                            '+data.val().message+'' +
                 '                            <span class="msg_time"></span>\n' +
                 '                        </div>\n' +
-                '                    </div>';
+                '                    </div>\n' +
+						'</ScrollView>';
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
-
- 		}else{
-
-            var divData = '<div class="d-flex justify-content-end mb-4">\n' +
+        }else{
+            var divData = '<ScrollView>\n' +
+				'<div class="d-flex justify-content-end mb-4">\n' +
                 '                        <div class="msg_cotainer_send" id="sendDiv">\n' +
                 '                            '+data.val().message+'' +
-                '                            <span class="msg_time_send">8:55 AM, Today</span>\n' +
+                '                            <span class="msg_time_send">serverTimestamp</span>\n' +
                 '                        </div>\n' +
-                '                        <div class="img_cont_msg">\n' +
-                '                            <img src=""\n' +
-                '                                 class="rounded-circle user_img_msg">\n' +
-                '                        </div>\n' +
-                '                    </div>';
+                '          </div>\n' +
+				'</ScrollView>';
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
         }
     });
 
 </script>
-<!-- fire base script E -->
 
-<script type="text/javascript">
-	$("#btnLogout").on("click",function(){
-		$.ajax({
-			async: true 
-			,cache: false
-			,type: "post"
-			,url: "/user/logoutProc"
-			,data : { "sessSeq" : $("#sessSeq").val(), "sessId" : $("#sessId").val()}
-			,success: function(response) {
-				if(response.rt == "success") {
-					location.href = "/index/matnamMain";
-				} else {
-					alert("오류");
-				}
-			}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
-	});
-	
-	goProfileView = function(seq){
-		$("#mnMmSeq").val(seq);
-		$("#chatView").attr("action","/user/profileView");
-		$("#chatView").submit();
-	} 
- 
-	gouserEdit = function(seq){
-		$("#mnMmSeq").val(seq);
-		$("#chatView").attr("action","/user/userEdit");
-		$("#chatView").submit();
-	}
-</script>
-</body>
 
 </html>

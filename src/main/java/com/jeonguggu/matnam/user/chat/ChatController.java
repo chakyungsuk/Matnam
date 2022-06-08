@@ -11,4 +11,10 @@ public class ChatController {
 		
 		return "/user/chat/chatView";
 	}
+	
+	@RequestMapping(value = "/chat/chatView2")
+	public String chatView2() {
+		
+		return "/user/chat/chatView2";
+	}
 }
