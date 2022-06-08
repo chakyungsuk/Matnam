@@ -2,6 +2,8 @@ package com.jeonguggu.matnam.user.store;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Store {
 	
 	
@@ -46,6 +48,15 @@ public class Store {
 	private String mnMmId;
 	private String mnMmPassword;
 	private String mnMmName;
+	
+	//file
+	
+	private MultipartFile file;
+	private MultipartFile file2;
+	private String originalFileName;
+	private String uuidFileName;
+	
+		
 	
 	public String getMnrtSeq() {
 		return mnrtSeq;
@@ -221,6 +232,31 @@ public class Store {
 	public void setSessName(String sessName) {
 		this.sessName = sessName;
 	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public MultipartFile getFile2() {
+		return file2;
+	}
+	public void setFile2(MultipartFile file2) {
+		this.file2 = file2;
+	}
+	public String getOriginalFileName() {
+		return originalFileName;
+	}
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
+	}
+	public String getUuidFileName() {
+		return uuidFileName;
+	}
+	public void setUuidFileName(String uuidFileName) {
+		this.uuidFileName = uuidFileName;
+	}
+	
 	
 	
 	

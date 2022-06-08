@@ -90,6 +90,10 @@
                         <input type="submit" class="btn_search" value="">
                         </span>
                     </div>
+                    <div style="padding-top:80px">
+                       <button type="button" class="btn btn-outline-primary btn-lg">지도검색</button>
+                       <button type="button" class="btn btn-outline-primary btn-lg">친구매칭</button>
+                    </div>
                 </div>
             </form>
         </div><!-- End sub_content -->

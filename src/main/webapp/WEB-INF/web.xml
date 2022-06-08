@@ -30,6 +30,24 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+	  <servlet-name>web</servlet-name>
+	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	  <init-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>
+	      classpath:config/spring/servlet-context.xml
+	    </param-value>
+	  </init-param>
+	  <load-on-startup>1</load-on-startup>
+	  <multipart-config>
+	    <location>/resources/upload/</location><!-- 업로드 파일 저장되는 기본 경로 -->
+	    <max-file-size>20971520</max-file-size> <!-- 한파일: 1mb * 20 -->
+	    <max-request-size>41943040</max-request-size> <!-- 한번에 여러개올리는데 전체가 40mb -->
+	    <file-size-threshold>20971520</file-size-threshold> <!-- 넘으면 temp에 넣고 업로드에 들어가지 않는다 : 20mb -->
+	  </multipart-config>
+	</servlet>
+	
 	<!-- for korean breaking s 2022.03.29 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>

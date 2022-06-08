@@ -159,7 +159,7 @@
 	                   		<span class="star">
 							  ★★★★★
 							  <span>★★★★★</span>
-							  <input type="range" oninput="drawStar(this)" id="mnrvScore" name="mnrvScore" value="1" step="1" min="0" max="10">
+							  <input type="range" oninput="drawStar(this)" id="mnrvScore" name="mnrvScore" value="5" step="1" min="0" max="10">
 							</span>
 						  <label for="exampleFormControlTextarea1" class="form-label"></label>
 						  <textarea class="form-control" id="exampleFormControlTextarea1" name="mnrvText" rows="10" placeholder="음식점의 맛,양,직원들의 친절상태등 음식점에 대한 솔직한 리뷰를 남겨주세요."></textarea>
@@ -191,13 +191,15 @@
 <script src="${pageContext.request.contextPath}/resources/user/js/ion.rangeSlider.js"></script>
 
 <script>
-
 	const drawStar = (target) => {
-	    document.querySelector('.star span').style.width = (target.value * 10) + '%';
-	  }
+	  document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
+	}
 </script>
+
+
 <script>
-	
+
+		
 	
 	checkNull = function (obj, value, message) {
 		if(value == "" || value == null){
