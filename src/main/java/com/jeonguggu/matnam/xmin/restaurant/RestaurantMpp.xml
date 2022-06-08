@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.jeonguggu.matnam.xmin.restaurant.RestaurantMpp">
+
+    <resultMap id="resultMapObj" type="com.jeonguggu.matnam.xmin.restaurant.Restaurant"></resultMap>
+    
+    
+    
+    <insert id="insert">
+    
+    	INSERT INTO matnam.matnamRestaurant(
+			mnrtDelNy
+		    ,mnrtName
+		    ,mnrtAddressFull
+		    ,mnrtCityCd
+		    ,mnrtX
+		    ,mnrtY
+		    ,mnrtNumber
+		    ,mnrtFoodCateCd
+		    ,mnrtTime
+		    ,mnrtBreakTime
+		    ,mnrtHolidayCd
+		    ,mnrtText
+		)VALUE (
+			0
+		    ,#{mnrtName}
+		    ,#{mnrtAddressFull}
+		    ,1
+		    ,12313
+		    ,124142
+		    ,#{mnrtNumber}
+		    ,#{mnrtFoodCateCd}
+		    ,""
+		    ,""
+		    ,#{mnrtHolidayCd}
+		    ,#{mnrtText}"
+		);
+    </insert>
+</mapper>

@@ -11,4 +11,17 @@ public class RestaurantController {
 		
 		return "/xmin/restaurant/restaurantList";
 	}		
+	
+	@RequestMapping(value="/xmin/restaurantForm")
+	public String restaurantForm() throws Exception {
+		
+		
+		return "/xmin/restaurant/restaurantForm";
+	}
+	@RequestMapping(value="/xmin/restaurantInst")
+	public String restaurantInst() throws Exception {
+		
+		
+		return "redirect:/xmin/restaurant/restaurantList";
+	}
 }
