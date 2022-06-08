@@ -734,9 +734,7 @@
 
                     <!-- start chat conversation -->
 
-                    <div class="chat-conversation p-3 p-lg-4 " id="chat-conversation" data-simplebar>
-                        <ul class="list-unstyled chat-conversation-list" id="users-conversation">
-                        </ul>
+                    <div class="chat-conversation p-3 p-lg-4 " id="bodyContent" data-simplebar>
 
                         <!-- <div class="chat-list left" id="10">
                             <div class="conversation-list">
@@ -955,7 +953,7 @@
                                         </div>
                                         <input autocomplete="off" type="text"
                                             class="form-control form-control-lg bg-light border-0 chat-input" autofocus
-                                            id="chat-input" placeholder="Type your message...">
+                                            id="message" placeholder="Type your message...">
                                         <div class="chat-input-typing">
                                             <span class="typing-user d-flex">상대방 입력중
                                                 <span class="typing ms-2">
@@ -2969,8 +2967,8 @@
 <script src="/resources/chat/dist/assets/js/app.js"></script>
 
 <!-- Fire base -->
-<script src=”https://www.gstatic.com/firebasejs/9.2.1/firebase-app.js”></script>
-<script src=”https://www.gstatic.com/firebasejs/9.2.1/firebase-database.js”></script>
+<!-- <script src=”https://www.gstatic.com/firebasejs/9.2.1/firebase-app.js”></script>
+<script src=”https://www.gstatic.com/firebasejs/9.2.1/firebase-database.js”></script> -->
 
 <!--  fire base script S -->
 <script type="module">
@@ -3005,49 +3003,73 @@
     const database = getDatabase(app);
 
     var myName = String("${sessName}");
-
+ 
 submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;
         var name = myName;
-
+		alert(message);
+		alert(name);
+ 
         const id = push(child(ref(database), 'messages')).key;
-
+		alert(id);
         set(ref(database, 'messages/' + id), {
             name: name,
             message: message
         });
+		alert(ref(database, 'messages/' + id));
         document.getElementById('message').value = "";
         alert('message has sent');
 });
 
 const newMsg = ref(database, 'messages/');
+	alert(newMsg);
     onChildAdded(newMsg, (data) => {
         if(data.val().name != myName) {
-            var divData = '<div class="d-flex justify-content-start mb-4" id="fromDiv">\n' +
-                '                        <div class="img_cont_msg">\n' +
-                '                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"\n' +
-                '                                 class="rounded-circle user_img_msg">\n' +
-                '                        </div>\n' +
-                '                        <div class="msg_cotainer" >\n' +
-                '                            '+data.val().message+'' +
-                '                            <span class="msg_time"></span>\n' +
-                '                        </div>\n' +
-                '                    </div>';
+            var divData = 
+			$('<div class="chat-list right px-3" id="10">'+
+                   ' <div class="conversation-list">'+
+                    
+                    '<div class="user-chat-content">'+
+                        '<div class="ctext-wrap">'+
+                            '<div class="message-img mb-0">'+
+                                '<div class="ctext-wrap-content">'+
+                                    '<p class="mb-0 ctext-content">' + data.val().message+'' + '</p>'+
+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="conversation-name">'+
+                            '<small class="text-muted time">11:45 am</small>'+
+                            '<span class="text-success check-message-icon"><i class="bx bx-check-double"></i></span>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>')
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
 
  		}else{
 
-            var divData = '<div class="d-flex justify-content-end mb-4">\n' +
-                '                        <div class="msg_cotainer_send" id="sendDiv">\n' +
-                '                            '+data.val().message+'' +
-                '                            <span class="msg_time_send">8:55 AM, Today</span>\n' +
-                '                        </div>\n' +
-                '                        <div class="img_cont_msg">\n' +
-                '                            <img src=""\n' +
-                '                                 class="rounded-circle user_img_msg">\n' +
-                '                        </div>\n' +
-                '                    </div>';
+            var divData = 
+			$('<div class="chat-list left px-3" id="10">'+
+                   ' <div class="conversation-list">'+
+                    
+                    '<div class="user-chat-content">'+
+                        '<div class="ctext-wrap">'+
+                            '<div class="message-img mb-0">'+
+                                '<div class="ctext-wrap-content">'+
+                                    '<p class="mb-0 ctext-content">' + data.val().message+'' + '</p>'+
+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="conversation-name">'+
+                            '<small class="text-muted time">11:45 am</small>'+
+                            '<span class="text-success check-message-icon"><i class="bx bx-check-double"></i></span>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>')
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
         }
