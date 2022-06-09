@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jeonguggu.matnam.common.util.UtilDateTime;
+import com.jeonguggu.matnam.common.util.UtilUpload;
 @Service
 public class ProfileServiceImpl implements ProfileService {
 	
@@ -63,6 +64,20 @@ public class ProfileServiceImpl implements ProfileService {
 		dao.updateUserMember(dto);
 		dao.updateUserMemberAddress(dto);
 		dao.updateUserMemberPhone(dto);
+		
+//		MultipartFile 
+//		
+//		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+//		UtilUpload.upload(multipartFile, pathModule, dto);
+//
+//		dto.setTableName("infrMemberUploaded");
+//		dto.setType(0);
+//		dto.setDefaultNy(0);
+//		dto.setSort(j);
+//		dto.setDefaultNy(0);
+//		dto.setPseq(dto.getIfcdSeq()); 
+//
+//		dao.insertUploaded(dto);
 		
 		return 1;
 	}

@@ -1,8 +1,10 @@
 package com.jeonguggu.matnam.user.profile;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -107,8 +110,8 @@ public class ProfileController {
 	}
 	
 	@RequestMapping(value = "/user/userEdit")
-	public String userEdit(ProfileVo vo, Model model) throws Exception {
-		
+	public String userEdit(Profile dto, ProfileVo vo, Model model) throws Exception {
+
 		Profile rt = service.selectOneUserMember(vo);
 		model.addAttribute("rt", rt);
 		
@@ -175,11 +178,11 @@ public class ProfileController {
 		return "redirect:/user/reviewView";
 	}
 	
-//	@RequestMapping(value = "/test")
-//	public String test() {
-//		
-//		return "/user/member/test";
-//	}
+	@RequestMapping(value = "/test")
+	public String test() {
+		
+		return "/user/member/test";
+	}
 //	
 //	@RequestMapping(value = "/index2")
 //	public String index2() {

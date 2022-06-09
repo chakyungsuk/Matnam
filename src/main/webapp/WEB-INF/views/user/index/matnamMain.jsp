@@ -35,6 +35,11 @@
     
     <!-- Modernizr -->
 	<script src="/resources/user/js/modernizr.js"></script> 
+	<style type="text/css">
+		a:link{
+			text-decoration: none;
+		}
+    </style>
 	
 
 <style>
@@ -97,9 +102,9 @@
     <img src="/resources/user/image/video_fix.png" alt="" class="header-video--media" data-video-src="" data-teaser-source="/resources/user/video/intro" data-provider="" data-video-width="1920" data-video-height="960">
     <div id="count" class="d-none d-md-block">
         <ul>
-            <li><span class="number">2650</span> 음식점</li>
-            <li><span class="number">5350</span> 리뷰</li>
-            <li><span class="number">12350</span> 유저</li>
+            <li><span class="number">${countRestaurant.countRestaurant}</span> 음식점</li>
+            <li><span class="number">${countReview.countReview}</span> 리뷰</li>
+            <li><span class="number">${countUser.countUser}</span> 유저</li>
         </ul>
     </div>
     </section><!-- End Header video -->

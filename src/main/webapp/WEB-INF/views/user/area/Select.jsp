@@ -7,16 +7,18 @@
 <jsp:useBean id="CodeServiceImpl" class="com.jeonguggu.matnam.code.CodeServiceImpl"/>
 
 
-	<link rel="stylesheet" href="https://contents.albamon.kr/webpack/dist/css/recruit-sv-202204210917.css" />
+	<!-- <link rel="stylesheet" href="https://contents.albamon.kr/webpack/dist/css/recruit-sv-202204210917.css" /> -->
+	
+	
+	<!-- top -->
+	<%@include file="../include/top.jsp" %>
+	
 	
 	<style type="text/css">
 		a:link{
 			text-decoration: none;
 		}
     </style>
-	
-	<!-- top -->
-	<%@include file="../include/top.jsp" %>
 	<!-- top -->
 	<!-- SubHeader =============================================== -->
 	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/buddySub.jpg" data-natural-width="1400" data-natural-height="350">
@@ -78,10 +80,12 @@
 							</c:when>
 							<c:otherwise>
 								<h6>친구목록</h6>
+								<ul>
 								<c:forEach items="${friendList}" var="itemFriend" varStatus="status">	
 								<!-- <i class="color_1" style="float:left; margin-right:10px;"></i> -->
-									<li style="margin-bottom:3px;"><i class="icon_heart" style="color:red; padding-left:3px; margin-right:10px;"></i><c:out value="${itemFriend.mnMmName}"/></li>
+									<li style="margin-bottom:3px;"><i class="color_1" style="float:left; margin-right:10px;"></i><c:out value="${itemFriend.mnMmName}"/></li>
 								</c:forEach>
+								</ul>
 							</c:otherwise>
 						</c:choose>			
 					</div>
