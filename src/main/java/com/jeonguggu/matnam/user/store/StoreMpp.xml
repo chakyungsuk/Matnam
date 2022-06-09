@@ -11,7 +11,7 @@
 		SELECT
 			a.mnrtSeq
 			,a.mnrtName
-		    ,a.mnrtFoodCateCd
+		    ,a.mnrtFoodCateCd 
 		    ,a.mnrtAddressFull
 		    ,a.mnrtTime
 		    ,a.mnrtBreakTime

@@ -10,7 +10,7 @@ public class Store {
 	// section
 	private String sessSeq;
 	private String sessName;
-	
+	 
 	
 	
 	
