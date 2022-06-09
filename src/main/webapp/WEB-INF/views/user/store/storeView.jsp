@@ -146,7 +146,7 @@
 								</div>
 								<h3><c:out value="${item.mnrtName}"/></h3>
 								<div class="type">
-									<c:out value="${item.mnrtFoodCate}"/>
+									<c:out value="${item.mncdName}"/>
 								</div>
 								<div class="location">
 									<c:out value="${item.mnrtAddressFull}"/><br><span class="opening">영업시간:<c:out value="${item.mnrtTime}"/></span><br>브레이크타임:<c:out value="${item.mnrtBreakTime}"/>

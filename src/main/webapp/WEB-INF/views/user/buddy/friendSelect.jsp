@@ -197,7 +197,7 @@
 										<input type="hidden" id="mnMmSeq" name="mnMnSeq" value="${sessSeq}">
 										<div class="row">
 											<div class="col-12">
-												<a href="/chat/chatView"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
+												<a href="javascript:gochat(${sessSeq})"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
 											</div>
 											<div>
 												<a href="/user/friendDelete?mnfdSeq=<c:out value="${item.mnfdSeq}"/>" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>
@@ -349,6 +349,12 @@
     goUserFriendRequest = function(seq){
 		$("#mnMmSeq").val(seq);
 		$("#formTopList").attr("action","/user/userFriendRequest");
+		$("#formTopList").submit();
+	} 
+    
+    gochat = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#formTopList").attr("action","/chat/chatView2");
 		$("#formTopList").submit();
 	} 
 

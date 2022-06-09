@@ -164,6 +164,37 @@
 			AND mnMmSeq = #{mnMmSeq}
 			AND mnmaTypeCd = 12
 	</update>
+	
+	<!-- uploaded -->
+
+	<insert id="insertUploaded">
+		INSERT INTO ${tableName}(
+			type
+			,defaultNy
+			,sort
+			,originalName
+			,uuidName
+			,ext
+			,size
+			,delNy
+			<!-- <include refid="Base.insertRegColumn" /> -->
+			,pseq
+		) VALUES (
+			#{type}
+			,#{defaultNy}
+			,#{sort}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			<!-- <include refid="Base.insertReqValue" /> -->
+			,#{pseq}
+		)
+	</insert>
+
+	<!-- uploaded -->
+	
 	<!-- 회원 정보 수정 끝 -->
 	
 	<!-- 회원 가입 시작 -->

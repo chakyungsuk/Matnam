@@ -7,6 +7,8 @@
 <mapper namespace="com.jeonguggu.matnam.xmin.member.MemberMpp">
 
     <resultMap id="resultMapObj" type="com.jeonguggu.matnam.xmin.member.Member"></resultMap>
+    
+
 
 	<sql id="selectCommon">
 		FROM

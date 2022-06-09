@@ -146,6 +146,7 @@
 	<!-- Content ================================================== -->
 	<form id="listForm" name="" method="get" action="">
 		<input type="hidden" id="mnMmSeqC" name="mnMmSeq" value="${sessSeq}">
+		<input type="hidden" id="mnMmNameC" name="mnMmName" value="${sessName}">
 		<c:forEach items="${vo.mnmtTasteCdArray}" var="itemTaste" varStatus="statusTaste">
 			<input type="hidden" id="itemTasteCd<c:out value="${itemTaste}"/>" name="mnmtTasteCdArray" value="${itemTaste}" autocomplete="off">
 		</c:forEach>

@@ -6,30 +6,31 @@
 
 <head>
 	<style>
-		.star {
-		    position: relative;
-		    font-size: 2rem;
-		    color: #ddd;
-		  }
-		  
-		  .star input {
-		    width: 100%;
-		    height: 100%;
-		    position: absolute;
-		    left: 0;
-		    opacity: 0;
-		    cursor: pointer;
-		  }
-		  
-		  .star span {
-		    width: 0;
-		    position: absolute; 
-		    left: 0;
-		    color: red;
-		    overflow: hidden;
-		    pointer-events: none;
-		  }
-	</style>
+	  .star {
+	    position: relative;
+	    font-size: 2rem;
+	    color: #ddd;
+	  }
+	  
+	  .star input {
+	    width: 100%;
+	    height: 100%;
+	    position: absolute;
+	    left: 0;
+	    opacity: 0;
+	    cursor: pointer;
+	  }
+	  
+	  .star span {
+	    width: 0;
+	    position: absolute; 
+	    left: 0;
+	    color: red;
+	    overflow: hidden;
+	    pointer-events: none;
+	  }
+  </style>
+	
 </head>
 
 

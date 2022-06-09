@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.jeonguggu.matnam.common.constants.Constants;
 import com.jeonguggu.matnam.xmin.member.Member;
 
 public class UtilUpload {
@@ -17,7 +18,7 @@ public class UtilUpload {
 		String pathModule = className;
 		String nowString = UtilDateTime.nowString();
 		String pathDate = nowString.substring(0,4) + "/" + nowString.substring(5,7) + "/" + nowString.substring(8,10);
-		String path = "D:/factory/ws_sts_4130/Matnam/src/main/webapp/resources/uploaded/" + "/" + pathModule + "/" + pathDate + "/";
+		String path = Constants.UPLOAD_PATH_PREFIX + "/" + pathModule + "/" + pathDate + "/";
 		
 		createPath(path);
 		

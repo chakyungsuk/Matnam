@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jeonguggu.matnam.index.MainMpp">
+
+    <resultMap id="resultMapObj" type="com.jeonguggu.matnam.index.Main"></resultMap>
+    
+    <!-- 메인 카운팅 -->
+    
+    <select id="selectCountRestaurant" resultMap="resultMapObj">
+    	SELECT
+			count(*) AS countRestaurant
+		FROM 
+			matnamRestaurant
+    </select>
+    
+    <select id="selectCountUser" resultMap="resultMapObj">
+    	SELECT
+			count(*) AS countUser
+		FROM 
+			matnamMember
+    </select>
+    
+    <select id="selectCountReview" resultMap="resultMapObj">
+    	SELECT
+			count(*) AS countReview
+		FROM 
+			matnamReview
+    </select>
+    
+    <!-- 메인 카운팅 -->
+    
+</mapper>

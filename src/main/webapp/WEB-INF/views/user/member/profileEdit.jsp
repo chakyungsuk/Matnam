@@ -135,7 +135,7 @@
 		<div class="container margin_60_35">
 		    <div class="row justify-content-center">
 		        <div class="col-5">
-		        	<form id="formList" name="formList" method="post" action="/user/profileUpdt">
+		        	<form id="formList" name="formList" method="post" action="/user/profileUpdt" enctype="multipart/form-data">
 						<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
 			            <div class="box_style_2" id="order_process">
 			                <h2 class="inner" style="text-align: center;">프로필 변경</h2>
