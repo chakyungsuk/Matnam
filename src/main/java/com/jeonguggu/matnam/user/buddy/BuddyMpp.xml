@@ -33,10 +33,11 @@
 		    LEFT JOIN matnamMember a ON b.mnMmSeq = a.mnMmSeq OR b.mnfdFriendSeq = a.mnMmSeq
 		WHERE 1=1
 			AND NOT a.mnMmName = #{mnMmName}
-			AND b.mnfdFriendStateCd = 4
 			AND b.mnMmSeq = #{mnMmSeq}
+			AND b.mnfdFriendStateCd = 4
 		    OR b.mnfdFriendSeq = #{mnMmSeq}
 		    AND NOT a.mnMmName = #{mnMmName}
+			AND b.mnfdFriendStateCd = 4
 	</select>
 	<!-- 친구 목록 조회 끝 -->
 	
