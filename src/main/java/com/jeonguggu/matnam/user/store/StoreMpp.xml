@@ -9,14 +9,17 @@
 
 	<select id="selectListStore" resultMap="resultMapObj">
 		SELECT
-			mnrtSeq
-			,mnrtName
-		    ,mnrtFoodCate
-		    ,mnrtAddressFull
-		    ,mnrtTime
-		    ,mnrtBreakTime
-		    ,mnrtAvg
-		FROM matnam.matnamRestaurant
+			a.mnrtSeq
+			,a.mnrtName
+		    ,a.mnrtFoodCateCd
+		    ,a.mnrtAddressFull
+		    ,a.mnrtTime
+		    ,a.mnrtBreakTime
+		    ,a.mnrtAvg
+            ,b.mncdName
+		FROM matnam.matnamRestaurant a
+        	left join matnam.matnamCode b on b.mncdSeq = a.mnrtFoodCateCd
+         	left join matnam.matnamCode c on c.mncdSeq = a.mnrtHolidayCd;
 		
 	</select>
 	
@@ -25,17 +28,20 @@
 			a.mnrtName
 			,a.mnrtSeq
 			,a.mnrtAddressFull
-		    ,a.mnrtFoodCate
+		    ,a.mnrtFoodCateCd
 		    ,a.mnrtTime
 		    ,a.mnrtBreakTime
-		    ,a.mnrtHoliday
+		    ,a.mnrtHolidayCd
 		    ,a.mnrtText
 		    ,a.mnrtNumber
 		    ,a.mnrtAvg
+            ,b.mncdName as mnrtFoodCate
+            ,c.mncdName as mnrtHoliday
 		FROM matnam.matnamRestaurant a
+        	left join matnam.matnamCode b on b.mncdSeq = a.mnrtFoodCateCd
+         	left join matnam.matnamCode c on c.mncdSeq = a.mnrtHolidayCd
 		WHERE 1=1
-		AND a.mnrtSeq = #{mnrtSeq}
-		
+			AND a.mnrtSeq = #{mnrtSeq};
 	</select>
 	
 	<select id="selectListReview" resultMap="resultMapObj">

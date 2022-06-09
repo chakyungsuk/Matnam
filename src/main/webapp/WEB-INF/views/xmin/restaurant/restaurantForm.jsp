@@ -24,7 +24,7 @@
 
 <body>
 
-<form id="formInst" name="formInst" method="post" action="/xmin/rastaurantInst" enctype="multipart/form-data">
+<form id="formInst" name="formInst" method="post" action="/xmin/restaurantInst" enctype="multipart/form-data">
 
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
@@ -218,20 +218,22 @@
 									<h5 class="card-title mb-0">음식점주소</h5>
 								</div>
 								<div class="card-body">
+								
 									<div class="input-group mb-2">
 										<input type="text" class="form-control" id="mnmaZipcode" name="mnmaZipcode" readonly>
+										<!-- <input type="text" class="form-control" id="ifmaZipcode" name="ifmaZipcode"> -->
 										<button class="btn btn-outline-secondary" type="button" id="userAddressButton" onclick="execDaumPostcode()">주소찾기</button>
 									</div>
-							    		<input type="text" class="form-control mb-2" id="mnmaAddress1" name="mnmaAddress1" readonly>
+							    		<input type="text" class="form-control mb-2" id="mnmaAddress1" name="mnrtAddressFull" readonly>
 								    <!-- <input type="text" class="form-control mb-2" id="ifmaAddress1" name="ifmaAddress1"> -->
 								    <input type="text" class="form-control mb-2" id="mnmaAddress2" name="mnmaAddress2" placeholder="상세주소" required>
 								   
 								    <div class="row">
 									    <div class="col-md-4 col-sm-4 mb-3">
-				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="x좌표">
+				                            <input type="text" id="mnrtX" name="mnrtX" class="form-control" placeholder="x좌표">
 				                        </div>
 				                    	<div class="col-md-4 col-sm-4">
-				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="y좌표">
+				                            <input type="text" id="mnrtY" name="mnrtY" class="form-control" placeholder="y좌표">
 				                        </div>
 				                     </div>
 								</div>
@@ -241,6 +243,9 @@
 			                		<div class="row">
 		                        		<label>전화번호</label>
 				                    	<div class="col-md-4 col-sm-4 mb-3">
+				                            <input type="text" id="mnrtNumber" name="mnrtNumber" class="form-control" placeholder="">
+				                        </div>
+				                    	<div class="col-md-4 col-sm-4">
 				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="">
 				                        </div>
 				                    	<div class="col-md-4 col-sm-4">
@@ -248,50 +253,50 @@
 				                        </div>
 		                        		<label>영업시간</label>
 				                    	<div class="col-md-4 col-sm-4 mb-3">
-				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="">
+				                            <input type="text" id="mnrtTime" name="mnrtTime" class="form-control" placeholder="">
 				                        </div>
 				                    	<div class="col-md-4 col-sm-4">
 				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="">
 				                        </div>
 		                        		<label>브레이크타임</label>
 				                    	<div class="col-md-4 col-sm-4 mb-3">
-				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="">
+				                            <input type="text" id="mnrtBreakTime" name="mnrtBreakTime" class="form-control" placeholder="">
 				                        </div>
 				                    	<div class="col-md-4 col-sm-4">
 				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="">
 				                        </div>
 										<label for="formGroupExampleInput" class="form-label">음식 카테고리</label>
 						  					<div class="col-md-4 col-sm-4">
-					                            <select class="form-control" name="mnMmDob_Month_Cd" id="">
+					                            <select class="form-control" name=mnrtFoodCateCd id="mnrtFoodCateCd">
 					                                <option value="" selected>카테고리</option>
-					                                <option value="1">한식</option>
-					                                <option value="2">분식</option>
-					                                <option value="3">카페,디저트</option>
-					                                <option value="4">돈까스,회,일식</option>
-					                                <option value="5">치킨</option>
-					                                <option value="6">피자</option>
-					                                <option value="7">아시안,양식</option>
-					                                <option value="8">중국집</option>
-					                                <option value="9">족발,보쌈</option>
-					                                <option value="10">야식</option>
-					                                <option value="11">찜,탕</option>
-					                                <option value="12">도시락</option>
-					                                <option value="13">페스트푸드</option>
+					                                <option value="123">한식</option>
+					                                <option value="124">분식</option>
+					                                <option value="125">카페,디저트</option>
+					                                <option value="126">돈까스,회,일식</option>
+					                                <option value="127">치킨</option>
+					                                <option value="128">피자</option>
+					                                <option value="129">아시안,양식</option>
+					                                <option value="130">중국집</option>
+					                                <option value="131">족발,보쌈</option>
+					                                <option value="132">야식</option>
+					                                <option value="133">찜,탕</option>
+					                                <option value="134">도시락</option>
+					                                <option value="135">페스트푸드</option>
 					                            </select>
 					                        </div>
 			                        </div>
 			                        	<label for="formGroupExampleInput" class="form-label">휴무일</label>
 					  					<div class="col-md-4 col-sm-4">
-				                            <select class="form-control" name="mnMmDob_Month_Cd" id="">
+				                            <select class="form-control" name="mnrtHolidayCd" id="mnrtHolidayCd">
 				                                <option value="" selected>카테고리</option>
-				                                <option value="1">월</option>
-				                                <option value="2">화</option>
-				                                <option value="3">수</option>
-				                                <option value="4">목</option>
-				                                <option value="5">금</option>
-				                                <option value="6">토</option>
-				                                <option value="7">일</option>
-				                                <option value="8">연중무휴</option>
+				                                <option value="136">월</option>
+				                                <option value="137">화</option>
+				                                <option value="138">수</option>
+				                                <option value="139">목</option>
+				                                <option value="140">금</option>
+				                                <option value="141">토</option>
+				                                <option value="142">일</option>
+				                                <option value="143">연중무휴</option>
 				                            </select>
 										</div>
 										
@@ -337,7 +342,7 @@
 								<div class="card-body">
 									<div class="row">
 									 	<label for="exampleFormControlTextarea1" class="form-label"></label>
-						  				<textarea class="form-control" id="exampleFormControlTextarea1" name="mnrvText" rows="500" placeholder="음식점에 대한 설명을 작성해주세요."></textarea>
+						  				<textarea class="form-control" id="exampleFormControlTextarea1" name="mnrtText" rows="500" placeholder="음식점에 대한 설명을 작성해주세요."></textarea>
 
 									</div>
 									<div class="btn_area text-center" style="margin-top: 50px;">
@@ -365,7 +370,7 @@
 	var answer = confirm("등록 하시겠습니까?");
 	
 	if(answer){
-		$("#btnSubmit").attr("action", "/xmin/memberInst");
+		$("#btnSubmit").attr("action", "/xmin/restaurantInst");
 		$("#btnSubmit").submit(); 
 	} else {
 		return false;
@@ -395,47 +400,60 @@
 function execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+        	 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            var addr = ''; // 주소 변수
-            var extraAddr = ''; // 참고항목 변수
-
-            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                addr = data.roadAddress;
-            } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                addr = data.jibunAddress;
+            var roadAddr = data.roadAddress; // 도로명 주소 변수
+            var extraRoadAddr = ''; // 참고 항목 변수
+            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                extraRoadAddr += data.bname;
             }
-
-            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
-            if(data.userSelectedType === 'R'){
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraAddr += data.bname;
-                }
-                // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraAddr !== ''){
-                    extraAddr = ' (' + extraAddr + ')';
-                }
-                // 조합된 참고항목을 해당 필드에 넣는다.
-                //document.getElementById("ifmaAddress3").value = extraAddr;
+            // 건물명이 있고, 공동주택일 경우 추가한다.
+            if(data.buildingName !== '' && data.apartment === 'Y'){
+               extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+            if(extraRoadAddr !== ''){
+                extraRoadAddr = ' (' + extraRoadAddr + ')';
+            }
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById("mnmaZipcode").value = data.zonecode;
+            document.getElementById("mnmaAddress1").value = roadAddr;
+            /* document.getElementById("").value = data.jibunAddress; */
             
+            // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+              
+            if(roadAddr !== ''){
+                document.getElementById("mnmaAddress3").value = extraRoadAddr;
             } else {
-               // document.getElementById("ifmaAddress3").value = '';
+                document.getElementById("mnmaAddress3").value = '';
             }
+            
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('mnmaZipcode').value = data.zonecode;
-            document.getElementById("mnmaAddress1").value = addr;
-            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("mnmaZipcode").value = data.zonecode;
+            document.getElementById("mnmaAddress1").value = roadAddr;
             document.getElementById("mnmaAddress2").focus();
+            
+            
+            
+            /* lat and lng from address s */
+			var geocoder = new daum.maps.services.Geocoder();
+			geocoder.addressSearch(roadAddr, function(result, status) {
+				if (status == daum.maps.services.Status.OK) {
+					document.getElementById("mnrtX").value=result[0].y;
+					document.getElementById("mnrtY").value=result[0].x;
+					
+				}else{
+					
+					alert("좌표검색에 실패하셨습니다.");
+				}
+			});
+			/* lat and lng from address e */
+			
+			
         }
     }).open();
 }

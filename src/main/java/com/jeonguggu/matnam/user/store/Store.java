@@ -57,6 +57,12 @@ public class Store {
 	private String originalFileName;
 	private String uuidFileName;
 	
+	//code
+	
+	private String mncdName;
+	private String mncdSeq;
+	private String mncgSeq;
+	private String mncdDelNy;
 	public String getMnrtSeq() {
 		return mnrtSeq;
 	}
@@ -254,6 +260,30 @@ public class Store {
 	}
 	public void setUuidFileName(String uuidFileName) {
 		this.uuidFileName = uuidFileName;
+	}
+	public String getMncdName() {
+		return mncdName;
+	}
+	public void setMncdName(String mncdName) {
+		this.mncdName = mncdName;
+	}
+	public String getMncdSeq() {
+		return mncdSeq;
+	}
+	public void setMncdSeq(String mncdSeq) {
+		this.mncdSeq = mncdSeq;
+	}
+	public String getMncgSeq() {
+		return mncgSeq;
+	}
+	public void setMncgSeq(String mncgSeq) {
+		this.mncgSeq = mncgSeq;
+	}
+	public String getMncdDelNy() {
+		return mncdDelNy;
+	}
+	public void setMncdDelNy(String mncdDelNy) {
+		this.mncdDelNy = mncdDelNy;
 	}
 	
 	

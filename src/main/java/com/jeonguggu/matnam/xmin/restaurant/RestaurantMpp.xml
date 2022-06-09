@@ -29,15 +29,15 @@
 			0
 		    ,#{mnrtName}
 		    ,#{mnrtAddressFull}
-		    ,1
-		    ,12313
-		    ,124142
+		    ,#{mnrtCityCd}
+		    ,#{mnrtX}
+		    ,#{mnrtY}
 		    ,#{mnrtNumber}
 		    ,#{mnrtFoodCateCd}
-		    ,""
-		    ,""
+		    ,#{mnrtTime}
+		    ,#{mnrtBreakTime}
 		    ,#{mnrtHolidayCd}
-		    ,#{mnrtText}"
+		    ,#{mnrtText}
 		);
     </insert>
 </mapper>
