@@ -58,7 +58,7 @@ public class Profile {
 	private String tableName;
 
 	private String seq;
-	private Integer type;
+	private Integer typeCd;
 	private Integer defaultNy;
 	private Integer sort;
 	private String originalName;
@@ -67,6 +67,7 @@ public class Profile {
 	private long size;
 	private Integer delNy;
 	private String pseq;
+	private String path;
 	
 //	----------------------------------------
 	
@@ -274,12 +275,6 @@ public class Profile {
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
-	public Integer getType() {
-		return type;
-	}
-	public void setType(Integer type) {
-		this.type = type;
-	}
 	public Integer getDefaultNy() {
 		return defaultNy;
 	}
@@ -327,6 +322,18 @@ public class Profile {
 	}
 	public void setPseq(String pseq) {
 		this.pseq = pseq;
+	}
+	public Integer getTypeCd() {
+		return typeCd;
+	}
+	public void setTypeCd(Integer typeCd) {
+		this.typeCd = typeCd;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
 	}
 	
 }

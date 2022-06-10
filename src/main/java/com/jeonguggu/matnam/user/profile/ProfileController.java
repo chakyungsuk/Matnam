@@ -134,6 +134,12 @@ public class ProfileController {
 		Profile rt = service.selectOneProfile(vo);
 		model.addAttribute("rt", rt);
 		
+		Profile photoBackground = service.selectListPhotoBackground(vo);
+		model.addAttribute("photoBackground", photoBackground);
+		
+		Profile photo = service.selectListPhoto(vo);
+		model.addAttribute("photo", photo);
+		
 		return "/user/member/profileView";
 	}
 	

@@ -57,6 +57,38 @@
 			AND a.mnmlDelNy = 0
 	</select>
     <!-- 지역 불러오기 -->
+    
+	<!-- 사진 불러오기 -->
+    <select id="selectListPhotoBackground" resultMap="resultMapObj">
+		SELECT
+			a.typeCd
+			, a.originalName
+			, a.uuidName
+			, a.ext
+			, a.path
+		FROM
+			matnamUploaded a
+		WHERE 1=1
+			AND a.defaultNy = 1
+			AND a.typeCd = 144
+			AND a.pseq = #{mnMmSeq}
+	</select>
+    <select id="selectListPhoto" resultMap="resultMapObj">
+		SELECT
+			a.typeCd
+			, a.originalName
+			, a.uuidName
+			, a.ext
+			, a.path
+		FROM
+			matnamUploaded a
+			LEFT JOIN matnamMember b ON b.mnMmSeq = a.pseq
+		WHERE 1=1
+			AND a.defaultNy = 1
+			AND a.typeCd = 145
+			AND a.pseq = #{mnMmSeq}
+	</select>
+    <!-- 지역 불러오기 -->
 	
     <!-- 회원 프로필 수정 시작 -->
 	<update id="updateProfile">
@@ -88,6 +120,46 @@
 			AND mnMmSeq = #{mnMmSeq}
 			AND mnmaTypeCd = 13
 	</update>
+	
+	<!-- uploaded -->
+	
+	<update id="updateUploaded">
+		UPDATE
+			matnamUploaded
+		SET
+			defaultNy = 0
+		WHERE 1=1
+			AND pseq = #{mnMmSeq}
+			AND defaultNy = 1
+	</update>
+
+	<insert id="insertUploaded">
+		INSERT INTO ${tableName}(
+			typeCd
+			,defaultNy
+			,originalName
+			,uuidName
+			,ext
+			,size
+			,delNy
+			<!-- <include refid="Base.insertRegColumn" /> -->
+			,pseq
+			,path
+		) VALUES (
+			#{typeCd}
+			,#{defaultNy}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			<!-- <include refid="Base.insertReqValue" /> -->
+			,#{pseq}
+			,#{path}
+		)
+	</insert>
+
+	<!-- uploaded -->
 	<!-- 회원 프로필 수정 끝 -->
 	
 	<!-- 회원 프로필 지역 수정 -->
@@ -164,36 +236,6 @@
 			AND mnMmSeq = #{mnMmSeq}
 			AND mnmaTypeCd = 12
 	</update>
-	
-	<!-- uploaded -->
-
-	<insert id="insertUploaded">
-		INSERT INTO ${tableName}(
-			type
-			,defaultNy
-			,sort
-			,originalName
-			,uuidName
-			,ext
-			,size
-			,delNy
-			<!-- <include refid="Base.insertRegColumn" /> -->
-			,pseq
-		) VALUES (
-			#{type}
-			,#{defaultNy}
-			,#{sort}
-			,#{originalName}
-			,#{uuidName}
-			,#{ext}
-			,#{size}
-			,0
-			<!-- <include refid="Base.insertReqValue" /> -->
-			,#{pseq}
-		)
-	</insert>
-
-	<!-- uploaded -->
 	
 	<!-- 회원 정보 수정 끝 -->
 	
