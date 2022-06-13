@@ -72,35 +72,56 @@
 	  
 	.screen a{
 	  display: block;
-	  width: 100%; height: 100%;
-	
-	  overflow: hidden;
-	
+	  width: 100%; height: 100%;	
+	  overflow: hidden;	
 	  position: relative; 
 	}
 	
 	.screen figure{
 	  width: 100%; height: 100%;
 	}
+	
 	.screen figcaption{
 	  width: 100%;
-	  background-color: rgba(0,0,0,0.7);
-	
-	  position: absolute; /* 이미지와 겹치게 처리 */
-	  top: 0; left: 0;
-	
+	  background-color: rgba(0,0,0,0.7);	
+	  position: absolute;
+	  top: 0; left: 0;	
 	  color: #fff; text-align: center;
-	  line-height: 200px;
-	
-	  opacity: 0; 
-	
+	  line-height: 200px;	
+	  opacity: 0; 	
 	  transition: 0.3s;
 	}
 	
 	.screen a:hover figcaption, .screen a:focus figcaption{
-
 	  opacity: 1;
 	}
+	
+	input[type="radio"] {display:none;}
+	input[type="radio"] + label {display:inline-block; cursor:pointer;}
+	input[type="radio"]:checked {background:blue; color:white;}
+	
+	.conbox {width:100%; height:100%; background:none; margin-top:30px; display:none;}
+	input[id="tab01"]:checked ~ .con1 {display:block;}
+	input[id="tab02"]:checked ~ .con2 {display:block;}
+	input[id="tab03"]:checked ~ .con3 {display:block;}
+	input[id="tab04"]:checked ~ .con4 {display:block;}
+	
+	div > label {
+		border : 1px solid;
+		font-weight: normal;
+		padding: 5px 15px;
+		border-radius: 5px;
+	}
+	
+	col-lg-12 > col-lg-6 {
+    float: left;
+    color:red;
+	}
+	
+	.container {
+		height:100%;
+	}
+	
 </style>	
 	
 </head>
@@ -234,15 +255,443 @@
                 </p>
             </div>
             <div class="container" style="text-align: center; margin-bottom: 23px;">
-				<button class="btn btn-outline-dark" type="button">MAINS</button>
-				<button class="btn btn-outline-dark" type="button">LUNCH</button>
-				<button class="btn btn-outline-dark" type="button">DINNER</button>
-				<button class="btn btn-outline-dark" type="button">DRINKS</button>
+	            <div class="tab_content">
+					<input type="radio" name="tabmenu" id="tab01" checked>
+	                <label for="tab01">MAINS</label>
+	              
+	                <input type="radio" name="tabmenu" id="tab02">
+	                <label for="tab02">LUNCH</label>
+	               
+	                <input type="radio" name="tabmenu" id="tab03">
+	                <label for="tab03">DINNER</label>
+	               
+	                <input type="radio" name="tabmenu" id="tab04">
+	                <label for="tab04">DRINK</label>
+	                
+               		<!-- MAINS -->
+                    <div class="conbox con1">
+                    	<div class="row" style="float: none;">
+			                <div class="col-12">
+			                	<div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/rr.jfif" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Taco Mexican</h3>
+				                            <div class="type">
+				                                Mexican / American
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>
+			                    </div>
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/zz.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/zz.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/rr.jfif" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                </div>		                
+			            </div>
+		            </div>
+		            <!-- LUNCH -->
+                    <div class="conbox con2">
+                    	<div class="row" style="float: none;">
+			                <div class="col-12">
+			                	<div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/qq.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Taco Mexican</h3>
+				                            <div class="type">
+				                                Mexican / American
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>
+			                    </div>
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/rr.jfif" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/rr.jfif" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                </div>		                
+			            </div>
+		            </div>
+		            <!-- DINNER -->
+                    <div class="conbox con3">
+                    	<div class="row" style="float: none;">
+			                <div class="col-12">
+			                	<div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/qq.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Taco Mexican</h3>
+				                            <div class="type">
+				                                Mexican / American
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>
+			                    </div>
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/rr.jfif" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/zz.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/zz.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                </div>		                
+			            </div>
+		            </div>
+		            <!-- DRINK -->
+                    <div class="conbox con4">
+                    	<div class="row" style="float: none;">
+			                <div class="col-12">
+			                	<div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/cc.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Taco Mexican</h3>
+				                            <div class="type">
+				                                Mexican / American
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>
+			                    </div>
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/cc.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/cc.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/cc.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/cc.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                    <div class="col-6" style="float: left; margin:0 auto;">
+				                    <a href="detail_page.html" class="strip_list">
+				                        <div class="desc">
+				                            <div class="thumb_strip">
+				                                <img src="/resources/user/image/cc.jpg" alt="">
+				                            </div>
+				                            <div class="rating">
+				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+				                            </div>
+				                            <h3>Naples Pizza</h3>
+				                            <div class="type">
+				                                Italian / Pizza
+				                            </div>
+				                            <div class="location">
+				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
+				                            </div>
+				                            <ul>
+				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
+				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
+				                            </ul>
+				                        </div>
+				                    </a>	
+			                    </div>	                    
+			                </div>		                
+			            </div><!-- End row -->
+		            </div>
+	            </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-6">
                     <a href="detail_page.html" class="strip_list">
-                        <div class="ribbon_1">Popular</div>
                         <div class="desc">
                             <div class="thumb_strip">
                                 <img src="/resources/user/image/qq.jpg" alt="">
@@ -261,8 +710,8 @@
                                 <li>Take away<i class="icon_check_alt2 ok"></i></li>
                                 <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                             </ul>
-                        </div><!-- End desc-->
-                    </a><!-- End strip_list-->
+                        </div>End desc
+                    </a>End strip_list
                     <a href="detail_page.html" class="strip_list">
                         <div class="ribbon_1">Popular</div>
                         <div class="desc">
@@ -283,8 +732,8 @@
                                 <li>Take away<i class="icon_check_alt2 ok"></i></li>
                                 <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                             </ul>
-                        </div><!-- End desc-->
-                    </a><!-- End strip_list-->
+                        </div>End desc
+                    </a>End strip_list
                     <a href="detail_page.html" class="strip_list">
                         <div class="ribbon_1">Popular</div>
                         <div class="desc">
@@ -305,9 +754,9 @@
                                 <li>Take away<i class="icon_check_alt2 ok"></i></li>
                                 <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                             </ul>
-                        </div><!-- End desc-->
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->
+                        </div>End desc
+                    </a>End strip_list
+                </div>End col-md-6
                 <div class="col-lg-6">
                     <a href="detail_page.html" class="strip_list">
                         <div class="ribbon_1">Popular</div>
@@ -329,8 +778,8 @@
                                 <li>Take away<i class="icon_check_alt2 ok"></i></li>
                                 <li>Delivery<i class="icon_close_alt2 no"></i></li>
                             </ul>
-                        </div><!-- End desc-->
-                    </a><!-- End strip_list-->
+                        </div>End desc
+                    </a>End strip_list
                     <a href="detail_page.html" class="strip_list">
                         <div class="ribbon_1">Popular</div>
                         <div class="desc">
@@ -351,8 +800,8 @@
                                 <li>Take away<i class="icon_check_alt2 ok"></i></li>
                                 <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                             </ul>
-                        </div><!-- End desc-->
-                    </a><!-- End strip_list-->
+                        </div>End desc
+                    </a>End strip_list
                     <a href="detail_page.html" class="strip_list">
                         <div class="ribbon_1">Popular</div>
                         <div class="desc">
@@ -373,10 +822,10 @@
                                 <li>Take away<i class="icon_check_alt2 ok"></i></li>
                                 <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                             </ul>
-                        </div><!-- End desc-->
-                    </a><!-- End strip_list-->
+                        </div>End desc
+                    </a>End strip_list
                 </div>
-            </div><!-- End row -->
+            </div>End row -->
         </div><!-- End container -->
     </div><!-- End white_bg -->
 <!--     <div class="high_light">
