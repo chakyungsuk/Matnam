@@ -157,7 +157,7 @@
 			                    		</c:when>
 			                    		<c:otherwise>
 				                            <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" style="width:150px; height:150px;" alt="">
-			                    		</c:otherwise>
+			                    		</c:otherwise> 
 			                    	</c:choose>
 		                        </div>
 		   
