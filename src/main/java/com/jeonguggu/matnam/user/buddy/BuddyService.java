@@ -32,10 +32,10 @@ public interface BuddyService {
 	int delete(BuddyVo vo) throws Exception;
 	
 //	차단목록 추가
-	int friendBlock(Buddy dto) throws Exception;
+	int friendBlock(BuddyVo vo) throws Exception;
 	
 //	차단목록 해제
-	int friendNonBlock(Buddy dto) throws Exception;
+	int friendNonBlock(BuddyVo vo) throws Exception;
 	
 //	사용자 리뷰 조회
 	public List<Buddy> selectListUserReview(BuddyVo vo) throws Exception;

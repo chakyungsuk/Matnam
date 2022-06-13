@@ -90,18 +90,18 @@ public class BuddyController {
 	}
 	
 	@RequestMapping(value = "/user/friendBlock")
-	public String friendBlock(@ModelAttribute("vo") BuddyVo vo, Buddy dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
+	public String friendBlock(@ModelAttribute("vo") BuddyVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
 	
-		service.friendBlock(dto);		
+		service.friendBlock(vo);		
 		
 		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
 		return "redirect:/user/friendSelect";
 	}
 	
 	@RequestMapping(value = "/user/friendNonBlock")
-	public String friendNonBlock(@ModelAttribute("vo") BuddyVo vo, Buddy dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
+	public String friendNonBlock(@ModelAttribute("vo") BuddyVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
 		
-		service.friendNonBlock(dto);		
+		service.friendNonBlock(vo);		
 		
 		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
 		return "redirect:/user/blockFriendSelect";

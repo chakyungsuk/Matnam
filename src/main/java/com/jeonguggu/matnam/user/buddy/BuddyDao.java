@@ -63,13 +63,13 @@ public class BuddyDao {
 	}
 	
 //	차단목록 추가	
-	public int friendBlock(Buddy dto) {
-		return sqlSession.update(namespace + ".friendBlock", dto);
+	public int friendBlock(BuddyVo vo) {
+		return sqlSession.update(namespace + ".friendBlock", vo);
 	}
 	
 //	차단목록 해제	
-	public int friendNonBlock(Buddy dto) {
-		return sqlSession.update(namespace + ".friendNonBlock", dto);
+	public int friendNonBlock(BuddyVo vo) {
+		return sqlSession.update(namespace + ".friendNonBlock", vo);
 	}
 	
 //	사용자 리뷰 조회
