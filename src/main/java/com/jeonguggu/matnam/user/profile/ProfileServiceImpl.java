@@ -55,31 +55,39 @@ public class ProfileServiceImpl implements ProfileService {
 			dao.insertMemberRegion(dto);
 		}
 		
-		MultipartFile multipartFile = dto.getFile();
+		MultipartFile multipartFile;
+		String pathModule;
+		String path;
 		
-		String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-		String path = UtilUpload.upload(multipartFile, pathModule, dto);
+		if(dto.getPhotoBackgroundChanged() == "1") {
+			multipartFile = dto.getFile();
+			
+			pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			path = UtilUpload.upload(multipartFile, pathModule, dto);
 
-		dto.setTableName("matnamUploaded");
-		dto.setTypeCd(144);
-		dto.setDefaultNy(1);
-		dto.setPath(path);
-		dto.setPseq(dto.getMnMmSeq()); 
+			dto.setTableName("matnamUploaded");
+			dto.setTypeCd(144);
+			dto.setDefaultNy(1);
+			dto.setPath(path);
+			dto.setPseq(dto.getMnMmSeq()); 
 
-		dao.insertUploaded(dto);
+			dao.insertUploaded(dto);
+		}
 		
-		multipartFile = dto.getFile1();
-		
-		pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-		path = UtilUpload.upload(multipartFile, pathModule, dto);
-		
-		dto.setTableName("matnamUploaded");
-		dto.setTypeCd(145);
-		dto.setDefaultNy(1);
-		dto.setPath(path);
-		dto.setPseq(dto.getMnMmSeq()); 
-		
-		dao.insertUploaded(dto);
+		if(dto.getPhotoChanged() == "1") {
+			multipartFile = dto.getFile1();
+			
+			pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			path = UtilUpload.upload(multipartFile, pathModule, dto);
+			
+			dto.setTableName("matnamUploaded");
+			dto.setTypeCd(145);
+			dto.setDefaultNy(1);
+			dto.setPath(path);
+			dto.setPseq(dto.getMnMmSeq()); 
+			
+			dao.insertUploaded(dto);
+		}
 		
 		return 1;
 	}

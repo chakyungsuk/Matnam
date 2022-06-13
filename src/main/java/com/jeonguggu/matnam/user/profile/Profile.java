@@ -69,6 +69,9 @@ public class Profile {
 	private String pseq;
 	private String path;
 	
+	private String photoBackgroundChanged;
+	private String photoChanged;
+	
 //	----------------------------------------
 	
 	public String getMnMmSeq() {
@@ -334,6 +337,18 @@ public class Profile {
 	}
 	public void setPath(String path) {
 		this.path = path;
+	}
+	public String getPhotoBackgroundChanged() {
+		return photoBackgroundChanged;
+	}
+	public void setPhotoBackgroundChanged(String photoBackgroundChanged) {
+		this.photoBackgroundChanged = photoBackgroundChanged;
+	}
+	public String getPhotoChanged() {
+		return photoChanged;
+	}
+	public void setPhotoChanged(String photoChanged) {
+		this.photoChanged = photoChanged;
 	}
 	
 }
