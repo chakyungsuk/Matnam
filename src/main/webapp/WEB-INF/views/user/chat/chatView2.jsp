@@ -717,12 +717,12 @@ ul, li.replies img {
 </style></head>
 <body>
  
-<form id="chatView" name="chatView" method="get" action="/user/chatView2">
+<form id="chatView" name="chatView" method="post" action="/chat/chatView2">
 	<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
 	<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
 	<input type="hidden" id="mnfdseq" name="mnfdseq">
 	<input type="hidden" id="mnMmIntroduce" name="mnMmIntroduce">
-	<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq">
+	<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq" value="${sessffName}">
 </form>
 
 <div id="frame">
@@ -784,28 +784,46 @@ ul, li.replies img {
 			</div>
 		</div> 
 		<div class="messages" >
-			<ul id="bodyContent">
+			 <ul id="bodyContent">
 			</ul>
 		</div>
 		<div class="message-input">
 			<div class="wrap">
-			<input type="text" id="message" name="message" placeholder="Write your message..." />
-			<i class="fa fa-paperclip attachment" aria-hidden="true"></i>
-			<button id="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+			<input type="text" id="message" name="message" onkeyup="if(window.event.keyCode==13){enterkey()}" placeholder="Write your message..." autocomplete="off"/>
+			<i class="fa fa-paperclip attachment" aria-hidden="true"><!-- <input type="file" id="image"> --></i>
+			<button id="submit" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 			</div>
 		</div>
 	</div>
 </div>
+
 <!-- <script src='http://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script> -->
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
-<!-- <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script> -->
-  
+
+
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+<!-- <script>
+const firebaseConfig = {
+	    apiKey: "AIzaSyDOwnSmV6IrU8U2BJeG-zXQQddLzPqYzNo",
+	    authDomain: "matnam-e9c16.firebaseapp.com",
+	    databaseURL: "https://matnam-e9c16-default-rtdb.firebaseio.com",
+	    projectId: "matnam-e9c16",
+	    storageBucket: "matnam-e9c16.appspot.com",
+	    messagingSenderId: "84472849491",
+	    appId: "1:84472849491:web:b1401d16c6130d3db712a6"
+	  };
+	firebase.initializeApp(firebaseConfig);
+</script> -->
+
+	
 </body>
 </html>
+ 
 <script>$(".messages").animate({ scrollTop: $(document).height() }, "fast");
   
 $("#profile-img").click(function() {
@@ -839,42 +857,23 @@ $("#status-options ul li").click(function() {
 	
 	$("#status-options").removeClass("active");
 });
+
 </script>
 
-<!-- <script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-	  apiKey: "AIzaSyDOwnSmV6IrU8U2BJeG-zXQQddLzPqYzNo",
-	  authDomain: "matnam-e9c16.firebaseapp.com",
-	  databaseURL: "https://matnam-e9c16-default-rtdb.firebaseio.com",
-	  projectId: "matnam-e9c16",
-	  storageBucket: "matnam-e9c16.appspot.com",
-	  messagingSenderId: "84472849491",
-	  appId: "1:84472849491:web:b1401d16c6130d3db712a6"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-
+<!-- Enter 로 submit 하기 -->
 <script>
-  const db = "https://matnam-e9c16-default-rtdb.firebaseio.com/";
+function enterkey() {
+	if($("#message").val() == null || $("#message").val() == ""){
+		alert("채팅을 입력 해주세요");
+		return false;
+	} else {
+		$("#submit").click();
+	}
+};
+</script>
+<!-- Enter 로 submit 하기 끝 -->
 
-  // 읽기
-  db.collection('product').get().then((res)=>{
-    res.forEach((doc) => {
-      console.log(doc.data())
-      
-      var template = '<li class="sent">\n' + 
-		'<p> '+data.val().message+' </p>\n' +
-		'</li>'; 
-		 console.log(template)
-      $('#bodyContent').append(template);
-    })
-  });
-</script> -->
-
-
+<!-- firebase 채팅 시작 -->
 <script type="module">
 // Import the functions you need from the SDKs you need
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
@@ -908,32 +907,36 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 var myName = String("${sessName}");
-  
+var yourName = prompt("상대방의 닉네임을 입력해주세요.");
+
 submit.addEventListener('click', (e) => {
     var message = document.getElementById('message').value;
     var name = myName;
+	var othername = yourName;
 
     const id = push(child(ref(database), 'messages')).key;
 
     set(ref(database, 'messages/' + id), {
         name: name,
+		othername : othername,
         message: message
     });
     document.getElementById('message').value = "";
-    alert('message has sent');
+	})
 
-});
- 
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
         if(data.val().name != myName) {
             var divData = '<li class="sent">\n' + 
+					'<div>' + yourName +' </div>\n' + 
 					'<p> '+data.val().message+' </p>\n' +
 				'</li>'; 
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
         }else{
             var divData = '<li class="replies">\n' +
+					'<div style="float: right;">' + myName +' </div>\n' +
+ 					'<br>' +
 					'<p>' +data.val().message+' </p>\n' +
 				'</li>';
             var d1 = document.getElementById('bodyContent');
@@ -942,14 +945,7 @@ submit.addEventListener('click', (e) => {
     });
    
 </script>
- 
-<!-- <script>
-    $(document).ready(function () {
-        $('#action_menu_btn').click(function () {
-            $('.action_menu').toggle();
-        });
-    });
-</script> -->
+<!-- firebase 채팅 끝 --> 
 
 <script type="text/javascript">
 	$("#btnLogout").on("click",function(){

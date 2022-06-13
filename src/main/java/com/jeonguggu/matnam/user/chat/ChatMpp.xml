@@ -42,4 +42,16 @@
 	</select>
 	<!-- 친구 목록 조회 끝 -->
 	
+	<!-- 채팅룸 만들기 -->
+	<insert id="insertChattingRoom">
+		INSERT INTO matnamChattingroom (
+			mnMmSeq
+			,mnfdFriendSeq
+		) VALUES (
+			#{mnMmSeq}
+			,#{mnfdFriendSeq}
+		)	
+	</insert>
+	
+	<!-- 채팅방 만들기 끝 -->
 </mapper>

@@ -2,6 +2,9 @@ package com.jeonguggu.matnam.user.chat;
 
 public class ChatVo {
 	 
+//  채팅방 
+	private String mnChat_Num = "";	
+	
 //	사용자 조회
 	private String mnMmSeq = "";
 	private String mnMmName = "";
@@ -52,6 +55,14 @@ public class ChatVo {
 
 	public void setMnfdSeq(String mnfdSeq) {
 		this.mnfdSeq = mnfdSeq;
+	}
+
+	public String getMnChat_Num() {
+		return mnChat_Num;
+	}
+
+	public void setMnChat_Num(String mnChat_Num) {
+		this.mnChat_Num = mnChat_Num;
 	}
 	
 	

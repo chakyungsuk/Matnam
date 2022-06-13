@@ -20,13 +20,18 @@ public class ChatController {
 	}
 	
 	@RequestMapping(value = "/chat/chatView2")
-	public String chatView2(ChatVo vo, Model model) throws Exception {
+	public String chatView2(Chat dto ,ChatVo vo, Model model) throws Exception {
 		
+		/*
+		 * System.out.println("--------------------------------------"+dto.getMnMmSeq())
+		 * ; System.out.println("--------------------------------------"+dto.
+		 * getMnfdFriendSeq()); service.insertChattingRoom(dto);
+		 */
 		
 		List<Chat> list = service.selectListFriend(vo);
-		System.out.println(list);
 		model.addAttribute("list", list);
 		
 		return "/user/chat/chatView2";
 	}
+	
 }

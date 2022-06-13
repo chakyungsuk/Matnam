@@ -27,11 +27,12 @@ public class Chat {
 //	코드
 	private String mncdName = "";
 	 
-	//친구 목록
+//친구 목록
 	private String mnfdFriendSeq = "";
 	private String mnfdSeq = "";
 	
-	
+//채팅방 만들기	
+	private String mnChat_Num = "";
 //	----------------------------------------
 
 	public String getMnMmSeq() {
@@ -155,6 +156,12 @@ public class Chat {
 	}
 	public void setMncdName(String mncdName) {
 		this.mncdName = mncdName;
+	}
+	public String getMnChat_Num() {
+		return mnChat_Num;
+	}
+	public void setMnChat_Num(String mnChat_Num) {
+		this.mnChat_Num = mnChat_Num;
 	}
 	
 }

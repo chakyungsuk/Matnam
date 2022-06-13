@@ -22,5 +22,6 @@ public class ChatDao {
 		return sqlSession.selectList(namespace + ".selectListFriend", vo);
 	}
 	
-
+// 채티방 만들기
+	public int insertChattingRoom(Chat dto){ return sqlSession.insert(namespace + ".insertChattingRoom", dto);}
 }
