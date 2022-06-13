@@ -50,16 +50,20 @@
 	<select id="selectListFriendBlock" resultMap="resultMapObj">
 		SELECT
 			b.mnfdSeq
-			,a.mnMmSeq
 			,a.mnMmName
 			,a.mnMmIntroduce
+		    ,b.mnMmSeq
+		    ,b.mnfdFriendSeq
 		FROM
-			matnamMember a
-			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 5
-			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 5
-		WHERE 1=1
+			matnamFriend b
+		    LEFT JOIN matnamMember a ON b.mnMmSeq = a.mnMmSeq OR b.mnfdFriendSeq = a.mnMmSeq
+		WHERE 1=1 
+			AND NOT a.mnMmName = #{mnMmName}
 			AND b.mnMmSeq = #{mnMmSeq}
-			OR c.mnfdFriendSeq = #{mnMmSeq}
+			AND b.mnfdFriendStateCd = 5
+		    OR b.mnfdFriendSeq = #{mnMmSeq}
+		    AND NOT a.mnMmName = #{mnMmName}
+			AND b.mnfdFriendStateCd = 5
 	</select>
 	<!-- 차단친구 목록 조회 끝 -->
 	

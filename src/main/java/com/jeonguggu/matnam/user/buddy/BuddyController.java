@@ -137,6 +137,9 @@ public class BuddyController {
 		service.friendNonBlock(vo);		
 		
 		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		redirectAttributes.addAttribute("mnMmName", vo.getMnMmName());
+		
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
 		return "redirect:/user/blockFriendSelect";
 	}
 	
