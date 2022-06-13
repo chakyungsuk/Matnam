@@ -105,9 +105,9 @@
 	</div><!-- End Map -->
 
 <!-- Content ================================================== -->
-	<form method="post" action="" id="formTopList">
-		<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
-		<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq">
+	<form method="get" action="" id="formTopListList">
+		<input type="hidden" id="mnMmSeqQ" name="mnMmSeq" value="${sessSeq}">
+		<input type="hidden" id="mnfdFriendSeqQ" name="mnfdFriendSeq">
 	</form>
 
 	<div class="container margin_60_35">
@@ -196,7 +196,7 @@
 									</div>
 									<div class="col-7">
 										<label><c:out value="${item.mnMmName}"/></label><br>
-										<span><c:out value="${item.mnfdSeq}"/></span>
+										<span><c:out value="${item.mnMmIntroduce}"/></span>
 									</div>
 									<div class="col-3">
 										<div class="row">
@@ -357,9 +357,9 @@
 	} 
     
     gochat = function(seq){
-		$("#mnfdFriendSeq").val(seq);
-		$("#formTopList").attr("action","/chat/chatView2");
-		$("#formTopList").submit();
+		$("#mnfdFriendSeqQ").val(seq);
+		$("#formTopListList").attr("action","/chat/chatView2");
+		$("#formTopListList").submit();
 	} 
 
 /*      const deleteModal = document.getElementById('deleteModal')

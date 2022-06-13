@@ -22,11 +22,11 @@ public class ChatController {
 	@RequestMapping(value = "/chat/chatView2")
 	public String chatView2(Chat dto ,ChatVo vo, Model model) throws Exception {
 		
-		/*
-		 * System.out.println("--------------------------------------"+dto.getMnMmSeq())
-		 * ; System.out.println("--------------------------------------"+dto.
-		 * getMnfdFriendSeq()); service.insertChattingRoom(dto);
-		 */
+		
+		  System.out.println("--------------------------------------"+dto.getMnMmSeq());
+		  System.out.println("--------------------------------------"+dto.getMnfdFriendSeq()); 
+		  service.insertChattingRoom(dto);
+		 
 		
 		List<Chat> list = service.selectListFriend(vo);
 		model.addAttribute("list", list);
