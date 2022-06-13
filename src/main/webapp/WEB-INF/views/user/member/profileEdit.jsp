@@ -137,6 +137,8 @@
 		        <div class="col-5">
 		        	<form id="formList" name="formList" method="post" action="/user/profileUpdt" enctype="multipart/form-data">
 						<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+						<input type="hidden" id="photoBackgroundChanged" name="photoBackgroundChanged" value="0">
+						<input type="hidden" id="photoChanged" name="photoChanged" value="0">
 			            <div class="box_style_2" id="order_process">
 			                <h2 class="inner" style="text-align: center;">프로필 변경</h2>
 			                <!-- <div class="mb-3 profile-user">
@@ -164,7 +166,8 @@
 				                <!-- Start Settings content -->
 				                <div>
 				                    <div class="user-profile-img">
-				                        <img src="/resources/chat/dist/assets/images/small/img-4.jpg" class="profile-img profile-foreground-img" style="height: 220px;" alt="">
+				                        <!-- <img src="/resources/chat/dist/assets/images/small/img-4.jpg" class="profile-img profile-foreground-img" style="height: 220px;" alt=""> -->
+				                        <img src="/resources/chat/dist/assets/images/4902908.jpg" class="profile-img profile-foreground-img" style="height: 220px;" alt="">
 				                        <div class="overlay-content">
 				                            <div>
 				                                <div class="user-chat-nav p-3">
@@ -174,7 +177,7 @@
 				                                        <div class="flex-shrink-0">
 				                                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit" data-bs-toggle="tooltip"
 				                                                data-bs-trigger="hover" data-bs-placement="bottom" title="Change Background">
-				                                                <input id="profile-foreground-img-file-input" type="file"
+				                                                <input id="profile-foreground-img-file-input" name="file" type="file"
 				                                                    class="profile-foreground-img-file-input">
 				                                                <label for="profile-foreground-img-file-input" class="profile-photo-edit avatar-xs">
 				                                                    <span class="avatar-title rounded-circle bg-light text-body">
@@ -194,7 +197,7 @@
 				                            <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail user-profile-image" style="width:150px; height:150px;" alt="user-profile-image">
 				                            <div class="avatar-xs rounded-circle profile-photo-edit" style="position:relative; margin-top:-50px; margin-left:95px;">
 				                                <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-				                                <input id="profile-img-file-input" type="file" class="profile-img-file-input">
+				                                <input id="profile-img-file-input" name="file1" type="file" class="profile-img-file-input">
 				                                    <span class="avatar-title rounded-circle bg-light text-body" style="width:50px; height:50px;">
 				                                        <i class="bx bxs-camera" style="font-size:40px;"></i>
 				                                    </span>
@@ -438,6 +441,13 @@
     			$(this).prop("checked", true);
     		}
     	});
+    	
+    	$("#profile-foreground-img-file-input").change(function(){
+    		$("#photoBackgroundChanged").val(1);
+	    });
+    	$("#profile-img-file-input").change(function(){
+    		$("#photoChanged").val(1);
+	    });
     	
     	$("input[type='checkbox']").on("click",function(){
     		let count = $("input:checked[type='checkbox']").length;

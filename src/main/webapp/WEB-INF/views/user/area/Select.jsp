@@ -568,6 +568,14 @@
     		}
     	});
     });
+    
+    function modalClear(){
+    	document.getElementById("mnfdMessage").value='';
+    }
+    
+    $('#friendModal').on('hidden.bs.modal', function (e) {
+    	document.getElementById("mnfdMessage").value='';
+    });
 </script>
 </body>
 </html>
