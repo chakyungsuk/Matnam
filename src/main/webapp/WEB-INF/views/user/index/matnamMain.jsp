@@ -69,6 +69,38 @@
 	.placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
 	.placeinfo .tel {color:#0f7833;}
 	.placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
+	  
+	.screen a{
+	  display: block;
+	  width: 100%; height: 100%;
+	
+	  overflow: hidden;
+	
+	  position: relative; 
+	}
+	
+	.screen figure{
+	  width: 100%; height: 100%;
+	}
+	.screen figcaption{
+	  width: 100%;
+	  background-color: rgba(0,0,0,0.7);
+	
+	  position: absolute; /* 이미지와 겹치게 처리 */
+	  top: 0; left: 0;
+	
+	  color: #fff; text-align: center;
+	  line-height: 200px;
+	
+	  opacity: 0; 
+	
+	  transition: 0.3s;
+	}
+	
+	.screen a:hover figcaption, .screen a:focus figcaption{
+
+	  opacity: 1;
+	}
 </style>	
 	
 </head>
@@ -124,43 +156,67 @@
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6">
-                <div class="box_home" id="one" style="padding-top: 30px;">
-                    <span>1</span>
-                    <img src="/resources/user/image/Introduction1.png" style="width: 100%; height: 200px;">
-                    <h3>음식점 추천 시스템</h3>
-                    <p>
-                       음식 랜덤 추천
-                    </p>
+                <div class="box_home" id="one" style="padding-top: 30px;">                	
+	                <span>1</span>
+	                <div class="screen"> 
+	                	<a href="#">   
+		                	<figure>
+			                    <img src="/resources/user/image/Introduction1.png" style="width: 100%; height: 200px;">
+			                    <figcaption>나의 입맛을 저격할 '맛남'만의 맛집 추천!</figcaption>
+		                    </figure>
+	                    </a>
+	                </div>
+	                <div>    
+	                    <h3>음식점 추천 시스템</h3>
+	            	</div>     
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="box_home" id="two" style="padding-top: 30px;">
                     <span>2</span>
-                    <img src="/resources/user/image/Introduction2.png" style="width: 100%; height: 200px;">
-                    <h3>지도를 이용한 음식점 찾기</h3>
-                    <p>
-                       	현재 위치 기반 음식점 검색
-                    </p>
+                    <div class="screen">
+                    	<a href="#">	
+                    	<figure>
+		                    <img src="/resources/user/image/Introduction2.png" style="width: 100%; height: 200px;">
+		                    <figcaption>내가 어디에 있던 상관없이 맛집 탐색!</figcaption>		                    
+		                </figure>    
+	                    </a>
+                    </div>
+                    <div>    
+	                    <h3>지도를 이용한 음식점 찾기</h3>
+	            	</div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="box_home" id="three" style="padding-top: 30px;">
                     <span>3</span>
-                    <img src="/resources/user/image/introduction3.jpg" style="width: 100%; height: 200px;">
-                    <h3>사용자 매칭 시스템</h3>
-                    <p>
-                        다른 사용자와 맛있는 식사
-                    </p>
+                     <div class="screen">
+                    	<a href="#">	
+                    	<figure>
+		                    <img src="/resources/user/image/introduction3.jpg" style="width: 100%; height: 200px;">
+		                    <figcaption>나와 같은 취향의 다양한 친구를 만날수 있는 기회!</figcaption>		                    
+		                </figure>    
+	                    </a>
+	                 </div>   
+	                 <div>   
+	                    <h3>사용자 매칭 시스템</h3>
+                  	 </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="box_home" id="four" style="padding-top: 30px;">
                     <span>4</span>
-                    <img src="/resources/user/image/Introduction4.png" style="width: 100%; height: 200px;">
-                    <h3>1:1 채팅시스템</h3>
-                    <p>
-                        1:1 채팅으로 편하게 친구 사귀기
-                    </p>
+                    <div class="screen">
+                    	<a href="#">	
+                    	<figure>
+		                    <img src="/resources/user/image/Introduction4.png" style="width: 100%; height: 200px;">
+		                    <figcaption>친구들과 자유로운 채팅 가능!</figcaption>		                    
+		                </figure>    
+	                    </a>
+                    </div>
+                    <div>    
+	                    <h3>1:1 채팅시스템</h3>
+	            	</div>
                 </div>
             </div>
         </div><!-- End row -->
