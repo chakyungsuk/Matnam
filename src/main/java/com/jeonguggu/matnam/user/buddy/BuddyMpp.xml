@@ -110,11 +110,15 @@
 			,a.mnMmGenderCd
 			,a.mnMmLike
 			,b.mnmaAddress1
+			,e.originalName
+			,e.uuidName
+			,e.path
 		FROM
 			matnamMember a
 			LEFT JOIN matnamMemberAddress b ON b.mnmaDelNy = 0  AND b.mnmaDefaultNy = 1 AND b.mnMmSeq = a.mnMmSeq AND b.mnmaTypeCd = 13
 			LEFT JOIN matnamMemberRegion c ON c.mnmlDelNy = 0  AND c.mnMmSeq = a.mnMmSeq
 			LEFT JOIN matnamMemberTaste d ON d.mnmtDelNy = 0  AND d.mnMmSeq = a.mnMmSeq
+			LEFT JOIN matnamUploaded e ON e.typeCd = 145  AND e.defaultNy = 1 AND e.pseq = a.mnMmSeq
 		WHERE 
 			<if test="mnMmSeq != null and !mnMmSeq.equals('')">(</if>
 <!-- 			<if test="mnMmSeq != null and !mnMmSeq.equals('') or sesSeq != null and !sesSeq.equals('')">(</if> -->
@@ -176,6 +180,24 @@
 	</select>
 	<!-- 매칭 목록 조회 끝 -->
 	
+	<!-- 이미지 불러오기 -->
+	<select id="selectListPhoto" resultMap="resultMapObj">
+		SELECT
+			a.typeCd
+			, a.originalName
+			, a.uuidName
+			, a.ext
+			, a.path
+		FROM
+			matnamUploaded a
+			LEFT JOIN matnamMember b ON b.mnMmSeq = a.pseq
+		WHERE 1=1
+			AND a.defaultNy = 1
+			AND a.typeCd = 145
+			AND a.pseq = #{mnMmSeq}
+	</select>
+	<!-- 이미지 불러오기 -->
+	
 	<!-- 음식 취향 불러오기 -->
     <select id="selectListFriendTaste" resultMap="resultMapObj">
 		SELECT
@@ -221,6 +243,39 @@
 			AND a.mnMmSeq = #{mnMmSeq}
 <!-- 			AND a.mnMmSeq = #{mnMmSeq2} -->
 	</select>
+	
+	<!-- 사진 불러오기 -->
+    <select id="selectListPhotoBackground1" resultMap="resultMapObj">
+		SELECT
+			a.typeCd
+			, a.originalName
+			, a.uuidName
+			, a.ext
+			, a.path
+		FROM
+			matnamUploaded a
+		WHERE 1=1
+			AND a.defaultNy = 1
+			AND a.typeCd = 144
+			AND a.pseq = #{mnMmSeq}
+	</select>
+    <select id="selectListPhoto1" resultMap="resultMapObj">
+		SELECT
+			a.typeCd
+			, a.originalName
+			, a.uuidName
+			, a.ext
+			, a.path
+		FROM
+			matnamUploaded a
+			LEFT JOIN matnamMember b ON b.mnMmSeq = a.pseq
+		WHERE 1=1
+			AND a.defaultNy = 1
+			AND a.typeCd = 145
+			AND a.pseq = #{mnMmSeq}
+	</select>
+    <!-- 사진 불러오기 -->
+	
     <!-- 사용자 프로필 조회 끝 -->
     
     <!-- 사용자 리뷰 조회 시작 -->

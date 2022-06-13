@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.jeonguggu.matnam.user.profile.Profile;
+
 @Controller
 public class BuddyController {
 	 
@@ -104,6 +106,12 @@ public class BuddyController {
 		
 		Buddy rt = service.selectOneUser(vo);
 		model.addAttribute("rt", rt);
+		
+		Buddy photoBackground = service.selectListPhotoBackground1(vo);
+		model.addAttribute("photoBackground", photoBackground);
+		
+		Buddy photo = service.selectListPhoto1(vo);
+		model.addAttribute("photo", photo);
 		
 		List<Buddy> list = service.selectListUserReview(vo);
 		model.addAttribute("list", list);

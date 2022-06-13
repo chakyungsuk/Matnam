@@ -97,6 +97,17 @@ public class BuddyServiceImpl implements BuddyService {
 	public List<Buddy> selectListUserReview(BuddyVo vo) throws Exception {
 		return dao.selectListUserReview(vo);
 	}
+	@Override
+	public Buddy selectListPhotoBackground1(BuddyVo vo) throws Exception {
+		
+		return dao.selectListPhotoBackground1(vo);
+	}
+	
+	@Override
+	public Buddy selectListPhoto1(BuddyVo vo) throws Exception {
+		
+		return dao.selectListPhoto1(vo);
+	}
 	
 //	친구 추가
 	@Override

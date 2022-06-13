@@ -27,6 +27,8 @@ public interface BuddyService {
 	
 //	사용자 프로필 조회
 	public Buddy selectOneUser(BuddyVo vo) throws Exception;
+	public Buddy selectListPhotoBackground1(BuddyVo vo) throws Exception;
+	public Buddy selectListPhoto1(BuddyVo vo) throws Exception;
 
 //	친구 삭제
 	int delete(BuddyVo vo) throws Exception;

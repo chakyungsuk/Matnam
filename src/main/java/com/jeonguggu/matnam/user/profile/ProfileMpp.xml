@@ -88,7 +88,7 @@
 			AND a.typeCd = 145
 			AND a.pseq = #{mnMmSeq}
 	</select>
-    <!-- 지역 불러오기 -->
+    <!-- 사진 불러오기 -->
 	
     <!-- 회원 프로필 수정 시작 -->
 	<update id="updateProfile">

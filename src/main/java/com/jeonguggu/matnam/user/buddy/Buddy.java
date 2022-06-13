@@ -45,6 +45,11 @@ public class Buddy {
 	//레스토랑
 	private String mnrtName;
 	
+//	이미지
+	private String originalName;
+	private String uuidName;
+	private String path;
+	
 //	----------------------------------------
 
 	public String getMnMmSeq() {
@@ -204,6 +209,24 @@ public class Buddy {
 	}
 	public void setMnmlSeq(String mnmlSeq) {
 		this.mnmlSeq = mnmlSeq;
+	}
+	public String getOriginalName() {
+		return originalName;
+	}
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
+	}
+	public String getUuidName() {
+		return uuidName;
+	}
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
 	}
 	
 }

@@ -188,11 +188,25 @@
 		                <!-- Start profile content -->
 		                <div>
 		                    <div class="user-profile-img">
-		                        <img src="/resources/chat/dist/assets/images/4902908.jpg" class="profile-img" style="height: 220px;" alt="">
+		                        <c:choose>
+		                    		<c:when test="${not empty photoBackground}">
+		                    			<img src="<c:out value="${photoBackground.path}"/><c:out value="${photoBackground.uuidName}"/>" class="profile-img" style="height: 220px;" alt="">
+		                    		</c:when>
+		                    		<c:otherwise>
+				                        <img src="/resources/chat/dist/assets/images/4902908.jpg" class="profile-img" style="height: 220px;" alt="">
+		                    		</c:otherwise>
+		                    	</c:choose>
 		                    </div>  
 		                    <div class="text-center border-bottom border-bottom-dashed pt-2 pb-4 position-relative" style="margin-top:-80px;">
 		                        <div class="mb-lg-3 mb-2"> 
-		                            <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" style="width:150px;" alt="">
+		                            <c:choose>
+			                    		<c:when test="${not empty photo}">
+				                            <img src="<c:out value="${photo.path}"/><c:out value="${photo.uuidName}"/>" class="rounded-circle avatar-lg img-thumbnail" style="width:150px; height:150px;" alt="">
+			                    		</c:when>
+			                    		<c:otherwise>
+				                            <img src="/resources/chat/dist/assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" style="width:150px; height:150px;" alt="">
+			                    		</c:otherwise> 
+			                    	</c:choose>
 		                        </div>
 		   
 		                        <h5 class="fs-17 mb-1 text-truncate"><c:out value="${rt.mnMmName}"/></h5>

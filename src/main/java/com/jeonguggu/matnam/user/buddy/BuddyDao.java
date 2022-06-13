@@ -56,6 +56,12 @@ public class BuddyDao {
 	public Buddy selectOneUser(BuddyVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneUser", vo);
 	}
+	public Buddy selectListPhotoBackground1(BuddyVo vo) {
+		return sqlSession.selectOne(namespace + ".selectListPhotoBackground1", vo);
+	}
+	public Buddy selectListPhoto1(BuddyVo vo) {
+		return sqlSession.selectOne(namespace + ".selectListPhoto1", vo);
+	}
 	
 //	친구 삭제	
 	public int delete(BuddyVo vo) {
