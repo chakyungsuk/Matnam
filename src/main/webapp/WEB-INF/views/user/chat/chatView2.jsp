@@ -575,7 +575,8 @@
   height: auto;
   min-height: calc(100% - 93px);
   max-height: calc(100% - 93px);
-  overflow-y: scroll;
+  overflow: auto;
+ /*  overflow-y: scroll; */
   overflow-x: hidden;
 }
 @media screen and (max-width: 735px) {
@@ -823,9 +824,11 @@ const firebaseConfig = {
 	
 </body>
 </html>
- 
-<script>$(".messages").animate({ scrollTop: $(document).height() }, "fast");
-  
+<script>
+     $(document).ready(function(){
+    	$('.messages').scrollTop($('.messages')[0].scrollHeight);
+</script>
+<script>	
 $("#profile-img").click(function() {
 	$("#status-options").toggleClass("active");
 });
@@ -871,6 +874,7 @@ function enterkey() {
 	}
 };
 </script>
+
 <!-- Enter 로 submit 하기 끝 -->
 
 <!-- firebase 채팅 시작 -->
@@ -907,18 +911,17 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 var myName = String("${sessName}");
-var yourName = prompt("상대방의 닉네임을 입력해주세요.");
+// var yourName = prompt("상대방의 닉네임을 입력해주세요.");
+var yourName = 123;
 
 submit.addEventListener('click', (e) => {
     var message = document.getElementById('message').value;
     var name = myName;
-	var othername = yourName;
 
     const id = push(child(ref(database), 'messages')).key;
 
     set(ref(database, 'messages/' + id), {
         name: name,
-		othername : othername,
         message: message
     });
     document.getElementById('message').value = "";
@@ -927,21 +930,23 @@ submit.addEventListener('click', (e) => {
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
         if(data.val().name != myName) {
-            var divData = '<li class="sent">\n' + 
-					'<div>' + yourName +' </div>\n' + 
+            var divData = '<li class="sent" id="sent">\n' + 
+					'<div>' + data.val().name +' </div>\n' + 
 					'<p> '+data.val().message+' </p>\n' +
 				'</li>'; 
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
+		$('.messages').scrollTop($('.messages')[0].scrollHeight);
         }else{
-            var divData = '<li class="replies">\n' +
-					'<div style="float: right;">' + myName +' </div>\n' +
+            var divData = '<li class="replies" id="replies">\n' +
+					'<div style="float: right;">' + data.val().name +' </div>\n' +
  					'<br>' +
 					'<p>' +data.val().message+' </p>\n' +
 				'</li>';
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
         }
+		$('.messages').scrollTop($('.messages')[0].scrollHeight);
     });
    
 </script>
