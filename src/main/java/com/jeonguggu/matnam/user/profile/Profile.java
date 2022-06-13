@@ -69,8 +69,8 @@ public class Profile {
 	private String pseq;
 	private String path;
 	
-	private String photoBackgroundChanged;
-	private String photoChanged;
+	private Integer photoBackgroundChanged;
+	private Integer photoChanged;
 	
 //	----------------------------------------
 	
@@ -338,17 +338,18 @@ public class Profile {
 	public void setPath(String path) {
 		this.path = path;
 	}
-	public String getPhotoBackgroundChanged() {
+	public Integer getPhotoBackgroundChanged() {
 		return photoBackgroundChanged;
 	}
-	public void setPhotoBackgroundChanged(String photoBackgroundChanged) {
+	public void setPhotoBackgroundChanged(Integer photoBackgroundChanged) {
 		this.photoBackgroundChanged = photoBackgroundChanged;
 	}
-	public String getPhotoChanged() {
+	public Integer getPhotoChanged() {
 		return photoChanged;
 	}
-	public void setPhotoChanged(String photoChanged) {
+	public void setPhotoChanged(Integer photoChanged) {
 		this.photoChanged = photoChanged;
 	}
+	
 	
 }
