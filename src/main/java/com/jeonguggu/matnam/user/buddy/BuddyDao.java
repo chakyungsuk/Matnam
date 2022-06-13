@@ -72,6 +72,11 @@ public class BuddyDao {
 		return sqlSession.update(namespace + ".friendNonBlock", vo);
 	}
 	
+//	받은 친구 추가	
+	public int friendYes(BuddyVo vo) {
+		return sqlSession.update(namespace + ".friendYes", vo);
+	}
+	
 //	사용자 리뷰 조회
 	public List<Buddy> selectListUserReview(BuddyVo vo) {
 		return sqlSession.selectList(namespace + ".selectListUserReview", vo);

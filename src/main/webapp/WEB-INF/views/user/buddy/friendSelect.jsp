@@ -119,10 +119,12 @@
 	        	</div>   
 	        	<div class="box_style_2" id="order_process">
 	                <h2 class="inner" style="text-align: center;">친구목록</h2>
-					<form method="post" action="list_page.html">
+					<form method="post" action="/user/friendSelect" id="searchFriend" name="searchFriend">
+						<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+						<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
 		                <div id="custom-search-input" style="margin-left:130px;">
 		                    <div class="input-group" style="margin-bottom:30px;">
-		                        <input type="text" class="search-query" style="width:300px; -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);" placeholder="친구 검색">
+		                        <input type="text" id="shName" name="shName" class="search-query" style="width:300px; -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);" placeholder="친구 검색">
 		                        <span class="input-group-btn">
 		                        	<input type="submit" style="margin-right: 350px;" class="btn_search" value="">
 		                        </span> 
@@ -191,7 +193,7 @@
 									</div>
 									<div class="col-7">
 										<label><c:out value="${item.mnMmName}"/></label><br>
-										<span><c:out value="${item.mnfdSeq}"/></span>
+										<span><c:out value="${item.mnMmIntroduce}"/></span>
 									</div>
 									<div class="col-3">
 										<input type="hidden" id="mnMmSeq" name="mnMnSeq" value="${sessSeq}">
@@ -200,31 +202,8 @@
 												<a href="javascript:gochat(${sessSeq})"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
 											</div>
 											<div>
-												<a href="/user/friendDelete?mnfdSeq=<c:out value="${item.mnfdSeq}"/>" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>
-												<a href="/user/friendBlock?mnfdSeq=<c:out value="${item.mnfdSeq}"/>" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
-												<!-- <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>												
-												<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a> -->
-											
-											<%-- <!-- deleteModal -->
-											<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<h5 class="modal-title" id="deleteModalLabel">친구 삭제</h5>
-															<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-														</div>
-														<div class="modal-body">
-															<c:out value="${item.mnfdSeq}"/>친구를 삭제하시겠습니까?<c:out value="${item.mnMmName}"/>
-														</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
-															<button type="button" class="btn btn-primary" onclick="location.href='friendDelete?mnfdSeq=<c:out value="${item.mnfdSeq}"/>';">예</button>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- end deleteModal --> --%>
-											
+												<a href="#" data-bs-toggle="modal" onclick="setForm(${item.mnfdSeq})" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>												
+												<a href="#" data-bs-toggle="modal" onclick="setForm(${item.mnfdSeq})" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
 											</div>  
 										</div>  
 									</div>									  
@@ -234,7 +213,6 @@
 					</c:choose>
  					
 				</div> 
-				<button type="button" class="btn btn-outline-secondary" onclick = "javascript:goForm(${sessSeq})">돌아가기</button>
 	        </div><!-- End col -->
 	        
 	    </div><!-- End row -->
@@ -251,42 +229,52 @@
 
 	<!-- Modal -->
 	
-<%--  	<!-- deleteModal -->
+ 	<!-- deleteModal -->
 	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="deleteModalLabel">친구 삭제</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<form action="/user/friendDelete" id="friendDeleteForm" name="friendDeleteForm" method="get">
+				<input type="hidden" id="mnfdSeq1" name="mnfdSeq">
+				<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+				<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="deleteModalLabel">친구 삭제</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						친구를 삭제하시겠습니까?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+						<button type="submit" class="btn btn-primary">예</button>
+					</div>
 				</div>
-				<div class="modal-body">
-					<c:out value="${item.mnfdSeq}"/>친구를 삭제하시겠습니까?
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
-					<button type="button" class="btn btn-primary" onclick="location.href='friendDelete?mnfdSeq=<c:out value="${item.mnfdSeq}"/>';">예</button>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
-	<!-- end deleteModal -->  --%>
+	<!-- end deleteModal --> 
 	
-<!-- 	<!-- blockModal -->
+	<!-- blockModal -->
 	<div class="modal fade" id="blockModal" tabindex="-1" aria-labelledby="blockModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="blockModalLabel">친구 차단</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<form action="/user/friendBlock" id="friendBlockForm" name="friendBlockForm" method="get">
+				<input type="hidden" id="mnfdSeq2" name="mnfdSeq">
+				<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+				<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="blockModalLabel">친구 차단</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						해당 친구를 차단하시겠습니까?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+						<button type="submit" class="btn btn-primary">예</button>
+					</div>
 				</div>
-				<div class="modal-body">
-					해당 친구를 차단하시겠습니까?
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
-					<button type="button" class="btn btn-primary">예</button>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<!-- end blockModal -->
@@ -357,6 +345,11 @@
 		$("#formTopList").attr("action","/chat/chatView2");
 		$("#formTopList").submit();
 	} 
+    
+    setForm = function(seq){
+		$("#mnfdSeq1").val(seq);
+		$("#mnfdSeq2").val(seq);
+	}
 
 /*      const deleteModal = document.getElementById('deleteModal')
     deleteModal.addEventListener('show.bs.modal', event => {

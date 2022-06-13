@@ -138,7 +138,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${listReceive}" var="itemReceive" varStatus="status">	
-										<div class="row">
+										<div class="row mt-4">
 											<div class="col-2" style="margin-top:5px;">
 												<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 													<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -150,8 +150,8 @@
 												<span><c:out value="${itemReceive.mnfdMessage}"/></span>
 											</div>
 											<div class="col-1">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#yesModal"><h6><span class="badge bg-primary">수락</span></h6></a>
-												<a href="#" data-bs-toggle="modal" data-bs-target="#noModal"><h6><span class="badge bg-secondary">거절</span></h6></a>
+												<a href="#" data-bs-toggle="modal" onclick="setForm(${itemReceive.mnfdSeq})" data-bs-target="#yesModal"><h6><span class="badge bg-primary">수락</span></h6></a>
+												<a href="#" data-bs-toggle="modal" onclick="setForm(${itemReceive.mnfdSeq})" data-bs-target="#noModal"><h6><span class="badge bg-secondary">거절</span></h6></a>
 											</div>
 										</div>
 									</c:forEach>
@@ -186,7 +186,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${listSend}" var="itemSend" varStatus="status">	
-										<div class="row">
+										<div class="row mt-4">
 											<div class="col-2" style="margin-top:5px;">
 												<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 													<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -198,8 +198,7 @@
 												<span><c:out value="${itemSend.mnfdMessage}"/></span>
 											</div>
 											<div class="col-1">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#yesModal"><h6><span class="badge bg-primary">수락</span></h6></a>
-												<a href="#" data-bs-toggle="modal" data-bs-target="#noModal"><h6><span class="badge bg-secondary">거절</span></h6></a>
+												<a href="#" data-bs-toggle="modal" onclick="setForm(${itemSend.mnfdSeq})" data-bs-target="#cancelModal"><h6><span class="badge bg-danger">삭제</span></h6></a>
 											</div>
 										</div>
 									</c:forEach>
@@ -239,19 +238,24 @@
 	<!-- yesModal -->
 	<div class="modal fade" id="yesModal" tabindex="-1" aria-labelledby="yesModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="yesModalLabel">요청 수락</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<form action="/user/yesFriend" id="yesFriendForm" name="yesFriendForm" method="get">
+				<input type="hidden" id="mnfdSeq1" name="mnfdSeq">
+				<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+				<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="yesModalLabel">요청 수락</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						친구 요청을 수락하시겠습니까?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+						<button type="submit" class="btn btn-primary">예</button>
+					</div>
 				</div>
-				<div class="modal-body">
-					고구마님의 친구 요청을 수락하시겠습니까?
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
-					<button type="button" class="btn btn-primary">예</button>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<!-- end yesModal -->
@@ -259,19 +263,24 @@
 	<!-- noModal -->
 	<div class="modal fade" id="noModal" tabindex="-1" aria-labelledby="noModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="noModalLabel">요청 거절</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<form action="/user/noFriend" id="noFriendForm" name="noFriendForm" method="get">
+				<input type="hidden" id="mnfdSeq2" name="mnfdSeq">
+				<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+				<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="noModalLabel">요청 거절</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						친구 요청을 거절하시겠습니까?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+						<button type="submit" class="btn btn-primary">예</button>
+					</div>
 				</div>
-				<div class="modal-body">
-					고구마님의 친구 요청을 거절하시겠습니까?
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
-					<button type="button" class="btn btn-primary">예</button>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<!-- end noModal -->
@@ -279,19 +288,24 @@
 	<!-- cancelModal -->
 	<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="cancelModalLabel">요청 취소</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<form action="/user/cancelFriend" id="cancelFriendForm" name="cancelFriendForm" method="get">
+				<input type="hidden" id="mnfdSeq3" name="mnfdSeq">
+				<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+				<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="cancelModalLabel">요청 취소</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						친구 요청을 취소하시겠습니까?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+						<button type="submit" class="btn btn-primary">예</button>
+					</div>
 				</div>
-				<div class="modal-body">
-					친구 요청을 취소하시겠습니까?
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
-					<button type="button" class="btn btn-primary">예</button>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<!-- end cancelModal -->
@@ -328,6 +342,12 @@
             grid: true
         });
     });
+    
+    setForm = function(seq){
+		$("#mnfdSeq1").val(seq);
+		$("#mnfdSeq2").val(seq);
+		$("#mnfdSeq3").val(seq);
+	}
     
     goForm = function(seq){
 		$("#mnMmSeq").val(seq);

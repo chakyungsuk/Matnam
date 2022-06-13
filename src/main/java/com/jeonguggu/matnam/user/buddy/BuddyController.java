@@ -52,6 +52,36 @@ public class BuddyController {
 		return "/user/buddy/userFriendRequest";
 	}
 	
+	@RequestMapping(value = "/user/cancelFriend")
+	public String cancelFriend(BuddyVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.delete(vo);	
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		redirectAttributes.addAttribute("mnMmName", vo.getMnMmName());
+		
+		return "redirect:/user/userFriendRequest";
+	}
+	
+	@RequestMapping(value = "/user/noFriend")
+	public String noFriend(BuddyVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.delete(vo);	
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		redirectAttributes.addAttribute("mnMmName", vo.getMnMmName());
+		
+		return "redirect:/user/userFriendRequest";
+	}
+	
+	@RequestMapping(value = "/user/yesFriend")
+	public String yesFriend(BuddyVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.friendYes(vo);	
+		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		redirectAttributes.addAttribute("mnMmName", vo.getMnMmName());
+		
+		return "redirect:/user/userFriendRequest";
+	}
+	
 	@RequestMapping(value = "/user/friendSelect")
 	public String friendSelect(BuddyVo vo, Model model) throws Exception {
 		
@@ -85,16 +115,19 @@ public class BuddyController {
 	public String friendDelete(BuddyVo vo,  RedirectAttributes redirectAttributes) throws Exception {
 		service.delete(vo);	
 		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		redirectAttributes.addAttribute("mnMmName", vo.getMnMmName());
 		
 		return "redirect:/user/friendSelect";
 	}
 	
 	@RequestMapping(value = "/user/friendBlock")
-	public String friendBlock(@ModelAttribute("vo") BuddyVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
+	public String friendBlock(BuddyVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
 	
 		service.friendBlock(vo);		
 		
 		redirectAttributes.addAttribute("mnMmSeq", vo.getMnMmSeq());
+		redirectAttributes.addAttribute("mnMmName", vo.getMnMmName());
+		
 		return "redirect:/user/friendSelect";
 	}
 	

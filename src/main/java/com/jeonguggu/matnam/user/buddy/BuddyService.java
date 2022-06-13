@@ -37,6 +37,9 @@ public interface BuddyService {
 //	차단목록 해제
 	int friendNonBlock(BuddyVo vo) throws Exception;
 	
+//	받은 친구 추가
+	int friendYes(BuddyVo vo) throws Exception;
+	
 //	사용자 리뷰 조회
 	public List<Buddy> selectListUserReview(BuddyVo vo) throws Exception;
 	

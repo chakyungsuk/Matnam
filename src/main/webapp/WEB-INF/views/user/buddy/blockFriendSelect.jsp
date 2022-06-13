@@ -165,11 +165,9 @@
 									<div class="col-8">
 										<label><c:out value="${item.mnMmName}"/></label><br>
 										<span><c:out value="${item.mnMmIntroduce}"/></span>
-										<span><c:out value="${item.mnfdSeq}"/></span>
 									</div>
 									<div class="col-1">
-									<a href="/user/friendNonBlock?mnfdSeq=<c:out value="${item.mnfdSeq}"/>"><span class="badge bg-primary">차단해제</span></a>
-										<!-- <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><h6><span class="badge bg-primary">차단해제</span></h6></a> -->
+										<a href="#" data-bs-toggle="modal" onclick="setForm(${item.mnfdSeq})" data-bs-target="#deleteModal"><h6><span class="badge bg-primary">차단해제</span></h6></a>
 									</div>
 								</div>
 							</c:forEach>
@@ -197,19 +195,24 @@
 	<!-- deleteModal -->
 	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="deleteModalLabel">차단 해제</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<form action="/user/friendNonBlock" id="friendNonBlockForm" name="friendNonBlockForm" method="get">
+				<input type="hidden" id="mnfdSeq" name="mnfdSeq">
+				<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
+				<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="deleteModalLabel">차단 해제</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						해당 친구의 차단을 해제하겠습니까?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+						<button type="submit" class="btn btn-primary">예</button>
+					</div>
 				</div>
-				<div class="modal-body">
-					해당 친구의 차단을 해제하겠습니까?
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
-					<button type="button" class="btn btn-primary">예</button>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<!-- end deleteModal -->
@@ -256,6 +259,10 @@
             grid: true
         });
     });
+    
+    setForm = function(seq){
+		$("#mnfdSeq").val(seq);
+	}
     
     goForm = function(seq){
 		$("#mnMmSeq").val(seq);

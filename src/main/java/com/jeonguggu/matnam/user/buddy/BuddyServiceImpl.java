@@ -86,6 +86,12 @@ public class BuddyServiceImpl implements BuddyService {
 		return dao.friendNonBlock(vo);
 	}
 	
+//	차단목록 해제
+	@Override
+	public int friendYes(BuddyVo vo) throws Exception {
+		return dao.friendYes(vo);
+	}
+	
 //	사용자 리뷰 조회
 	@Override
 	public List<Buddy> selectListUserReview(BuddyVo vo) throws Exception {

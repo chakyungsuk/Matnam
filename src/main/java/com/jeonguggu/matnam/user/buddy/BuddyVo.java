@@ -7,6 +7,9 @@ public class BuddyVo {
 	private String mnMmName = "";
 	private String mnmaAddress1 = "";
 	
+//	사용자 검색
+	private String shName;
+	
 //	사용자 지역
 	private String[] mnmlLocationCdArray;
 	
@@ -75,6 +78,14 @@ public class BuddyVo {
 
 	public void setMnfdFriendSeq(String mnfdFriendSeq) {
 		this.mnfdFriendSeq = mnfdFriendSeq;
+	}
+
+	public String getShName() {
+		return shName;
+	}
+
+	public void setShName(String shName) {
+		this.shName = shName;
 	}
 	
 	
