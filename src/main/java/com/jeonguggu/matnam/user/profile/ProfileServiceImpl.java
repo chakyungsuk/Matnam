@@ -59,7 +59,9 @@ public class ProfileServiceImpl implements ProfileService {
 		String pathModule;
 		String path;
 		
-		if(dto.getPhotoBackgroundChanged() == "1") {
+		System.out.println("dto.getPhotoBackgroundChanged():"+dto.getPhotoBackgroundChanged());
+		
+		if(dto.getPhotoBackgroundChanged() == 1) {
 			multipartFile = dto.getFile();
 			
 			pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
@@ -74,7 +76,9 @@ public class ProfileServiceImpl implements ProfileService {
 			dao.insertUploaded(dto);
 		}
 		
-		if(dto.getPhotoChanged() == "1") {
+		System.out.println("dto.getPhotoChanged():"+dto.getPhotoChanged());
+		
+		if(dto.getPhotoChanged() == 1) {
 			multipartFile = dto.getFile1();
 			
 			pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
