@@ -12,8 +12,6 @@
 			a.mnrtSeq
 			,a.mnrtName
 		    ,a.mnrtAddressFull
-		    ,a.mnrtTime
-		    ,a.mnrtBreakTime
 		    ,a.mnrtAvg
             ,a.mnrtX
             ,a.mnrtY
