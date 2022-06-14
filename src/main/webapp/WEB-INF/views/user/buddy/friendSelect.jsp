@@ -110,6 +110,7 @@
 		<input type="hidden" id="mnfdFriendSeqQ" name="mnfdFriendSeq">
 		<input type="hidden" id="mnChat_Num" name="mnChat_Num">
 		<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
+		<input type="hidden" id="mnfdSeq" name="mnfdSeq">
 	</form>
 
 	<div class="container margin_60_35">
@@ -203,7 +204,7 @@
 									<div class="col-3">
 										<div class="row">
 											<div class="col-12">
-												<a href="javascript:gochat(<c:out value="${item.mnfdFriendSeq}"/>)"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
+												<a href="javascript:gochat(<c:out value="${item.mnfdSeq}"/>)"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
 											</div>
 											<div>
 												<a href="/user/friendDelete?mnfdSeq=<c:out value="${item.mnfdSeq}"/>" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>
@@ -359,7 +360,7 @@
 	} 
     
     gochat = function(seq){
-		$("#mnfdFriendSeqQ").val(seq);
+		$("#mnfdSeq").val(seq);
 		$("#formTopListList").attr("action","/chat/chatView2");
 		$("#formTopListList").submit();
 	} 

@@ -53,9 +53,8 @@
 			matnamMember a
 		LEFT JOIN matnamFriend b on b.mnMmSeq = a.mnMmSeq
 		WHERE 1=1 
-		And a.mnMmSeq = #{mnfdFriendSeq} 
-		And b.mnfdSeq = #{mnfdSeq} 
-		And b.mnfdFriendStateCd = 4
+        And b.mnfdFriendStateCd = 4
+        And b.mnfdSeq = #{mnfdSeq}
 	</select> 
 	<!-- 채팅 상대방 이름 끝 -->
 	
@@ -63,10 +62,10 @@
 	<insert id="insertChattingRoom">
 		INSERT INTO matnamChattingroom (
 			mnMmSeq
-			,mnfdFriendSeq
+			,mnfdSeq
 		) VALUES (
 			#{mnMmSeq}
-			,#{mnfdFriendSeq}
+			,#{mnfdSeq}
 		)
 	</insert>
 	<!-- 채팅방 만들기 끝 -->
