@@ -7,9 +7,9 @@ public class ChatVo {
 	
 //	사용자 조회
 	private String mnMmSeq = "";
+	private String mnMmSeq1 = "";
 	private String mnMmName = "";
 	private String mnMmIntroduce = "";
-	
 	
 //	친구
 	private String mnfdSeq = "";

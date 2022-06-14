@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RestaurantController {
 	
 	@Autowired
-	RestaurantServiceImp service;
+	RestaurantServiceImpl service;
 	
 	@RequestMapping(value = "/xmin/restaurantList")
 	public String restaurantList() {

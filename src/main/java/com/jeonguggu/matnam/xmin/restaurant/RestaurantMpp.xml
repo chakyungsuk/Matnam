@@ -21,8 +21,10 @@
 		    ,mnrtY
 		    ,mnrtNumber
 		    ,mnrtFoodCateCd
-		    ,mnrtTime
-		    ,mnrtBreakTime
+		    ,mnrtTimeStart
+		    ,mnrtTimeEnd
+		    ,mnrtBreakTimeStart
+		    ,mnrtBreakTimeEnd
 		    ,mnrtHolidayCd
 		    ,mnrtText
 		)VALUE (
@@ -34,10 +36,43 @@
 		    ,#{mnrtY}
 		    ,#{mnrtNumber}
 		    ,#{mnrtFoodCateCd}
-		    ,#{mnrtTime}
-		    ,#{mnrtBreakTime}
+		    ,#{mnrtTimeStart}
+		    ,#{mnrtTimeEnd}
+		    ,#{mnrtBreakTimeStart}
+		    ,#{mnrtBreakTimeEnd}
 		    ,#{mnrtHolidayCd}
 		    ,#{mnrtText}
-		);
+		)
+		<selectKey resultType="string" keyProperty="mnrtSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
     </insert>
+    
+    <!-- Uploaded -->
+    <insert id="insertUploadedRestaurant">
+		INSERT INTO ${tableName}(
+			typeCd
+			,defaultNy
+			,originalName
+			,uuidName
+			,ext
+			,size
+			,delNy
+			<!-- <include refid="Base.insertRegColumn" /> -->
+			,pseq
+			,path
+		) VALUES (
+			#{typeCd}
+			,#{defaultNy}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			<!-- <include refid="Base.insertReqValue" /> -->
+			,#{pseq}
+			,#{path}
+		)
+	</insert>
+	<!-- Uploaded -->
 </mapper>

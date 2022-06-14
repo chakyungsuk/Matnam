@@ -22,5 +22,10 @@ public class ChatServiceImpl implements ChatService {
 	public int insertChattingRoom(Chat dto) throws Exception {
 		return dao.insertChattingRoom(dto);
 	}
+
+	@Override
+	public Chat selectOne(ChatVo vo) throws Exception {
+		return dao.selectOne(vo);
+	}
 	
 }
