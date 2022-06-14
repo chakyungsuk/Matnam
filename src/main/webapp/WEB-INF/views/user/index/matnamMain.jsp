@@ -183,7 +183,7 @@
 	                	<a href="#">   
 		                	<figure>
 			                    <img src="/resources/user/image/Introduction1.png" style="width: 100%; height: 200px;">
-			                    <figcaption>나의 입맛을 저격할 '맛남'만의 맛집 추천!</figcaption>
+			                    <figcaption>나의 입맛을 저격할 '맛남'만의 맛집 추천!</figcaption> 
 		                    </figure>
 	                    </a>
 	                </div>
