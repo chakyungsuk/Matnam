@@ -63,16 +63,16 @@
    </div><!-- End Preload -->
 
 <!-- Header ================================================== -->
-<header>
+<header style="padding-top:0px; height:60px;">
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4 col-sm-4 col-4">
+        <div class="col-md-4 col-sm-4 col-4" style="padding-top:10px !important;">
             <a href="/index/matnamMain" id="logo">
                 <img src="/resources/user/image/096-removebg-preview.png" width="200" height="37" alt="" class="d-none d-sm-block">
                 <img src="/resources/user/image/logo_mobile.png" width="59" height="23" alt="" class="d-block d-sm-none">
             </a>
         </div>
-        <nav class="col-md-8 col-sm-8 col-8">
+        <nav class="col-md-8 col-sm-8 col-8" style="padding-top:18px;">
         <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
         <div class="main-menu">
             <div id="header_menu">
