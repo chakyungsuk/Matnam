@@ -35,11 +35,18 @@ public class StoreServiceImp implements StoreService {
 	public Store selectOneReview(StoreVo vo) throws Exception {
 		return dao.selectOneReview(vo);
 	}
+	
+	@Override
+	public int selectAvg(StoreVo vo) throws Exception {
+		return dao.selectAvg(vo);
+	}
+	
 
 
 	////////////////////등록
 	
 	
+
 	@Override
 	public int insertReview(Store dto) throws Exception {
 		System.out.println("serviceImp:"+dto.getMnMmSeq());

@@ -46,7 +46,7 @@
                 <div class="rating"> 
                 	<span class="star">
 						★★★★★
-						<%-- <span style="width:${item.mnrvScore}0%;">★★★★★</span> --%>
+						<span style="width:${rtAvg}0%;">★★★★★</span>
 					</span>
                 </div>
                 <h1><c:out value="${rtStore.mnrtName}"/></h1>
@@ -101,7 +101,7 @@
 	                            <div class="rating">
 	                                <span class="star">
 										★★★★★
-										<%-- <span style="width:${item.mnrvScore}0%;">★★★★★</span> --%>
+										<span style="width:${rtAvg}0%;">★★★★★</span>
 									</span>
 	                            </div>
 	                        </div>
@@ -123,15 +123,19 @@
 	    	                </c:when>
 	    	                <c:otherwise>
 		    	                <c:forEach items="${rtReview}" var="item" varStatus="status">
+		    	                	<div>
+		                        		<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="width:150px; height:150px;" alt="">
+	                        		</div>
 		    	                	<hr/>
-		    	         
 			                        <small>-<fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd"/>-</small>
-			                        <h4><c:out value="${item.mnMmName}"/></h4>
+			                        <h4> <c:out value="${item.mnMmName}"/></h4>
+			                        <img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="width:150px; height:150px;" alt="">
 			                        <span class="star">
 										★★★★★
 										<span style="width:${item.mnrvScore}0%;">★★★★★</span>
 									</span>
 			                        <p>
+			                       
 			                            	<c:out value="${item.mnrvText }"/>
 			                        </p>
 			                        <div class="row">
@@ -140,9 +144,9 @@
 			                                    
 					                            <c:choose>
 					                            	<c:when test="${sessSeq eq item.mnMmSeq}">
-					                            	<a href="/user/storeReviewDele?mnrtSeq=<c:out value="${item.mnrtSeq}"/>&mnMmSeq=<c:out value="${item.mnMmSeq}"/>&mnrvSeq=<c:out value="${item.mnrvSeq}"/>">
-			                               	     		<button type="button" class="btn btn-outline-danger">삭제</button>
-			                               	     	</a>
+						                            	<a href="/user/storeReviewDele?mnrtSeq=<c:out value="${item.mnrtSeq}"/>&mnMmSeq=<c:out value="${item.mnMmSeq}"/>&mnrvSeq=<c:out value="${item.mnrvSeq}"/>">
+				                               	     		<button type="button" class="btn btn-outline-danger">삭제</button>
+				                               	     	</a>
 					                            	</c:when>
 					                            	<c:otherwise>
 					                            	</c:otherwise>

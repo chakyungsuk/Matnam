@@ -15,6 +15,8 @@
 		    ,a.mnrtTime
 		    ,a.mnrtBreakTime
 		    ,a.mnrtAvg
+            ,a.mnrtX
+            ,a.mnrtY
             ,b.mncdName
 		FROM matnam.matnamRestaurant a
         	left join matnam.matnamCode b on b.mncdSeq = a.mnrtFoodCateCd
@@ -52,10 +54,14 @@
 	        ,a.mnrvText
 	        ,a.regDateTime
 	        ,b.mnMmName
+            ,c.uuidName
+            ,c.path
 	    FROM matnam.matnamReview a
 	    left join matnam.matnamMember b ON b.mnMmSeq = a.mnMmSeq
+        left join matnam.matnamUploaded c on c.pseq = b.mnMmSeq
 	    where 1=1
-	    and mnrtSeq = #{mnrtSeq};
+	    and mnrtSeq = #{mnrtSeq}
+        and defaultNy = 1;
 	</select>
 	
 	<select id="selectOneReview" resultMap="resultMapObj">
@@ -79,6 +85,15 @@
 		where 1=1
 			and mnrtSeq = #{mnrtSeq};
 		
+	</select>
+	
+	<select id="selectAvg" resultType="Integer">
+		select
+			avg(mnrvScore)
+		from matnam.matnamReview
+		where 1=1
+			and mnrtSeq = 1;
+	
 	</select>
 	
 	
