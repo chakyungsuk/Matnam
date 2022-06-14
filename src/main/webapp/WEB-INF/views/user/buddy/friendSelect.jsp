@@ -112,7 +112,7 @@
 		<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
 		<input type="hidden" id="mnfdSeq" name="mnfdSeq">
 	</form>
-
+ 
 	<div class="container margin_60_35">
 	    <div class="row">
 	        <div class="col-lg-3">
