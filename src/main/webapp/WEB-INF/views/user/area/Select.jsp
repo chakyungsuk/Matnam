@@ -196,7 +196,7 @@
 								<div class="col-md-9" style="cursor: pointer;" onclick="javascript:goForm(${item.mnMmSeq});">
 									<div class="desc">
 										<div class="thumb_strip">
-											<a href="detail_page.html"><img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" alt=""></a>
+											<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" alt="">
 										</div>
 										<div class="rating">
 											<i class="icon_heart" style="color:red;"></i> x <c:out value="${item.mnMmLike}"/>

@@ -20,6 +20,8 @@
 	<link href="/resources/admin/css/app.css" rel="stylesheet">
 	<link href="/resources/user/css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link href="https://www.jqueryscript.net/demo/Material-Time-Picker-Plugin-jQuery-MDTimePicker/mdtimepicker.css" rel="stylesheet">
+	
 	
 	<style type="text/css">
     	.hoverHi{
@@ -254,24 +256,20 @@
 		                        		<label>영업시간</label>
 				                    	<div class="col-md-4 col-sm-4 mb-3">
 				                            <!-- <input type="time" id="mnrtTimeStart" name="mnrtTimeStart" class="form-control" placeholder=""> -->
-				                            <div class="input-append bootstrap-timepicker-component">
-												<input type="text" class="timepicker-default input-small" />     
-												<span class="add-on">              
-												</span>
-											</div>
+				                            <input type="text" id="mnrtTimeStart" name="mnrtTimeStart" class="form-control timepicker"/>
 				                        </div>
 				                    	<div class="col-md-4 col-sm-4">
-				                            <input type="time" id="mnrtTimeEnd" name="mnrtTimeEnd" class="form-control" placeholder="">
+				                            <input type="text" id="mnrtTimeEnd" name="mnrtTimeEnd" class="form-control timepicker" placeholder="">
 				                        </div>
 		                        		<label>브레이크타임</label>
 				                    	<div class="col-md-4 col-sm-4 mb-3">
-				                            <input type="time" id="mnrtBreakTimeStart" name="mnrtBreakTimeStart" class="form-control" placeholder="">
+				                            <input type="text" id="mnrtBreakTimeStart" name="mnrtBreakTimeStart" class="form-control timepicker" placeholder="">
 				                        </div>
 				                    	<div class="col-md-4 col-sm-4">
-				                            <input type="time" id="mnrtBreakTimeEnd" name="mnrtBreakTimeEnd" class="form-control" placeholder="">
+				                            <input type="text" id="mnrtBreakTimeEnd" name="mnrtBreakTimeEnd" class="form-control timepicker" placeholder="">
 				                        </div>
 										<label for="formGroupExampleInput" class="form-label">음식 카테고리</label>
-						  					<div class="col-md-4 col-sm-4">
+						  					<div class="col-md-4 col-sm-4 mb-3">
 					                            <select class="form-control" name=mnrtFoodCateCd id="mnrtFoodCateCd">
 					                                <option value="" selected>카테고리</option>
 					                                <option value="123">한식</option>
@@ -289,7 +287,6 @@
 					                                <option value="135">페스트푸드</option>
 					                            </select>
 					                        </div>
-			                        </div>
 			                        	<label for="formGroupExampleInput" class="form-label">휴무일</label>
 					  					<div class="col-md-4 col-sm-4">
 				                            <select class="form-control" name="mnrtHolidayCd" id="mnrtHolidayCd">
@@ -304,6 +301,7 @@
 				                                <option value="143">연중무휴</option>
 				                            </select>
 										</div>
+			                        </div>
 										
 									</div>
 									
@@ -368,9 +366,9 @@
 <script src="/resources/admin/js/app.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=services"></script>
-<script type="text/javascript" src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-<script type="text/javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+<script src="https://www.jqueryscript.net/demo/Material-Time-Picker-Plugin-jQuery-MDTimePicker/mdtimepicker.js"></script>
 
 <script>
 <!-- 등록S -->
@@ -465,11 +463,9 @@ function execDaumPostcode() {
         }
     }).open();
 }
-$(document).ready(function () {
-	$('input.timepicker').timepicker({
-            timeFormat: 'HH:mm'
-        });
-    }
+$(document).ready(function(){
+	$('.timepicker').mdtimepicker(); 
+});
 <!-- 주소E -->
 </script>
 
