@@ -141,7 +141,7 @@
 <script src="${pageContext.request.contextPath}/resources/user/js/functions.js"></script>
 <!-- <script src="assets/validate.js"></script> -->
 
-<!-- SPECIFIC SCRIPTS -->
+<!-- SPECIFIC SCRIPTS --> 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script src="${pageContext.request.contextPath}/resources/user/js/infobox.js"></script>
