@@ -163,6 +163,12 @@
 									</tr>
 								</tbody>
 							</table>
+							<div style="padding: 25px 25px 0px 0px; text-align:right;">
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="location.href='/xmin/restaurantForm';">
+									<i data-feather="plus"></i>등록
+								</button>
+							</div>
 							<nav aria-label="Page navigation example" style="margin-top:20px;">
 								<ul class="pagination" style="justify-content: center;">
 									<li class="page-item"><a class="page-link" href="#">Previous</a></li>

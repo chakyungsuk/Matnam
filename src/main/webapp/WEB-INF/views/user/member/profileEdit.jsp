@@ -215,7 +215,7 @@
 			
 		                                        <div>
 		                                            <label for="mnMmIntroduce" class="form-label text-muted fs-13">소개글</label>
-		                                            <input type="text" class="form-control" id="mnMmIntroduce" name="mnMmIntroduce" value="<c:out value="${rt.mnMmIntroduce}"/>" placeholder="Enter name" >
+		                                            <input type="text" class="form-control" id="mnMmIntroduce" name="mnMmIntroduce" value="<c:out value="${rt.mnMmIntroduce}"/>" placeholder="소개글을 입력하세요." >
 		                                        </div>
 		                                        
 		                                        <div class="mt-3">
@@ -302,10 +302,11 @@
 														<div class="mb-3">
 															<c:set var="listCodeSeoul" value="${CodeServiceImpl.selectListCachedCode('7')}"/>
 															<c:forEach items="${listCodeSeoul}" var="itemSeoul" varStatus="statusRegion">
-																<input type="checkbox" class="btn-check" id="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>" name="mnmlLocationCdArray" value="${itemSeoul.mncdSeq}" autocomplete="off">
+																<input required="required" type="checkbox" class="btn-check" id="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>" name="mnmlLocationCdArray" value="${itemSeoul.mncdSeq}" autocomplete="off">
 																<label class="btn btn-outline-primary" for="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>"><c:out value="${itemSeoul.mncdName}"/></label>
 															</c:forEach>
 														</div> 
+														<label for="mnmlLocationCdArray" class="error">최소 한 개 지역을 선택해주세요.</label>
 													</div>
 		                                        </div>
 			                                </div>
@@ -355,6 +356,10 @@
 <script src="/resources/user/js/map.js"></script>
 <script src="/resources/user/js/infobox.js"></script>
 <script src="/resources/user/js/ion.rangeSlider.js"></script>
+
+<!-- BootstrapValidator JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
 <script>
 	$(document).ready(function(){
@@ -464,6 +469,41 @@
     		}
     	});
     });
+    
+    $( document ).ready( function () {
+		$( "#formList" ).validate( {
+			rules: {
+				'mnmlLocationCdArray[]':"required"
+			},
+			messages: {
+				'mnmlLocationCdArray[]':"최소 한개를 선택해주세요."
+			},
+			errorElement: "div",
+			errorPlacement: function ( error, element ) {
+				
+				if ( element.attr( "type" ) == "checkbox" ) {
+					error.appendTo("#errorToShow");
+				} else {
+					error.insertAfter( element );
+				}
+
+			},
+			success: function ( label, element ) {
+				// Add the span element, if doesn't exists, and apply the icon classes to it.
+				if ( !$( element ).next( "span" )[ 0 ] ) {
+					$( "<span class='glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
+				}
+			},
+			highlight: function ( element, errorClass, validClass ) {
+				$( element ).parents( ".col-md-4" ).addClass( "has-error" ).removeClass( "has-success" );
+				$( element ).next( "span" ).addClass( "glyphicon-remove" ).removeClass( "glyphicon-ok" );
+			},
+			unhighlight: function ( element, errorClass, validClass ) {
+				$( element ).parents( ".col-md-4" ).addClass( "has-success" ).removeClass( "has-error" );
+				$( element ).next( "span" ).addClass( "glyphicon-ok" ).removeClass( "glyphicon-remove" );
+			}
+		} );
+	} );
 </script>
 
 </body>

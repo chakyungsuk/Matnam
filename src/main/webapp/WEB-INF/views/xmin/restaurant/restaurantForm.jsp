@@ -20,6 +20,12 @@
 	<link href="/resources/admin/css/app.css" rel="stylesheet">
 	<link href="/resources/user/css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	
+	<style type="text/css">
+    	.hoverHi{
+    		cursor:pointer;
+    	}
+    </style> 
 </head>
 
 <body>
@@ -30,7 +36,7 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 		<!-- nav -->
-		<%@include file="../include/memberNav.jsp" %>
+		<%@include file="../include/restaurantNav.jsp" %>
 		<!-- nav -->
 			</div>
 		</nav>
@@ -202,7 +208,7 @@
 
 					<div class="mb-3">
 						<h1 class="h3 d-inline align-middle">Xmin Forms</h1>
-						<a class="badge bg-dark text-white ms-2" href="upgrade-to-pro.html">관리자 회원가입</a>
+						<a class="badge bg-dark text-white ms-2" href="upgrade-to-pro.html">관리자 레스토랑</a>
 					</div>
 					<div class="row">
 						<div class="col-12 col-lg-6">
@@ -247,17 +253,22 @@
 				                        </div>
 		                        		<label>영업시간</label>
 				                    	<div class="col-md-4 col-sm-4 mb-3">
-				                            <input type="text" id="mnrtTime" name="mnrtTime" class="form-control" placeholder="">
+				                            <!-- <input type="time" id="mnrtTimeStart" name="mnrtTimeStart" class="form-control" placeholder=""> -->
+				                            <div class="input-append bootstrap-timepicker-component">
+												<input type="text" class="timepicker-default input-small" />     
+												<span class="add-on">              
+												</span>
+											</div>
 				                        </div>
 				                    	<div class="col-md-4 col-sm-4">
-				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="">
+				                            <input type="time" id="mnrtTimeEnd" name="mnrtTimeEnd" class="form-control" placeholder="">
 				                        </div>
 		                        		<label>브레이크타임</label>
 				                    	<div class="col-md-4 col-sm-4 mb-3">
-				                            <input type="text" id="mnrtBreakTime" name="mnrtBreakTime" class="form-control" placeholder="">
+				                            <input type="time" id="mnrtBreakTimeStart" name="mnrtBreakTimeStart" class="form-control" placeholder="">
 				                        </div>
 				                    	<div class="col-md-4 col-sm-4">
-				                            <input type="text" id="" name="mnMmDob_Year" class="form-control" placeholder="">
+				                            <input type="time" id="mnrtBreakTimeEnd" name="mnrtBreakTimeEnd" class="form-control" placeholder="">
 				                        </div>
 										<label for="formGroupExampleInput" class="form-label">음식 카테고리</label>
 						  					<div class="col-md-4 col-sm-4">
@@ -308,9 +319,9 @@
 									<h5 class="card-title mb-0">매장로고</h5>
 								</div>
 								<div class="card-body text-center" id="image_container">
-									<label for="file0">
+									<label for="file" class="hoverHi">
 										<img id="image_hide" src="/resources/admin/img/avatars/avatar-4.jpg" class="img-fluid rounded-circle mb-2" width="180" height="180" />
-										<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail(event);"/> 									
+										<input class="form-control" type="file" name="file" id="file" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail(event, image_container, image_hide);"/> 									
 									</label>									
 								</div>
 									<label style="text-align: center;">그림을 눌러 사진을 첨부해주세요</label><br>
@@ -319,10 +330,10 @@
 								<div class="card-header">
 									<h5 class="card-title mb-0">매장사진</h5>
 								</div>
-								<div class="card-body text-center" id="image_container">
-									<label for="file0">
-										<img id="image_hide" src="/resources/admin/img/avatars/avatar-4.jpg" class="img-fluid rounded-circle mb-2" width="180" height="180" />
-										<input class="form-control" type="file" name="file0" id="file0" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail(event);"/> 									
+								<div class="card-body text-center" id="image_container_under">
+									<label for="file1" class="hoverHi">
+										<img id="image_hide_under" src="/resources/admin/img/avatars/avatar-4.jpg" class="img-fluid rounded-circle mb-2" width="180" height="180" />
+										<input class="form-control" type="file" name="file1" id="file1" accept="jpeg,png,gif" style="display:none;" onchange="setThumbnail(event, image_container_under, image_hide_under);"/> 									
 									</label>									
 								</div>
 									<label style="text-align: center;">그림을 눌러 사진을 첨부해주세요</label><br>
@@ -358,6 +369,8 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=services"></script>
+<script type="text/javascript" src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.js"></script>
 
 <script>
 <!-- 등록S -->
@@ -375,7 +388,7 @@
 <!-- 등록E -->
 
 <!-- 메인사진 업로드 S -->
- function setThumbnail(event) { 
+ function setThumbnail(event, thisDiv, thisImg) { 
 	var reader = new FileReader(); 
 	reader.onload = function(event) { 
 		
@@ -383,8 +396,8 @@
 			img.width = 180;
 		    img.height = 180;
 			img.setAttribute("src", event.target.result);
-			$("#image_hide").hide();
-			document.querySelector("div#image_container").appendChild(img); 
+			$("#"+thisImg.id).hide();
+			document.querySelector("div#"+thisDiv.id).appendChild(img); 
 			
 		}; 
 			reader.readAsDataURL(event.target.files[0]); 
@@ -438,7 +451,6 @@ function execDaumPostcode() {
             document.getElementById("mnmaAddress2").focus();
             
             
-            alert(addr);
         	/* lat and lng from address s */
 			var geocoder = new daum.maps.services.Geocoder();
         	
@@ -453,6 +465,11 @@ function execDaumPostcode() {
         }
     }).open();
 }
+$(document).ready(function () {
+	$('input.timepicker').timepicker({
+            timeFormat: 'HH:mm'
+        });
+    }
 <!-- 주소E -->
 </script>
 
