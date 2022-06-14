@@ -183,7 +183,7 @@
 	                	<a href="#">   
 		                	<figure>
 			                    <img src="/resources/user/image/Introduction1.png" style="width: 100%; height: 200px;">
-			                    <figcaption>나의 입맛을 저격할 '맛남'만의 맛집 추천!</figcaption> 
+			                    <figcaption>나의 입맛을 저격할 '맛남'만의 맛집 추천!</figcaption>
 		                    </figure>
 	                    </a>
 	                </div>
@@ -276,7 +276,7 @@
 				                    <a href="detail_page.html" class="strip_list">
 				                        <div class="desc">
 				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/zz.jpg" alt="">
+				                                <img src="/resources/user/image/rr.jfif" alt="">
 				                            </div>
 				                            <div class="rating">
 				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
@@ -299,7 +299,7 @@
 				                    <a href="detail_page.html" class="strip_list">
 				                        <div class="desc">
 				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/rr.jfif" alt="">
+				                                <img src="/resources/user/image/zz.jpg" alt="">
 				                            </div>
 				                            <div class="rating">
 				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
