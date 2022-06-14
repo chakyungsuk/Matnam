@@ -723,7 +723,8 @@ ul, li.replies img {
 	<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
 	<input type="hidden" id="mnfdseq" name="mnfdseq">
 	<input type="hidden" id="mnMmIntroduce" name="mnMmIntroduce">
-	<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq" value="${sessffName}">
+	<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq">
+	<input type="hidden" id="mnChat_Num" name="mnChat_Num">
 </form>
 
 <div id="frame">
@@ -777,7 +778,7 @@ ul, li.replies img {
 	<div class="content">
 		<div class="contact-profile">
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-			<p>Harvey Specter</p>
+			<p><c:out value="${user.mnMmName}"/></p>
 			<div class="social-media">
 				<i class="fa fa-facebook" aria-hidden="true"></i>
 				<i class="fa fa-twitter" aria-hidden="true"></i>
@@ -791,7 +792,10 @@ ul, li.replies img {
 		<div class="message-input">
 			<div class="wrap">
 			<input type="text" id="message" name="message" onkeyup="if(window.event.keyCode==13){enterkey()}" placeholder="Write your message..." autocomplete="off"/>
-			<i class="fa fa-paperclip attachment" aria-hidden="true"><!-- <input type="file" id="image"> --></i>
+			<label>
+				<input type="file" style="display: none;">
+				<i class="fa fa-paperclip attachment"></i>
+			</label>
 			<button id="submit" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 			</div>
 		</div>
@@ -824,10 +828,6 @@ const firebaseConfig = {
 	
 </body>
 </html>
-<script>
-     $(document).ready(function(){
-    	$('.messages').scrollTop($('.messages')[0].scrollHeight);
-</script>
 <script>	
 $("#profile-img").click(function() {
 	$("#status-options").toggleClass("active");
@@ -912,8 +912,6 @@ const database = getDatabase(app);
 
 var myName = String("${sessName}");
 // var yourName = prompt("상대방의 닉네임을 입력해주세요.");
-var yourName = 123;
-
 submit.addEventListener('click', (e) => {
     var message = document.getElementById('message').value;
     var name = myName;

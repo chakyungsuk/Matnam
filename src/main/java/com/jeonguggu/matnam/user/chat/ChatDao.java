@@ -21,6 +21,8 @@ public class ChatDao {
 	public List<Chat> selectListFriend(ChatVo vo) {
 		return sqlSession.selectList(namespace + ".selectListFriend", vo);
 	}
+// 채팅 상대방 이름 가져오기
+	public Chat selectOne(ChatVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
 	
 // 채티방 만들기
 	public int insertChattingRoom(Chat dto){ return sqlSession.insert(namespace + ".insertChattingRoom", dto);}

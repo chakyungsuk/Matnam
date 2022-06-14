@@ -108,6 +108,8 @@
 	<form method="get" action="" id="formTopListList">
 		<input type="hidden" id="mnMmSeqQ" name="mnMmSeq" value="${sessSeq}">
 		<input type="hidden" id="mnfdFriendSeqQ" name="mnfdFriendSeq">
+		<input type="hidden" id="mnChat_Num" name="mnChat_Num">
+		<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
 	</form>
 
 	<div class="container margin_60_35">
