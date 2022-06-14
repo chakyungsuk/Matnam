@@ -34,6 +34,8 @@ public class StoreDao {
 	//리뷰 상세정보
 	public Store selectOneReview(StoreVo vo) {return sqlSession.selectOne(namespace + ".selectOneReview" ,vo);} 
 	
+	public int selectAvg(StoreVo vo) {return sqlSession.selectOne(namespace + ".selectAvg" , vo);}
+	
 	
 	//////////////// 등록
 	

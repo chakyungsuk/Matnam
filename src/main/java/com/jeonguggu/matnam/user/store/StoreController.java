@@ -22,9 +22,9 @@ public class StoreController {
 	@RequestMapping(value = "user/storeView")
 	public String storeView(Model model) throws Exception {
 		
-		List <Store> list = service.selectListStore();
-	
-		model.addAttribute("list",list);
+//		List <Store> list = service.selectListStore();
+//	
+//		model.addAttribute("list",list);
 
 		return "user/store/storeView";
 		
@@ -34,19 +34,32 @@ public class StoreController {
 	@RequestMapping(value = "user/storeDetail")
 	public String storeDetail(Model model,StoreVo vo) throws Exception {
 		
+		
+		int rtAvg = 0;
+		
+		try {
+			
+			rtAvg = service.selectAvg(vo);
+			
+		}catch(Exception e){
+			
+			rtAvg = 0;
+			
+		}
+		
 		int rtCount = service.selectCountReview(vo);
 		vo.setTotalRows(rtCount);
 		
 		Store rtStore = service.selectOneStore(vo);
 		List <Store> rtReview = service.selectListReview(vo);
 		
-		System.out.println("vo.getTotalRows() : " + vo.getTotalRows());
-				
+		
 		
 		
 		model.addAttribute("rtStore" , rtStore);
 		model.addAttribute("rtReview" , rtReview);
 		model.addAttribute("rtCount" , rtCount);
+		model.addAttribute("rtAvg" , rtAvg);
 		
 		return "/user/store/storeDetail";
 		
@@ -118,6 +131,25 @@ public class StoreController {
 		service.insertReview(dto);
 		
 		
+		rtReturn.put("rt","success");
+		
+		
+		
+		return rtReturn;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="user/storeSearch")
+	public Map<String , Object> storeSearch(Model model,  Store dto , StoreVo vo) throws Exception {
+		Map<String , Object> rtReturn = new HashMap<String , Object>();
+		
+		
+		
+		System.out.println("컨트롤러 통과");
+		List<Store> list = service.selectListStore();
+		model.addAttribute("list" , list);
+		
+		rtReturn.put("list",list);
 		rtReturn.put("rt","success");
 		
 		

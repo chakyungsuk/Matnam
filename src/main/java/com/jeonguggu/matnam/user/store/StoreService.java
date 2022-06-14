@@ -21,6 +21,8 @@ public interface StoreService {
 	//리뷰 상세보기
 	public Store selectOneReview(StoreVo vo) throws Exception;
 	
+	public int selectAvg(StoreVo vo) throws Exception;
+	
 	
 	
 	/////////////// 등록

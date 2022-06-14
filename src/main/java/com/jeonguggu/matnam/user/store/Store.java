@@ -55,7 +55,8 @@ public class Store {
 	private MultipartFile file;
 	private MultipartFile file2;
 	private String originalFileName;
-	private String uuidFileName;
+	private String uuidName;
+	private String path;
 	
 	//code
 	
@@ -255,12 +256,6 @@ public class Store {
 	public void setOriginalFileName(String originalFileName) {
 		this.originalFileName = originalFileName;
 	}
-	public String getUuidFileName() {
-		return uuidFileName;
-	}
-	public void setUuidFileName(String uuidFileName) {
-		this.uuidFileName = uuidFileName;
-	}
 	public String getMncdName() {
 		return mncdName;
 	}
@@ -284,6 +279,18 @@ public class Store {
 	}
 	public void setMncdDelNy(String mncdDelNy) {
 		this.mncdDelNy = mncdDelNy;
+	}
+	public String getUuidName() {
+		return uuidName;
+	}
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
 	}
 	
 	
