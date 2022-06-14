@@ -276,7 +276,7 @@
 				                    <a href="detail_page.html" class="strip_list">
 				                        <div class="desc">
 				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/rr.jfif" alt="">
+				                                <img src="/resources/user/image/zz.jpg" alt="">
 				                            </div>
 				                            <div class="rating">
 				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
@@ -299,7 +299,7 @@
 				                    <a href="detail_page.html" class="strip_list">
 				                        <div class="desc">
 				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/zz.jpg" alt="">
+				                                <img src="/resources/user/image/rr.jfif" alt="">
 				                            </div>
 				                            <div class="rating">
 				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
