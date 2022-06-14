@@ -726,7 +726,7 @@ ul, li.replies img {
 	<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq">
 	<input type="hidden" id="mnChat_Num" name="mnChat_Num">
 </form>
-
+ 
 <div id="frame">
 	<div id="sidepanel">
 		<div id="profile">
