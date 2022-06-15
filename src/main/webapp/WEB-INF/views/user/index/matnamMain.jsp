@@ -257,18 +257,18 @@
             <div class="container" style="text-align: center; margin-bottom: 23px;">
 	            <div class="tab_content">
 					<input type="radio" name="tabmenu" id="tab01" checked>
-	                <label for="tab01">MAINS</label>
+	                <label for="tab01">한식</label>
 	              
 	                <input type="radio" name="tabmenu" id="tab02">
-	                <label for="tab02">LUNCH</label>
+	                <label for="tab02">돈까스&일식</label>
 	               
 	                <input type="radio" name="tabmenu" id="tab03">
-	                <label for="tab03">DINNER</label>
+	                <label for="tab03">중국집</label>
 	               
 	                <input type="radio" name="tabmenu" id="tab04">
-	                <label for="tab04">DRINK</label>
+	                <label for="tab04">아시안&양식</label>
 	                
-               		<!-- MAINS -->
+               		<!-- 한식 -->
                     <div class="conbox con1">
                     	<div class="row" style="float: none;">
 			                <div class="col-12">
@@ -367,7 +367,7 @@
 			                </div>		                
 			            </div>
 		            </div>
-		            <!-- LUNCH -->
+		            <!-- 일식&돈가스 -->
                     <div class="conbox con2">
                     	<div class="row" style="float: none;">
 			                <div class="col-12">
@@ -443,7 +443,7 @@
 			                </div>		                
 			            </div>
 		            </div>
-		            <!-- DINNER -->
+		            <!-- 중국집 -->
                     <div class="conbox con3">
                     	<div class="row" style="float: none;">
 			                <div class="col-12">
@@ -542,7 +542,7 @@
 			                </div>		                
 			            </div>
 		            </div>
-		            <!-- DRINK -->
+		            <!-- 아시안&양식 -->
                     <div class="conbox con4">
                     	<div class="row" style="float: none;">
 			                <div class="col-12">
@@ -836,7 +836,9 @@
         </div>End container
     </div>End hight_light -->
     <!-- <section class="parallax-window" data-parallax="" data-image-src="/resources/user/image/carousel-3.jpg" data-natural-width="1200" data-natural-height="600"> -->
-<div class="container">
+    
+    
+<!-- <div class="container">
 	<div class="map_wrap">
 	    <div id="map" style="width:100%;height:500px;position:relative;overflow:hidden;"></div>
 	    <ul id="category">
@@ -850,7 +852,9 @@
 	        </li>      
 	    </ul>
 	</div>
-</div>        
+</div>     -->  
+
+  
 <!--   <div class="container">
        <img src="/resources/user/image/carousel-3.jpg" class="" style="width: 100%; height: 600px; position: relative;">
          <div class="parallax-content">
