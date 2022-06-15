@@ -363,11 +363,11 @@
 	</div>
 </form>		
 	
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=services"></script>
 <script src="/resources/admin/js/app.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=services"></script>
 <script src="https://www.jqueryscript.net/demo/Material-Time-Picker-Plugin-jQuery-MDTimePicker/mdtimepicker.js"></script>
 
 <script>
@@ -450,7 +450,7 @@ function execDaumPostcode() {
             
             
         	/* lat and lng from address s */
-			var geocoder = new daum.maps.services.Geocoder(); 
+			var geocoder = new daum.maps.services.Geocoder();
         	
 			geocoder.addressSearch(addr, function(result, status) {
 				if (status === daum.maps.services.Status.OK) {
