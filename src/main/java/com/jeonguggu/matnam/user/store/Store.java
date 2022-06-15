@@ -28,8 +28,10 @@ public class Store {
 	private String mnrtZ;
 	private String mnrtNumber;
 	private String mnrtFoodCate;
-	private String mnrtTime;
-	private String mnrtBreakTime;
+	private String mnrtTimeStart;
+	private String mnrtTimeEnd;
+	private String mnrtBreakTimeStart;
+	private String mnrtBreakTimeEnd;
 	private String mnrtHoliday;
 	private String mnrtAvg;
 	private String mnrtText;
@@ -64,6 +66,19 @@ public class Store {
 	private String mncdSeq;
 	private String mncgSeq;
 	private String mncdDelNy;
+	
+	public String getSessSeq() {
+		return sessSeq;
+	}
+	public void setSessSeq(String sessSeq) {
+		this.sessSeq = sessSeq;
+	}
+	public String getSessName() {
+		return sessName;
+	}
+	public void setSessName(String sessName) {
+		this.sessName = sessName;
+	}
 	public String getMnrtSeq() {
 		return mnrtSeq;
 	}
@@ -136,17 +151,29 @@ public class Store {
 	public void setMnrtFoodCate(String mnrtFoodCate) {
 		this.mnrtFoodCate = mnrtFoodCate;
 	}
-	public String getMnrtTime() {
-		return mnrtTime;
+	public String getMnrtTimeStart() {
+		return mnrtTimeStart;
 	}
-	public void setMnrtTime(String mnrtTime) {
-		this.mnrtTime = mnrtTime;
+	public void setMnrtTimeStart(String mnrtTimeStart) {
+		this.mnrtTimeStart = mnrtTimeStart;
 	}
-	public String getMnrtBreakTime() {
-		return mnrtBreakTime;
+	public String getMnrtTimeEnd() {
+		return mnrtTimeEnd;
 	}
-	public void setMnrtBreakTime(String mnrtBreakTime) {
-		this.mnrtBreakTime = mnrtBreakTime;
+	public void setMnrtTimeEnd(String mnrtTimeEnd) {
+		this.mnrtTimeEnd = mnrtTimeEnd;
+	}
+	public String getMnrtBreakTimeStart() {
+		return mnrtBreakTimeStart;
+	}
+	public void setMnrtBreakTimeStart(String mnrtBreakTimeStart) {
+		this.mnrtBreakTimeStart = mnrtBreakTimeStart;
+	}
+	public String getMnrtBreakTimeEnd() {
+		return mnrtBreakTimeEnd;
+	}
+	public void setMnrtBreakTimeEnd(String mnrtBreakTimeEnd) {
+		this.mnrtBreakTimeEnd = mnrtBreakTimeEnd;
 	}
 	public String getMnrtHoliday() {
 		return mnrtHoliday;
@@ -226,18 +253,6 @@ public class Store {
 	public void setMnMmName(String mnMmName) {
 		this.mnMmName = mnMmName;
 	}
-	public String getSessSeq() {
-		return sessSeq;
-	}
-	public void setSessSeq(String sessSeq) {
-		this.sessSeq = sessSeq;
-	}
-	public String getSessName() {
-		return sessName;
-	}
-	public void setSessName(String sessName) {
-		this.sessName = sessName;
-	}
 	public MultipartFile getFile() {
 		return file;
 	}
@@ -255,6 +270,18 @@ public class Store {
 	}
 	public void setOriginalFileName(String originalFileName) {
 		this.originalFileName = originalFileName;
+	}
+	public String getUuidName() {
+		return uuidName;
+	}
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
 	}
 	public String getMncdName() {
 		return mncdName;
@@ -280,18 +307,8 @@ public class Store {
 	public void setMncdDelNy(String mncdDelNy) {
 		this.mncdDelNy = mncdDelNy;
 	}
-	public String getUuidName() {
-		return uuidName;
-	}
-	public void setUuidName(String uuidName) {
-		this.uuidName = uuidName;
-	}
-	public String getPath() {
-		return path;
-	}
-	public void setPath(String path) {
-		this.path = path;
-	}
+	
+	
 	
 	
 	

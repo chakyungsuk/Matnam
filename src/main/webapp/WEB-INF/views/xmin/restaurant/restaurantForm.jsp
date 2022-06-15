@@ -450,7 +450,7 @@ function execDaumPostcode() {
             
             
         	/* lat and lng from address s */
-			var geocoder = new daum.maps.services.Geocoder();
+			var geocoder = new daum.maps.services.Geocoder(); 
         	
 			geocoder.addressSearch(addr, function(result, status) {
 				if (status === daum.maps.services.Status.OK) {

@@ -33,6 +33,7 @@
 
 <!-- Content ================================================== -->
 
+	<!-- 	지도영역 -->
 		<div class="map_wrap">
 	    	<div id="map" style="width:100%;height:500px;position:relative;overflow:hidden;"></div>
 		    <div id="menu_wrap" class="bg_white">
@@ -41,6 +42,8 @@
 		        <div id="pagination"></div>
 	   		 </div>
 		</div>
+	<!-- 	지도영역 -->
+			
 <form id="form" name="form" method="get" action="/user/storeView">
 <div class="container margin_60_35">
 	<div class="row">
@@ -159,10 +162,10 @@
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
 	
+	/* 검색후 마커찍는 함수 S */
 	function searchMap(){
 		
 		var searchLocation = document.getElementById("formGroupExampleInput").value;
-		alert(searchLocation);
 		
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
@@ -185,6 +188,21 @@
 	    	} 
 		});   
 	};
+	/* 검색후 마커찍는 함수 E */
+	
+	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+	function makeOverListener(map, marker, infowindow) {
+   		return function() {
+        infowindow.open(map, marker);
+    	};
+	}
+	
+	// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+	function makeOutListener(infowindow) {
+	    return function() {
+	        infowindow.close();
+	    };
+	}
 	
 	
 	$.ajax({
@@ -198,7 +216,6 @@
 				if(response.rt == "success"){
 					
 					var listHtml = "";
-					alert("컨트롤호출성");
 					
 					for(var i in response.list){
 						listHtml += '<div class="strip_list wow fadeIn" data-wow-delay="0.1s">';
@@ -211,17 +228,14 @@
 						listHtml += '<div class="thumb_strip">';
 						listHtml += '<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>';
 						listHtml += '</div>';
-					//	listHtml += '<div class="rating">';
-					//	listHtml += '<span class="star"> ★★★★★ ';
-					//	listHtml +=	'<span style="width:${response.list[i].mnrvScore}0%;">★★★★★</span>';
-					//	listHtml += '</span>';
-					//	listHtml += '</div>';
 						listHtml +='<h3>' + nullToEmpty(response.list[i].mnrtName) + '</h3>';
 						listHtml +='<div class="type">';
-						listHtml +='<c:out value="${response.list[i].mncdName}"/>';
+						listHtml += nullToEmpty(response.list[i].mncdName);
 						listHtml +='</div>';
 						listHtml +='<div class="location">';
-						listHtml += nullToEmpty(response.list[i].mnrtAddressFull) + '<br><span class="opening">영업시간:' + nullToEmpty(response.list[i].mnrtTime) + '</span><br>브레이크타임:' + nullToEmpty(response.list[i].mnrtBreakTime);
+						listHtml += nullToEmpty(response.list[i].mnrtAddressFull);
+						listHtml += '<br><span class="opening">영업시간:' + nullToEmpty(response.list[i].mnrtTimeStart) + '~' + nullToEmpty(response.list[i].mnrtTimeEnd);
+						listHtml += '</span><br>브레이크타임:' + nullToEmpty(response.list[i].mnrtBreakTimeStart) + '~' + nullToEmpty(response.list[i].mnrtBreakTimeEnd);
 						listHtml +='</div>';
 						listHtml +='</div>';
 						listHtml +='</div>';
@@ -233,10 +247,25 @@
 						listHtml +='</div>';
 						listHtml +='</div>';
 						
-						 var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
+						
+						/* 마커생성 S */ 
+						var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
 						var marker = new kakao.maps.Marker({ position: markerPosition });
 						marker.setMap(null);   
 						marker.setMap(map);
+						/* 마커생성 E*/
+						
+						// 마커에 표시할 인포윈도우를 생성합니다 
+					    var infowindow = new kakao.maps.InfoWindow({
+					        content: response.list[i].mnrtName // 인포윈도우에 표시할 내용
+					    });
+						
+					    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+					    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+					    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+					    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+					    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+						
 					}
 					$("#listHtml").append(listHtml);
 					
