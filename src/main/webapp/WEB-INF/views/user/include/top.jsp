@@ -140,7 +140,6 @@
 			,cache: false
 			,type: "post"
 			,url: "/user/logoutProc"
-			,data : { "sessSeq" : $("#sessSeq").val(), "sessId" : $("#sessId").val()}
 			,success: function(response) {
 				if(response.rt == "success") {
 					location.href = "/index/matnamMain";

@@ -26,6 +26,9 @@ public class MatnamMainController {
 		Main countReview = service.selectCountReview();
 		model.addAttribute("countReview", countReview);
 		
+//		Main countReview = service.selectList();
+//		model.addAttribute("countReview", countReview);
+		
 		return "/user/index/matnamMain";
 	}
 	

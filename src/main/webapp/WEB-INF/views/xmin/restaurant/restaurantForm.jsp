@@ -464,7 +464,10 @@ function execDaumPostcode() {
     }).open();
 }
 $(document).ready(function(){
-	$('.timepicker').mdtimepicker(); 
+	$('.timepicker').mdtimepicker({
+		timeFormat:'hh:mm',
+		format:'hh:mm'
+	}); 
 });
 <!-- 주소E -->
 </script>
