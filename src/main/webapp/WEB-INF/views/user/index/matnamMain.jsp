@@ -886,7 +886,7 @@
 					<h3>고기맨<span>서울특별시 강북구	</span></h3>
                     <p>해산물 못 먹어요 고기만 좋아하는사람 연락주세용 ~</p>
                     <div class="btn_1">Read more</div>
-                </a>
+                </a> 
             </div>
             <div class="col-md-3">
                 <a class="box_work" href="submit_driver.html">
