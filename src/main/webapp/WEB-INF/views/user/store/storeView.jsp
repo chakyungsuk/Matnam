@@ -394,12 +394,16 @@
 					        	    map: map,
 					        	    position: marker.getPosition()       
 					        	});
-					         overlayArr[i] = overlay;
+					         	overlayArr[i] = overlay;
 					        	
 					        	// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-					        	kakao.maps.event.addListener(markerArr[i], 'click', function() {
-					        	    overlay.setMap(map);
-					        	});
+					        	/* kakao.maps.event.addListener(markerArr[i], 'click', function() {
+					        		overlayArr[i].setMap(map);
+					        		alert(markerArr[i]);
+					        	}); */
+					        	
+					      		// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+					        	kakao.maps.event.addListener(marker, 'click',  makeOverListener(i));
 							}
 						$("#listHtml").append(listHtml);
 					}
@@ -413,6 +417,11 @@
 	// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
 	function closeOverlay(number) {
 	    overlayArr[number].setMap(null);     
+	}
+	function makeOverListener(i) {
+	    return function() {
+	    	overlayArr[i].setMap(map);
+	    };
 	}
 	
     // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
