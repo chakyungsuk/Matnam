@@ -3,15 +3,91 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
+    <meta name="description" content="">
+    <meta name="author" content="Ansonika">
 
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="/resources/user/css/animate.min.css" rel="stylesheet">
+    <link href="/resources/user/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/user/css/menu.css" rel="stylesheet">
+    <link href="/resources/user/css/style.css" rel="stylesheet">
+    <link href="/resources/user/css/responsive.css" rel="stylesheet">
+    <link href="/resources/user/css/elegant_font/elegant_font.min.css" rel="stylesheet">
+    <link href="/resources/user/css/fontello/css/fontello.min.css" rel="stylesheet">
+    <link href="/resources/user/css/magnific-popup.css" rel="stylesheet">
+    <link href="/resources/user/css/pop_up.css" rel="stylesheet">
+    
+    <!-- Radio and check inputs -->
+    <link href="/resources/user/css/skins/square/grey.css" rel="stylesheet">
+    <link href="/resources/user/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="/resources/user/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" >
+    
+    <!-- glightbox css -->
+    <link rel="stylesheet" href="/resources/chat/dist/assets/libs/glightbox/css/glightbox.min.css">
+
+    <!-- One of the following themes -->
+    <link rel="stylesheet" href="/resources/chat/dist/assets/libs/@simonwep/pickr/themes/nano.min.css" /> <!-- 'classic' theme -->
+
+    <!-- swiper css -->
+    <link rel="stylesheet" href="/resources/chat/dist/assets/libs/swiper/swiper-bundle.min.css">
+
+    <!-- Icons Css -->
+    <link href="/resources/chat/dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/resources/chat/dist/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="/resources/user/css/custom.css" rel="stylesheet">
+    <style type="text/css">
+    	.login_search:before {
+		  content: "";
+		  display: block;
+		  float: left;
+		  margin-right: 28px; 
+		  width: 1px;
+		  height: 16px;
+		  background: #000000; 
+		} 
+		
+		.login_text a:link{
+			color: black;
+		} 
+		
+		a:link{
+			color: black;
+			text-decoration: none;
+		}
+    </style> 
+</head>
 
 <!-- Header -->
-<%@include file="../include/top.jsp" %>
+<%@ include file="/WEB-INF/views/user/include/top.jsp"%>
 <!-- Header -->   
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/serviceSub.jpg" data-natural-width="1400" data-natural-height="350">
         <div id="subheader">
+        	<div id="sub_content">
+	            <h1>어떤 문제든지 해결해 드립니다!</h1>
+	            <div><i class="icon_pin"></i> 맛남의 광장</div>
+	        </div><!-- End sub_content -->
         </div><!-- End subheader -->
     </section><!-- End section -->
     <!-- End SubHeader ============================================ -->
@@ -20,7 +96,6 @@
         <div class="container">
             <ul>
                 <li><a href="#0">홈</a></li>
-                <li><a href="#0">지도검색</a></li>
                 <li>고객센터</li>
                 <li>문의하기</li>
             </ul>

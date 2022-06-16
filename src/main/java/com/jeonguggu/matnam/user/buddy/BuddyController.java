@@ -25,8 +25,8 @@ public class BuddyController {
 	@RequestMapping(value = "/user/areaSelect")
 	public String Select(@ModelAttribute("vo") BuddyVo vo, Buddy dto, Model model) throws Exception {
 		
-		List<Buddy> listFriend = service.selectListFriend(vo);
-		model.addAttribute("listFriend", listFriend);
+//		List<Buddy> listFriend = service.selectListFriend(vo);
+//		model.addAttribute("listFriend", listFriend);
 		
 		List<Buddy> list = service.selectListArea(vo);
 		model.addAttribute("list", list);

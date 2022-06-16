@@ -15,6 +15,10 @@
 		    ,a.mnrtAvg
             ,a.mnrtX
             ,a.mnrtY
+            ,a.mnrtTimeStart
+		    ,a.mnrtTimeEnd
+		    ,a.mnrtBreakTimeStart
+		    ,a.mnrtBreakTimeEnd
             ,b.mncdName
 		FROM matnam.matnamRestaurant a
         	left join matnam.matnamCode b on b.mncdSeq = a.mnrtFoodCateCd
@@ -28,8 +32,10 @@
 			,a.mnrtSeq
 			,a.mnrtAddressFull
 		    ,a.mnrtFoodCateCd
-		    ,a.mnrtTime
-		    ,a.mnrtBreakTime
+		    ,a.mnrtTimeStart
+		    ,a.mnrtTimeEnd
+		    ,a.mnrtBreakTimeStart
+		    ,a.mnrtBreakTimeEnd
 		    ,a.mnrtHolidayCd
 		    ,a.mnrtText
 		    ,a.mnrtNumber

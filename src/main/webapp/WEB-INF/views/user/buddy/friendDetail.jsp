@@ -119,14 +119,14 @@
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="" data-natural-width="1400" data-natural-height="550">
-        <div id="subheader">
-            <div id="sub_content">
-                <h1>24 results in your zone</h1>
-                <div><i class="icon_pin"></i> 맛남의 광장</div>
-            </div><!-- End sub_content -->
-        </div><!-- End subheader -->
-    </section><!-- End section -->
+    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/buddySub.jpg" data-natural-width="1400" data-natural-height="350">
+	    <div id="subheader">
+	        <div id="sub_content">
+	            <h1>친구와 함께하는 맛있는 한끼</h1>
+	            <div><i class="icon_pin"></i> 맛남의 광장</div>
+	        </div><!-- End sub_content -->
+	    </div><!-- End subheader -->
+	</section><!-- End section -->
     <!-- End SubHeader ============================================ -->
 
     <div id="position">
@@ -135,7 +135,6 @@
                 <li><a href="/index/matnamMain">홈</a></li>
                 <li><a href="/user/friendDetail">친구프로필</a></li>
             </ul>
-            <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
     </div><!-- Position -->
     

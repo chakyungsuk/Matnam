@@ -721,6 +721,7 @@ ul, li.replies img {
 <form id="chatView" name="chatView" method="post" action="/chat/chatView2">
 	<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
 	<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
+	<input type="hidden" id="fdmnMmName" name="fdmnMmName">
 	<input type="hidden" id="mnfdseq" name="mnfdseq">
 	<input type="hidden" id="mnMmIntroduce" name="mnMmIntroduce">
 	<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq">
@@ -778,10 +779,10 @@ ul, li.replies img {
 	<div class="content">
 		<div class="contact-profile">
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-			<p><c:out value="${user.mnMmName}"/></p>
+			<p><c:out value="${vo.fdmnMmName}"/></p>
 			<div class="social-media">
-				<i class="fa fa-facebook" aria-hidden="true"></i>
-				<i class="fa fa-twitter" aria-hidden="true"></i>
+				<!-- <i class="fa fa-facebook" aria-hidden="true"></i>
+				<i class="fa fa-twitter" aria-hidden="true"></i> -->
 				 <i class="fa fa-instagram" aria-hidden="true"></i>
 			</div>
 		</div> 
@@ -912,39 +913,47 @@ const database = getDatabase(app);
 
 var myName = String("${sessName}");
 // var yourName = prompt("상대방의 닉네임을 입력해주세요.");
+var Chatroom = '<c:out value="${room.mnChat_Num}"/>'
+
 submit.addEventListener('click', (e) => {
     var message = document.getElementById('message').value;
     var name = myName;
-
+	var room = Chatroom;
+	
     const id = push(child(ref(database), 'messages')).key;
 
     set(ref(database, 'messages/' + id), {
         name: name,
-        message: message
+        message: message,
+		room : room
     });
     document.getElementById('message').value = "";
+    document.getElementById('room').value = "";
 	})
-
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
-        if(data.val().name != myName) {
-            var divData = '<li class="sent" id="sent">\n' + 
-					'<div>' + data.val().name +' </div>\n' + 
-					'<p> '+data.val().message+' </p>\n' +
-				'</li>'; 
-            var d1 = document.getElementById('bodyContent');
-            d1.insertAdjacentHTML('beforebegin', divData);
-		$('.messages').scrollTop($('.messages')[0].scrollHeight);
-        }else{
-            var divData = '<li class="replies" id="replies">\n' +
-					'<div style="float: right;">' + data.val().name +' </div>\n' +
- 					'<br>' +
-					'<p>' +data.val().message+' </p>\n' +
-				'</li>';
-            var d1 = document.getElementById('bodyContent');
-            d1.insertAdjacentHTML('beforebegin', divData);
-        }
-		$('.messages').scrollTop($('.messages')[0].scrollHeight);
+    	if(data.val().room == Chatroom){
+			if(data.val().name != myName) {
+            	var divData = '<li class="sent" id="sent">\n' + 
+						'<div>' + data.val().name +' </div>\n' + 
+						'<p> '+data.val().message+' </p>\n' +
+					'</li>'; 
+           	 	var d1 = document.getElementById('bodyContent');
+            	d1.insertAdjacentHTML('beforebegin', divData);
+			$('.messages').scrollTop($('.messages')[0].scrollHeight);
+        	}else{
+            	var divData = '<li class="replies" id="replies">\n' +
+						'<div style="float: right;">' + data.val().name +' </div>\n' +
+ 						'<br>' +
+						'<p>' +data.val().message+' </p>\n' +
+					'</li>';
+            	var d1 = document.getElementById('bodyContent');
+            	d1.insertAdjacentHTML('beforebegin', divData);
+       	 	}
+			$('.messages').scrollTop($('.messages')[0].scrollHeight);
+		}else{
+			
+			 }
     });
    
 </script>

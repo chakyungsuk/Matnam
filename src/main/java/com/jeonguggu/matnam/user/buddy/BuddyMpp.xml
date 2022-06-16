@@ -42,7 +42,6 @@
 			<choose>
 				<when test="shName != null and !shName.equals('')">AND a.mnMmName LIKE concat('%',#{shName},'%')</when>
 			</choose>
-			
 	</select>
 	<!-- 친구 목록 조회 끝 -->
 	

@@ -30,6 +30,7 @@ public class Chat {
 //친구 목록
 	private String mnfdFriendSeq = "";
 	private String mnfdSeq = "";
+	private String mcfmSeq = "";
 	
 //채팅방 만들기	
 	private String mnChat_Num = "";
@@ -162,6 +163,12 @@ public class Chat {
 	}
 	public void setMnChat_Num(String mnChat_Num) {
 		this.mnChat_Num = mnChat_Num;
+	}
+	public String getMcfmSeq() {
+		return mcfmSeq;
+	}
+	public void setMcfmSeq(String mcfmSeq) {
+		this.mcfmSeq = mcfmSeq;
 	}
 	
 }

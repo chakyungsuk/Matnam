@@ -3,28 +3,28 @@ package com.jeonguggu.matnam.index;
 public class Main {
 	
 	//카운팅
-	private String countRestaurant;
-	private String countUser;
-	private String countReview;
+	private Integer countRestaurant;
+	private Integer countUser;
+	private Integer countReview;
 	
 	//---------------------------------------
 	
-	public String getCountRestaurant() {
+	public Integer getCountRestaurant() {
 		return countRestaurant;
 	}
-	public void setCountRestaurant(String countRestaurant) {
+	public void setCountRestaurant(Integer countRestaurant) {
 		this.countRestaurant = countRestaurant;
 	}
-	public String getCountUser() {
+	public Integer getCountUser() {
 		return countUser;
 	}
-	public void setCountUser(String countUser) {
+	public void setCountUser(Integer countUser) {
 		this.countUser = countUser;
 	}
-	public String getCountReview() {
+	public Integer getCountReview() {
 		return countReview;
 	}
-	public void setCountReview(String countReview) {
+	public void setCountReview(Integer countReview) {
 		this.countReview = countReview;
 	}
 	

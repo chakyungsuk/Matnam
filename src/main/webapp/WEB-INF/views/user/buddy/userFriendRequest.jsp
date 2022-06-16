@@ -81,7 +81,7 @@
     <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/profileSub.jpg" data-natural-width="1400" data-natural-height="550">
         <div id="subheader">
             <div id="sub_content">
-                <h1>24 results in your zone</h1>
+                <h1>맛있는 한 끼를 위한 여정입니다</h1>
                 <div><i class="icon_pin"></i> 맛남의 광장</div>
             </div><!-- End sub_content -->
         </div><!-- End subheader -->
@@ -95,7 +95,6 @@
                 <li><a href="/user/friendSelect">친구목록</a></li>
                 <li><a href="/user/userFriendRequest">친구요청확인</a></li>
             </ul>
-            <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
     </div><!-- Position -->
     

@@ -30,6 +30,16 @@
 	    </div><!-- End subheader -->
 	</section><!-- End section -->
 	<!-- End SubHeader ============================================ -->
+	
+	<div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="#0">홈</a></li>
+                <li><a href="#0">친구매칭</a></li>
+            </ul>
+        </div>
+    </div><!-- Position -->
+	
     <div class="collapse" id="collapseMap">
 		<div id="map" class="map"></div>
 	</div><!-- End Map -->
@@ -97,6 +107,7 @@
 			<div class="p-3 mb-2" style="border:1px solid gray">
 				<form id="searchForm" name="" action="/user/areaSelect" method="post">
 					<input type="hidden" id="mnMmSeqB" name="mnMmSeq" value="${sessSeq}">
+					<input type="hidden" id="mnMmNameB" name="mnMmName" value="${sessName}">
 					<div style="text-align:center;">
 						<label for="" class="form-label text-muted fs-13 col-auto">검색</label>
 					</div>
@@ -193,13 +204,10 @@
 						</form>
 						<div class="strip_list wow fadeIn" data-wow-delay="0.4s">
 							<div class="row">
-								<div class="col-md-9" style="cursor: pointer;" onclick="javascript:goForm(${item.mnMmSeq});">
+								<div class="col-md-9" style="cursor: pointer;" onclick="javascript:goForm(${item.mnMmSeq},'${item.mnMmName}');">
 									<div class="desc">
 										<div class="thumb_strip">
 											<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" alt="">
-										</div>
-										<div class="rating">
-											<i class="icon_heart" style="color:red;"></i> x <c:out value="${item.mnMmLike}"/>
 										</div>
 										<h3><c:out value="${item.mnMmName}"/> 님</h3>
 										<div class="type">
@@ -279,8 +287,8 @@
 							</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="button" id="confirmFriend" class="btn btn-primary">send</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+						<button type="button" id="confirmFriend" class="btn btn-primary">보내기</button>
 					</div>
 				</form>
 			</div>
@@ -345,8 +353,10 @@
 		modalTitle.textContent = recipient + ' 님을 친구 추가 하시겠습니까?'
     })
     
-    goForm = function(seq){
+    goForm = function(seq,name){
+    	var nameThis = name;
 		$("#mnMmSeqB").val(seq);
+		$("#mnMmNameB").val(nameThis);
 		$("#searchForm").attr("action","/user/friendDetail");
 		$("#searchForm").submit();
 	} 
@@ -381,6 +391,39 @@
     	alert("로그인이 필요한 기능입니다.");
     }
     
+    $(document).ready(function(){
+    	$("#itemSeoulCd97").click(function(){
+    		if($("#itemSeoulCd97").is(":checked")) {
+    			$("input[name='mnmlLocationCdArray']").prop("checked", false);
+    			$(this).prop("checked", true);
+    		}
+    	});
+    	
+    	$("input[name='mnmlLocationCdArray']").on("click",function(){
+    		let count = $("input:checked[name='mnmlLocationCdArray']").length;
+    		
+    		if(count > 5){
+    			$(this).prop("checked", false);
+    			alert("5개 이하만 선택 가능합니다.");
+    		}
+    		
+    		if($("#itemSeoulCd97").is(":checked")) {
+    			if($(this).attr("id") != "itemSeoulCd97"){
+    				$("#itemSeoulCd97").prop("checked", false);
+    			}
+    		}
+    	});
+    });
+    
+    function modalClear(){
+    	document.getElementById("mnfdMessage").value='';
+    }
+    
+    $('#friendModal').on('hidden.bs.modal', function (e) {
+    	document.getElementById("mnfdMessage").value='';
+    });
+    
+    /* 
     // 지역 시 변경
     function sch_area_si_chg(s_code, s_name){	//구 검색
     	$("#dev_rDutySICode").val(s_code);
@@ -543,39 +586,7 @@
     	if(obj.val() == obj.attr("title") ){
     		obj.val("");
     	}
-    }
-
-    $(document).ready(function(){
-    	$("#itemSeoulCd97").click(function(){
-    		if($("#itemSeoulCd97").is(":checked")) {
-    			$("input[name='mnmlLocationCdArray']").prop("checked", false);
-    			$(this).prop("checked", true);
-    		}
-    	});
-    	
-    	$("input[name='mnmlLocationCdArray']").on("click",function(){
-    		let count = $("input:checked[name='mnmlLocationCdArray']").length;
-    		
-    		if(count > 5){
-    			$(this).prop("checked", false);
-    			alert("5개 이하만 선택 가능합니다.");
-    		}
-    		
-    		if($("#itemSeoulCd97").is(":checked")) {
-    			if($(this).attr("id") != "itemSeoulCd97"){
-    				$("#itemSeoulCd97").prop("checked", false);
-    			}
-    		}
-    	});
-    });
-    
-    function modalClear(){
-    	document.getElementById("mnfdMessage").value='';
-    }
-    
-    $('#friendModal').on('hidden.bs.modal', function (e) {
-    	document.getElementById("mnfdMessage").value='';
-    });
+    } */
 </script>
 </body>
 </html>
