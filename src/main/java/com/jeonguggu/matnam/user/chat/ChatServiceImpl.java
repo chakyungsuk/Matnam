@@ -24,6 +24,11 @@ public class ChatServiceImpl implements ChatService {
 	}
 
 	@Override
+	public int selectCount(ChatVo vo) throws Exception {
+		return dao.selectCount(vo);
+	}
+
+	@Override
 	public Chat selectOne(ChatVo vo) throws Exception {
 		return dao.selectOne(vo);
 	}

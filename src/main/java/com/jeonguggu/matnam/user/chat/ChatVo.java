@@ -7,13 +7,14 @@ public class ChatVo {
 	
 //	사용자 조회
 	private String mnMmSeq = "";
-	private String mnMmSeq1 = "";
 	private String mnMmName = "";
 	private String mnMmIntroduce = "";
+	private String mcfmSeq = "";
 	
 //	친구
 	private String mnfdSeq = "";
 	private String mnfdFriendSeq;
+	private String fdmnMmName;
 	
 //	----------------------------
 
@@ -63,6 +64,22 @@ public class ChatVo {
 
 	public void setMnChat_Num(String mnChat_Num) {
 		this.mnChat_Num = mnChat_Num;
+	}
+
+	public String getFdmnMmName() {
+		return fdmnMmName;
+	}
+
+	public void setFdmnMmName(String fdmnMmName) {
+		this.fdmnMmName = fdmnMmName;
+	}
+
+	public String getMcfmSeq() {
+		return mcfmSeq;
+	}
+
+	public void setMcfmSeq(String mcfmSeq) {
+		this.mcfmSeq = mcfmSeq;
 	}
 	
 	

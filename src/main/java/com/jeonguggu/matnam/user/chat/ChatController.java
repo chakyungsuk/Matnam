@@ -24,18 +24,16 @@ public class ChatController {
 	public String chatView2(Chat dto ,@ModelAttribute("vo") ChatVo vo, Model model) throws Exception {
 		List<Chat> list = service.selectListFriend(vo);
 		model.addAttribute("list", list);
-		vo.setMnChat_Num(vo.getMnChat_Num());
-		String room = vo.getMnChat_Num();
-		System.out.println("room-----------------------------------------------"+room);
 		
-		if(room == null || room == "") {
-			System.out.println("vo.getMnChat_Num()------------------"+room);
+		int rt = service.selectCount(vo);
+		
+		if(rt == 0) {
 			service.insertChattingRoom(dto);
+		} else {
+			
 		}
-		Chat rt = service.selectOne(vo);
-		model.addAttribute("user", rt);
-		
-		
+		Chat room = service.selectOne(vo);
+		model.addAttribute("room", room);
 		return "/user/chat/chatView2";
 	}
 	

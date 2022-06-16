@@ -43,30 +43,45 @@
 	<!-- 친구 목록 조회 끝 -->
 	 
 	<!-- 채팅 상대방 이름 시작 -->
-	<select id="selectOne" resultMap="resultMapObj">
+	<select id="selectCount" resultType="Integer">
 		SELECT 
-			a.mnMmSeq
-			, a.mnMmName
-			, b.mnfdFriendSeq
-			, b.mnfdSeq
+			count(*)
 		FROM
-			matnamMember a
-		LEFT JOIN matnamFriend b on b.mnMmSeq = a.mnMmSeq
+			matnamChattingroom 
 		WHERE 1=1 
-        And b.mnfdFriendStateCd = 4
-        And b.mnfdSeq = #{mnfdSeq}
+	        And (mnMmSeq = #{mnMmSeq}
+        	And mnfdFriendSeq = #{mnfdFriendSeq})
+	    	OR (mnfdFriendSeq = #{mnMmSeq}
+	    	And	mnMmSeq = #{mnfdFriendSeq})
 	</select> 
 	<!-- 채팅 상대방 이름 끝 -->
+	
+	<!-- 채팅 1:1 시작 -->
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT 
+			mnChat_Num
+			, mnMmSeq
+			, mnfdFriendSeq
+		FROM
+			matnamChattingroom
+		WHERE 1=1
+			and mnMmSeq = #{mnMmSeq}
+        	and mnfdFriendSeq = #{mnfdFriendSeq}
+	</select>
+	<!-- 채팅 1:1 끝 -->
 	
 	<!-- 채팅룸 만들기 -->
 	<insert id="insertChattingRoom">
 		INSERT INTO matnamChattingroom (
 			mnMmSeq
-			,mnfdSeq
+			,mnfdFriendSeq
 		) VALUES (
 			#{mnMmSeq}
-			,#{mnfdSeq}
+			,#{mnfdFriendSeq}
 		)
+		<selectKey resultType="String" keyProperty="mnChat_Num" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 	</insert>
 	<!-- 채팅방 만들기 끝 -->
 </mapper>  
