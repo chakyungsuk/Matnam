@@ -34,9 +34,9 @@
 		    LEFT JOIN matnamMember a ON b.mnMmSeq = a.mnMmSeq OR b.mnfdFriendSeq = a.mnMmSeq
 		WHERE 1=1
 			AND NOT a.mnMmName = #{mnMmName}
-			AND b.mnMmSeq = #{mnMmSeq}
+			AND b.mnMmSeq = #{sessSeq}
 			AND b.mnfdFriendStateCd = 4
-		    OR b.mnfdFriendSeq = #{mnMmSeq}
+		    OR b.mnfdFriendSeq = #{sessSeq}
 		    AND NOT a.mnMmName = #{mnMmName}
 			AND b.mnfdFriendStateCd = 4
 	</select>

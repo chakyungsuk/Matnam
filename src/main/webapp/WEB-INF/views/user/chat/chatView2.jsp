@@ -744,21 +744,20 @@ ul, li.replies img {
 						<li id="status-offline"><span class="status-circle"></span> <p>Offline</p></li>
 					</ul>
 				</div> 
-				<div id="expanded" style="padding-top: 75px;">
+				<div id="expanded" style="padding-top: 75px; margin-left: 40px;" >
 				<a  href="javascript:goProfileView(${sessSeq})"><input name="" type="button" value="프로필수정" /></a>
 				<a  href="javascript:gouserEdit(${sessSeq})"><input name="" type="button" value="개인정보변경" /></a>
-				<a  href="#" id="btnLogout" onclick="btnLogout();"><input name="" type="button" value="로그아웃" /></a>
 				</div>
 			</div> 
 		</div>
-		<div id="search">
+		<%-- <div id="search">
 			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
 			<input type="text" placeholder="Search contacts..." />
 		</div>
 		<div id="contacts">
 			<c:forEach items="${list}" var="item" varStatus="status">	
 				<ul style="margin: 0px;">
-					<li class="contact" style="padding: 0px; margin-bottom: 0px;"> 
+					<li class="contact" style="padding: 0px; margin-bottom: 0px;" onclick="ajax(<c:out value="${item.mnMmSeq}"/>);">
 						<div class="wrap">
 							<span class="contact-status online"></span>
 							<img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
@@ -770,10 +769,10 @@ ul, li.replies img {
 					</li>
 				</ul>
 			</c:forEach>
-		</div> 
+		</div> --%>
 		<div id="bottom-bar">
-			<button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
-			<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
+			<a  href="javascript:goMain(${sessSeq})"><button id="addcontact"> <span>메인화면</span></button></a>
+			<a  href="#" id="btnLogout" onclick="btnLogout();"><button id="settings"> <span>로그아웃</span></button></a>
 		</div>
 	</div>
 	<div class="content">
@@ -781,9 +780,7 @@ ul, li.replies img {
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 			<p><c:out value="${vo.fdmnMmName}"/></p>
 			<div class="social-media">
-				<!-- <i class="fa fa-facebook" aria-hidden="true"></i>
-				<i class="fa fa-twitter" aria-hidden="true"></i> -->
-				 <i class="fa fa-instagram" aria-hidden="true"></i>
+				<span>화상채팅<i class="fa fa-instagram" style="margin-top: 20px;"></i></span>
 			</div>
 		</div> 
 		<div class="messages" >
@@ -812,7 +809,6 @@ ul, li.replies img {
 <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
-
 <!-- <script>
 const firebaseConfig = {
 	    apiKey: "AIzaSyDOwnSmV6IrU8U2BJeG-zXQQddLzPqYzNo",
@@ -861,7 +857,7 @@ $("#status-options ul li").click(function() {
 	
 	$("#status-options").removeClass("active");
 });
-
+ 
 </script>
 
 <!-- Enter 로 submit 하기 -->
@@ -891,6 +887,7 @@ import {
     onValue,
     onChildAdded
 } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import {ajax} from './moduleajax.js';
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -928,7 +925,6 @@ submit.addEventListener('click', (e) => {
 		room : room
     });
     document.getElementById('message').value = "";
-    document.getElementById('room').value = "";
 	})
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
@@ -989,6 +985,12 @@ submit.addEventListener('click', (e) => {
 	gouserEdit = function(seq){
 		$("#mnMmSeq").val(seq);
 		$("#chatView").attr("action","/user/userEdit");
+		$("#chatView").submit();
+	}
+	
+	goMain = function(seq){
+		$("#mnMmSeq").val(seq);
+		$("#chatView").attr("action","/index/matnamMain");
 		$("#chatView").submit();
 	}
 </script>

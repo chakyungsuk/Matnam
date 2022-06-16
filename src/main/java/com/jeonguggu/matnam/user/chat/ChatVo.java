@@ -15,6 +15,7 @@ public class ChatVo {
 	private String mnfdSeq = "";
 	private String mnfdFriendSeq;
 	private String fdmnMmName;
+	private String sessSeq;
 	
 //	----------------------------
 
@@ -80,6 +81,14 @@ public class ChatVo {
 
 	public void setMcfmSeq(String mcfmSeq) {
 		this.mcfmSeq = mcfmSeq;
+	}
+
+	public String getSessSeq() {
+		return sessSeq;
+	}
+
+	public void setSessSeq(String sessSeq) {
+		this.sessSeq = sessSeq;
 	}
 	
 	

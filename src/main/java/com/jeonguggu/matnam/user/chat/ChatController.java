@@ -1,12 +1,17 @@
 package com.jeonguggu.matnam.user.chat;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ChatController {
@@ -20,8 +25,16 @@ public class ChatController {
 		return "/user/chat/chatView";
 	}
 	
+	@RequestMapping(value = "/chat/moduleajax")
+	public String moduleajax() {
+		 
+		return "/user/chat/moduleajax";
+	}
+	
 	@RequestMapping(value = "/chat/chatView2")
-	public String chatView2(Chat dto ,@ModelAttribute("vo") ChatVo vo, Model model) throws Exception {
+	public String chatView2(Chat dto ,@ModelAttribute("vo") ChatVo vo, Model model, HttpSession httpSession) throws Exception {
+		vo.setSessSeq((String) httpSession.getAttribute("sessSeq"));
+		
 		List<Chat> list = service.selectListFriend(vo);
 		model.addAttribute("list", list);
 		
@@ -36,5 +49,6 @@ public class ChatController {
 		model.addAttribute("room", room);
 		return "/user/chat/chatView2";
 	}
+	
 	
 }
