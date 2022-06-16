@@ -18,6 +18,31 @@
 		a:link{
 			text-decoration: none;
 		}
+		
+		.btn-outline-light{
+			color:#85c99d;
+			border:1px solid #85c99d;
+		}
+		
+		.btn-outline-light:hover{
+			color:white;
+			background-color:#85c99d;
+			border:1px solid #85c99d;
+		}
+		
+		.btn-check:checked + .btn-outline-light{
+			background-color:#85c99d;
+			border-color:#85c99d;
+			color:white;
+		}
+		
+		.strip_list {
+			border:1px solid #BDBDBD;
+		}
+		
+		#filters_col {
+			border:1px solid #BDBDBD;
+		}
     </style>
 	<!-- top -->
 	<!-- SubHeader =============================================== -->
@@ -104,33 +129,41 @@
 		</div><!--End col-md -->
         
 		<div class="col-lg-9">  
-			<div class="p-3 mb-2" style="border:1px solid gray">
+			<div class="p-3 mb-2" style="border:1px solid #848484; border-radius:3px;">
 				<form id="searchForm" name="" action="/user/areaSelect" method="post">
 					<input type="hidden" id="mnMmSeqB" name="mnMmSeq" value="${sessSeq}">
 					<input type="hidden" id="mnMmNameB" name="mnMmName" value="${sessName}">
 					<div style="text-align:center;">
-						<label for="" class="form-label text-muted fs-13 col-auto">검색</label>
+						<label for="" class="form-label text-muted fs-13 col-auto" style="color:black !important; font-size:20px;">검색 구분</label>
 					</div>
-					<div style="background-color:gray; height:1px;"></div>
+					<div style="background-color:#848484; height:1px;"></div>
 					<div class="form-group">
 						<div class="mb-3 pt-2">
-							<label for="" class="form-label text-muted fs-13 col-auto">지역</label>
-							<c:set var="listCodeSeoul" value="${CodeServiceImpl.selectListCachedCode('7')}"/>
-							<c:forEach items="${listCodeSeoul}" var="itemSeoul" varStatus="statusTaste">
-								<input type="checkbox" class="btn-check" id="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>" name="mnmlLocationCdArray" value="${itemSeoul.mncdSeq}" autocomplete="off">
-								<label class="btn btn-outline-primary" for="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>"><c:out value="${itemSeoul.mncdName}"/></label>
-							</c:forEach>
+							<div>
+								<label for="" class="form-label text-muted fs-13 col-auto">지역</label>
+							</div>
+							<div>
+								<c:set var="listCodeSeoul" value="${CodeServiceImpl.selectListCachedCode('7')}"/>
+								<c:forEach items="${listCodeSeoul}" var="itemSeoul" varStatus="statusTaste">
+									<input type="checkbox" class="btn-check" id="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>" name="mnmlLocationCdArray" value="${itemSeoul.mncdSeq}" autocomplete="off">
+									<label class="btn btn-outline-light" for="itemSeoulCd<c:out value="${itemSeoul.mncdSeq}"/>"><c:out value="${itemSeoul.mncdName}"/></label>
+								</c:forEach>
+							</div>
 						</div> 
 					</div>
-					<div style="background-color:gray; height:1px;"></div>
+					<div style="background-color:#848484; height:1px;"></div>
 					<div class="form-group">
 						<div class="mb-3 pt-2">
-							<label for="" class="form-label text-muted fs-13 col-auto">음식취향</label>
-							<c:set var="listCodeTaste" value="${CodeServiceImpl.selectListCachedCode('4')}"/>
-							<c:forEach items="${listCodeTaste}" var="itemTaste" varStatus="statusTaste">
-								<input type="checkbox" class="btn-check" id="itemTasteCd<c:out value="${itemTaste.mncdSeq}"/>" name="mnmtTasteCdArray" value="${itemTaste.mncdSeq}" autocomplete="off">
-								<label class="btn btn-outline-primary" for="itemTasteCd<c:out value="${itemTaste.mncdSeq}"/>"><c:out value="${itemTaste.mncdName}"/></label>
-							</c:forEach>
+							<div>
+								<label for="" class="form-label text-muted fs-13 col-auto">음식취향</label>
+							</div>
+							<div>
+								<c:set var="listCodeTaste" value="${CodeServiceImpl.selectListCachedCode('4')}"/>
+								<c:forEach items="${listCodeTaste}" var="itemTaste" varStatus="statusTaste">
+									<input type="checkbox" class="btn-check" id="itemTasteCd<c:out value="${itemTaste.mncdSeq}"/>" name="mnmtTasteCdArray" value="${itemTaste.mncdSeq}" autocomplete="off">
+									<label class="btn btn-outline-light" for="itemTasteCd<c:out value="${itemTaste.mncdSeq}"/>"><c:out value="${itemTaste.mncdName}"/></label>
+								</c:forEach>
+							</div>
 						</div> 
 					</div>
 					<div class="col" style="text-align:center;">
@@ -138,7 +171,8 @@
 						<button type="reset" class="btn_1" style="text-align:center;">초기화<i class="icon-refresh"></i></button>	
 					</div>
 				</form>
-        	</div>	
+        	</div>
+        	<br>	
         	<!-- <div id="dev_sch_add_form_view">
 				<div class="resultSch">
 					<h2 class="skip">기본 결과내 검색 설정</h2>
