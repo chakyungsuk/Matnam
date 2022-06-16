@@ -30,6 +30,16 @@
 	    </div><!-- End subheader -->
 	</section><!-- End section -->
 	<!-- End SubHeader ============================================ -->
+	
+	<div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="#0">홈</a></li>
+                <li><a href="#0">친구매칭</a></li>
+            </ul>
+        </div>
+    </div><!-- Position -->
+	
     <div class="collapse" id="collapseMap">
 		<div id="map" class="map"></div>
 	</div><!-- End Map -->
