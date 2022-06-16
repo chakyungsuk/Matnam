@@ -809,18 +809,6 @@ ul, li.replies img {
 <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
-<!-- <script>
-const firebaseConfig = {
-	    apiKey: "AIzaSyDOwnSmV6IrU8U2BJeG-zXQQddLzPqYzNo",
-	    authDomain: "matnam-e9c16.firebaseapp.com",
-	    databaseURL: "https://matnam-e9c16-default-rtdb.firebaseio.com",
-	    projectId: "matnam-e9c16",
-	    storageBucket: "matnam-e9c16.appspot.com",
-	    messagingSenderId: "84472849491",
-	    appId: "1:84472849491:web:b1401d16c6130d3db712a6"
-	  };
-	firebase.initializeApp(firebaseConfig);
-</script> -->
 
 	
 </body>
@@ -887,7 +875,6 @@ import {
     onValue,
     onChildAdded
 } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
-import {ajax} from './moduleajax.js';
 
 
 // TODO: Add SDKs for Firebase products that you want to use
