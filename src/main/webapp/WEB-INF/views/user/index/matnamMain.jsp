@@ -246,7 +246,7 @@
             <h4>The minutes that usually takes to deliver!</h4>
         </div> -->
     </div><!-- End container -->
-    <div class="white_bg">
+    <div class="white_bg" style="background-image:url('/resources/user/image/fff1.jpg');">
         <div class="container margin_60">
             <div class="main_title">
                 <h2 class="nomargin_top">Restaurant recommendations</h2>
