@@ -887,7 +887,7 @@
                     <p>해산물 못 먹어요 고기만 좋아하는사람 연락주세용 ~</p>
                     <div class="btn_1">Read more</div>
                 </a> 
-            </div>
+            </div> 
             <div class="col-md-3">
                 <a class="box_work" href="submit_driver.html">
                     <img src="/resources/user/image/testimonial-1.jpg" width="848" height="480" alt="" class="img-fluid">
