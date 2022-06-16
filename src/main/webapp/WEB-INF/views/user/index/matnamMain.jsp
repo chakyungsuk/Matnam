@@ -283,7 +283,7 @@
 				                            </div>
 				                            <h3>Taco Mexican</h3>
 				                            <div class="type">
-				                                Mexican / American
+				                                Mexican / American 
 				                            </div>
 				                            <div class="location">
 				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
