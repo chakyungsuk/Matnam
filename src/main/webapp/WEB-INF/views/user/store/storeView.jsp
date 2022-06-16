@@ -238,6 +238,8 @@
 <script>
 	
 	var number = null;
+	var markerArr = new Array();
+	var overlayArr = new Array();
 
 	// KaKao Map S
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -358,6 +360,7 @@
 							/* 마커생성 S */ 
 							var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
 							var marker = new kakao.maps.Marker({ position: markerPosition });
+							markerArr[i] = marker;
 							marker.setMap(null);   
 							marker.setMap(map);
 							/* 마커생성 E*/
@@ -369,7 +372,7 @@
 							            '    <div class="info">' + 
 							            '        <div class="title">' + 
 							            '            카카오 스페이스닷원dsdsd' + 
-							            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+							            '            <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
 							            '        </div>' + 
 							            '        <div class="body">' + 
 							            '            <div class="img">' +
@@ -384,25 +387,19 @@
 							            '    </div>' +    
 							            '</div>';
 							            
-							// 마커 위에 커스텀오버레이를 표시합니다
-							// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-							var overlay = new kakao.maps.CustomOverlay({
-							    content: content,
-							    map: map,
-							    position: marker.getPosition()       
-							});
-							
-							// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-							kakao.maps.event.addListener(marker, 'click', function() {
-							    overlay.setMap(map);
-							});
-							
-							// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-							function closeOverlay() {
-							    overlay.setMap(null);     
-							}
-							
-							
+					         // 마커 위에 커스텀오버레이를 표시합니다
+					        	// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+					        	var overlay = new kakao.maps.CustomOverlay({
+					        	    content: content,
+					        	    map: map,
+					        	    position: marker.getPosition()       
+					        	});
+					         overlayArr[i] = overlay;
+					        	
+					        	// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+					        	kakao.maps.event.addListener(markerArr[i], 'click', function() {
+					        	    overlay.setMap(map);
+					        	});
 							}
 						$("#listHtml").append(listHtml);
 					}
@@ -413,8 +410,10 @@
 				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 			}
 		});
-	
-	
+	// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+	function closeOverlay(number) {
+	    overlayArr[number].setMap(null);     
+	}
 	
     // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
     // 이벤트 리스너로는 클로저를 만들어 등록합니다 
