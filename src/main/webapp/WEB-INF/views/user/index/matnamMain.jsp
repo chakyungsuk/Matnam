@@ -878,6 +878,9 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
+            <c:forEach items="${list}" var="rt" varStatus="status">
+            	<c:out value="${rt.mnMmName}"/>
+            </c:forEach>
                 <a class="box_work" href="submit_restaurant.html">
                     <img src="/resources/user/image/testimonial-2.jpg" width="848" height="480" alt="" class="img-fluid">
 					<h3>고기맨<span>서울특별시 강북구	</span></h3>

@@ -1,9 +1,15 @@
 package com.jeonguggu.matnam.index;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.jeonguggu.matnam.xmin.member.Member;
+import com.jeonguggu.matnam.xmin.member.MemberServiceImpl;
+import com.jeonguggu.matnam.xmin.member.MemberVo;
 
 /**
  * Handles requests for the application home page.
@@ -14,8 +20,12 @@ public class MatnamMainController {
 	@Autowired
 	MainServiceImpl service;
 	
+	@Autowired
+	MemberServiceImpl memberService;
+	
+	
 	@RequestMapping(value = "/index/matnamMain")
-	public String matnamMain(Main dto, Model model) throws Exception {
+	public String matnamMain(Member meberdto, Main dto, Model model,MemberVo membervo) throws Exception {
 		
 		Main countRestaurant = service.selectCountRestaurant();
 		model.addAttribute("countRestaurant", countRestaurant);
@@ -25,6 +35,10 @@ public class MatnamMainController {
 		
 		Main countReview = service.selectCountReview();
 		model.addAttribute("countReview", countReview);
+		
+		List<Member> list = memberService.selectList(membervo);
+		model.addAttribute("list", list);
+		
 		
 //		Main countReview = service.selectList();
 //		model.addAttribute("countReview", countReview);

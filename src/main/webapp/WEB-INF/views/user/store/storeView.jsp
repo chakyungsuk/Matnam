@@ -4,7 +4,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <head>
-		<style>
+	<style>
+		
+		.fontColor{
+			
+			
+			text-decoration: none;
+			color: black;
+		}
 	</style>
 </head>
 
@@ -215,59 +222,76 @@
 				
 				if(response.rt == "success"){
 					
-					var listHtml = "";
+					if(response.list == null 
+							
+					){
+						var listHtml = "";
+						
+						list += '<div>검색된 음식점이없습니다!!!</div>'
+						
+						$("#listHtml").append(listHtml);
+					}else{
 					
-					for(var i in response.list){
-						listHtml += '<div class="strip_list wow fadeIn" data-wow-delay="0.1s">';
-						listHtml += '<div class="ribbon_1">';
-						listHtml += 'Popular';
-						listHtml +=	'</div>';
-						listHtml += '<div class="row">';
-						listHtml += '<div class="col-md-9">';
-						listHtml += '<div class="desc">';
-						listHtml += '<div class="thumb_strip">';
-						listHtml += '<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>';
-						listHtml += '</div>';
-						listHtml +='<h3>' + nullToEmpty(response.list[i].mnrtName) + '</h3>';
-						listHtml +='<div class="type">';
-						listHtml += nullToEmpty(response.list[i].mncdName);
-						listHtml +='</div>';
-						listHtml +='<div class="location">';
-						listHtml += nullToEmpty(response.list[i].mnrtAddressFull);
-						listHtml += '<br><span class="opening">영업시간:' + nullToEmpty(response.list[i].mnrtTimeStart) + '~' + nullToEmpty(response.list[i].mnrtTimeEnd);
-						listHtml += '</span><br>브레이크타임:' + nullToEmpty(response.list[i].mnrtBreakTimeStart) + '~' + nullToEmpty(response.list[i].mnrtBreakTimeEnd);
-						listHtml +='</div>';
-						listHtml +='</div>';
-						listHtml +='</div>';
-						listHtml +='<div class="col-md-3">';
-						listHtml +='<div class="go_to">';
-						listHtml +='<div>';
-						listHtml +='<a class="btn_1"  href="/user/storeDetail?mnrtSeq=' + nullToEmpty(response.list[i].mnrtSeq) + '">바로가기</a>'; 
-						listHtml +='</div>';
-						listHtml +='</div>';
-						listHtml +='</div>';
-						
-						
-						/* 마커생성 S */ 
-						var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
-						var marker = new kakao.maps.Marker({ position: markerPosition });
-						marker.setMap(null);   
-						marker.setMap(map);
-						/* 마커생성 E*/
-						
-						// 마커에 표시할 인포윈도우를 생성합니다 
-					    var infowindow = new kakao.maps.InfoWindow({
-					        content: response.list[i].mnrtName // 인포윈도우에 표시할 내용
-					    });
-						
-					    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-					    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-					    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-					    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-					    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-						
+						var listHtml = "";
+					
+						for(var i in response.list){
+							listHtml += '<div class="strip_list wow fadeIn" data-wow-delay="0.1s">';
+							listHtml += '<div class="ribbon_1">';
+							listHtml += 'Popular';
+							listHtml +=	'</div>';
+							listHtml += '<div class="row">';
+							listHtml += '<div class="col-md-9">';
+							listHtml += '<div class="desc">';
+							listHtml += '<div class="thumb_strip">';
+							listHtml += '<a href="detail_page.html"><img src="/resources/uploaded/restaurant/img/thumb_restaurant.jpg" alt=""></a>';
+							listHtml += '</div>';
+							listHtml +='<h3>' + nullToEmpty(response.list[i].mnrtName) + '</h3>';
+							listHtml +='<div class="type">';
+							listHtml += nullToEmpty(response.list[i].mncdName);
+							listHtml +='</div>';
+							listHtml +='<div class="location">';
+							listHtml += nullToEmpty(response.list[i].mnrtAddressFull);
+							listHtml += '<br><span class="opening">영업시간:' + nullToEmpty(response.list[i].mnrtTimeStart) + '~' + nullToEmpty(response.list[i].mnrtTimeEnd);
+							listHtml += '</span><br>브레이크타임:' + nullToEmpty(response.list[i].mnrtBreakTimeStart) + '~' + nullToEmpty(response.list[i].mnrtBreakTimeEnd);
+							listHtml +='</div>';
+							listHtml +='</div>';
+							listHtml +='</div>';
+							listHtml +='<div class="col-md-3">';
+							listHtml +='<div class="go_to">';
+							listHtml +='<div>';
+							listHtml +='<a class="btn_1"  href="/user/storeDetail?mnrtSeq=' + nullToEmpty(response.list[i].mnrtSeq) + '">바로가기</a>'; 
+							listHtml +='</div>';
+							listHtml +='</div>';
+							listHtml +='</div>';
+							
+							
+							/* 마커생성 S */ 
+							var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
+							var marker = new kakao.maps.Marker({ position: markerPosition });
+							marker.setMap(null);   
+							marker.setMap(map);
+							/* 마커생성 E*/
+							
+							var iwContent = '<div class="fontColor" style="padding:5px;"> <a href="/user/storeDetail?mnrtSeq=' + response.list[i].mnrtSeq + '">' + response.list[i].mnrtName + '</a>&nbsp <a href="https://map.kakao.com/link/to/' + response.list[i].mnrtAddressFull + ',' + response.list[i].mnrtX + ',' +  response.list[i].mnrtY + '"' +  'style="color:blue" target="_blank">길찾기&nbsp&nbsp</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+	    					iwPosition = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); //인포윈도우 표시 위치입니다
+	    					
+							// 마커에 표시할 인포윈도우를 생성합니다 
+						    var infowindow = new kakao.maps.InfoWindow({
+						        content:  iwContent/* response.list[i].mnrtName */ ,
+						        position: iwPosition // 인포윈도우에 표시할 내용
+						    });
+							
+						    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+						    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+						    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+						    /* kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+						    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow)); */
+						    
+						    infowindow.open(map, marker); 
+							
+							}
+						$("#listHtml").append(listHtml);
 					}
-					$("#listHtml").append(listHtml);
 					
 				}	
 			},
