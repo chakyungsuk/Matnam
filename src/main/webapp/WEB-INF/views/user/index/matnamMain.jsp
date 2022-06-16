@@ -87,7 +87,7 @@
 	  position: absolute;
 	  top: 0; left: 0;	
 	  color: #fff; text-align: center;
-	  line-height: 200px;	
+	  line-height: 300px;	
 	  opacity: 0; 	
 	  transition: 0.3s;
 	}
@@ -149,8 +149,8 @@
                         </span>
                     </div>
                     <div style="padding-top:80px">
-                       <button type="button" class="btn btn-outline-primary btn-lg">지도검색</button>
-                       <button type="button" class="btn btn-outline-primary btn-lg">친구매칭</button>
+                       <button type="button" class="btn btn-outline-light">지도검색</button>
+                       <button type="button" class="btn btn-outline-light">친구매칭</button>
                     </div>
                 </div>
             </form>
@@ -170,19 +170,18 @@
     <!-- Content ================================================== -->
     <div class="container margin_60">
         <div class="main_title">
-            <h2 class="nomargin_top">Project Introduction</h2>
+            <h2 class="nomargin_top" style="font-weight:600";>Project Introduction</h2>
             <p>
             	Jeonguggu Team
             </p>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6">
-                <div class="box_home" id="one" style="padding-top: 30px;">                	
-	                <span>1</span>
-	                <div class="screen"> 
-	                	<a href="#">   
+                <div class="box_home" id="one" style="padding-top: 30px;">     	
+	            	<div class="screen"> 
+	                	<a href="#restRec">   
 		                	<figure>
-			                    <img src="/resources/user/image/Introduction1.png" style="width: 100%; height: 200px;">
+			                    <img src="/resources/user/image/zpp.JPG" style="width: 100%; height: 300px;">
 			                    <figcaption>나의 입맛을 저격할 '맛남'만의 맛집 추천!</figcaption>
 		                    </figure>
 	                    </a>
@@ -196,9 +195,9 @@
                 <div class="box_home" id="two" style="padding-top: 30px;">
                     <span>2</span>
                     <div class="screen">
-                    	<a href="#">	
+                    	<a href="/user/storeView">	
                     	<figure>
-		                    <img src="/resources/user/image/Introduction2.png" style="width: 100%; height: 200px;">
+		                    <img src="/resources/user/image/Introduction2.png" style="width: 100%; height: 300px;">
 		                    <figcaption>내가 어디에 있던 상관없이 맛집 탐색!</figcaption>		                    
 		                </figure>    
 	                    </a>
@@ -212,9 +211,9 @@
                 <div class="box_home" id="three" style="padding-top: 30px;">
                     <span>3</span>
                      <div class="screen">
-                    	<a href="#">	
+                    	<a href="javascript:goAreaSelect(${sessSeq})">	
                     	<figure>
-		                    <img src="/resources/user/image/introduction3.jpg" style="width: 100%; height: 200px;">
+		                    <img src="/resources/user/image/introduction3.jpg" style="width: 100%; height: 300px;">
 		                    <figcaption>나와 같은 취향의 다양한 친구를 만날수 있는 기회!</figcaption>		                    
 		                </figure>    
 	                    </a>
@@ -230,7 +229,7 @@
                     <div class="screen">
                     	<a href="#">	
                     	<figure>
-		                    <img src="/resources/user/image/Introduction4.png" style="width: 100%; height: 200px;">
+		                    <img src="/resources/user/image/Introduction4.png" style="width: 100%; height: 300px;">
 		                    <figcaption>친구들과 자유로운 채팅 가능!</figcaption>		                    
 		                </figure>    
 	                    </a>
@@ -246,27 +245,28 @@
             <h4>The minutes that usually takes to deliver!</h4>
         </div> -->
     </div><!-- End container -->
+    <div id="restRec">
     <div class="white_bg" style="background-image:url('/resources/user/image/fff1.jpg');">
         <div class="container margin_60">
             <div class="main_title">
-                <h2 class="nomargin_top">Restaurant recommendations</h2>
-                <p>
+                <h2 class="nomargin_top" style="color:black; font-weight:600; text-shadow:3px 3px 4px white;">Restaurant recommendations</h2>
+                <p style="color:yellow;">
                     Top 6 restaurant selection
                 </p>
             </div>
             <div class="container" style="text-align: center; margin-bottom: 23px;">
 	            <div class="tab_content">
 					<input type="radio" name="tabmenu" id="tab01" checked>
-	                <label for="tab01">한식</label>
+	                <label for="tab01" style="background-color:white; border-color:gray;">한식</label>
 	              
 	                <input type="radio" name="tabmenu" id="tab02">
-	                <label for="tab02">돈까스&일식</label>
+	                <label for="tab02" style="background-color:white; border-color:gray;">돈까스&일식</label>
 	               
 	                <input type="radio" name="tabmenu" id="tab03">
-	                <label for="tab03">중국집</label>
+	                <label for="tab03" style="background-color:white; border-color:gray;">중국집</label>
 	               
 	                <input type="radio" name="tabmenu" id="tab04">
-	                <label for="tab04">아시안&양식</label>
+	                <label for="tab04" style="background-color:white; border-color:gray;">아시안&양식</label>
 	                
                		<!-- 한식 -->
                     <div class="conbox con1">
@@ -827,6 +827,7 @@
                 </div>
             </div>End row -->
         </div><!-- End container -->
+    </div>
     </div><!-- End white_bg -->
 <!--     <div class="high_light">
         <div class="container">
@@ -871,17 +872,17 @@
 <div class="white_bg">
     <div class="container margin_60" >
         <div class="main_title margin_mobile">
-            <h2 class="nomargin_top">User recommendations</h2>
+            <h2 class="nomargin_top" style="font-weight:600";>User recommendations</h2>
             <p>
                 Delicious meeting.
             </p>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3">
-            <c:forEach items="${list}" var="rt" varStatus="status">
+<%--             <c:forEach items="${list}" var="rt" varStatus="status">
             	<c:out value="${rt.mnMmName}"/>
-            </c:forEach>
-                <a class="box_work" href="submit_restaurant.html">
+            </c:forEach> --%>
+                <a class="box_work" href="submit_restaurant.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
                     <img src="/resources/user/image/testimonial-2.jpg" width="848" height="480" alt="" class="img-fluid">
 					<h3>고기맨<span>서울특별시 강북구	</span></h3>
                     <p>해산물 못 먹어요 고기만 좋아하는사람 연락주세용 ~</p>
@@ -889,7 +890,7 @@
                 </a> 
             </div> 
             <div class="col-md-3">
-                <a class="box_work" href="submit_driver.html">
+                <a class="box_work" href="submit_driver.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
                     <img src="/resources/user/image/testimonial-1.jpg" width="848" height="480" alt="" class="img-fluid">
                     <h3>쏘삼녀<span>서울특별시 강남구</span></h3>
                     <p>쏘삼 멤버 구해요! 언제든지 환영합니다.</p>
@@ -897,7 +898,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a class="box_work" href="submit_driver.html">
+                <a class="box_work" href="submit_driver.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
                     <img src="/resources/user/image/testimonial-4.jpg" width="848" height="480" alt="" class="img-fluid">
                     <h3>치맥맨<span>인천광역시</span></h3>
                     <p>집에서만 있는 당신은 루저 치맥하러 가시죠 고고</p>
@@ -905,7 +906,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a class="box_work" href="submit_driver.html">
+                <a class="box_work" href="submit_driver.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
                     <img src="/resources/user/image/testimonial-3.jpg" width="848" height="480" alt="" class="img-fluid">
                     <h3>코딩녀<span>서울특별시 강서구</span></h3>
                     <p>코딩 그만하고 오늘 저녁 시원한 맥주 어떠세요 ?</p>
