@@ -20,10 +20,13 @@
 		    ,a.mnrtBreakTimeStart
 		    ,a.mnrtBreakTimeEnd
             ,b.mncdName
+            ,d.originalName
+            ,d.uuidName
+            ,d.path
 		FROM matnam.matnamRestaurant a
         	left join matnam.matnamCode b on b.mncdSeq = a.mnrtFoodCateCd
-         	left join matnam.matnamCode c on c.mncdSeq = a.mnrtHolidayCd;
-		
+         	left join matnam.matnamCode c on c.mncdSeq = a.mnrtHolidayCd
+            left join matnam.matnamUploaded d on d.typeCd = 148 and a.mnrtSeq = d.pseq;
 	</select>
 	
 	<select id="selectOneStore" resultMap="resultMapObj">
