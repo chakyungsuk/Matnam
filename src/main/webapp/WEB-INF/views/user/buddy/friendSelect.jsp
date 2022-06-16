@@ -205,7 +205,7 @@
 									<div class="col-3">
 										<div class="row">
 											<div class="col-12">
-												<a href="javascript:gochat(<c:out value="${item.mnfdSeq}"/>)"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
+												<a href="javascript:gochat(${item.mnfdFriendSeq},'${item.mnMmName}','${item.mnMmSeq}')"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
 											</div>
 											<div>
 												<a href="#" data-bs-toggle="modal" onclick="setForm(${item.mnfdSeq})" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>												
