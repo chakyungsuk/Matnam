@@ -20,12 +20,9 @@ public class MatnamMainController {
 	@Autowired
 	MainServiceImpl service;
 	
-	@Autowired
-	MemberServiceImpl memberService;
-	
 	
 	@RequestMapping(value = "/index/matnamMain")
-	public String matnamMain(Member meberdto, Main dto, Model model,MemberVo membervo) throws Exception {
+	public String matnamMain(Member meberdto, Main dto, Model model) throws Exception {
 		
 		Main countRestaurant = service.selectCountRestaurant();
 		model.addAttribute("countRestaurant", countRestaurant);
@@ -36,7 +33,7 @@ public class MatnamMainController {
 		Main countReview = service.selectCountReview();
 		model.addAttribute("countReview", countReview);
 		
-		List<Member> list = memberService.selectList(membervo);
+		List<Main> list = service.selectFriend();
 		model.addAttribute("list", list);
 		
 		

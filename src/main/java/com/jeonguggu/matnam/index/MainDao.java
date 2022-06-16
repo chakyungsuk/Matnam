@@ -1,5 +1,7 @@
 package com.jeonguggu.matnam.index;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -15,7 +17,6 @@ public class MainDao {
 	
 	private static String namespace = "com.jeonguggu.matnam.index.MainMpp";
 	
-//	카운팅
 	public Main selectCountRestaurant() {
 		return sqlSession.selectOne(namespace + ".selectCountRestaurant", "");
 	}
@@ -25,4 +26,6 @@ public class MainDao {
 	public Main selectCountReview() {
 		return sqlSession.selectOne(namespace + ".selectCountReview", "");
 	}
+	
+	public List<Main> selectFriend(){return sqlSession.selectList(namespace + ".selectFriend");}
 }

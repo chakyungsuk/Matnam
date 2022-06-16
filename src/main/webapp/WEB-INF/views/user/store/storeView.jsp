@@ -75,7 +75,7 @@
     </style> 
     
     <style>
-	    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+	     .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
 	    .wrap * {padding: 0;margin: 0;}
 	    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
 	    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
@@ -83,7 +83,7 @@
 	    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
 	    .info .close:hover {cursor: pointer;}
 	    .info .body {position: relative;overflow: hidden;}
-	    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+	    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px; padding-left: 0px;}
 	    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 	    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
 	    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
@@ -280,6 +280,7 @@
 	};
 	/* 검색후 마커찍는 함수 E */
 	
+	/* 검색후 마커 있을시 없애는 함수  */
 	function checkMarker(){
 		
 		if(number != null ){
@@ -288,6 +289,7 @@
 		}
 		
 	}
+	/* 검색후 마커 있을시 없애는 함수  */
 	
 	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
 	function makeOverListener(map, marker, infowindow) {
@@ -371,17 +373,19 @@
 							var content = '<div class="wrap">' + 
 							            '    <div class="info">' + 
 							            '        <div class="title">' + 
-							            '            카카오 스페이스닷원dsdsd' + 
+							                        response.list[i].mnrtName  + 
 							            '            <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
 							            '        </div>' + 
 							            '        <div class="body">' + 
 							            '            <div class="img">' +
-							            '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+							            '                <img src="' + response.list[i].path + response.list[i].uuidName  + '" width="73" height="70">' +
 							            '           </div>' + 
 							            '            <div class="desc">' + 
-							            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
-							            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-							            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+							            '                <div class="ellipsis">' + response.list[i].mnrtAddressFull + '</div>' + 
+							            '                <div><a href="/user/storeDetail?mnrtSeq=' +response.list[i].mnrtSeq + '" target="_blank" class="link">상세정보</a></div>' + 
+							            '                <div><a href="https://map.kakao.com/link/to/' 
+															+ response.list[i].mnrtAddressFull + ',' + response.list[i].mnrtX + ',' +  response.list[i].mnrtY + '"' 
+															+  'class="link" target="_blank">길찾기</a></div>' + 
 							            '            </div>' + 
 							            '        </div>' + 
 							            '    </div>' +    
@@ -395,12 +399,6 @@
 					        	    position: marker.getPosition()       
 					        	});
 					         	overlayArr[i] = overlay;
-					        	
-					        	// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-					        	/* kakao.maps.event.addListener(markerArr[i], 'click', function() {
-					        		overlayArr[i].setMap(map);
-					        		alert(markerArr[i]);
-					        	}); */
 					        	
 					      		// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
 					        	kakao.maps.event.addListener(marker, 'click',  makeOverListener(i));

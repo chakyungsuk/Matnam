@@ -33,4 +33,17 @@
     
     <!-- 메인 카운팅 -->
     
+    <!-- 메인 친구소개 -->
+    <select id="selectFriend" resultMap="resultMapObj">
+    	select
+			a.mnMmSeq
+			,a.mnMmName
+    		,a.mnMmIntroduce
+    		,b.mnmaAddress1
+		from matnam.matnamMember a  
+			left join matnam.matnamMemberAddress b on b.mnMmSeq = a.mnMmSeq 
+			order by rand() limit 4;
+	</select>
+    <!-- 메인 친구소개 -->
+    
 </mapper>

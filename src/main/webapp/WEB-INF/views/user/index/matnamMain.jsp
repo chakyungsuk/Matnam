@@ -878,18 +878,17 @@
             </p>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-3">
-<%--             <c:forEach items="${list}" var="rt" varStatus="status">
-            	<c:out value="${rt.mnMmName}"/>
-            </c:forEach> --%>
-                <a class="box_work" href="submit_restaurant.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
-                    <img src="/resources/user/image/testimonial-2.jpg" width="848" height="480" alt="" class="img-fluid">
-					<h3>고기맨<span>서울특별시 강북구	</span></h3>
-                    <p>해산물 못 먹어요 고기만 좋아하는사람 연락주세용 ~</p>
-                    <div class="btn_1">Read more</div>
-                </a> 
-            </div> 
-            <div class="col-md-3">
+             <c:forEach items="${list}" var="rt" varStatus="status">
+	            <div class="col-md-3">
+	                <a class="box_work" href="submit_restaurant.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
+	                    <img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+						<h3><c:out value="${rt.mnMmName}"/><span><c:out value="${rt.mnmaAddress1}"/></span></h3>
+	                    <p><c:out value="${rt.mnMmIntroduce}"/></p>
+	                    <div class="btn_1">친구요청</div>
+	                </a> 
+	            </div> 
+           	</c:forEach> 
+            <!-- <div class="col-md-3">
                 <a class="box_work" href="submit_driver.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
                     <img src="/resources/user/image/testimonial-1.jpg" width="848" height="480" alt="" class="img-fluid">
                     <h3>쏘삼녀<span>서울특별시 강남구</span></h3>
@@ -912,7 +911,7 @@
                     <p>코딩 그만하고 오늘 저녁 시원한 맥주 어떠세요 ?</p>
                     <div class="btn_1">Read more</div>
                 </a>
-            </div>
+            </div> -->
         </div><!-- End row -->
     </div><!-- End container -->
     </div>
