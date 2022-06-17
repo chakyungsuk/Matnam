@@ -87,8 +87,8 @@
 	                        <li>주소<span><c:out value="${rtStore.mnrtAddressFull}"/></span></li>
 	                        <li>전화번호<span><c:out value="${rtStore.mnrtNumber}"/></span></li>
 	                        <li>음식종류 <span class="label label-danger"><c:out value="${rtStore.mnrtFoodCate}"/></span></li>
-	                        <li>영업시간<span><c:out value="${rtStore.mnrtTimeStart}"/> ~ <c:out value="${rtStore.mnrtTimeEnd}"/></span></li>
-	                        <li>브레이크타임<span><c:out value="${rtStore.mnrtBreakTimeStart}"/> ~ <c:out value="${rtStore.mnrtBreakTimeEnd}"/></span></li>
+	                        <li>영업시간<span><c:out value="${fn:substring(rtStore.mnrtTimeStart,0,5)}"/> ~ <c:out value="${fn:substring(rtStore.mnrtTimeEnd,0,5)}"/></span></li>
+	                        <li>브레이크타임<span><c:out value="${fn:substring(rtStore.mnrtBreakTimeStart,0,5)}"/> ~ <c:out value="${fn:substring(rtStore.mnrtBreakTimeEnd,0,5)}"/></span></li>
 	                        <li>휴무일<span><c:out value="${rtStore.mnrtHoliday}"/></span></li>
 	                    </ul>
 	                </div>

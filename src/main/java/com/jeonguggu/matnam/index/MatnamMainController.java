@@ -24,6 +24,9 @@ public class MatnamMainController {
 	@RequestMapping(value = "/index/matnamMain")
 	public String matnamMain(Member meberdto, Main dto, Model model, MainVo vo, HttpSession http) throws Exception {
 		
+		vo.setSessSeq((String)http.getAttribute("sessSeq"));
+		
+		
 		Main countRestaurant = service.selectCountRestaurant();
 		model.addAttribute("countRestaurant", countRestaurant);
 		

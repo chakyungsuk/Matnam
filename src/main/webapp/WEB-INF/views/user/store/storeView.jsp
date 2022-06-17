@@ -145,19 +145,23 @@
 					<div class="filter_type">
 						<h6>주소</h6>
 						<div class="mb-3">
-  						<input type="text" class="form-control" id="formGroupExampleInput" placeholder="주소나 키워드를 입력해주세요." onkeyup="enterkey()">
+  						<input type="text" class="form-control" id="formGroupExampleInput" placeholder="주소를 이용해 음식점을 검색해보세요!." onkeyup="enterkey()">
 						</div>
-                    	<h6>카테고리</h6>
+                    	<!-- <h6>카테고리</h6>
                         <ul>
                         	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">한식</label></div></li>
                         	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">중식</label></div></li>
                         	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">일식</label></div></li>
                         	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">양식</label></div></li>                        	
-                        </ul>
-						<h6>Type</h6>
-					<label for="customRange3" class="form-label">최대평점</label>
-						<input type="range" class="form-range" min="0" max="5" step="0.1" id="customRange3" oninput="document.getElementById('value1').innerHTML=this.value;">
-						<span id="value1"></span>
+                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">한식</label></div></li>
+                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">중식</label></div></li>
+                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">일식</label></div></li>
+                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">양식</label></div></li>                        	
+                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">한식</label></div></li>
+                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">중식</label></div></li>
+                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">일식</label></div></li>
+                        	<li><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">양식</label></div></li>                        	
+                        </ul> -->
 					</div>
 				</div><!--End collapse -->
 			</div><!--End filters col-->
@@ -271,14 +275,16 @@
 		    // 정상적으로 검색이 완료됐으면 
 		     if (status === kakao.maps.services.Status.OK) {
 		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-		
+				
+		        var level = map.getLevel();
+		        
+		        map.setLevel(level - 4);
 		        // 결과값으로 받은 위치를 마커로 표시합니다
 		        var marker = new kakao.maps.Marker({
 		            map: map,
 		            position: coords
-		          
-		            
 		        });
+		        
 				number = marker;
 		        map.setCenter(coords);
 	    	} 
@@ -331,8 +337,19 @@
 					}else{
 					
 						var listHtml = "";
+						var startTime = "";
+						var endTime = "";
+						var startBreakTime = "";
+						var endBreakTime = "";
 					
 						for(var i in response.list){
+							
+							startTime = response.list[i].mnrtTimeStart;
+							endTime = response.list[i].mnrtTimeEnd;
+							startBreakTime = response.list[i].mnrtBreakTimeStart;
+							endBreakTime = response.list[i].mnrtBreakTimeEnd;
+							
+							
 						 	listHtml += '<div class="strip_list wow fadeIn" data-wow-delay="0.1s">';
 							listHtml += '<div class="ribbon_1">';
 							listHtml += 'Popular';
@@ -349,8 +366,8 @@
 							listHtml +='</div>';
 							listHtml +='<div class="location">';
 							listHtml += nullToEmpty(response.list[i].mnrtAddressFull);
-							listHtml += '<br><span class="opening">영업시간:' + nullToEmpty(response.list[i].mnrtTimeStart) + '~' + nullToEmpty(response.list[i].mnrtTimeEnd);
-							listHtml += '</span><br>브레이크타임:' + nullToEmpty(response.list[i].mnrtBreakTimeStart) + '~' + nullToEmpty(response.list[i].mnrtBreakTimeEnd);
+							listHtml += '<br><span class="opening">영업시간:' + startTime + '~' + endTime;
+							listHtml += '</span><br>브레이크타임:' + startBreakTime + '~' + endBreakTime;
 							listHtml +='</div>';
 							listHtml +='</div>';
 							listHtml +='</div>';

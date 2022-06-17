@@ -895,30 +895,6 @@
 	                </a> 
 	            </div> 
            	</c:forEach> 
-            <!-- <div class="col-md-3">
-                <a class="box_work" href="submit_driver.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
-                    <img src="/resources/user/image/testimonial-1.jpg" width="848" height="480" alt="" class="img-fluid">
-                    <h3>쏘삼녀<span>서울특별시 강남구</span></h3>
-                    <p>쏘삼 멤버 구해요! 언제든지 환영합니다.</p>
-                    <div class="btn_1">Read more</div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a class="box_work" href="submit_driver.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
-                    <img src="/resources/user/image/testimonial-4.jpg" width="848" height="480" alt="" class="img-fluid">
-                    <h3>치맥맨<span>인천광역시</span></h3>
-                    <p>집에서만 있는 당신은 루저 치맥하러 가시죠 고고</p>
-                    <div class="btn_1">Read more</div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a class="box_work" href="submit_driver.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
-                    <img src="/resources/user/image/testimonial-3.jpg" width="848" height="480" alt="" class="img-fluid">
-                    <h3>코딩녀<span>서울특별시 강서구</span></h3>
-                    <p>코딩 그만하고 오늘 저녁 시원한 맥주 어떠세요 ?</p>
-                    <div class="btn_1">Read more</div>
-                </a>
-            </div> -->
         </div><!-- End row -->
     </div><!-- End container -->
     </div>
