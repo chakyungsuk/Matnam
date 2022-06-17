@@ -27,5 +27,5 @@ public class MainDao {
 		return sqlSession.selectOne(namespace + ".selectCountReview", "");
 	}
 	
-	public List<Main> selectFriend(){return sqlSession.selectList(namespace + ".selectFriend");}
+	public List<Main> selectFriend(MainVo vo){return sqlSession.selectList(namespace + ".selectFriend", vo);}
 }

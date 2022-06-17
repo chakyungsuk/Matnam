@@ -35,14 +35,21 @@
     
     <!-- 메인 친구소개 -->
     <select id="selectFriend" resultMap="resultMapObj">
-    	select
+    	select distinct 
 			a.mnMmSeq
 			,a.mnMmName
-    		,a.mnMmIntroduce
-    		,b.mnmaAddress1
+		    ,a.mnMmIntroduce
+		    ,b.mnmaAddress1
+		    ,c.uuidName
+		    ,c.path
 		from matnam.matnamMember a  
 			left join matnam.matnamMemberAddress b on b.mnMmSeq = a.mnMmSeq 
-			order by rand() limit 4;
+			left join matnam.matnamUploaded c on c.typeCd = 145 and defaultNy = 1 and a.mnMmSeq = c.pseq
+		<if test="sessSeq != null">
+		where 1=1
+			and a.mnMmSeq != #{sessSeq}
+		</if>
+		order by rand() limit 4;
 	</select>
     <!-- 메인 친구소개 -->
     

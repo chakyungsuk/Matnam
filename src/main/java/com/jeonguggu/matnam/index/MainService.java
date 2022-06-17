@@ -8,7 +8,7 @@ public interface MainService {
 	public Main selectCountUser() throws Exception;
 	public Main selectCountReview() throws Exception;
 	
-	public List<Main> selectFriend() throws Exception;
+	public List<Main> selectFriend(MainVo vo) throws Exception; 
 	
 	
 	

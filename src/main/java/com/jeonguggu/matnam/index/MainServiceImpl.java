@@ -27,9 +27,11 @@ public class MainServiceImpl implements MainService {
 	}
 
 	@Override
-	public List<Main> selectFriend() throws Exception {
-		return dao.selectFriend();
+	public List<Main> selectFriend(MainVo vo) throws Exception {
+		return dao.selectFriend(vo);
 	}
+
+
 	
 	
 
