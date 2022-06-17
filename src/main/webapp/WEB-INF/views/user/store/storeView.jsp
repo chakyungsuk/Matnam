@@ -318,122 +318,131 @@
 	}
 	
 	
-	$.ajax({
-			async:true,
-			cache:false,
-			type:"GET",
-			url:"storeSearch",
-			data:{},
-			success:function(response){
-				
-				if(response.rt == "success"){
+	kakao.maps.event.addListener(map, 'bounds_changed', function() { 
+		
+	    var neLat = this.getBounds().getNorthEast().getLat();
+	    var neLng = this.getBounds().getNorthEast().getLng();
+	    var swLat = this.getBounds().getSouthWest().getLat();
+	    var swLng = this.getBounds().getSouthWest().getLng();
+	    
+		$.ajax({
+				async:true,
+				cache:false,
+				type:"GET",
+				url:"storeSearch",
+				data:{"neLat" : neLat , "neLng" : neLng , "swLat" : swLat , "swLng" : swLng},
+				success:function(response){
 					
-					if(response.list == null ){
-						var listHtml = "";
+					if(response.rt == "success"){
 						
-						list += '<div>검색된 음식점이없습니다!!!</div>'
+						if(response.list == null ){
+							var listHtml = "";
+							
+							listHtml += '<div>검색된 음식점이없습니다!!!</div>'
+							
+							$("#listHtml").append(listHtml);
+						}else{
 						
-						$("#listHtml").append(listHtml);
-					}else{
-					
-						var listHtml = "";
-						var startTime = "";
-						var endTime = "";
-						var startBreakTime = "";
-						var endBreakTime = "";
-					
-						for(var i in response.list){
-							
-							startTime = response.list[i].mnrtTimeStart;
-							endTime = response.list[i].mnrtTimeEnd;
-							startBreakTime = response.list[i].mnrtBreakTimeStart;
-							endBreakTime = response.list[i].mnrtBreakTimeEnd;
-							
-							
-						 	listHtml += '<div class="strip_list wow fadeIn" data-wow-delay="0.1s">';
-							listHtml += '<div class="ribbon_1">';
-							listHtml += 'Popular';
-							listHtml +=	'</div>';
-							listHtml += '<div class="row">'; 
-							listHtml += '<div class="col-md-9">';
-							listHtml += '<div class="desc">';
-							listHtml += '<div class="thumb_strip">';
-							listHtml += '<img src="' + response.list[i].path + response.list[i].uuidName  + '" alt=""></a>';
-							listHtml += '</div>';
-							listHtml +='<h3>' + nullToEmpty(response.list[i].mnrtName) + '</h3>';
-							listHtml +='<div class="type">';
-							listHtml += nullToEmpty(response.list[i].mncdName);
-							listHtml +='</div>';
-							listHtml +='<div class="location">';
-							listHtml += nullToEmpty(response.list[i].mnrtAddressFull);
-							listHtml += '<br><span class="opening">영업시간:' + startTime + '~' + endTime;
-							listHtml += '</span><br>브레이크타임:' + startBreakTime + '~' + endBreakTime;
-							listHtml +='</div>';
-							listHtml +='</div>';
-							listHtml +='</div>';
-							listHtml +='<div class="col-md-3">';
-							listHtml +='<div class="go_to">';
-							listHtml +='<div>';
-							listHtml +='<a class="btn_1"  href="/user/storeDetail?mnrtSeq=' + nullToEmpty(response.list[i].mnrtSeq) + '">바로가기</a>'; 
-							listHtml +='</div>';
-							listHtml +='</div>'; 
-							listHtml +='</div>'; 
-							listHtml +='</div>'; 
-							listHtml +='</div>'; 
-							
-							
-							/* 마커생성 S */ 
-							var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
-							var marker = new kakao.maps.Marker({ position: markerPosition });
-							markerArr[i] = marker;
-							marker.setMap(null);   
-							marker.setMap(map);
-							/* 마커생성 E*/
-							
-							// 커스텀 오버레이에 표시할 컨텐츠 입니다
-							// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
-							// 별도의 이벤트 메소드를 제공하지 않습니다 
-							var content = '<div class="wrap">' + 
-							            '    <div class="info">' + 
-							            '        <div class="title">' + 
-							                        response.list[i].mnrtName  + 
-							            '            <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
-							            '        </div>' + 
-							            '        <div class="body">' + 
-							            '            <div class="img">' +
-							            '                <img src="' + response.list[i].path + response.list[i].uuidName  + '" width="73" height="70">' +
-							            '           </div>' + 
-							            '            <div class="desc">' + 
-							            '                <div class="ellipsis">' + response.list[i].mnrtAddressFull + '</div>' + 
-							            '                <div><a href="/user/storeDetail?mnrtSeq=' +response.list[i].mnrtSeq + '" target="_blank" class="link">상세정보</a></div>' + 
-							            '                <div><a href="https://map.kakao.com/link/to/' 
-															+ response.list[i].mnrtAddressFull + ',' + response.list[i].mnrtX + ',' +  response.list[i].mnrtY + '"' 
-															+  'class="link" target="_blank">길찾기</a></div>' + 
-							            '            </div>' + 
-							            '        </div>' + 
-							            '    </div>' +    
-							            '</div>';
-							            
-					         // 마커 위에 커스텀오버레이를 표시합니다
-					        	// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-					        	var overlay = new kakao.maps.CustomOverlay({
-					        	    content: content,
-					        	    map: map,
-					        	    position: marker.getPosition()       
-					        	});
-					         	overlayArr[i] = overlay;
-					        	
-					      		// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-					        	kakao.maps.event.addListener(marker, 'click',  makeOverListener(i));
-							}
-						$("#listHtml").append(listHtml);
-					}
-					
-				}	
-			},
-			error:function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
+							var listHtml = "";
+							var startTime = "";
+							var endTime = "";
+							var startBreakTime = "";
+							var endBreakTime = "";
+						
+							for(var i in response.list){
+								
+								startTime = response.list[i].mnrtTimeStart;
+								endTime = response.list[i].mnrtTimeEnd;
+								startBreakTime = response.list[i].mnrtBreakTimeStart;
+								endBreakTime = response.list[i].mnrtBreakTimeEnd;
+								
+								
+							 	listHtml += '<div class="strip_list wow fadeIn" data-wow-delay="0.1s">';
+								listHtml += '<div class="ribbon_1">';
+								listHtml += 'Popular';
+								listHtml +=	'</div>';
+								listHtml += '<div class="row">'; 
+								listHtml += '<div class="col-md-9">';
+								listHtml += '<div class="desc">';
+								listHtml += '<div class="thumb_strip">';
+								listHtml += '<img src="' + response.list[i].path + response.list[i].uuidName  + '" alt=""></a>';
+								listHtml += '</div>';
+								listHtml +='<h3>' + nullToEmpty(response.list[i].mnrtName) + '</h3>';
+								listHtml +='<div class="type">';
+								listHtml += nullToEmpty(response.list[i].mncdName);
+								listHtml +='</div>';
+								listHtml +='<div class="location">';
+								listHtml += nullToEmpty(response.list[i].mnrtAddressFull);
+								listHtml += '<br><span class="opening">영업시간:' + startTime + '~' + endTime;
+								listHtml += '</span><br>브레이크타임:' + startBreakTime + '~' + endBreakTime;
+								listHtml +='</div>';
+								listHtml +='</div>';
+								listHtml +='</div>';
+								listHtml +='<div class="col-md-3">';
+								listHtml +='<div class="go_to">';
+								listHtml +='<div>';
+								listHtml +='<a class="btn_1"  href="/user/storeDetail?mnrtSeq=' + nullToEmpty(response.list[i].mnrtSeq) + '">바로가기</a>'; 
+								listHtml +='</div>';
+								listHtml +='</div>'; 
+								listHtml +='</div>'; 
+								listHtml +='</div>'; 
+								listHtml +='</div>'; 
+								
+								
+								/* 마커생성 S */ 
+								var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
+								var marker = new kakao.maps.Marker({ position: markerPosition });
+								markerArr[i] = marker;
+								marker.setMap(null);   
+								marker.setMap(map);
+								/* 마커생성 E*/
+								
+								// 커스텀 오버레이에 표시할 컨텐츠 입니다
+								// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
+								// 별도의 이벤트 메소드를 제공하지 않습니다 
+								var content = '<div class="wrap">' + 
+								            '    <div class="info">' + 
+								            '        <div class="title">' + 
+								                        response.list[i].mnrtName  + 
+								            '            <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
+								            '        </div>' + 
+								            '        <div class="body">' + 
+								            '            <div class="img">' +
+								            '                <img src="' + response.list[i].path + response.list[i].uuidName  + '" width="73" height="70">' +
+								            '           </div>' + 
+								            '            <div class="desc">' + 
+								            '                <div class="ellipsis">' + response.list[i].mnrtAddressFull + '</div>' + 
+								            '                <div><a href="/user/storeDetail?mnrtSeq=' +response.list[i].mnrtSeq + '" target="_blank" class="link">상세정보</a></div>' + 
+								            '                <div><a href="https://map.kakao.com/link/to/' 
+																+ response.list[i].mnrtAddressFull + ',' + response.list[i].mnrtX + ',' +  response.list[i].mnrtY + '"' 
+																+  'class="link" target="_blank">길찾기</a></div>' + 
+								            '            </div>' + 
+								            '        </div>' + 
+								            '    </div>' +    
+								            '</div>';
+								            
+						         // 마커 위에 커스텀오버레이를 표시합니다
+						        	// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+						        	var overlay = new kakao.maps.CustomOverlay({
+						        	    content: content,
+						        	    map: map,
+						        	    position: marker.getPosition()       
+						        	});
+						         	overlayArr[i] = overlay;
+						        	
+						      		// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+						        	kakao.maps.event.addListener(marker, 'click',  makeOverListener(i));
+								}
+							$("#listHtml").empty();
+							$("#listHtml").append(listHtml);
+						}
+						
+					}	
+				},
+				error:function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
 		});
 	// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
 	function closeOverlay(number) {

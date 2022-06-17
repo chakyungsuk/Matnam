@@ -19,7 +19,7 @@ public class StoreDao {
 	
 	
 	// 음식점 리스트 출력
-	public List<Store> selectListStore(){return sqlSession.selectList(namespace + ".selectListStore");}
+	public List<Store> selectListStore(StoreVo vo){return sqlSession.selectList(namespace + ".selectListStore" , vo);}
 	
 	// 음식점 상세정보 출력
 	public Store selectOneStore(StoreVo vo) {return sqlSession.selectOne(namespace +  ".selectOneStore", vo);}

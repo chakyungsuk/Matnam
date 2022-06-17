@@ -126,7 +126,6 @@ public class StoreController {
 	public Map<String , Object> storeReviewInstTest( Store dto , StoreVo vo) throws Exception {
 		Map<String , Object> rtReturn = new HashMap<String , Object>();
 		
-		System.out.println("dto.getMnrvScore()" + dto.getMnrvScore());
 		
 		service.insertReview(dto);
 		
@@ -143,10 +142,9 @@ public class StoreController {
 	public Map<String , Object> storeSearch(Model model,  Store dto , StoreVo vo) throws Exception {
 		Map<String , Object> rtReturn = new HashMap<String , Object>();
 		
+		System.out.println("vo.getNeLat()" + vo.getNeLat());
 		
-		
-		System.out.println("컨트롤러 통과");
-		List<Store> list = service.selectListStore();
+		List<Store> list = service.selectListStore(vo);
 		model.addAttribute("list" , list);
 		
 		rtReturn.put("list",list);

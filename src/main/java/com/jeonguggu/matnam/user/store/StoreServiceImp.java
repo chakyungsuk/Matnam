@@ -11,9 +11,11 @@ public class StoreServiceImp implements StoreService {
 	@Autowired
 	StoreDao dao;
 
+
+	
 	@Override
-	public List<Store> selectListStore() throws Exception {
-		return dao.selectListStore();
+	public List<Store> selectListStore(StoreVo vo) throws Exception {
+		return dao.selectListStore(vo);
 	}
 
 	@Override
@@ -43,7 +45,7 @@ public class StoreServiceImp implements StoreService {
 	
 
 
-	////////////////////등록
+	////////////////////�벑濡�
 	
 	
 
@@ -56,7 +58,7 @@ public class StoreServiceImp implements StoreService {
 	}
 	
 	
-	///////////////////업데이트
+	///////////////////�뾽�뜲�씠�듃
 	
 	@Override
 	public int updateReview(Store Dto) throws Exception {
@@ -65,7 +67,7 @@ public class StoreServiceImp implements StoreService {
 
 	
 
-	/////////////////삭제
+	/////////////////�궘�젣
 	
 
 	@Override
