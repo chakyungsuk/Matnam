@@ -129,7 +129,7 @@
 		</div>
 	<!-- 	지도영역 -->
 			
-<form id="form" name="form" method="get" action="/user/storeView">
+<form id="form" name="form" method="get" onsubmit="return false;" action="/user/storeView">
 <div class="container margin_60_35">
 	<div class="row">
 		
@@ -145,7 +145,7 @@
 					<div class="filter_type">
 						<h6>주소</h6>
 						<div class="mb-3">
-  						<input type="text" class="form-control" id="formGroupExampleInput" placeholder="주소나 키워드를 입력해주세요.">
+  						<input type="text" class="form-control" id="formGroupExampleInput" placeholder="주소나 키워드를 입력해주세요." onkeyup="enterkey()">
 						</div>
                     	<h6>카테고리</h6>
                         <ul>
@@ -236,6 +236,12 @@
 <script src="${pageContext.request.contextPath}/resources/user/js/ion.rangeSlider.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=services"></script>
 <script>
+	function enterkey() {
+		if (window.event.keyCode == 13) {
+			searchMap(); 
+			checkMarker();
+	    }
+	}
 	
 	var number = null;
 	var markerArr = new Array();
@@ -335,7 +341,7 @@
 							listHtml += '<div class="col-md-9">';
 							listHtml += '<div class="desc">';
 							listHtml += '<div class="thumb_strip">';
-							listHtml += '<a href="detail_page.html"><img src="' + response.list[i].path + response.list[i].uuidName  + '" alt=""></a>';
+							listHtml += '<img src="' + response.list[i].path + response.list[i].uuidName  + '" alt=""></a>';
 							listHtml += '</div>';
 							listHtml +='<h3>' + nullToEmpty(response.list[i].mnrtName) + '</h3>';
 							listHtml +='<div class="type">';
