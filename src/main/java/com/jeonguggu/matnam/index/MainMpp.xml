@@ -53,4 +53,18 @@
 	</select>
     <!-- 메인 친구소개 -->
     
+    <!-- 음식추천 쿼리 임시저장 -->
+    <!-- 	select distinct 
+			a.mnrtName
+		    ,b.mncdName
+		    ,a.mnrtAddressFull
+		    ,a.mnrtTimeStart
+		    ,c.uuidName
+		    ,c.path
+	from matnam.matnamRestaurant a
+	left join matnam.matnamCode b on b.mncdSeq = 123
+	left join matnam.matnamUploaded c on c.pseq = a.mnrtSeq and defaultNy = 1
+	order by rand() limit 6; -->
+    <!-- 음식추천 쿼리 임시저장 -->
+    
 </mapper>
