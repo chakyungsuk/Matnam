@@ -376,6 +376,7 @@
 			b.mnrvSeq
 			,b.mnrvScore
 			,b.mnrvText
+			,b.regDateTime
 			,c.mnrtName
 		FROM
 			matnamReview b

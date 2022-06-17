@@ -145,7 +145,7 @@
 	    <div class="row justify-content-center">
 	        <div class="col-6"> 
 	            <div class="box_style_2" id="order_process">
-	                <h2 class="inner" style="text-align: center;">리뷰 관리</h2>
+	                <h2 class="inner" style="text-align: center; margin-bottom:5px !important;">리뷰 관리</h2>
 		            <div class="tab-pane" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
 		                <c:choose>
 							<c:when test="${fn:length(list) eq 0}">
@@ -153,7 +153,7 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach items="${list}" var="item" varStatus="status">	
-									<div class="border-bottom border-bottom-dashed mb-4 pb-4">
+									<div class="border-bottom border-bottom-dashed mb-4 pb-4" style="padding-bottom:15px !important; margin-bottom:5px !important;">
 	                                    <a href="#">
 	                                        <h5 style="display:inline-block;"><c:out value="${item.mnrtName}"/></h5>
 	                                    </a>
@@ -161,8 +161,10 @@
 											★★★★★
 											<span style="width:${item.mnrvScore}0%;">★★★★★</span>
 										</span>
-										<button type="button" class="btn btn-danger btn-sm float-end mt-3" onclick="javascript:setForm(${item.mnrvSeq});" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</button><br>
+										<button type="button" class="btn btn-danger btn-sm float-end mt-3" onclick="javascript:setForm(${item.mnrvSeq});" data-bs-toggle="modal" data-bs-target="#deleteModal" style="margin-top:40px !important;">삭제</button><br>
 										<span class="myText mx-3"><c:out value="${item.mnrvText}" /></span>
+										<br>
+										<a style="color:gray; font-size:13px;">작성일 : <c:out value="${item.regDateTime}" /></a>
 	                                </div>
 								</c:forEach>
 							</c:otherwise>
