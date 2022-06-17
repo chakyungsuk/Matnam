@@ -881,7 +881,14 @@
              <c:forEach items="${list}" var="rt" varStatus="status">
 	            <div class="col-md-3">
 	                <a class="box_work" href="submit_restaurant.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
-	                    <img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+	                <c:choose>
+	                	<c:when test="${empty rt.path}">
+		                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
+	                	</c:when>
+	                	<c:otherwise>
+	                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+	                	</c:otherwise>
+	                </c:choose>
 						<h3><c:out value="${rt.mnMmName}"/><span><c:out value="${rt.mnmaAddress1}"/></span></h3>
 	                    <p><c:out value="${rt.mnMmIntroduce}"/></p>
 	                    <div class="btn_1">친구요청</div>
