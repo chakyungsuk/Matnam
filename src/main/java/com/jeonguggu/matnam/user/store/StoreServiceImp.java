@@ -43,11 +43,17 @@ public class StoreServiceImp implements StoreService {
 		return dao.selectAvg(vo);
 	}
 	
+	
+	@Override
+	public int selectStoreCount(StoreVo vo) throws Exception {
+		return dao.selectStoreCount(vo);
+	}
 
 
 	////////////////////�벑濡�
 	
 	
+
 
 	@Override
 	public int insertReview(Store dto) throws Exception {

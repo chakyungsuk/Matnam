@@ -144,10 +144,13 @@ public class StoreController {
 		
 		System.out.println("vo.getNeLat()" + vo.getNeLat());
 		
+		int sum = service.selectStoreCount(vo);
+		
 		List<Store> list = service.selectListStore(vo);
 		model.addAttribute("list" , list);
 		
 		rtReturn.put("list",list);
+		rtReturn.put("sum",sum);
 		rtReturn.put("rt","success");
 		
 		

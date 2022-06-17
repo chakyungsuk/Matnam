@@ -30,6 +30,9 @@ public class StoreDao {
 	// 리뷰 카운터
 	public int selectCountReview(StoreVo vo) {return sqlSession.selectOne(namespace +  ".selectCountReview", vo);}
 	
+	//음식점 리스트 카운터
+	public int selectStoreCount(StoreVo vo) {return sqlSession.selectOne(namespace + ".selectStoreCount", vo);}
+	
 	
 	//리뷰 상세정보
 	public Store selectOneReview(StoreVo vo) {return sqlSession.selectOne(namespace + ".selectOneReview" ,vo);} 

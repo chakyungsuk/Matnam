@@ -23,6 +23,8 @@ public interface StoreService {
 	
 	public int selectAvg(StoreVo vo) throws Exception;
 	
+	public int selectStoreCount(StoreVo vo) throws Exception;
+	
 	
 	
 	/////////////// �벑濡�

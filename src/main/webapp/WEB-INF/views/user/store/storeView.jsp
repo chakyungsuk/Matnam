@@ -335,12 +335,14 @@
 					
 					if(response.rt == "success"){
 						
-						if(response.list == null ){
+						if(response.sum == 0 ){
 							var listHtml = "";
 							
 							listHtml += '<div>검색된 음식점이없습니다!!!</div>'
 							
+							$("#listHtml").empty();
 							$("#listHtml").append(listHtml);
+							
 						}else{
 						
 							var listHtml = "";

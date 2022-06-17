@@ -110,6 +110,19 @@
 	
 	</select>
 	
+	<select id="selectStoreCount" resultType="Integer">
+		SELECT 
+			count(*)
+		from matnam.matnamRestaurant 
+		where 1=1
+		<if test="swLng != '' and neLng != '' ">
+	  		AND mnrtY BETWEEN #{swLng} AND #{neLng}
+        </if>
+         <if test="swLat != '' and swLat != '' ">
+           	AND mnrtX BETWEEN #{swLat} AND #{neLat};
+         </if>
+	</select>
+	
 	
 	<!-- 등록  -->
 	<insert id="insertReview">
