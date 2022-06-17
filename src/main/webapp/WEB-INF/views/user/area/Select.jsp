@@ -43,10 +43,14 @@
 		#filters_col {
 			border:1px solid #BDBDBD;
 		}
+		
+		#subheader {
+			background: rgba(0,0,0,.5) !important;
+		}
     </style>
 	<!-- top -->
 	<!-- SubHeader =============================================== -->
-	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/buddySub.jpg" data-natural-width="1400" data-natural-height="350">
+	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/mmm.jpg" data-natural-width="1400" data-natural-height="800">
 	    <div id="subheader">
 	        <div id="sub_content">
 	            <h1>친구와 함께하는 맛있는 한끼</h1>

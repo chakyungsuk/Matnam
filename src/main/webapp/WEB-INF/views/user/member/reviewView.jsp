@@ -108,6 +108,10 @@
 			width: 90%;
 			height: 20px;
 		}
+		
+		#subheader {
+			background: rgba(0,0,0,.5) !important;
+		}
     </style> 
 </head>
 
@@ -117,7 +121,7 @@
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/profileSub.jpg" data-natural-width="1400" data-natural-height="550">
+    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/revieww.jpg" data-natural-width="1000" data-natural-height="300">
         <div id="subheader">
             <div id="sub_content">
                 <h1>맛있는 한 끼를 위한 여정입니다</h1>

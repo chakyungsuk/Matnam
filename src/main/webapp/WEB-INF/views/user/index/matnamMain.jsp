@@ -149,8 +149,8 @@
                         </span>
                     </div>
                     <div style="padding-top:80px">
-                       <button type="button" class="btn btn-outline-light">지도검색</button>
-                       <button type="button" class="btn btn-outline-light">친구매칭</button>
+                       <button type="button" class="btn btn-outline-light" onclick="location.href='/user/storeView'">지도검색</button>
+                       <button type="button" class="btn btn-outline-light" onclick="location.href='javascript:goAreaSelect(${sessSeq})'">친구매칭</button>
                     </div>
                 </div>
             </form>
