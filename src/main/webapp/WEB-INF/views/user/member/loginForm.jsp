@@ -122,7 +122,7 @@
 							</label>
 						</div>
 						<div style="text-align: center; padding:10px; "> 
-		                	<button type="button" class="btn_1" id="btnLogin" style="width:200px;">로그인</button>
+		                	<button type="submit" class="btn_1" id="btnLogin" style="width:200px;">로그인</button>
 		                </div>
 		                <div style="text-align: center; padding:10px;">
 		                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
@@ -195,29 +195,7 @@
         });
     });
     
-    $("#btnLogin").on("click",function(){
- 		
- 		if(!checkNull($("#mnMmId"), $("#mnMmId").val(), "아이디를 입력하세요.")) return false;
- 		if(!checkNull($("#mnMmPassword"), $("#mnMmPassword").val(), "비밀번호를 입력하세요.")) return false;
- 		
- 		$.ajax({
-			async: true 
-			,cache: false
-			,type: "post"
-			,url: "/user/loginProc"
-			,data : { "mnMmId" : $("#mnMmId").val(), "mnMmPassword" : $("#mnMmPassword").val()}
-			,success: function(response) {
-				if(response.rt == "success") {
-					location.href = "/index/matnamMain";
-				} else {
-					alert("회원없음");
-				}
-			}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
- 	});
+    
     
     checkNull = function (obj, value, message) {
     	if(value == "" || value == null){
@@ -256,6 +234,7 @@
 			,type: "post"
 			,url: "/user/loginProc"
 			,data : { "mnMmId" : "admin1", "mnMmPassword" : "admin1"}
+ 			,dataType: "json"
 			,success: function(response) {
 				if(response.rt == "success") {
 					location.href = "/index/matnamMain";
@@ -268,6 +247,34 @@
 			}
 		});
  	});
+	
+	$(document).ready(function () {
+		$("#loginForm").on("submit",function(e){
+			
+	 		if(!checkNull($("#mnMmId"), $("#mnMmId").val(), "아이디를 입력하세요.")) return false;
+	 		if(!checkNull($("#mnMmPassword"), $("#mnMmPassword").val(), "비밀번호를 입력하세요.")) return false;
+	 		
+	 		e.preventDefault();
+	 		
+	 		$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/user/loginProc"
+				,data : { "mnMmId" : $("#mnMmId").val(), "mnMmPassword" : $("#mnMmPassword").val()}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/index/matnamMain";
+					} else {
+						alert("회원없음");
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+	 	});
+    });
 </script>
 </body>
 </html>
