@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
+<fmt:formatDate value="${item.regDateTime }" pattern="yyyy-MM-dd HH:mm:ss"/>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -15,7 +21,7 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-	<title>Matnam Restaurant</title>
+	<title>Matnam Event</title>
 
 	<link href="/resources/admin/css/app.css" rel="stylesheet">
 	<link href="/resources/user/css/style.css" rel="stylesheet">
@@ -26,11 +32,17 @@
 		.card-header{
 			padding: 15px 0px 0px 15px;
 			background-color:white;
-			border-bottom:none;
+			border-bottom:none;			
 		}
 		
 		a:link {
 			text-decoration : none;
+		}
+		
+		table {
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  white-space: nowrap;
 		}
 	</style>
 	
@@ -50,145 +62,122 @@
 			<!-- header -->
 			<%@include file="../include/top.jsp" %>
 			<!-- header -->
-			<main class="content">	
-				<h1 class="h3 mb-3" style="text-align:center;">음식점 관리</h1>	
-				<div class="row">
-						<div class="col-12 col-md-3 col-xxl-3 d-flex" style="height:350px;">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
-									<h5 class="card-title mb-0">검색 구분</h5>
-								</div>
-								<div class="card-body d-flex">
-									<div class="align-self-center w-100">
-										<div class="col-12" style="margin-bottom:10px;">
-										    <input type="text" class="form-control" placeholder="검색" aria-label="Username" aria-describedby="basic-addon1">
-										</div>
-										<div class="col-12" style="margin-bottom:10px;">
-										    <input type="text" class="form-control" placeholder="검색" aria-label="Username" aria-describedby="basic-addon1">
-										</div>
-										<div class="col-12" style="margin-bottom:20px;">
-										    <input type="text" class="form-control" placeholder="검색" aria-label="Username" aria-describedby="basic-addon1">
-										</div>
-										<div class="col-12" style="text-align:right;">
-											<button class="btn btn-primary"><i class="align-middle" data-feather="search"></i></button>
-											<button class="btn btn-danger"><i class="align-middle" data-feather="refresh-cw"></i></button>
-										</div>			
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-md-9 col-xxl-9 d-flex">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
-									<h5 class="card-title mb-0">지도</h5>
-								</div>
-								<div class="card-body px-4">
-									<img src="/resources/admin/img/photos/map2.jpg" style="height:500px; width:100%">
-								</div>
-							</div>
-						</div>						
-					</div>			
-				<div class="row">
-					<div class="col-12">
-						<div class="card flex-fill">
+			<main class="content">
+				<form id="restaurantList" name="restaurantList" method="post" action="/xmin/restaurantList">
+				<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+				<input type="hidden" name="rowNumToshow" value="<c:out value="${vo.rowNumToShow }"/>">
+				<input type="hidden" id="mnevSeq" name="mnevSeq">
+					<div class="container-fluid p-0">
+						<h1 class="h3 mb-3" style="text-align:center;">음식점 관리</h1>					
+						<div class="card">
 							<div class="card-header">
-								<h5 class="card-title mb-0">음식점 정보</h5>
+								<h5 class="card-title mb-0">검색 구분</h5>
 							</div>
-							<table class="table table-hover my-0" style="text-align:center;">
-								<thead style="border-bottom:none;">
-									<tr>
-										<th class="d-none d-xl-table-cell">no</th>
-										<th>카테고리</th>
-										<th>가게 이름</th>										
-										<th class="d-none d-md-table-cell">주소</th>
-										<th class="d-none d-xl-table-cell">비고</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="d-none d-xl-table-cell">1</td>
-										<td>양식</td>
-										<td>이모네 곱창</td>
-										<td class="d-none d-md-table-cell">경기도 고양시 일산서구 ㅁㄴㅇㅁㄻㄻㄴ</td>
-										<td class="d-none d-xl-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td class="d-none d-xl-table-cell">2</td>
-										<td>양식</td>
-										<td>이모네 곱창</td>
-										<td class="d-none d-md-table-cell">경기도 고양시 일산서구 ㅁㄴㅇㅁㄻㄻㄴ</td>
-										<td class="d-none d-xl-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td class="d-none d-xl-table-cell">3</td>
-										<td>양식</td>
-										<td>이모네 곱창</td>
-										<td class="d-none d-md-table-cell">경기도 고양시 일산서구 ㅁㄴㅇㅁㄻㄻㄴ</td>
-										<td class="d-none d-xl-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td class="d-none d-xl-table-cell">4</td>
-										<td>양식</td>
-										<td>이모네 곱창</td>
-										<td class="d-none d-md-table-cell">경기도 고양시 일산서구 ㅁㄴㅇㅁㄻㄻㄴ</td>
-										<td class="d-none d-xl-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td class="d-none d-xl-table-cell">5</td>
-										<td>양식</td>
-										<td>이모네 곱창</td>
-										<td class="d-none d-md-table-cell">경기도 고양시 일산서구 ㅁㄴㅇㅁㄻㄻㄴ</td>
-										<td class="d-none d-xl-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td class="d-none d-xl-table-cell">6</td>
-										<td>양식</td>
-										<td>이모네 곱창</td>
-										<td class="d-none d-md-table-cell">경기도 고양시 일산서구 ㅁㄴㅇㅁㄻㄻㄴ</td>
-										<td class="d-none d-xl-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td class="d-none d-xl-table-cell">7</td>
-										<td>양식</td>
-										<td>이모네 곱창</td>
-										<td class="d-none d-md-table-cell">경기도 고양시 일산서구 ㅁㄴㅇㅁㄻㄻㄴ</td>
-										<td class="d-none d-xl-table-cell">Vanessa Tucker</td>
-									</tr>
-									<tr>
-										<td class="d-none d-xl-table-cell">8</td>
-										<td>양식</td>
-										<td>이모네 곱창</td>
-										<td class="d-none d-md-table-cell">경기도 고양시 일산서구 ㅁㄴㅇㅁㄻㄻㄴ</td>
-										<td class="d-none d-xl-table-cell">Vanessa Tucker</td>
-									</tr>
-								</tbody>
-							</table>
-							<div style="padding: 25px 25px 0px 0px; text-align:right;">
-								<!-- Button trigger modal -->
-								<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="location.href='/xmin/restaurantForm';">
-									<i data-feather="plus"></i>등록
-								</button>
+							<div class="row" style="padding: 10px 10px 10px 10px;">
+	 							<div class="col-6 col-md-3">							
+								    <select class="form-select" aria-label="Default select example" name="shSelected" id="shSelected">
+										<option value="">구분</option>
+										<option value="1" <c:if test="${vo.shSelected eq 1 }">selected</c:if>>이름
+										<option value="2" <c:if test="${vo.shSelected eq 2 }">selected</c:if>>주소
+									</select>								
+								</div>
+								<div class="col-6 col-md-3">
+								   <input type="text" class="form-control" name="shValue" id="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색">
+								</div>
+								<div class="col-6 col-md-3">
+									<button type="submit" class="btn btn-primary"><i class="align-middle" data-feather="search"></i></button>
+									<button type="reset" class="btn btn-danger"><i class="align-middle" data-feather="refresh-cw"></i></button>
+								</div>
+							</div>				
+						</div>			
+					</div>	
+				</form>
+				
+				<form id="" name="" method="post">
+					<div class="row">
+						<div class="col-12">
+							<div class="card flex-fill">
+								<table class="table table-hover my-0" style="text-align:center;">
+									<thead style="border-bottom:none;">
+										<tr>
+											<th class="d-none d-xl-table-cell">no</th>
+											<th>카테고리</th>
+											<th>가게 이름</th>										
+											<th class="d-none d-md-table-cell">주소</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:choose>
+											<c:when test="${fn:length(list) eq 0}">
+												<tr>
+													<td class="text-center" colspan="9">등록된 음식점이 없습니다.</td>
+												</tr>
+											</c:when>
+											<c:otherwise>
+												<c:forEach items="${list}" var="item" varStatus="status">
+													<tr>
+														<th style="width:10%;"><c:out value="${item.mnrtSeq}" /></th>
+														<td style="width:20%;"><c:out value="${item.mncdName}" /></td>
+														<td style="width:20%;"><c:out value="${item.mnrtName}" /></td>
+														<td style="width:25%;"><c:out value="${item.mnrtAddressFull}" /></a></td>
+													</tr>
+												</c:forEach>
+											</c:otherwise>
+										</c:choose>									
+									</tbody>
+								</table>
+								<div style="padding: 25px 25px 0px 0px; text-align:right;">
+									<!-- Button trigger modal -->
+									<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="location.href='/xmin/restaurantForm';">
+										<i data-feather="plus"></i>추가
+									</button>
+								</div>	
+								<nav aria-label="Page navigation example" style="margin-top:20px;">
+									<ul class="pagination" style="justify-content: center;">
+									    <c:if test="${vo.startPage gt vo.pageNumToShow}">
+											<li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.startPage - 1}'/>);">Previous</a></li>
+										</c:if>
+										<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+											<c:choose>
+												<c:when test="${i.index eq vo.thisPage}">
+										        	<li class="page-item active"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+												</c:when>
+												<c:otherwise>             
+										        	<li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${i.index}'/>);">${i.index}</a></li>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>     
+										<c:if test="${vo.endPage ne vo.totalPages}">                
+										        <li class="page-item"><a class="page-link" href="javascript:goList(<c:out value='${vo.endPage + 1}'/>);">Next</a></li>
+										</c:if>   
+									</ul>
+								</nav>
 							</div>
-							<nav aria-label="Page navigation example" style="margin-top:20px;">
-								<ul class="pagination" style="justify-content: center;">
-									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a></li>
-								</ul>
-							</nav>
 						</div>
 					</div>
-				</div>
+				</form>			
 			</main>
 			<%@ include file="/WEB-INF/views/xmin/include/footer.jsp"%>
 		</div>
 	</div>
-
+	
+	
 	<script src="/resources/admin/js/app.js"></script>
 	<script src="/resources/admin/js/app2.js"></script>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		goList = function(seq) {
+			$("#thisPage").val(seq);
+			$("#restaurantList").submit();
+		};
+		
+		goForm = function(seq) {
+			$("#mnrtSeq").val(seq);
+			$("#restaurantList").attr("action","/xmin/restaurantView");
+			$("#restaurantList").submit();
+		};
+	</script>
 </body>
+
 
 </html>

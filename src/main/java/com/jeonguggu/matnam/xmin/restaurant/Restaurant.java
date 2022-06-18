@@ -40,6 +40,9 @@ public class Restaurant {
 	private Integer delNy;
 	private String pseq;
 	private String path;
+	
+//	code
+	private String mncdName;
 
 //	------------------------------------
 	
@@ -229,5 +232,12 @@ public class Restaurant {
 	public void setMnrtBreakTimeEnd(String mnrtBreakTimeEnd) {
 		this.mnrtBreakTimeEnd = mnrtBreakTimeEnd;
 	}
+	public String getMncdName() {
+		return mncdName;
+	}
+	public void setMncdName(String mncdName) {
+		this.mncdName = mncdName;
+	}
+	
 	
 }

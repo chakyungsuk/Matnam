@@ -8,7 +8,36 @@
 
     <resultMap id="resultMapObj" type="com.jeonguggu.matnam.xmin.restaurant.Restaurant"></resultMap>
     
-    
+    <select id="selectOneCount" resultType="Integer">
+		SELECT
+			count(*)
+		FROM 
+			matnamRestaurant
+		WHERE 1=1
+			<choose>
+				<when test="shSelected == 1">AND mnrtName LIKE concat('%',#{shValue},'%')</when>
+				<when test="shSelected == 2">AND mnrtAddressFull LIKE concat('%',#{shValue},'%')</when>
+			</choose>
+			limit #{startRnumForMysql}, #{rowNumToShow}
+	</select>	
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			a.mnrtSeq
+			, a.mnrtName
+			, a.mnrtAddressFull
+			, b.mncdName
+		FROM
+			matnamRestaurant a
+			LEFT JOIN matnamCode b ON b.mncdSeq = a.mnrtFoodCateCd
+		WHERE 1=1
+			<choose>
+				<when test="shSelected == 1">AND a.mnrtName LIKE concat('%',#{shValue},'%')</when>
+				<when test="shSelected == 2">AND a.mnrtAddressFull LIKE concat('%',#{shValue},'%')</when>
+			</choose>
+		ORDER BY a.mnrtSeq DESC
+			limit #{startRnumForMysql}, #{rowNumToShow}
+	</select>
     
     <insert id="insert">
     

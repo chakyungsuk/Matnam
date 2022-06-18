@@ -1,5 +1,7 @@
 package com.jeonguggu.matnam.xmin.restaurant;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,6 +13,19 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Autowired
 	RestaurantDao dao;
+	
+
+	@Override
+	public int selectOneCount(RestaurantVo vo) throws Exception {
+		return dao.selectOneCount(vo);
+	}
+
+
+
+	@Override
+	public List<Restaurant> selectList(RestaurantVo vo) throws Exception {
+		return dao.selectList(vo);
+	}
 	
 	@Override
 	public int insert(Restaurant dto) throws Exception {
@@ -50,6 +65,9 @@ public class RestaurantServiceImpl implements RestaurantService {
 		
 		return 1;
 	}
+
+
+
 	
 
 }
