@@ -62,6 +62,7 @@
 			mnChat_Num
 			, mnMmSeq
 			, mnfdFriendSeq
+			, mnMmName
 		FROM
 			matnamChattingroom
 		WHERE 1=1
@@ -75,10 +76,12 @@
 		INSERT INTO matnamChattingroom (
 			mnMmSeq
 			,mnfdFriendSeq
+			,mnMmName
 		) VALUES (
 			#{mnMmSeq}
 			,#{mnfdFriendSeq}
-		)
+			,#{mnMmName}
+		) 
 		<selectKey resultType="String" keyProperty="mnChat_Num" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>

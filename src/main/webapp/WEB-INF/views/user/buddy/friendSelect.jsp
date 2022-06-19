@@ -113,7 +113,6 @@
 		<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq">
 		<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
 		<input type="hidden" id="fdmnMmName" name="fdmnMmName">
-		<input type="hidden" id="mcfmSeq" name="mcfmSeq">
 	</form>
  
 	<div class="container margin_60_35">

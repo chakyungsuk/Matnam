@@ -232,6 +232,22 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		
+		<!-- WebSocket Start-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>5.2.2.RELEASE</version>
+		</dependency>
+		  
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-api</artifactId>
+			<version>1.1</version>
+		</dependency>  
+		<!-- WebSocket End-->
+
+		
+		
 	</dependencies>
     <build>
         <plugins>

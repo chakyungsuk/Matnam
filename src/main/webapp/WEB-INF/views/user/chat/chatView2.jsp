@@ -89,7 +89,7 @@
   }
 }
 #frame #sidepanel #profile.expanded .wrap {
-  height: 210px;
+  height: 180px;
   line-height: initial;
 }
 #frame #sidepanel #profile.expanded .wrap p {
@@ -718,7 +718,7 @@ ul, li.replies img {
 </style></head>
 <body>
  
-<form id="chatView" name="chatView" method="post" action="/chat/chatView2">
+<form id="chatView" name="chatView" method="get" action="/chat/chatView2">
 	<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
 	<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
 	<input type="hidden" id="fdmnMmName" name="fdmnMmName">
@@ -750,26 +750,32 @@ ul, li.replies img {
 				</div>
 			</div> 
 		</div>
-		<%-- <div id="search">
-			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-			<input type="text" placeholder="Search contacts..." />
+		<div class="container" style="text-align: center;">
+			<span>기존 대화방</span>
 		</div>
 		<div id="contacts">
-			<c:forEach items="${list}" var="item" varStatus="status">	
-				<ul style="margin: 0px;">
-					<li class="contact" style="padding: 0px; margin-bottom: 0px;" onclick="ajax(<c:out value="${item.mnMmSeq}"/>);">
-						<div class="wrap">
-							<span class="contact-status online"></span>
-							<img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
-							<div class="meta">
-								<p class="name"><c:out value="${item.mnMmName}"/></p>
-								<p class="preview"><c:out value="${item.mnMmIntroduce}"/></p>
-							</div>
+			<ul style="margin: 0px;">
+				<%-- <li class="contact" style="padding: 0px; margin-bottom: 0px;" onclick="fdcheck(<c:out value="${item.mnMmSeq}"/>);"> --%>
+					<div class="wrap">
+						<div class="meta" id="fdbodyContent">
+						<%-- <ul style="margin: 0px;">
+							<a href=""><li class="contact" style="padding: 0px; margin-bottom: 0px;">
+								<div class="wrap">
+									<span class="contact-status online"></span>
+									<img src="http://emilcarlsson.se/assets/louislitt.png" alt="">
+									<div class="meta">
+										<p class="name"><c:out value="${vo.fdmnMmName}"/></p>
+									</div>
+								</div>
+							</li></a>
+						</ul> --%>
+							<%-- <p class="name"><c:out value="${item.mnMmName}"/></p>
+							<p class="preview"><c:out value="${item.mnMmIntroduce}"/></p> --%>
 						</div>
-					</li>
-				</ul>
-			</c:forEach>
-		</div> --%>
+					</div>
+				<!-- </li> -->
+			</ul>
+		</div>
 		<div id="bottom-bar">
 			<a  href="javascript:goMain(${sessSeq})"><button id="addcontact"> <span>메인화면</span></button></a>
 			<a  href="#" id="btnLogout" onclick="btnLogout();"><button id="settings"> <span>로그아웃</span></button></a>
@@ -779,9 +785,9 @@ ul, li.replies img {
 		<div class="contact-profile">
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 			<p><c:out value="${vo.fdmnMmName}"/></p>
-			<div class="social-media">
-				<span>화상채팅<i class="fa fa-instagram" style="margin-top: 20px;"></i></span>
-			</div>
+			<!-- <div class="social-media">
+				<span>화상채팅<i class="fa fa-instagram" id="btnmeet" style="margin-top: 20px;"></i></span>
+			</div> -->
 		</div> 
 		<div class="messages" >
 			 <ul id="bodyContent">
@@ -846,6 +852,7 @@ $("#status-options ul li").click(function() {
 	$("#status-options").removeClass("active");
 });
  
+	
 </script>
 
 <!-- Enter 로 submit 하기 -->
@@ -895,38 +902,62 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-var myName = String("${sessName}");
 // var yourName = prompt("상대방의 닉네임을 입력해주세요.");
+
+var myName = String("${sessName}");
 var Chatroom = '<c:out value="${room.mnChat_Num}"/>'
+var mnmmseq = '<c:out value="${room.mnMmSeq}"/>'
+var mnfdfriendseq = '<c:out value="${room.mnfdFriendSeq}"/>'
+var youname = '<c:out value="${vo.fdmnMmName}"/>'
 
 submit.addEventListener('click', (e) => {
     var message = document.getElementById('message').value;
-    var name = myName;
+	
+	var host = mnfdfriendseq;
+    var hostname = myName;
+	
 	var room = Chatroom;
+	
+	var user = mnmmseq;
+	var username = youname;
+
 	
     const id = push(child(ref(database), 'messages')).key;
 
     set(ref(database, 'messages/' + id), {
-        name: name,
+		room : room,
+		host : host,
+		user : user,
         message: message,
-		room : room
+        hostname: hostname,
+		username: username
+    });
+	
+    set(ref(database, 'ROOM/' + host + user), {
+		room : room,
+		hostname: hostname,
+		username: username,
+		host : host,
+		user : user
+		
     });
     document.getElementById('message').value = "";
 	})
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
-    	if(data.val().room == Chatroom){
-			if(data.val().name != myName) {
+			if(data.val().hostname != myName && data.val().host == mnfdfriendseq && data.val().user == mnmmseq && data.val().room == Chatroom) {
             	var divData = '<li class="sent" id="sent">\n' + 
-						'<div>' + data.val().name +' </div>\n' + 
+						'<div>' + data.val().hostname +' </div>\n' + 
 						'<p> '+data.val().message+' </p>\n' +
 					'</li>'; 
            	 	var d1 = document.getElementById('bodyContent');
             	d1.insertAdjacentHTML('beforebegin', divData);
 			$('.messages').scrollTop($('.messages')[0].scrollHeight);
-        	}else{
+
+        	}else if (data.val().hostname == myName && data.val().host == mnfdfriendseq && data.val().user == mnmmseq && data.val().room == Chatroom){
+
             	var divData = '<li class="replies" id="replies">\n' +
-						'<div style="float: right;">' + data.val().name +' </div>\n' +
+						'<div style="float: right;">' + data.val().hostname +' </div>\n' +
  						'<br>' +
 						'<p>' +data.val().message+' </p>\n' +
 					'</li>';
@@ -934,11 +965,31 @@ submit.addEventListener('click', (e) => {
             	d1.insertAdjacentHTML('beforebegin', divData);
        	 	}
 			$('.messages').scrollTop($('.messages')[0].scrollHeight);
-		}else{
-			
-			 }
     });
    
+
+
+const roomnumber = ref(database, 'ROOM/');
+    onChildAdded(roomnumber, (data) => {
+    	if(data.val().host == mnfdfriendseq) {
+            var divData = '<ul style="margin: 0px;">' + 
+							'<a href="http://localhost:8093/chat/chatView2?mnMmSeq=' + data.val().user + '&mnfdFriendSeq=' + data.val().host + '&mnMmName=' + data.val().hostname + '&fdmnMmName=' + data.val().username + '">' + 
+							'<li class="contact" style="padding: 0px; margin-bottom: 0px;">' +
+								'<div class="wrap">' +
+									'<span class="contact-status online"></span>' +
+									'<img src="http://emilcarlsson.se/assets/louislitt.png" alt="">' +
+									'<div class="meta">' +
+										'<p class="name">' + data.val().username + '</p>' +
+									'</div>' +
+								'</div>' +
+							'</li>' + '</a>'
+						'</ul>'
+           	 var d1 = document.getElementById('fdbodyContent');
+            d1.insertAdjacentHTML('beforebegin', divData);
+		}else{
+
+		}
+    });
 </script>
 <!-- firebase 채팅 끝 --> 
 
@@ -980,4 +1031,73 @@ submit.addEventListener('click', (e) => {
 		$("#chatView").attr("action","/index/matnamMain");
 		$("#chatView").submit();
 	}
+
 </script>
+
+<!-- <script type="text/javascript">
+	const socket = new WebSocket('ws://localhost:8093/online')
+	let myStream;
+	async function getMedia(){
+	    try {
+	        myStream = await navigator.mediaDevices.getUserMedia({
+	            audio: true,
+	            video: true,
+	        });
+	    } catch (e) {
+	        console.log(e);
+	    }
+	}
+	
+	async function initCall(){
+	    await getMedia();
+	    makeConnection();
+	}
+
+	$("#btnmeet").on("click" , async function(){
+		
+		const offer = await myPeerConnection.createOffer();
+		myPeerConnection.setLocalDescription(offer);
+		console.log(offer);
+		
+		send({type : "offer", roomSeq : '<c:out value="${roomSeq}"/>' , content : offer});
+		
+	});
+	
+	function send(message){
+		socket.send(JSON.stringify(message));
+		
+	}
+	
+	
+	function makeConnection(){
+		myPeerConnection = new RTCPeerConnection({
+			iceServers: [
+				{
+					urls: [
+						"stun:stun.l.google.com:19302",
+	                    "stun:stun1.l.google.com:19302",
+	                    "stun:stun2.l.google.com:19302",
+	                    "stun:stun3.l.google.com:19302",
+					],
+				},
+			],
+		});
+		
+//		myPeerConnection.onicecandidate = handleIce;
+//	myPeerConnection.onaddstream = handleAddstream;
+		
+		
+//		myPeerConnection.addEventListener("icecandidate", handleIce);
+//		myPeerConnection.addEventListener("addstream", handleAddstream);
+//		myStream.getTracks().forEach((track) => myPeerConnection.addTrack(track, myStream)); 
+		
+	}
+	
+	socket.onopen = function (){
+		//initCall();
+	}
+	
+	socket.onmessage = function(event) {
+		console.log(event.data);
+	}
+</script> -->
