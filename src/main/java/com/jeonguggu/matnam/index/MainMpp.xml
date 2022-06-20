@@ -45,26 +45,30 @@
 		from matnam.matnamMember a  
 			left join matnam.matnamMemberAddress b on b.mnMmSeq = a.mnMmSeq 
 			left join matnam.matnamUploaded c on c.typeCd = 145 and defaultNy = 1 and a.mnMmSeq = c.pseq
-		<if test="sessSeq != null">
 		where 1=1
+		<if test="sessSeq != null">
 			and a.mnMmSeq != #{sessSeq}
 		</if>
+			and a.mnMmAdminNy != 1
 		order by rand() limit 4;
 	</select>
     <!-- 메인 친구소개 -->
     
     <!-- 음식추천 쿼리 임시저장 -->
-    <!-- 	select distinct 
-			a.mnrtName
-		    ,b.mncdName
+    <select id="selectRestaurant" resultMap="resultMapObj">
+    	select distinct 
+			a.mnrtSeq
+			,a.mnrtName
+		    ,a.mnrtFoodCateCd
 		    ,a.mnrtAddressFull
 		    ,a.mnrtTimeStart
 		    ,c.uuidName
 		    ,c.path
-	from matnam.matnamRestaurant a
-	left join matnam.matnamCode b on b.mncdSeq = 123
-	left join matnam.matnamUploaded c on c.pseq = a.mnrtSeq and defaultNy = 1
-	order by rand() limit 6; -->
+		from 
+			matnam.matnamRestaurant a
+			left join matnam.matnamUploaded c on c.pseq = a.mnrtSeq and c.defaultNy = 1 and c.typeCd = 149
+		order by rand();
+	</select>
     <!-- 음식추천 쿼리 임시저장 -->
     
 </mapper>

@@ -9,6 +9,7 @@ public interface MainService {
 	public Main selectCountReview() throws Exception;
 	
 	public List<Main> selectFriend(MainVo vo) throws Exception; 
+	public List<Main> selectRestaurant(MainVo vo) throws Exception; 
 	
 	
 	

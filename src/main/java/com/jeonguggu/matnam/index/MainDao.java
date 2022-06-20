@@ -28,4 +28,5 @@ public class MainDao {
 	}
 	
 	public List<Main> selectFriend(MainVo vo){return sqlSession.selectList(namespace + ".selectFriend", vo);}
+	public List<Main> selectRestaurant(MainVo vo){return sqlSession.selectList(namespace + ".selectRestaurant", vo);}
 }

@@ -284,7 +284,7 @@
 					                                <option value="132">야식</option>
 					                                <option value="133">찜,탕</option>
 					                                <option value="134">도시락</option>
-					                                <option value="135">페스트푸드</option>
+					                                <option value="135">패스트푸드</option>
 					                            </select>
 					                        </div>
 			                        	<label for="formGroupExampleInput" class="form-label">휴무일</label>

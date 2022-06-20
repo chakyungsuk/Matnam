@@ -39,6 +39,9 @@ public class MatnamMainController {
 		List<Main> list = service.selectFriend(vo);
 		model.addAttribute("list", list);
 		
+		List<Main> listRestaurant = service.selectRestaurant(vo);
+		model.addAttribute("listRestaurant", listRestaurant);
+		
 		
 //		Main countReview = service.selectList();
 //		model.addAttribute("countReview", countReview);
