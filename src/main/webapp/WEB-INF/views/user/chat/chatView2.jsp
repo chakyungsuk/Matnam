@@ -732,7 +732,7 @@ ul, li.replies img {
 	<div id="sidepanel">
 		<div id="profile">
 			<div class="wrap">
-				<img id="profile-img" src="<c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" class="online" alt="" />
+				<img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" />
 				<p><c:out value="${sessSeq}"/></p>
 				<p><c:out value="${sessName}"/></p>
 				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>

@@ -29,4 +29,5 @@ public class ChatDao {
 	
 // 1:1 채팅
 	public Chat selectOne(ChatVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
+	public Chat selectOneuser(ChatVo vo) {return sqlSession.selectOne(namespace + ".selectOneuser", vo);}
 }

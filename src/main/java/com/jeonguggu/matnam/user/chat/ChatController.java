@@ -46,6 +46,8 @@ public class ChatController {
 		Chat room = service.selectOne(vo);
 		httpSession.setAttribute("roomSeq", room.getMnChat_Num());
 		model.addAttribute("room", room);
+		Chat user = service.selectOneuser(vo);
+		model.addAttribute("user", user);
 		
 		
 		return "/user/chat/chatView2";
