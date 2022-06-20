@@ -9,5 +9,7 @@ public final class Constants {
 	
 //	public static final String UPLOAD_PATH_PREFIX = "C:/factory/ws_sts_4130/Matnam/src/main/webapp/resources/uploaded";
 	public static final String UPLOAD_PATH_PREFIX = "/factory/workspace/matnam/resources/uploaded";
+	
+	public static final String URL_LOGINFORM = "/user/loginForm";
 }
  
