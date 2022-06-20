@@ -44,4 +44,22 @@
 		</websocket:handshake-interceptors>
 	</websocket:handlers> -->
 	<!-- Web socket E -->
+	
+	<!-- session interceptor s 2022.06.20 for user page check -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/profile/**"/>
+			<mapping path="/user/friendSelect"/>
+			<mapping path="/user/userEdit"/>
+			<mapping path="/user/reviewView"/>
+			<!-- <exclude-mapping path="/resources/**" />
+			<exclude-mapping path="/member/loginForm" />
+			<exclude-mapping path="/member/loginProc" />
+			<exclude-mapping path="/test/**" />
+			<exclude-mapping path="/rest/**" /> -->
+			<!-- <exclude-mapping path="/member/findIdPwdForm" /> -->
+			<beans:bean id="checkLoginSessionInterception" class="com.jeonguggu.matnam.common.interceptor.CheckLoginSessionInterception"/>
+		</interceptor>
+	</interceptors>	
+	<!-- session interceptor e 2022.03.31 for user page check -->
 </beans:beans>
