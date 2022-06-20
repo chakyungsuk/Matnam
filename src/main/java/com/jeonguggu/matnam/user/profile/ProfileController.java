@@ -188,7 +188,7 @@ public class ProfileController {
 	public String test() {
 		
 		return "/user/member/test";
-	}
+	} 
 //	
 //	@RequestMapping(value = "/index2")
 //	public String index2() {
