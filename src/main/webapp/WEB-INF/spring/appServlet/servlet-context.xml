@@ -35,13 +35,13 @@
 	<!-- fileUpload e 2022.04.07 --> 
 	
 	<!-- Web socket S  -->
-	<beans:bean id="Handler" class="com.jeonguggu.matnam.user.chat.Handler"/>
+	<!-- <beans:bean id="Handler" class="com.jeonguggu.matnam.user.chat.Handler"/>
 	
 	<websocket:handlers>
 		<websocket:mapping handler="Handler" path="/online"/>
 		<websocket:handshake-interceptors>
 			<beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
 		</websocket:handshake-interceptors>
-	</websocket:handlers>
+	</websocket:handlers> -->
 	<!-- Web socket E -->
 </beans:beans>
