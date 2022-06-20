@@ -27,13 +27,18 @@ public class Chat {
 //	코드
 	private String mncdName = "";
 	 
-//친구 목록
+//  친구 목록
 	private String mnfdFriendSeq = "";
 	private String mnfdSeq = "";
 	private String mcfmSeq = "";
 	
-//채팅방 만들기	
+//  채팅방 만들기	
 	private String mnChat_Num = "";
+	
+// 	프로필사진
+	private String uuidName;
+	private String path;
+	
 //	----------------------------------------
 
 	public String getMnMmSeq() {
@@ -170,5 +175,19 @@ public class Chat {
 	public void setMcfmSeq(String mcfmSeq) {
 		this.mcfmSeq = mcfmSeq;
 	}
+	public String getUuidName() {
+		return uuidName;
+	}
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
+	
 	
 }

@@ -732,7 +732,7 @@ ul, li.replies img {
 	<div id="sidepanel">
 		<div id="profile">
 			<div class="wrap">
-				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
+				<img id="profile-img" src="<c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" class="online" alt="" />
 				<p><c:out value="${sessSeq}"/></p>
 				<p><c:out value="${sessName}"/></p>
 				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
@@ -783,7 +783,7 @@ ul, li.replies img {
 	</div>
 	<div class="content">
 		<div class="contact-profile">
-			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+			<img src="<c:out value="${room.mnfdFriendSeq}"/><c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" alt="" />
 			<p><c:out value="${vo.fdmnMmName}"/></p>
 			<!-- <div class="social-media">
 				<span>화상채팅<i class="fa fa-instagram" id="btnmeet" style="margin-top: 20px;"></i></span>
@@ -975,7 +975,7 @@ submit.addEventListener('click', (e) => {
 									'<li class="contact" style="padding: 0px; margin-bottom: 0px;">' +
 										'<div class="wrap">' +
 											'<span class="contact-status online"></span>' +
-											'<img src="http://emilcarlsson.se/assets/louislitt.png" alt="">' +
+											'<img src="<c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" alt="">' +
 											'<div class="meta">' +
 												'<p class="name">' + data.val().username + '</p>' +
 											'</div>' +

@@ -59,15 +59,17 @@
 	<!-- 채팅 1:1 시작 -->
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
-			mnChat_Num
-			, mnMmSeq
-			, mnfdFriendSeq
-			, mnMmName
+			a.mnChat_Num
+			, a.mnMmSeq
+			, a.mnfdFriendSeq
+			, c.uuidName
+		    , c.path
 		FROM
-			matnamChattingroom
+			matnamChattingroom a
+		LEFT JOIN matnam.matnamUploaded c on c.typeCd = 145 and defaultNy = 1 and a.mnMmSeq = c.pseq
 		WHERE 1=1
-			and mnMmSeq = #{mnMmSeq}
-        	and mnfdFriendSeq = #{mnfdFriendSeq}
+			and a.mnMmSeq = #{mnMmSeq}
+        	and a.mnfdFriendSeq = #{mnfdFriendSeq}
 	</select>
 	<!-- 채팅 1:1 끝 -->
 	

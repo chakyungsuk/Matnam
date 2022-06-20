@@ -17,6 +17,7 @@ public class ChatVo {
 	private String fdmnMmName;
 	private String sessSeq;
 	
+
 //	----------------------------
 
 	public String getMnMmSeq() {
@@ -90,7 +91,7 @@ public class ChatVo {
 	public void setSessSeq(String sessSeq) {
 		this.sessSeq = sessSeq;
 	}
-	
+
 	
 	
 }
