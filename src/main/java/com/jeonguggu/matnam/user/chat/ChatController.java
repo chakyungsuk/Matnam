@@ -48,6 +48,8 @@ public class ChatController {
 		model.addAttribute("room", room);
 		Chat user = service.selectOneuser(vo);
 		model.addAttribute("user", user);
+		Chat host = service.selectOnehost(vo);
+		model.addAttribute("host", host);
 		
 		
 		return "/user/chat/chatView2";

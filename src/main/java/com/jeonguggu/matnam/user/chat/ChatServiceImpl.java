@@ -37,5 +37,10 @@ public class ChatServiceImpl implements ChatService {
 	public Chat selectOneuser(ChatVo vo) throws Exception {
 		return dao.selectOneuser(vo);
 	}
+
+	@Override
+	public Chat selectOnehost(ChatVo vo) throws Exception {
+		return dao.selectOnehost(vo);
+	}
 	
 }

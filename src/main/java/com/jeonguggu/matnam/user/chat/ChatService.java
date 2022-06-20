@@ -15,5 +15,6 @@ public interface ChatService {
 	
 //  1:1 채팅
 	Chat selectOne(ChatVo vo) throws Exception;
+	Chat selectOnehost(ChatVo vo) throws Exception;
 	Chat selectOneuser(ChatVo vo) throws Exception;
 }

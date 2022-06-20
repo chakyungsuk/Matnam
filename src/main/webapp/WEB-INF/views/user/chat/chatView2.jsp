@@ -721,7 +721,7 @@ ul, li.replies img {
 <form id="chatView" name="chatView" method="get" action="/chat/chatView2">
 	<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
 	<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
-	<input type="hidden" id="fdmnMmName" name="fdmnMmName">
+	<input type="hidden" id="fdmnMmName" name="fdmnMmName" value="${vo.fdmnMmName}">
 	<input type="hidden" id="mnfdseq" name="mnfdseq">
 	<input type="hidden" id="mnMmIntroduce" name="mnMmIntroduce">
 	<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq">
@@ -732,7 +732,9 @@ ul, li.replies img {
 	<div id="sidepanel">
 		<div id="profile">
 			<div class="wrap">
-				<img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" />
+				<c:if test ="${host.mnMmName eq vo.fdmnMmName}"><img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" /></c:if>
+				<c:if test ="${host.mnMmName ne vo.fdmnMmName}"><img id="profile-img" src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" class="online" alt="" /></c:if>
+				<%-- <img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" /> --%>
 				<p><c:out value="${sessSeq}"/></p>
 				<p><c:out value="${sessName}"/></p>
 				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
@@ -783,7 +785,9 @@ ul, li.replies img {
 	</div>
 	<div class="content">
 		<div class="contact-profile">
-			<img src="<c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" alt="" />
+			<%-- <img src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" alt="" /> --%>
+			<c:if test ="${host.mnMmName eq vo.fdmnMmName}"><img id="profile-img" src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" class="online" alt="" /></c:if>
+			<c:if test ="${host.mnMmName ne vo.fdmnMmName}"><img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" /></c:if>
 			<p><c:out value="${vo.fdmnMmName}"/></p>
 			<!-- <div class="social-media">
 				<span>화상채팅<i class="fa fa-instagram" id="btnmeet" style="margin-top: 20px;"></i></span>
@@ -982,7 +986,9 @@ submit.addEventListener('click', (e) => {
 									'<li class="contact" style="padding: 0px; margin-bottom: 0px;">' +
 										'<div class="wrap">' +
 											'<span class="contact-status online"></span>' +
-											'<img src="<c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" alt="">' +
+											'<c:if test ="${host.mnMmName eq vo.fdmnMmName}">'+'<img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" />'+'</c:if>' +
+											'<c:if test ="${host.mnMmName ne vo.fdmnMmName}">'+'<img id="profile-img" src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" class="online" alt="" />'+'</c:if>' +
+											//'<img src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" alt="">' +
 											'<div class="meta">' +
 												'<p class="name">' + data.val().username + '</p>' +
 											'</div>' +

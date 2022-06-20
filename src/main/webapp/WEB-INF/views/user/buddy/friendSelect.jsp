@@ -351,9 +351,9 @@
 	} 
     
     gochat = function(seq,name,seq2){
-		$("#mnfdFriendSeq").val(seq);
-		$("#fdmnMmName").val(name);
 		$("#mnMmSeqQ").val(seq2);
+		$("#fdmnMmName").val(name);
+		$("#mnfdFriendSeq").val(seq);
 		$("#formTopListList").attr("action","/chat/chatView2");
 		$("#formTopListList").submit();
 	} 

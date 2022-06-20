@@ -62,16 +62,30 @@
 			a.mnChat_Num
 			, a.mnMmSeq
 			, a.mnfdFriendSeq
-			, c.uuidName
-		    , c.path
 		FROM
 			matnamChattingroom a
-		LEFT JOIN matnam.matnamUploaded c on c.typeCd = 145 and defaultNy = 1 and a.mnMmSeq = c.pseq
 		WHERE 1=1
 			and a.mnMmSeq = #{mnMmSeq}
         	and a.mnfdFriendSeq = #{mnfdFriendSeq}
 	</select>
 	<!-- 채팅 1:1 끝 -->
+	
+	<!-- 채팅 상대방 사진 시작 -->
+	<select id="selectOnehost" resultMap="resultMapObj">
+		select
+			a.mnMmSeq
+			, a.mnMmName
+		    , c.uuidName
+		    , c.path
+            , c.typeCd
+            , c.defaultNy
+            , c.pseq
+		from matnamMember a
+		LEFT JOIN matnam.matnamUploaded c on c.typeCd = 145 and defaultNy = 1 and a.mnMmSeq = c.pseq 
+		WHERE 1=1
+			and c.pseq = #{mnMmSeq}
+	</select>
+	<!-- 채팅 상대방 사진 끝 -->	
 	
 	<!-- 채팅 상대방 사진 시작 -->
 	<select id="selectOneuser" resultMap="resultMapObj">
@@ -83,7 +97,7 @@
             , c.defaultNy
             , c.pseq
 		from matnamFriend a
-		LEFT JOIN matnam.matnamUploaded c on c.typeCd = 145 and defaultNy = 1
+		LEFT JOIN matnam.matnamUploaded c on c.typeCd = 145 and defaultNy = 1  and a.mnfdFriendSeq = c.pseq
 		WHERE 1=1
 			and c.pseq = #{mnfdFriendSeq}
 	</select>
