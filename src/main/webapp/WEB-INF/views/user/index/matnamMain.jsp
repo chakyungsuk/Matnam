@@ -230,7 +230,7 @@
                     <div class="screen">
                     	<a href="javascript:gochat()">	
                     	<figure>
-		                    <img src="/resources/user/image/Introduction4.png" style="width: 100%; height: 300px;">
+		                    <img src="/resources/user/image/chatting.png" style="width: 100%; height: 300px;">
 		                    <figcaption>친구들과 자유로운 채팅 가능!</figcaption>		                    
 		                </figure>    
 	                    </a>

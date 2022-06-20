@@ -70,6 +70,7 @@
 		WHERE 1=1
 			and a.mnMmSeq = #{mnMmSeq}
         	and a.mnfdFriendSeq = #{mnfdFriendSeq}
+        	and c.pseq = #{mnMmSeq}
 	</select>
 	<!-- 채팅 1:1 끝 -->
 	

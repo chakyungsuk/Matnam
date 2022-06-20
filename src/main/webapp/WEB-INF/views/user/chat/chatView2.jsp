@@ -783,7 +783,7 @@ ul, li.replies img {
 	</div>
 	<div class="content">
 		<div class="contact-profile">
-			<img src="<c:out value="${room.mnfdFriendSeq}"/><c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" alt="" />
+			<img src="<c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" alt="" />
 			<p><c:out value="${vo.fdmnMmName}"/></p>
 			<!-- <div class="social-media">
 				<span>화상채팅<i class="fa fa-instagram" id="btnmeet" style="margin-top: 20px;"></i></span>
@@ -881,6 +881,13 @@ import {
     onValue,
     onChildAdded
 } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import {
+    getStorage,
+    uploadBytesResumable,
+    getDownloadURL,
+    listAll,
+    deleteObject
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
