@@ -866,7 +866,6 @@ function enterkey() {
 	}
 };
 </script>
-
 <!-- Enter 로 submit 하기 끝 -->
 
 <!-- firebase 채팅 시작 -->
@@ -968,28 +967,27 @@ submit.addEventListener('click', (e) => {
     });
    
 
-
-const roomnumber = ref(database, 'ROOM/');
-    onChildAdded(roomnumber, (data) => {
-    	if(data.val().host == mnfdfriendseq) {
-            var divData = '<ul style="margin: 0px;">' + 
-							'<a href="http://localhost:8093/chat/chatView2?mnMmSeq=' + data.val().user + '&mnfdFriendSeq=' + data.val().host + '&mnMmName=' + data.val().hostname + '&fdmnMmName=' + data.val().username + '">' + 
-							'<li class="contact" style="padding: 0px; margin-bottom: 0px;">' +
-								'<div class="wrap">' +
-									'<span class="contact-status online"></span>' +
-									'<img src="http://emilcarlsson.se/assets/louislitt.png" alt="">' +
-									'<div class="meta">' +
-										'<p class="name">' + data.val().username + '</p>' +
-									'</div>' +
-								'</div>' +
-							'</li>' + '</a>'
-						'</ul>'
-           	 var d1 = document.getElementById('fdbodyContent');
+	const roomnumber = ref(database, 'ROOM/');
+    	onChildAdded(roomnumber, (data) => {
+    		if(data.val().host == mnfdfriendseq) {
+            	var divData = '<ul style="margin: 0px;">' + 
+							  	'<a href="http://localhost:8093/chat/chatView2?mnMmSeq=' + data.val().user + '&mnfdFriendSeq=' + data.val().host + '&mnMmName=' + data.val().hostname + '&fdmnMmName=' + data.val().username + '">' + 
+									'<li class="contact" style="padding: 0px; margin-bottom: 0px;">' +
+										'<div class="wrap">' +
+											'<span class="contact-status online"></span>' +
+											'<img src="http://emilcarlsson.se/assets/louislitt.png" alt="">' +
+											'<div class="meta">' +
+												'<p class="name">' + data.val().username + '</p>' +
+											'</div>' +
+										'</div>' +
+							 		'</li>' + '</a>'
+							 '</ul>'
+           	var d1 = document.getElementById('fdbodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
 		}else{
 
 		}
-    });
+	});
 </script>
 <!-- firebase 채팅 끝 --> 
 
