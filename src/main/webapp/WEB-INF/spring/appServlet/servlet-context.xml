@@ -48,13 +48,12 @@
 	<!-- session interceptor s 2022.06.20 for user page check -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/profile/**"/>
-			<mapping path="/user/friendSelect"/>
-			<mapping path="/user/userEdit"/>
-			<mapping path="/user/reviewView"/>
+			<mapping path="/user/**"/>
+			<exclude-mapping path="/user/userInst" />
+			<exclude-mapping path="/user/loginProc" />
+			<exclude-mapping path="/user/userForm" />
+			<exclude-mapping path="/user/loginForm" />
 			<!-- <exclude-mapping path="/resources/**" />
-			<exclude-mapping path="/member/loginForm" />
-			<exclude-mapping path="/member/loginProc" />
 			<exclude-mapping path="/test/**" />
 			<exclude-mapping path="/rest/**" /> -->
 			<!-- <exclude-mapping path="/member/findIdPwdForm" /> -->
