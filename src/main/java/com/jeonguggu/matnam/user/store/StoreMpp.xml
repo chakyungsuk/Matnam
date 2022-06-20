@@ -32,9 +32,38 @@
 			  	AND mnrtY BETWEEN #{swLng} AND #{neLng}
              </if>
              <if test="swLat != '' and swLat != '' ">
+              	AND mnrtX BETWEEN #{swLat} AND #{neLat}
+              </if>
+              <!-- order by rand() limit 10; -->
+	</select>
+	<!-- <select id="selectListStore" resultMap="resultMapObj">
+		SELECT
+			a.mnrtSeq
+			,a.mnrtName
+		    ,a.mnrtAddressFull
+		    ,a.mnrtAvg
+            ,a.mnrtX
+            ,a.mnrtY
+            ,a.mnrtTimeStart
+		    ,a.mnrtTimeEnd
+		    ,a.mnrtBreakTimeStart
+		    ,a.mnrtBreakTimeEnd
+            ,b.mncdName
+            ,d.originalName
+            ,d.uuidName
+            ,d.path
+		FROM matnam.matnamRestaurant a
+        	left join matnam.matnamCode b on b.mncdSeq = a.mnrtFoodCateCd
+         	left join matnam.matnamCode c on c.mncdSeq = a.mnrtHolidayCd
+            left join matnam.matnamUploaded d on d.typeCd = 148 and a.mnrtSeq = d.pseq
+		where 1=1
+			<if test="swLng != '' and neLng != '' ">
+			  	AND mnrtY BETWEEN #{swLng} AND #{neLng}
+             </if>
+             <if test="swLat != '' and swLat != '' ">
               	AND mnrtX BETWEEN #{swLat} AND #{neLat};
               </if>
-	</select>
+	</select> -->
 	
 	<select id="selectOneStore" resultMap="resultMapObj">
 		SELECT

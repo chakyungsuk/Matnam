@@ -367,7 +367,11 @@
 								listHtml += '<div class="col-md-9">';
 								listHtml += '<div class="desc">';
 								listHtml += '<div class="thumb_strip">';
-								listHtml += '<img src="' + response.list[i].path + response.list[i].uuidName  + '" alt=""></a>';
+								if(response.list[i].path != null){
+									listHtml += '<img src="' + response.list[i].path + response.list[i].uuidName  + '" alt=""></a>';
+								}else{
+									listHtml += '<img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt=""></a>';
+								}
 								listHtml += '</div>';
 								listHtml +='<h3>' + nullToEmpty(response.list[i].mnrtName) + '</h3>';
 								listHtml +='<div class="type">';
@@ -402,26 +406,53 @@
 								// 커스텀 오버레이에 표시할 컨텐츠 입니다
 								// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
 								// 별도의 이벤트 메소드를 제공하지 않습니다 
-								var content = '<div class="wrap">' + 
-								            '    <div class="info">' + 
-								            '        <div class="title">' + 
-								                        response.list[i].mnrtName  + 
-								            '            <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
-								            '        </div>' + 
-								            '        <div class="body">' + 
-								            '            <div class="img">' +
-								            '                <img src="' + response.list[i].path + response.list[i].uuidName  + '" width="73" height="70">' +
-								            '           </div>' + 
-								            '            <div class="desc">' + 
-								            '                <div class="ellipsis">' + response.list[i].mnrtAddressFull + '</div>' + 
-								            '                <div><a href="/user/storeDetail?mnrtSeq=' +response.list[i].mnrtSeq + '" target="_blank" class="link">상세정보</a></div>' + 
-								            '                <div><a href="https://map.kakao.com/link/to/' 
-																+ response.list[i].mnrtAddressFull + ',' + response.list[i].mnrtX + ',' +  response.list[i].mnrtY + '"' 
-																+  'class="link" target="_blank">길찾기</a></div>' + 
-								            '            </div>' + 
-								            '        </div>' + 
-								            '    </div>' +    
-								            '</div>';
+								
+								if (response.list[i].path != null){
+									
+									var content = '<div class="wrap">' + 
+									            '    <div class="info">' + 
+									            '        <div class="title">' + 
+									                        response.list[i].mnrtName  + 
+									            '            <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
+									            '        </div>' + 
+									            '        <div class="body">' + 
+									            '            <div class="img">' +
+									            '                <img src="' + response.list[i].path + response.list[i].uuidName  + '" width="73" height="70">' +
+									            '           </div>' + 
+									            '            <div class="desc">' + 
+									            '                <div class="ellipsis">' + response.list[i].mnrtAddressFull + '</div>' + 
+									            '                <div><a href="/user/storeDetail?mnrtSeq=' +response.list[i].mnrtSeq + '" target="_blank" class="link">상세정보</a></div>' + 
+									            '                <div><a href="https://map.kakao.com/link/to/' 
+																	+ response.list[i].mnrtAddressFull + ',' + response.list[i].mnrtX + ',' +  response.list[i].mnrtY + '"' 
+																	+  'class="link" target="_blank">길찾기</a></div>' + 
+									            '            </div>' + 
+									            '        </div>' + 
+									            '    </div>' +    
+									            '</div>';
+								}else{
+									
+									var content = '<div class="wrap">' + 
+						            '    <div class="info">' + 
+						            '        <div class="title">' + 
+						                        response.list[i].mnrtName  + 
+						            '            <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
+						            '        </div>' + 
+						            '        <div class="body">' + 
+						            '            <div class="img">' +
+						            '                <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="73" height="70">' +
+						            '           </div>' + 
+						            '            <div class="desc">' + 
+						            '                <div class="ellipsis">' + response.list[i].mnrtAddressFull + '</div>' + 
+						            '                <div><a href="/user/storeDetail?mnrtSeq=' +response.list[i].mnrtSeq + '" target="_blank" class="link">상세정보</a></div>' + 
+						            '                <div><a href="https://map.kakao.com/link/to/' 
+														+ response.list[i].mnrtAddressFull + ',' + response.list[i].mnrtX + ',' +  response.list[i].mnrtY + '"' 
+														+  'class="link" target="_blank">길찾기</a></div>' + 
+						            '            </div>' + 
+						            '        </div>' + 
+						            '    </div>' +    
+						            '</div>';
+									
+								}
 								            
 						         // 마커 위에 커스텀오버레이를 표시합니다
 						        	// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다

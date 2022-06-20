@@ -115,7 +115,7 @@
 	                   
 	                    
 	                    <div class="review_strip_single">
-	                       <h3>Reviews(<c:out value="${rtCount}"/>)</h3>
+	                       <h3>리뷰(<c:out value="${rtCount}"/>)</h3>
 	                       <br>
 	                    <c:choose>
 		                    <c:when test="${fn:length(rtReview) eq 0 }">
