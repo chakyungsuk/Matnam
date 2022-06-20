@@ -235,7 +235,7 @@
 															</div>
 														</div>
 		                                            </div>
-		                                            <input type="text" class="form-control" id="mnmpNumber" name="mnmpNumber" value="<c:out value="${rt.mnmpNumber}"/>" placeholder="Enter phone no" >
+		                                            <input type="text" class="form-control" id="mnmpNumber" name="mnmpNumber" value="<c:out value="${rt.mnmpNumber}"/>" placeholder="숫자만 입력해주세요." >
 		                                        </div>
 		
 		                                        <div class="mt-3">
@@ -256,7 +256,7 @@
 															</div>
 														</div>
 		                                            </div>
-		                                            <input type="text" class="form-control" id="mnMmEmail" name="mnMmEmail" value="<c:out value="${rt.mnMmEmail}"/>" placeholder="Enter email" >
+		                                            <input type="text" class="form-control" id="mnMmEmail" name="mnMmEmail" value="<c:out value="${rt.mnMmEmail}"/>" placeholder="이메일을 입력하세요." >
 		                                        </div>
 		                                        
 		                                        <div class="mt-3">
@@ -277,7 +277,7 @@
 															</div>
 														</div>
 		                                            </div>
-		                                            <input type="text" class="form-control" id="mnmaAddress1" name="mnmaAddress1" value="<c:out value="${rt.mnmaAddress1}"/>" placeholder="Location" >
+		                                            <input type="text" class="form-control" id="mnmaAddress1" name="mnmaAddress1" value="<c:out value="${rt.mnmaAddress1}"/>" placeholder="간략한 주소를 입력하세요." >
 		                                        </div>
 		
 		                                        <div class="mt-3">

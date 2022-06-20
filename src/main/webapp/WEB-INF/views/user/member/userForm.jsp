@@ -180,7 +180,7 @@
 		                </div> -->
 	                    <div class="form-group">
 		                    <label>휴대전화</label>
-		                    <input type="text" id="mnmpNumber" name="mnmpNumber" class="form-control" placeholder="전화번호 입력" required>
+		                    <input type="text" id="mnmpNumber" name="mnmpNumber" class="form-control" placeholder="숫자만 입력해주세요" required>
 		                </div>
 		                <div class="form-group">
 							<label>음식취향</label>
