@@ -280,7 +280,14 @@
 							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list" style="height:170px;">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
-							                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+							                    	 <c:choose>
+									                	<c:when test="${empty rt.path}">
+										                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
+									                	</c:when>
+									                	<c:otherwise>
+									                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+									                	</c:otherwise>
+									                </c:choose>
 												</div>
 					                            <div class="rating">
 					                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
@@ -290,10 +297,6 @@
 					                           		<fmt:parseDate value="${rt.mnrtTimeStart}" var="parseTime" pattern="HH:mm"/>
 					                                <c:out value="${rt.mnrtAddressFull}"/> <span class="opening">Opens at <fmt:formatDate value="${parseTime}" pattern="HH:mm"/><br></span>
 					                            </div>
-					                            <ul>
-					                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-					                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-					                            </ul>
 					                        </div>
 					                    	</a>
 							            </div> 
@@ -406,7 +409,14 @@
 							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
-							                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+							                    	<c:choose>
+									                	<c:when test="${empty rt.path}">
+										                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
+									                	</c:when>
+									                	<c:otherwise>
+									                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+									                	</c:otherwise>
+									                </c:choose>
 												</div>
 					                            <div class="rating">
 					                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
@@ -416,10 +426,6 @@
 					                           		<fmt:parseDate value="${rt.mnrtTimeStart}" var="parseTime" pattern="HH:mm"/>
 					                                <c:out value="${rt.mnrtAddressFull}"/> <span class="opening">Opens at <fmt:formatDate value="${parseTime}" pattern="HH:mm"/><br></span>
 					                            </div>
-					                            <ul>
-					                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-					                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-					                            </ul>
 					                        </div>
 					                    	</a>
 							            </div> 
@@ -440,7 +446,14 @@
 							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
-							                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+							                    	<c:choose>
+									                	<c:when test="${empty rt.path}">
+										                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
+									                	</c:when>
+									                	<c:otherwise>
+									                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+									                	</c:otherwise>
+									                </c:choose>
 												</div>
 					                            <div class="rating">
 					                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
@@ -450,10 +463,6 @@
 					                           		<fmt:parseDate value="${rt.mnrtTimeStart}" var="parseTime" pattern="HH:mm"/>
 					                                <c:out value="${rt.mnrtAddressFull}"/> <span class="opening">Opens at <fmt:formatDate value="${parseTime}" pattern="HH:mm"/><br></span>
 					                            </div>
-					                            <ul>
-					                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-					                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-					                            </ul>
 					                        </div>
 					                    	</a>
 							            </div> 
@@ -474,7 +483,14 @@
 							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
-							                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+							                    	<c:choose>
+									                	<c:when test="${empty rt.path}">
+										                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
+									                	</c:when>
+									                	<c:otherwise>
+									                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+									                	</c:otherwise>
+									                </c:choose>
 												</div>
 					                            <div class="rating">
 					                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
@@ -484,10 +500,6 @@
 					                           		<fmt:parseDate value="${rt.mnrtTimeStart}" var="parseTime" pattern="HH:mm"/>
 					                                <c:out value="${rt.mnrtAddressFull}"/> <span class="opening">Opens at <fmt:formatDate value="${parseTime}" pattern="HH:mm"/><br></span>
 					                            </div>
-					                            <ul>
-					                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-					                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-					                            </ul>
 					                        </div>
 					                    	</a>
 							            </div> 

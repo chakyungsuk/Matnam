@@ -34,7 +34,7 @@
              <if test="swLat != '' and swLat != '' ">
               	AND mnrtX BETWEEN #{swLat} AND #{neLat}
               </if>
-              <!-- order by rand() limit 10; -->
+               <!-- limit 10; -->
 	</select>
 	<!-- <select id="selectListStore" resultMap="resultMapObj">
 		SELECT
