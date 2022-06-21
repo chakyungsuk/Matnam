@@ -988,7 +988,7 @@ submit.addEventListener('click', (e) => {
 											//'<span class="contact-status online"></span>' +
 											//'<img src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" alt="">' +
 											'<div class="meta">' +
-												'<h4 class="" style="font-size: 18px; text-align: center; width: 100%;">' + data.val().username + '</h4>' +
+												'<h4 class="" style="font-size: 18px; text-align: center; width: 100%;">' + youname + '</h4>' +
 											'</div>' +
 										'</div>' +
 							 		'</li>' + '</a>'
