@@ -245,7 +245,14 @@
 								<div class="col-md-9" style="cursor: pointer;" onclick="javascript:goForm(${item.mnMmSeq},'${item.mnMmName}');">
 									<div class="desc">
 										<div class="thumb_strip">
-											<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" alt="">
+											<c:choose>
+							                	<c:when test="${empty item.path}">
+								                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" style="width:110px; height:110px;">
+							                	</c:when>
+							                	<c:otherwise>
+							                    	<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" alt="" style="width:110px; height:110px;">
+							                	</c:otherwise>
+							                </c:choose>
 										</div>
 										<h3><c:out value="${item.mnMmName}"/> 님</h3>
 										<div class="type">
