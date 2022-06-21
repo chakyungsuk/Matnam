@@ -39,10 +39,17 @@
 <!-- Header -->   
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="<c:out value="${rtStore.path}"/><c:out value="${rtStore.uuidName}"/>" data-natural-width="1400" data-natural-height="470">
         <div id="subheader">
             <div id="sub_content">
-                <div id="thumb"><img src="/resources/user/image/store/himnandaLogo.png" alt=""></div>
+           		<c:choose>
+           			<c:when test="${empty rtStore.mnrtLogoPath }">
+                		<div id="thumb"><img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" ></div>
+                	</c:when>
+                	<c:otherwise>
+                		<div id="thumb"><img src="<c:out value="${rtStore.mnrtLogoPath}"/><c:out value="${rtStore.mnrtLogoUuidName}"/>" alt=""></div>
+                	</c:otherwise>
+                </c:choose>
                 <div class="rating"> 
                 	<span class="star">
 						★★★★★
@@ -107,7 +114,7 @@
 	                            </div>
 	                        </div>
 	                     </h3>
-	                                <img src="/resources/user/image/store/himnandaLogo.png" alt="">
+	                                <img src="<c:out value="${rtStore.path}"/><c:out value="${rtStore.uuidName}"/>" alt="" width="100%">
 	   
 	                    <p class="add_bottom_30">
 	                        <c:out value="${rtStore.mnrtText}"/>

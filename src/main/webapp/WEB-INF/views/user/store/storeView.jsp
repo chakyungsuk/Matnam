@@ -96,15 +96,6 @@
 <!-- Header -->
 <%@include file="../include/top.jsp"%>
 <!-- Header -->
-	<!-- SubHeader =============================================== -->
-<!-- 	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/buddySub.jpg" data-natural-width="1400" data-natural-height="350">
-	    <div id="subheader">
-	        <div id="sub_content">
-	            <h1></h1>
-	        </div>End sub_content
-	    </div>End subheader
-	</section>End section -->
-	<!-- End SubHeader ============================================ -->
 
    <div id="position" style="background-color:#78CFCF; height:60px">
         <div class="container">
@@ -140,12 +131,13 @@
 				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="지도 닫기" data-text-original="지도 검색">지도 검색</a>
 			</p> -->
 			<div id="filters_col">
-				<button type="button" class="btn btn-outline-primary" onclick="searchMap(); checkMarker();" id="clickMpp" name="clickMpp">지도 검색</button>
+			
 				<div class="collapse show" id="collapseFilters">
 					<div class="filter_type">
 						<h6>주소</h6>
 						<div class="mb-3">
-  						<input type="text" class="form-control" id="formGroupExampleInput" placeholder="주소를 이용해 음식점을 검색해보세요!." onkeyup="enterkey()">
+  							<input type="text" class="form-control" id="formGroupExampleInput" placeholder="주소를 이용해 음식점을 검색해보세요!." onkeyup="enterkey()">
+  							<button type="button" class="btn btn-success btn-lg" onclick="searchMap(); checkMarker();" id="clickMpp" name="clickMpp" style="margin:15px; width:200px">지도검색</button>
 						</div>
                     	<!-- <h6>카테고리</h6>
                         <ul>

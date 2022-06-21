@@ -81,6 +81,10 @@
 		    ,a.mnrtAvg
             ,b.mncdName as mnrtFoodCate
             ,c.mncdName as mnrtHoliday
+			,(select path from matnam.matnamUploaded where 1=1 and typeCd = 148 and pseq = a.mnrtSeq and defaultNy = 1) as mnrtLogoPath
+			,(select uuidName from matnam.matnamUploaded where 1=1 and typeCd = 148 and pseq = a.mnrtSeq and defaultNy = 1) as mnrtLogoUuidName
+            ,(select path from matnam.matnamUploaded where 1=1 and typeCd = 149 and pseq = a.mnrtSeq and defaultNy = 1) as path
+            ,(select uuidName from matnam.matnamUploaded where 1=1 and typeCd = 149 and pseq = a.mnrtSeq and defaultNy = 1) as uuidName
 		FROM matnam.matnamRestaurant a
         	left join matnam.matnamCode b on b.mncdSeq = a.mnrtFoodCateCd
          	left join matnam.matnamCode c on c.mncdSeq = a.mnrtHolidayCd
