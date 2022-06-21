@@ -995,8 +995,21 @@ submit.addEventListener('click', (e) => {
 							 '</ul>'
            	var d1 = document.getElementById('fdbodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
-		}else{
-
+		}else if(data.val().username == '${sessName}'){
+			var divData = '<ul style="margin: 0px; width: 100%;">' + 
+							  	'<a href="http://localhost:8093/chat/chatView2?mnMmSeq=' + data.val().user + '&mnfdFriendSeq=' + data.val().host + '&mnMmName=' + myName + '&fdmnMmName=' + data.val().hostname + '">' + 
+									'<li class="contact" style="padding: 0px; margin-bottom: 0px;">' +
+										'<div class="wrap">' +
+											//'<span class="contact-status online"></span>' +
+											//'<img src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" alt="">' +
+											'<div class="meta">' +
+												'<h4 class="" style="font-size: 18px; text-align: center; width: 100%;">' + data.val().hostname + '</h4>' +
+											'</div>' +
+										'</div>' +
+							 		'</li>' + '</a>'
+							 '</ul>'
+           	var d1 = document.getElementById('fdbodyContent');
+            d1.insertAdjacentHTML('beforebegin', divData);
 		}
 	});
 </script>
