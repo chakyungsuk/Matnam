@@ -252,7 +252,7 @@
 						<div class="col-12 col-lg-4 col-xxl-3 d-flex">
 							<div class="card flex-fill w-100">
 								<div class="card-header">
-									<h5 class="card-title mb-0">진행중인 이벤트</h5>
+									<h5 class="card-title mb-0">최근등록된 이벤트</h5>
 								</div>
 								<table class="table table-hover my-0" style="text-align:center;">
 									<thead>

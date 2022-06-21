@@ -74,6 +74,9 @@
 			color: black;
 			text-decoration: none;
 		}
+		#subheader {
+			background: rgba(0,0,0,.5) !important;
+		}
     </style> 
 </head>
 
