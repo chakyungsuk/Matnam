@@ -100,6 +100,7 @@
 		LEFT JOIN matnam.matnamUploaded c on c.typeCd = 145 and defaultNy = 1  and a.mnfdFriendSeq = c.pseq
 		WHERE 1=1
 			and c.pseq = #{mnfdFriendSeq}
+		limit 1
 	</select>
 	<!-- 채팅 상대방 사진 끝 -->	
 	

@@ -758,7 +758,7 @@ ul, li.replies img {
 		<div id="contacts">
 			<ul style="margin: 0px;">
 				<%-- <li class="contact" style="padding: 0px; margin-bottom: 0px;" onclick="fdcheck(<c:out value="${item.mnMmSeq}"/>);"> --%>
-					<div class="wrap">
+					<div class="container" style="padding-right: 32px;">
 						<div class="meta" id="fdbodyContent">
 						<%-- <ul style="margin: 0px;">
 							<a href=""><li class="contact" style="padding: 0px; margin-bottom: 0px;">
@@ -981,16 +981,14 @@ submit.addEventListener('click', (e) => {
 	const roomnumber = ref(database, 'ROOM/');
     	onChildAdded(roomnumber, (data) => {
     		if(data.val().host == mnfdfriendseq) {
-            	var divData = '<ul style="margin: 0px;">' + 
-							  	'<a href="http://localhost:8093/chat/chatView2?mnMmSeq=' + data.val().user + '&mnfdFriendSeq=' + data.val().host + '&mnMmName=' + data.val().hostname + '&fdmnMmName=' + data.val().username + '">' + 
+            	var divData = '<ul style="margin: 0px; width: 100%;">' + 
+							  	'<a href="http://localhost:8093/chat/chatView2?mnMmSeq=' + data.val().user + '&mnfdFriendSeq=' + data.val().host + '&mnMmName=' + myName + '&fdmnMmName=' + data.val().username + '">' + 
 									'<li class="contact" style="padding: 0px; margin-bottom: 0px;">' +
 										'<div class="wrap">' +
-											'<span class="contact-status online"></span>' +
-											'<c:if test ="${host.mnMmName eq vo.fdmnMmName}">'+'<img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" />'+'</c:if>' +
-											'<c:if test ="${host.mnMmName ne vo.fdmnMmName}">'+'<img id="profile-img" src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" class="online" alt="" />'+'</c:if>' +
+											//'<span class="contact-status online"></span>' +
 											//'<img src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" alt="">' +
 											'<div class="meta">' +
-												'<p class="name">' + data.val().username + '</p>' +
+												'<h4 class="" style="font-size: 18px; text-align: center; width: 100%;">' + data.val().username + '</h4>' +
 											'</div>' +
 										'</div>' +
 							 		'</li>' + '</a>'
