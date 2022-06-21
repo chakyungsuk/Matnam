@@ -50,6 +50,7 @@ public class StoreController {
 		int rtCount = service.selectCountReview(vo);
 		vo.setTotalRows(rtCount);
 		
+		
 		Store rtStore = service.selectOneStore(vo);
 		List <Store> rtReview = service.selectListReview(vo);
 		

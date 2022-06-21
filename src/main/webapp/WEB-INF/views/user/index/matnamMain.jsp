@@ -142,15 +142,15 @@
             </p>
             <form method="post" action="list_page.html">
                 <div id="custom-search-input">
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <input type="text" class=" search-query" placeholder="Your Address or postal code">
                         <span class="input-group-btn">
                         <input type="submit" class="btn_search" value="">
                         </span>
-                    </div>
+                    </div> -->
                     <div style="padding-top:80px">
-                       <button type="button" class="btn btn-outline-light" onclick="location.href='/user/storeView'">지도검색</button>
-                       <button type="button" class="btn btn-outline-light" onclick="location.href='javascript:goAreaSelect(${sessSeq})'">친구매칭</button>
+                       <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='/user/storeView'">지도검색</button>
+                       <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='javascript:goAreaSelect(${sessSeq})'">친구매칭</button>
                     </div>
                 </div>
             </form>
@@ -170,7 +170,7 @@
     <!-- Content ================================================== -->
     <div class="container margin_60">
         <div class="main_title">
-            <h2 class="nomargin_top" style="font-weight:600";>Project Introduction</h2>
+            <h2 class="nomargin_top" style="font-weight:600";>맛남프로젝트 소개 </h2>
             <p>
             	Jeonguggu Team
             </p>
@@ -250,9 +250,9 @@
     <div class="white_bg" style="background-image:url('/resources/user/image/fff1.jpg');">
         <div class="container margin_60">
             <div class="main_title">
-                <h2 class="nomargin_top" style="color:black; font-weight:600; text-shadow:3px 3px 4px white;">Restaurant recommendations</h2>
-                <p style="color:yellow;">
-                    Top 6 restaurant selection
+                <h2 class="nomargin_top" style="color:black; font-weight:600; text-shadow:3px 3px 4px white;">음식점 추천</h2>
+                <p style="color:black; text-shadow:3px 3px 4px white;">
+                  	음식종류별로 음식점을 추천받아보세요!
                 </p>
             </div>
             <div class="container" style="text-align: center; margin-bottom: 23px;">
@@ -602,9 +602,9 @@
 <div class="white_bg">
     <div class="container margin_60" >
         <div class="main_title margin_mobile">
-            <h2 class="nomargin_top" style="font-weight:600";>User recommendations</h2>
+            <h2 class="nomargin_top" style="font-weight:600";>유저매칭</h2>
             <p>
-                Delicious meeting.
+               다른유저들과 친구추가를 해보세요!
             </p>
         </div>
         <div class="row justify-content-center">
