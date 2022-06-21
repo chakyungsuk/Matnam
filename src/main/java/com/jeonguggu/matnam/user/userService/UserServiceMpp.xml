@@ -12,12 +12,12 @@
 			a.mnsvSeq
 			,b.mnMmSeq
 			,b.mnMmId
-			<!-- ,a.mnsvReceiptDate -->
 		    ,a.mnsvTitle
 		    ,a.mnsvDoneNy
 		    ,a.mnsvTypeCd
 		from matnamServices a
-		left join matnamMember b on b.mnMmSeq = a.mnMmSeq;
+		left join matnamMember b on b.mnMmSeq = a.mnMmSeq
+		order by a.mnsvSeq desc;
 
 	</select>
 	

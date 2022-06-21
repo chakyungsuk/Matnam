@@ -158,5 +158,24 @@ public class StoreController {
 		
 		return rtReturn;
 	}
+	@ResponseBody
+	@RequestMapping(value="user/storeRoad")
+	public Map<String , Object> storeRoad(Model model,  Store dto , StoreVo vo) throws Exception {
+		Map<String , Object> rtReturn = new HashMap<String , Object>();
+		
+		
+		int sum = service.selectRoadCount(vo);
+		
+		List<Store> list = service.selectRoad(vo);
+		model.addAttribute("list" , list);
+		
+		rtReturn.put("list",list);
+		rtReturn.put("sum",sum);
+		rtReturn.put("rt","success");
+		
+		
+		
+		return rtReturn;
+	}
 
 }

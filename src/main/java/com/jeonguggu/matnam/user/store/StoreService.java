@@ -8,6 +8,8 @@ public interface StoreService {
 	
 	//�쓬�떇�젏 由ъ뒪�듃 異쒕젰
 	public List<Store> selectListStore(StoreVo vo) throws Exception;
+	
+	public List<Store> selectRoad(StoreVo vo) throws Exception;
 	 
 	//�쓬�떇�젏 �긽�꽭�젙蹂� 異쒕젰
 	public Store selectOneStore(StoreVo vo) throws Exception;
@@ -24,6 +26,8 @@ public interface StoreService {
 	public int selectAvg(StoreVo vo) throws Exception;
 	
 	public int selectStoreCount(StoreVo vo) throws Exception;
+	
+	public int selectRoadCount(StoreVo vo) throws Exception;
 	
 	
 	
