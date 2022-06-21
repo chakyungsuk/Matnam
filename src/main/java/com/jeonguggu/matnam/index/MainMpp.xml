@@ -39,6 +39,7 @@
 			a.mnMmSeq
 			,a.mnMmName
 		    ,a.mnMmIntroduce
+		    ,a.mnMmAddressPublicNy
 		    ,b.mnmaAddress1
 		    ,c.uuidName
 		    ,c.path

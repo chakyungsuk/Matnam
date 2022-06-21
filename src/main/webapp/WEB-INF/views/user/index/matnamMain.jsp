@@ -303,98 +303,6 @@
 							            <c:set var="countKorean" value="${countKorean + 1}" />
 				                	</c:if>
 					           	</c:forEach> 
-			                	<!-- <div class="col-6" style="float: left; margin:0 auto;">
-				                    <a href="detail_page.html" class="strip_list">
-				                        <div class="desc">
-				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/rr.jfif" alt="">
-				                            </div>
-				                            <div class="rating">
-				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-				                            </div>
-				                            <h3>Taco Mexican</h3>
-				                            <div class="type">
-				                                Mexican / American 
-				                            </div>
-				                            <div class="location">
-				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-				                            </div>
-				                            <ul>
-				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-				                            </ul>
-				                        </div>
-				                    </a>
-			                    </div>
-			                    <div class="col-6" style="float: left; margin:0 auto;">
-				                    <a href="detail_page.html" class="strip_list">
-				                        <div class="desc">
-				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/zz.jpg" alt="">
-				                            </div>
-				                            <div class="rating">
-				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-				                            </div>
-				                            <h3>Naples Pizza</h3>
-				                            <div class="type">
-				                                Italian / Pizza
-				                            </div>
-				                            <div class="location">
-				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-				                            </div>
-				                            <ul>
-				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-				                            </ul>
-				                        </div>
-				                    </a>	
-			                    </div>	                    
-			                    <div class="col-6" style="float: left; margin:0 auto;">
-				                    <a href="detail_page.html" class="strip_list">
-				                        <div class="desc">
-				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/zz.jpg" alt="">
-				                            </div>
-				                            <div class="rating">
-				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-				                            </div>
-				                            <h3>Naples Pizza</h3>
-				                            <div class="type">
-				                                Italian / Pizza
-				                            </div>
-				                            <div class="location">
-				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-				                            </div>
-				                            <ul>
-				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-				                            </ul>
-				                        </div>
-				                    </a>	
-			                    </div>	                    
-			                    <div class="col-6" style="float: left; margin:0 auto;">
-				                    <a href="detail_page.html" class="strip_list">
-				                        <div class="desc">
-				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/rr.jfif" alt="">
-				                            </div>
-				                            <div class="rating">
-				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-				                            </div>
-				                            <h3>Naples Pizza</h3>
-				                            <div class="type">
-				                                Italian / Pizza
-				                            </div>
-				                            <div class="location">
-				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-				                            </div>
-				                            <ul>
-				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-				                            </ul>
-				                        </div>
-				                    </a>	
-			                    </div> -->	                    
 			                </div>		                
 			            </div>
 		            </div>
@@ -406,7 +314,7 @@
 				                <c:forEach items="${listRestaurant}" var="rt" varStatus="status">
 				                	<c:if test="${rt.mnrtFoodCateCd eq 126 && countJapanese < 6}">
 							            <div class="col-6" style="float: left; margin:0 auto;">
-							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list">
+							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list" style="height:170px;">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
 							                    	<c:choose>
@@ -443,7 +351,7 @@
 				                <c:forEach items="${listRestaurant}" var="rt" varStatus="status">
 				                	<c:if test="${rt.mnrtFoodCateCd eq 130 && countChinese < 6}">
 							            <div class="col-6" style="float: left; margin:0 auto;">
-							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list">
+							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list" style="height:170px;">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
 							                    	<c:choose>
@@ -480,7 +388,7 @@
 				                <c:forEach items="${listRestaurant}" var="rt" varStatus="status">
 				                	<c:if test="${rt.mnrtFoodCateCd eq 129 && countAsian < 6}">
 							            <div class="col-6" style="float: left; margin:0 auto;">
-							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list">
+							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list" style="height:170px;">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
 							                    	<c:choose>
@@ -711,7 +619,16 @@
 	                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
 	                	</c:otherwise>
 	                </c:choose>
-						<h3><c:out value="${rt.mnMmName}"/><span><c:out value="${rt.mnmaAddress1}"/></span></h3>
+						<h3><c:out value="${rt.mnMmName}"/>
+						<c:choose>
+							<c:when test="${rt.mnMmAddressPublicNy eq 1}">
+								<span><c:out value="${rt.mnmaAddress1}"/></span>
+							</c:when>
+							<c:otherwise>
+								<span>주소 비공개</span>
+							</c:otherwise>
+						</c:choose>
+						</h3>
 	                    <p><c:out value="${rt.mnMmIntroduce}"/></p>
 	                    <div class="btn_1">친구요청</div>
 	                </a> 

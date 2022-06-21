@@ -11,6 +11,7 @@ public class Main {
 	private String mnMmName;
 	private String mnMmIntroduce;
 	private String mnmaAddress1;
+	private String mnMmAddressPublicNy;
 	
 //	레스토랑
 	private String mnrtSeq;
@@ -107,6 +108,12 @@ public class Main {
 	}
 	public void setMnrtSeq(String mnrtSeq) {
 		this.mnrtSeq = mnrtSeq;
+	}
+	public String getMnMmAddressPublicNy() {
+		return mnMmAddressPublicNy;
+	}
+	public void setMnMmAddressPublicNy(String mnMmAddressPublicNy) {
+		this.mnMmAddressPublicNy = mnMmAddressPublicNy;
 	}
 	
 	
