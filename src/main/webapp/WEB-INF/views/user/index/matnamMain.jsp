@@ -39,6 +39,18 @@
 		a:link{
 			text-decoration: none;
 		}
+		
+		.thumb_strip img {
+			height: 100% !important;
+		}
+		
+		.desc .rating {
+			padding-bottom:10px;
+		}
+		
+		.desc h3 {
+			padding-bottom:6px !important;
+		}
     </style>
 	
 
@@ -610,8 +622,8 @@
         <div class="row justify-content-center">
              <c:forEach items="${list}" var="rt" varStatus="status">
 	            <div class="col-md-3">
-	                <a class="box_work" href="/user/friendDetail?mnMmSeq=${rt.mnMmSeq}" style="box-shadow : 0px 0px 0px 3px #f0f2f4; height:500px;">
-	                <div style="height:250px;">
+	                <a class="box_work" href="/user/friendDetail?mnMmSeq=${rt.mnMmSeq}" style="box-shadow : 0px 0px 0px 3px #f0f2f4; height:430px;">
+	                <div style="height:250px; margin-bottom:20px;">
 	                <c:choose>
 	                	<c:when test="${empty rt.path}">
 		                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" class="img-fluid" style="width:250px; height:250px;">
@@ -621,7 +633,7 @@
 	                	</c:otherwise>
 	                </c:choose>
 	                </div>
-	                <div style="height:100px;">
+	                <div style="height:200px; margin-bottom:20px;">
 						<h3><c:out value="${rt.mnMmName}"/>
 						<c:choose>
 							<c:when test="${rt.mnMmAddressPublicNy eq 1}">
