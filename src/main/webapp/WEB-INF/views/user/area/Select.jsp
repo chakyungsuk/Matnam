@@ -253,7 +253,7 @@
 							                    	<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" alt="" style="width:110px; height:110px;">
 							                	</c:otherwise>
 							                </c:choose>
-										</div>
+										</div> 
 										<h3><c:out value="${item.mnMmName}"/> 님</h3>
 										<div class="type">
 											<c:out value="${item.age}"/>세 / 
