@@ -630,7 +630,6 @@
 						</c:choose>
 						</h3>
 	                    <p><c:out value="${rt.mnMmIntroduce}"/></p>
-	                    <div class="btn_1">친구요청</div>
 	                </a> 
 	            </div> 
            	</c:forEach> 
