@@ -232,6 +232,11 @@
 <script src="${pageContext.request.contextPath}/resources/user/js/ion.rangeSlider.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=services"></script>
 <script>
+
+	var number = null;
+	var markerArr = new Array();
+	var overlayArr = new Array();
+
 	$(document).ready(function(){
 		$.ajax({
 			async:true,
@@ -392,9 +397,6 @@
 	    }
 	}
 	
-	var number = null;
-	var markerArr = new Array();
-	var overlayArr = new Array();
 
 	// KaKao Map S
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -469,6 +471,13 @@
 	    var neLng = this.getBounds().getNorthEast().getLng();
 	    var swLat = this.getBounds().getSouthWest().getLat();
 	    var swLng = this.getBounds().getSouthWest().getLng();
+	    
+	    for(var i in overlayArr.length){
+			overlayArr[i].setMap(null); 
+		}
+	    
+	    markerArr.length = 0;
+		overlayArr.length = 0;
 	    
 		$.ajax({
 				async:true,
