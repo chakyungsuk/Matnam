@@ -181,13 +181,13 @@
 	    	                </c:when>
 	    	                <c:otherwise>
 		    	                <c:forEach items="${rtReview}" var="item" varStatus="status">
-		    	                	<div>
+		    	                	<%-- <div>
 		                        		<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="width:150px; height:150px;" alt="">
-	                        		</div>
+	                        		</div> --%>
 		    	                	<hr/>
 			                        <small>-<fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd"/>-</small>
 			                        <h4> <c:out value="${item.mnMmName}"/></h4>
-			                        <img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="width:150px; height:150px;" alt="">
+			                       <%--  <img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="width:150px; height:150px;" alt=""> --%>
 			                        <span class="star">
 										★★★★★
 										<span style="width:${item.mnrvScore}0%;">★★★★★</span>
