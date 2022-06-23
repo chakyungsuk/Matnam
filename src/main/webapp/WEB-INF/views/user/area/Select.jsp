@@ -302,7 +302,6 @@
 				</c:otherwise>
 			</c:choose>
             
-            <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>  
 		</div><!-- End col-md-9-->
         
 	</div><!-- End row -->
