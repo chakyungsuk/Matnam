@@ -623,29 +623,29 @@
              <c:forEach items="${list}" var="rt" varStatus="status">
 	            <div class="col-md-3">
 	                <a class="box_work" href="/user/friendDetail?mnMmSeq=${rt.mnMmSeq}" style="box-shadow : 0px 0px 0px 3px #f0f2f4; height:430px;">
-	                <div style="height:250px; margin-bottom:20px;">
-	                <c:choose>
-	                	<c:when test="${empty rt.path}">
-		                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" class="img-fluid" style="width:250px; height:250px;">
-	                	</c:when>
-	                	<c:otherwise>
-	                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" alt="" class="img-fluid" style="width:250px; height:250px;">
-	                	</c:otherwise>
-	                </c:choose>
-	                </div>
-	                <div style="height:200px; margin-bottom:20px;">
-						<h3><c:out value="${rt.mnMmName}"/>
-						<c:choose>
-							<c:when test="${rt.mnMmAddressPublicNy eq 1}">
-								<span><c:out value="${rt.mnmaAddress1}"/></span>
-							</c:when>
-							<c:otherwise>
-								<span>주소 비공개</span>
-							</c:otherwise>
-						</c:choose>
-						</h3>
-	                    <p><c:out value="${rt.mnMmIntroduce}"/></p>
-	                </div>    
+		                <div style="height:250px; margin-bottom:20px;">
+		                <c:choose>
+		                	<c:when test="${empty rt.path}">
+			                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" class="img-fluid" style="width:250px; height:250px;">
+		                	</c:when>
+		                	<c:otherwise>
+		                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" alt="" class="img-fluid" style="width:250px; height:250px;">
+		                	</c:otherwise>
+		                </c:choose>
+		                </div>
+		                <div style="height:200px; margin-bottom:20px;">
+							<h3><c:out value="${rt.mnMmName}"/>
+							<c:choose>
+								<c:when test="${rt.mnMmAddressPublicNy eq 1}">
+									<span><c:out value="${rt.mnmaAddress1}"/></span>
+								</c:when>
+								<c:otherwise>
+									<span>주소 비공개</span>
+								</c:otherwise>
+							</c:choose>
+							</h3>
+		                    <p><c:out value="${rt.mnMmIntroduce}"/></p>
+		                </div>    
 	                    
 	                </a> 
 	            </div> 

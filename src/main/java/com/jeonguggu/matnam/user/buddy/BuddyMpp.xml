@@ -27,11 +27,14 @@
 			b.mnfdSeq
 			,a.mnMmName
 			,a.mnMmIntroduce
-		    ,b.mnMmSeq
-		    ,b.mnfdFriendSeq
+			,b.mnMmSeq
+			,b.mnfdFriendSeq
+		    ,c.uuidName
+		    ,c.path
 		FROM
 			matnamFriend b
-		    LEFT JOIN matnamMember a ON b.mnMmSeq = a.mnMmSeq OR b.mnfdFriendSeq = a.mnMmSeq
+			LEFT JOIN matnamMember a ON b.mnMmSeq = a.mnMmSeq OR b.mnfdFriendSeq = a.mnMmSeq
+		    LEFT JOIN matnamUploaded c ON c.pseq = b.mnMmSeq AND c.defaultNy = 1
 		WHERE ( 1=1 
 			AND NOT a.mnMmName = #{mnMmName}
 			AND b.mnMmSeq = #{mnMmSeq}
@@ -53,9 +56,12 @@
 			,a.mnMmIntroduce
 		    ,b.mnMmSeq
 		    ,b.mnfdFriendSeq
+		    ,c.uuidName
+		    ,c.path
 		FROM
 			matnamFriend b
 		    LEFT JOIN matnamMember a ON b.mnMmSeq = a.mnMmSeq OR b.mnfdFriendSeq = a.mnMmSeq
+		    LEFT JOIN matnamUploaded c ON c.pseq = a.mnMmSeq AND c.defaultNy = 1
 		WHERE 1=1 
 			AND NOT a.mnMmName = #{mnMmName}
 			AND b.mnMmSeq = #{mnMmSeq}
@@ -74,9 +80,12 @@
 			,a.mnMmIntroduce
 			,c.mnfdSeq
 			,c.mnfdMessage
+			,b.uuidName
+		    ,b.path
 		FROM
 			matnamMember a
 			LEFT JOIN matnamFriend c ON c.mnfdDelNy = 0 AND a.mnMmSeq = c.mnMmSeq AND c.mnfdFriendStateCd = 6
+			LEFT JOIN matnamUploaded b ON b.pseq = c.mnMmSeq AND b.defaultNy = 1
 		WHERE 1=1
 			AND c.mnfdFriendSeq = #{mnMmSeq}
 	</select>
@@ -90,9 +99,12 @@
 			,a.mnMmIntroduce
 			,b.mnfdMessage
 			,b.mnfdSeq
+			,c.uuidName
+		    ,c.path
 		FROM
 			matnamMember a
 			LEFT JOIN matnamFriend b ON b.mnfdDelNy = 0 AND a.mnMmSeq = b.mnfdFriendSeq AND b.mnfdFriendStateCd = 6
+			LEFT JOIN matnamUploaded c ON c.pseq = a.mnMmSeq AND c.defaultNy = 1
 		WHERE 1=1
 			AND b.mnMmSeq = #{mnMmSeq}
 	</select>

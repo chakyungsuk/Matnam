@@ -138,13 +138,27 @@
 								<c:otherwise>
 									<c:forEach items="${listReceive}" var="itemReceive" varStatus="status">	
 										<div class="row mt-4">
-											<div class="col-2" style="margin-top:5px;">
+											<!-- <div class="col-2" style="margin-top:5px;">
 												<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 													<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
 													<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
 												</svg>
+											</div> -->
+											<div class="col-2" style="margin-top:5px;">
+												<c:choose>
+								                	<c:when test="${empty itemReceive.path}">
+									                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+															<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+															<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+														</svg>
+									                    <!-- <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" style="width:110px; height:110px;"> -->
+								                	</c:when>
+								                	<c:otherwise>
+								                    	<img src="<c:out value="${itemReceive.path}"/><c:out value="${itemReceive.uuidName}"/>" alt="" style="width:45px; height:45px;">
+								                	</c:otherwise>
+								                </c:choose>
 											</div>
-											<div class="col-8">
+											<div class="col-8" style="cursor: pointer;" onclick="location.href='/user/friendDetail?mnMmSeq=${itemReceive.mnMmSeq}'">
 												<label><c:out value="${itemReceive.mnMmName}"/></label><br>
 												<span><c:out value="${itemReceive.mnfdMessage}"/></span>
 											</div>
@@ -186,13 +200,27 @@
 								<c:otherwise>
 									<c:forEach items="${listSend}" var="itemSend" varStatus="status">	
 										<div class="row mt-4">
-											<div class="col-2" style="margin-top:5px;">
+											<!-- <div class="col-2" style="margin-top:5px;">
 												<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 													<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
 													<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
 												</svg>
+											</div> -->
+											<div class="col-2" style="margin-top:5px;">
+												<c:choose>
+								                	<c:when test="${empty itemSend.path}">
+									                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+															<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+															<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+														</svg>
+									                    <!-- <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" style="width:110px; height:110px;"> -->
+								                	</c:when>
+								                	<c:otherwise>
+								                    	<img src="<c:out value="${itemSend.path}"/><c:out value="${itemSend.uuidName}"/>" alt="" style="width:55px; height:55px;">
+								                	</c:otherwise>
+								                </c:choose>
 											</div>
-											<div class="col-8">
+											<div class="col-8" style="cursor: pointer;" onclick="location.href='/user/friendDetail?mnMmSeq=${itemSend.mnMmSeq}'">
 												<label><c:out value="${itemSend.mnMmName}"/></label><br>
 												<span><c:out value="${itemSend.mnfdMessage}"/></span>
 											</div>

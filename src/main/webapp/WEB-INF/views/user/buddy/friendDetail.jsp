@@ -341,7 +341,7 @@
 			        			<button class="btn_1" style="width:100px;" onclick="friendAlert()">친구요청</button>
 			        		</c:otherwise>
 			       		</c:choose>
-	                	<button class="btn_1" onclick="javascript:goList();" style="width:100px;">목록으로</button>
+	                	<!-- <button class="btn_1" onclick="javascript:goList();" style="width:100px;">목록으로</button> -->
 	                </div>
 	            </div><!-- End box_style_1 -->
 	        </div><!-- End col -->
