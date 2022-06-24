@@ -231,11 +231,22 @@
 <script src="${pageContext.request.contextPath}/resources/user/js/infobox.js"></script>
 <script src="${pageContext.request.contextPath}/resources/user/js/ion.rangeSlider.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=LIBRARY"></script>
 <script>
 
 	var number = null;
 	var markerArr = new Array();
 	var overlayArr = new Array();
+	
+	// KaKao Map S
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	mapOption = { 
+	    center: new kakao.maps.LatLng(37.5642135, 127.0016985), // 지도의 중심좌표
+	    level: 8 // 지도의 확대 레벨
+	};
+	
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	
 
 	$(document).ready(function(){
 		$.ajax({
@@ -312,7 +323,7 @@
 							var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
 							var marker = new kakao.maps.Marker({ position: markerPosition });
 							markerArr[i] = marker;
-							marker.setMap(null);   
+							/* marker.setMap(null);  */  
 							marker.setMap(map);
 							/* 마커생성 E*/
 							
@@ -398,14 +409,7 @@
 	}
 	
 
-	// KaKao Map S
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-	mapOption = { 
-	    center: new kakao.maps.LatLng(37.5642135, 127.0016985), // 지도의 중심좌표
-	    level: 8 // 지도의 확대 레벨
-	};
 	
-	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
 	
 	/* 검색후 마커찍는 함수 S */
@@ -449,7 +453,7 @@
 		
 	}
 	/* 검색후 마커 있을시 없애는 함수  */
-	
+	/* 
 	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
 	function makeOverListener(map, marker, infowindow) {
    		return function() {
@@ -463,7 +467,7 @@
 	        infowindow.close();
 	    };
 	}
-	
+	 */
 	
 	kakao.maps.event.addListener(map, 'bounds_changed', function() { 
 		
@@ -475,9 +479,13 @@
 	    for(var i in overlayArr.length){
 			overlayArr[i].setMap(null); 
 		}
+	    /* for(var i in markerArr.length){
+	    	markerArr[i].setMap(null);  
+		} */
+		/* clusterer.clear(); */
 	    
-	    markerArr.length = 0;
-		overlayArr.length = 0;
+	    markerArr= [];
+		overlayArr = [];
 	    
 		$.ajax({
 				async:true,
@@ -553,7 +561,7 @@
 								var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
 								var marker = new kakao.maps.Marker({ position: markerPosition });
 								markerArr[i] = marker;
-								marker.setMap(null);   
+								/* marker.setMap(null);    */
 								marker.setMap(map);
 								/* 마커생성 E*/
 								
@@ -632,8 +640,8 @@
 			});
 		});
 	// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-	function closeOverlay(number) {
-	    overlayArr[number].setMap(null);     
+	function closeOverlay(i) {
+	    overlayArr[i].setMap(null);     
 	}
 	function makeOverListener(i) {
 	    return function() {
