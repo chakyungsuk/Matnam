@@ -103,8 +103,8 @@
 	    left join matnam.matnamMember b ON b.mnMmSeq = a.mnMmSeq
         left join matnam.matnamUploaded c on c.pseq = b.mnMmSeq
 	    where 1=1
-	    and mnrtSeq = #{mnrtSeq}
-        and defaultNy = 1;
+		    and mnrtSeq = #{mnrtSeq}
+	        and defaultNy = 1;
 	</select>
 	
 	<select id="selectOneReview" resultMap="resultMapObj">
