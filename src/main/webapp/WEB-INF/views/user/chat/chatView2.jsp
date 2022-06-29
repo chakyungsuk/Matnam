@@ -721,7 +721,7 @@ ul, li.replies img {
 <form id="chatView" name="chatView" method="get" action="/chat/chatView2">
 	<input type="hidden" id="mnMmSeq" name="mnMmSeq" value="${sessSeq}">
 	<input type="hidden" id="mnMmName" name="mnMmName" value="${sessName}">
-	<input type="hidden" id="fdmnMmName" name="fdmnMmName">
+	<input type="hidden" id="fdmnMmName" name="fdmnMmName" value="${vo.fdmnMmName}">
 	<input type="hidden" id="mnfdseq" name="mnfdseq">
 	<input type="hidden" id="mnMmIntroduce" name="mnMmIntroduce">
 	<input type="hidden" id="mnfdFriendSeq" name="mnfdFriendSeq">
@@ -732,7 +732,9 @@ ul, li.replies img {
 	<div id="sidepanel">
 		<div id="profile">
 			<div class="wrap">
-				<img id="profile-img" src="<c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" class="online" alt="" />
+				<c:if test ="${host.mnMmName eq vo.fdmnMmName}"><img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" /></c:if>
+				<c:if test ="${host.mnMmName ne vo.fdmnMmName}"><img id="profile-img" src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" class="online" alt="" /></c:if>
+				<%-- <img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" /> --%>
 				<p><c:out value="${sessSeq}"/></p>
 				<p><c:out value="${sessName}"/></p>
 				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
@@ -756,7 +758,7 @@ ul, li.replies img {
 		<div id="contacts">
 			<ul style="margin: 0px;">
 				<%-- <li class="contact" style="padding: 0px; margin-bottom: 0px;" onclick="fdcheck(<c:out value="${item.mnMmSeq}"/>);"> --%>
-					<div class="wrap">
+					<div class="container" style="padding-right: 32px;">
 						<div class="meta" id="fdbodyContent">
 						<%-- <ul style="margin: 0px;">
 							<a href=""><li class="contact" style="padding: 0px; margin-bottom: 0px;">
@@ -783,7 +785,9 @@ ul, li.replies img {
 	</div>
 	<div class="content">
 		<div class="contact-profile">
-			<img src="<c:out value="${room.mnfdFriendSeq}"/><c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" alt="" />
+			<%-- <img src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" alt="" /> --%>
+			<c:if test ="${host.mnMmName eq vo.fdmnMmName}"><img id="profile-img" src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" class="online" alt="" /></c:if>
+			<c:if test ="${host.mnMmName ne vo.fdmnMmName}"><img id="profile-img" src="<c:out value="${user.path}"/><c:out value="${user.uuidName}"/>" class="online" alt="" /></c:if>
 			<p><c:out value="${vo.fdmnMmName}"/></p>
 			<!-- <div class="social-media">
 				<span>화상채팅<i class="fa fa-instagram" id="btnmeet" style="margin-top: 20px;"></i></span>
@@ -881,6 +885,13 @@ import {
     onValue,
     onChildAdded
 } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import {
+    getStorage,
+    uploadBytesResumable,
+    getDownloadURL,
+    listAll,
+    deleteObject
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -969,23 +980,36 @@ submit.addEventListener('click', (e) => {
 
 	const roomnumber = ref(database, 'ROOM/');
     	onChildAdded(roomnumber, (data) => {
-    		if(data.val().host == mnfdfriendseq) {
-            	var divData = '<ul style="margin: 0px;">' + 
-							  	'<a href="http://localhost:8093/chat/chatView2?mnMmSeq=' + data.val().user + '&mnfdFriendSeq=' + data.val().host + '&mnMmName=' + data.val().hostname + '&fdmnMmName=' + data.val().username + '">' + 
+    		if(data.val().hostname == '${sessName}') {
+            	var divData = '<ul style="margin: 0px; width: 100%;">' + 
+							  	'<a href="/chat/chatView2?mnMmSeq=' + data.val().user + '&mnfdFriendSeq=' + data.val().host + '&mnMmName=' + myName + '&fdmnMmName=' + data.val().username + '">' + 
 									'<li class="contact" style="padding: 0px; margin-bottom: 0px;">' +
 										'<div class="wrap">' +
-											'<span class="contact-status online"></span>' +
-											'<img src="<c:out value="${room.path}"/><c:out value="${room.uuidName}"/>" alt="">' +
+											//'<span class="contact-status online"></span>' +
+											//'<img src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" alt="">' +
 											'<div class="meta">' +
-												'<p class="name">' + data.val().username + '</p>' +
+												'<h4 class="" style="font-size: 18px; text-align: center; width: 100%;">' + data.val().username + '</h4>' +
 											'</div>' +
 										'</div>' +
 							 		'</li>' + '</a>'
 							 '</ul>'
            	var d1 = document.getElementById('fdbodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
-		}else{
-
+		}else if(data.val().username == '${sessName}'){
+			var divData = '<ul style="margin: 0px; width: 100%;">' + 
+							  	'<a href="/chat/chatView2?mnMmSeq=' + data.val().user + '&mnfdFriendSeq=' + data.val().host + '&mnMmName=' + myName + '&fdmnMmName=' + data.val().hostname + '">' + 
+									'<li class="contact" style="padding: 0px; margin-bottom: 0px;">' +
+										'<div class="wrap">' +
+											//'<span class="contact-status online"></span>' +
+											//'<img src="<c:out value="${host.path}"/><c:out value="${host.uuidName}"/>" alt="">' +
+											'<div class="meta">' +
+												'<h4 class="" style="font-size: 18px; text-align: center; width: 100%;">' + data.val().hostname + '</h4>' +
+											'</div>' +
+										'</div>' +
+							 		'</li>' + '</a>'
+							 '</ul>'
+           	var d1 = document.getElementById('fdbodyContent');
+            d1.insertAdjacentHTML('beforebegin', divData);
 		}
 	});
 </script>

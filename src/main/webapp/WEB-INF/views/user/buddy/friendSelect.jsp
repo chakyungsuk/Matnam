@@ -140,68 +140,34 @@
 		                    </div> 
 		                </div>
 		            </form>
-		            <!-- <div class="row" style="height: 100px;">
-						<div class="col-2" style="margin-top:5px;">
-							<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-							</svg>
-						</div>
-						<div class="col-7">
-							<label>고구마</label><br>
-							<span>저랑 밥취향이 맞는 것 같아요! 친구해요!</span>
-						</div>
-						<div class="col-3">
-							<div class="row">
-								<div class="col-12">
-									<a href="/chat/chatView"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
-								</div>
-								<div>
-									<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>
-									<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
-								</div>  
-							</div>  
-						</div>  
-						  
-					</div> 
-		            <div class="row">
-						<div class="col-2" style="margin-top:5px;">
-							<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-							</svg>
-						</div> 
-						<div class="col-7">
-							<label>감자</label><br>
-							<span>감자 먹으러 갑시다</span>
-						</div>
-						<div class="col-3">
-							<div class="row">
-								<div class="col-12">
-									<a href="/chat/chatView"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
-								</div>
-								<div>
-									<a href="#" ><span class="badge bg-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" style="display:inline-block;">친구삭제</span></a>
-									<a href="#" data-bs-toggle="modal" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
-								</div>  
-							</div> 
-						</div> 
-					</div>  -->
-
 					<c:choose>
 						<c:when test="${fn:length(list) eq 0}">
 								<h5 style="text-align: center;">아직 친구가 없습니다 친구 추가를 해보세요!</h5>
 						</c:when>
 						<c:otherwise>
 							<c:forEach items="${list}" var="item" varStatus="status">	
-								<div class="row" style="height: 100px;">
-									<div class="col-2" style="margin-top:5px;">
+								<div class="row" style="height: 100px;" id="memberRow" >
+									<!-- <div class="col-2" style="margin-top:5px;">
 										<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 											<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
 											<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
 										</svg>
+									</div> -->
+									<div class="col-2" style="margin-top:5px;">
+										<c:choose>
+						                	<c:when test="${empty item.path}">
+							                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+													<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+													<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+												</svg>
+							                    <!-- <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" style="width:110px; height:110px;"> -->
+						                	</c:when>
+						                	<c:otherwise>
+						                    	<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" alt="" style="width:55px; height:55px;">
+						                	</c:otherwise>
+						                </c:choose>
 									</div>
-									<div class="col-7">
+									<div class="col-7" style="cursor:pointer;" onclick="location.href='/user/friendDetail?mnMmSeq=${item.mnMmSeq}'">
 										<label><c:out value="${item.mnMmName}"/></label><br>
 										<span><c:out value="${item.mnMmIntroduce}"/></span>
 									</div>
@@ -211,8 +177,8 @@
 												<a href="javascript:gochat(${item.mnfdFriendSeq},'${item.mnMmName}','${item.mnMmSeq}')"><h6><span class="badge bg-primary" style="width:105px;">1:1 채팅</span></h6></a>
 											</div>
 											<div>
-												<a href="#" data-bs-toggle="modal" onclick="setForm(${item.mnfdSeq})" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>												
-												<a href="#" data-bs-toggle="modal" onclick="setForm(${item.mnfdSeq})" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
+												<a href="#" data-bs-toggle="modal" onclick="setForm(${item.mnfdSeq}); return false;" data-bs-target="#deleteModal" style="display:inline-block;"><span class="badge bg-primary">친구삭제</span></a>												
+												<a href="#" data-bs-toggle="modal" onclick="setForm(${item.mnfdSeq}); return false" data-bs-target="#blockModal" style="display:inline-block;"><span class="badge bg-secondary">차단</span></a>
 											</div>  
 										</div>  
 									</div>									  
@@ -351,9 +317,9 @@
 	} 
     
     gochat = function(seq,name,seq2){
-		$("#mnfdFriendSeq").val(seq);
-		$("#fdmnMmName").val(name);
 		$("#mnMmSeqQ").val(seq2);
+		$("#fdmnMmName").val(name);
+		$("#mnfdFriendSeq").val(seq);
 		$("#formTopListList").attr("action","/chat/chatView2");
 		$("#formTopListList").submit();
 	} 

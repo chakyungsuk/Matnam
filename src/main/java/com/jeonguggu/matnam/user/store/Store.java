@@ -59,6 +59,8 @@ public class Store {
 	private String originalFileName;
 	private String uuidName;
 	private String path;
+	private String mnrtLogoPath;
+	private String mnrtLogoUuidName;
 	
 	//code
 	
@@ -307,6 +309,19 @@ public class Store {
 	public void setMncdDelNy(String mncdDelNy) {
 		this.mncdDelNy = mncdDelNy;
 	}
+	public String getMnrtLogoPath() {
+		return mnrtLogoPath;
+	}
+	public void setMnrtLogoPath(String mnrtLogoPath) {
+		this.mnrtLogoPath = mnrtLogoPath;
+	}
+	public String getMnrtLogoUuidName() {
+		return mnrtLogoUuidName;
+	}
+	public void setMnrtLogoUuidName(String mnrtLogoUuidName) {
+		this.mnrtLogoUuidName = mnrtLogoUuidName;
+	}
+	
 	
 	
 	

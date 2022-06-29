@@ -39,6 +39,18 @@
 		a:link{
 			text-decoration: none;
 		}
+		
+		.thumb_strip img {
+			height: 100% !important;
+		}
+		
+		.desc .rating {
+			padding-bottom:10px;
+		}
+		
+		.desc h3 {
+			padding-bottom:6px !important;
+		}
     </style>
 	
 
@@ -142,15 +154,15 @@
             </p>
             <form method="post" action="list_page.html">
                 <div id="custom-search-input">
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <input type="text" class=" search-query" placeholder="Your Address or postal code">
                         <span class="input-group-btn">
                         <input type="submit" class="btn_search" value="">
                         </span>
-                    </div>
+                    </div> -->
                     <div style="padding-top:80px">
-                       <button type="button" class="btn btn-outline-light" onclick="location.href='/user/storeView'">지도검색</button>
-                       <button type="button" class="btn btn-outline-light" onclick="location.href='javascript:goAreaSelect(${sessSeq})'">친구매칭</button>
+                       <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='/user/storeView'">지도검색</button>
+                       <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='javascript:goAreaSelect(${sessSeq})'">친구매칭</button>
                     </div>
                 </div>
             </form>
@@ -170,7 +182,7 @@
     <!-- Content ================================================== -->
     <div class="container margin_60">
         <div class="main_title">
-            <h2 class="nomargin_top" style="font-weight:600";>Project Introduction</h2>
+            <h2 class="nomargin_top" style="font-weight:600";>맛남프로젝트 소개 </h2>
             <p>
             	Jeonguggu Team
             </p>
@@ -230,7 +242,7 @@
                     <div class="screen">
                     	<a href="javascript:gochat()">	
                     	<figure>
-		                    <img src="/resources/user/image/Introduction4.png" style="width: 100%; height: 300px;">
+		                    <img src="/resources/user/image/chatting.png" style="width: 100%; height: 300px;">
 		                    <figcaption>친구들과 자유로운 채팅 가능!</figcaption>		                    
 		                </figure>    
 	                    </a>
@@ -250,9 +262,9 @@
     <div class="white_bg" style="background-image:url('/resources/user/image/fff1.jpg');">
         <div class="container margin_60">
             <div class="main_title">
-                <h2 class="nomargin_top" style="color:black; font-weight:600; text-shadow:3px 3px 4px white;">Restaurant recommendations</h2>
-                <p style="color:yellow;">
-                    Top 6 restaurant selection
+                <h2 class="nomargin_top" style="color:black; font-weight:600; text-shadow:3px 3px 4px white;">음식점 추천</h2>
+                <p style="color:black; text-shadow:3px 3px 4px white;">
+                  	음식종류별로 음식점을 추천받아보세요!
                 </p>
             </div>
             <div class="container" style="text-align: center; margin-bottom: 23px;">
@@ -280,7 +292,14 @@
 							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list" style="height:170px;">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
-							                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+							                    	 <c:choose>
+									                	<c:when test="${empty rt.path}">
+										                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
+									                	</c:when>
+									                	<c:otherwise>
+									                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+									                	</c:otherwise>
+									                </c:choose>
 												</div>
 					                            <div class="rating">
 					                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
@@ -290,108 +309,12 @@
 					                           		<fmt:parseDate value="${rt.mnrtTimeStart}" var="parseTime" pattern="HH:mm"/>
 					                                <c:out value="${rt.mnrtAddressFull}"/> <span class="opening">Opens at <fmt:formatDate value="${parseTime}" pattern="HH:mm"/><br></span>
 					                            </div>
-					                            <ul>
-					                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-					                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-					                            </ul>
 					                        </div>
 					                    	</a>
 							            </div> 
 							            <c:set var="countKorean" value="${countKorean + 1}" />
 				                	</c:if>
 					           	</c:forEach> 
-			                	<!-- <div class="col-6" style="float: left; margin:0 auto;">
-				                    <a href="detail_page.html" class="strip_list">
-				                        <div class="desc">
-				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/rr.jfif" alt="">
-				                            </div>
-				                            <div class="rating">
-				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-				                            </div>
-				                            <h3>Taco Mexican</h3>
-				                            <div class="type">
-				                                Mexican / American 
-				                            </div>
-				                            <div class="location">
-				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-				                            </div>
-				                            <ul>
-				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-				                            </ul>
-				                        </div>
-				                    </a>
-			                    </div>
-			                    <div class="col-6" style="float: left; margin:0 auto;">
-				                    <a href="detail_page.html" class="strip_list">
-				                        <div class="desc">
-				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/zz.jpg" alt="">
-				                            </div>
-				                            <div class="rating">
-				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-				                            </div>
-				                            <h3>Naples Pizza</h3>
-				                            <div class="type">
-				                                Italian / Pizza
-				                            </div>
-				                            <div class="location">
-				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-				                            </div>
-				                            <ul>
-				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-				                            </ul>
-				                        </div>
-				                    </a>	
-			                    </div>	                    
-			                    <div class="col-6" style="float: left; margin:0 auto;">
-				                    <a href="detail_page.html" class="strip_list">
-				                        <div class="desc">
-				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/zz.jpg" alt="">
-				                            </div>
-				                            <div class="rating">
-				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-				                            </div>
-				                            <h3>Naples Pizza</h3>
-				                            <div class="type">
-				                                Italian / Pizza
-				                            </div>
-				                            <div class="location">
-				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-				                            </div>
-				                            <ul>
-				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-				                            </ul>
-				                        </div>
-				                    </a>	
-			                    </div>	                    
-			                    <div class="col-6" style="float: left; margin:0 auto;">
-				                    <a href="detail_page.html" class="strip_list">
-				                        <div class="desc">
-				                            <div class="thumb_strip">
-				                                <img src="/resources/user/image/rr.jfif" alt="">
-				                            </div>
-				                            <div class="rating">
-				                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-				                            </div>
-				                            <h3>Naples Pizza</h3>
-				                            <div class="type">
-				                                Italian / Pizza
-				                            </div>
-				                            <div class="location">
-				                                135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00</span>
-				                            </div>
-				                            <ul>
-				                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-				                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-				                            </ul>
-				                        </div>
-				                    </a>	
-			                    </div> -->	                    
 			                </div>		                
 			            </div>
 		            </div>
@@ -403,10 +326,17 @@
 				                <c:forEach items="${listRestaurant}" var="rt" varStatus="status">
 				                	<c:if test="${rt.mnrtFoodCateCd eq 126 && countJapanese < 6}">
 							            <div class="col-6" style="float: left; margin:0 auto;">
-							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list">
+							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list" style="height:170px;">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
-							                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+							                    	<c:choose>
+									                	<c:when test="${empty rt.path}">
+										                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
+									                	</c:when>
+									                	<c:otherwise>
+									                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+									                	</c:otherwise>
+									                </c:choose>
 												</div>
 					                            <div class="rating">
 					                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
@@ -416,10 +346,6 @@
 					                           		<fmt:parseDate value="${rt.mnrtTimeStart}" var="parseTime" pattern="HH:mm"/>
 					                                <c:out value="${rt.mnrtAddressFull}"/> <span class="opening">Opens at <fmt:formatDate value="${parseTime}" pattern="HH:mm"/><br></span>
 					                            </div>
-					                            <ul>
-					                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-					                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-					                            </ul>
 					                        </div>
 					                    	</a>
 							            </div> 
@@ -437,10 +363,17 @@
 				                <c:forEach items="${listRestaurant}" var="rt" varStatus="status">
 				                	<c:if test="${rt.mnrtFoodCateCd eq 130 && countChinese < 6}">
 							            <div class="col-6" style="float: left; margin:0 auto;">
-							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list">
+							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list" style="height:170px;">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
-							                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+							                    	<c:choose>
+									                	<c:when test="${empty rt.path}">
+										                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
+									                	</c:when>
+									                	<c:otherwise>
+									                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+									                	</c:otherwise>
+									                </c:choose>
 												</div>
 					                            <div class="rating">
 					                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
@@ -450,10 +383,6 @@
 					                           		<fmt:parseDate value="${rt.mnrtTimeStart}" var="parseTime" pattern="HH:mm"/>
 					                                <c:out value="${rt.mnrtAddressFull}"/> <span class="opening">Opens at <fmt:formatDate value="${parseTime}" pattern="HH:mm"/><br></span>
 					                            </div>
-					                            <ul>
-					                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-					                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-					                            </ul>
 					                        </div>
 					                    	</a>
 							            </div> 
@@ -471,10 +400,17 @@
 				                <c:forEach items="${listRestaurant}" var="rt" varStatus="status">
 				                	<c:if test="${rt.mnrtFoodCateCd eq 129 && countAsian < 6}">
 							            <div class="col-6" style="float: left; margin:0 auto;">
-							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list">
+							                <a href="/user/storeDetail?mnrtSeq=${rt.mnrtSeq}" class="strip_list" style="height:170px;">
 					                        <div class="desc">
 					                            <div class="thumb_strip">
-							                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+							                    	<c:choose>
+									                	<c:when test="${empty rt.path}">
+										                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
+									                	</c:when>
+									                	<c:otherwise>
+									                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
+									                	</c:otherwise>
+									                </c:choose>
 												</div>
 					                            <div class="rating">
 					                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i>
@@ -484,10 +420,6 @@
 					                           		<fmt:parseDate value="${rt.mnrtTimeStart}" var="parseTime" pattern="HH:mm"/>
 					                                <c:out value="${rt.mnrtAddressFull}"/> <span class="opening">Opens at <fmt:formatDate value="${parseTime}" pattern="HH:mm"/><br></span>
 					                            </div>
-					                            <ul>
-					                                <li>Take away<i class="icon_check_alt2 ok"></i></li>
-					                                <li>Delivery<i class="icon_check_alt2 ok"></i></li>
-					                            </ul>
 					                        </div>
 					                    	</a>
 							            </div> 
@@ -682,26 +614,39 @@
 <div class="white_bg">
     <div class="container margin_60" >
         <div class="main_title margin_mobile">
-            <h2 class="nomargin_top" style="font-weight:600";>User recommendations</h2>
+            <h2 class="nomargin_top" style="font-weight:600";>유저매칭</h2>
             <p>
-                Delicious meeting.
+               다른유저들과 친구추가를 해보세요!
             </p>
         </div>
         <div class="row justify-content-center">
              <c:forEach items="${list}" var="rt" varStatus="status">
 	            <div class="col-md-3">
-	                <a class="box_work" href="submit_restaurant.html" style="box-shadow : 0px 0px 0px 3px #f0f2f4;">
-	                <c:choose>
-	                	<c:when test="${empty rt.path}">
-		                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="848" height="480" alt="" class="img-fluid">
-	                	</c:when>
-	                	<c:otherwise>
-	                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" width="848" height="480" alt="" class="img-fluid">
-	                	</c:otherwise>
-	                </c:choose>
-						<h3><c:out value="${rt.mnMmName}"/><span><c:out value="${rt.mnmaAddress1}"/></span></h3>
-	                    <p><c:out value="${rt.mnMmIntroduce}"/></p>
-	                    <div class="btn_1">친구요청</div>
+	                <a class="box_work" href="/user/friendDetail?mnMmSeq=${rt.mnMmSeq}" style="box-shadow : 0px 0px 0px 3px #f0f2f4; height:430px;">
+		                <div style="height:250px; margin-bottom:20px;">
+		                <c:choose>
+		                	<c:when test="${empty rt.path}">
+			                    <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" class="img-fluid" style="width:250px; height:250px;">
+		                	</c:when>
+		                	<c:otherwise>
+		                    	<img src="<c:out value="${rt.path}"/><c:out value="${rt.uuidName}"/>" alt="" class="img-fluid" style="width:250px; height:250px;">
+		                	</c:otherwise>
+		                </c:choose>
+		                </div>
+		                <div style="height:200px; margin-bottom:20px;">
+							<h3><c:out value="${rt.mnMmName}"/>
+							<c:choose>
+								<c:when test="${rt.mnMmAddressPublicNy eq 1}">
+									<span><c:out value="${rt.mnmaAddress1}"/></span>
+								</c:when>
+								<c:otherwise>
+									<span>주소 비공개</span>
+								</c:otherwise>
+							</c:choose>
+							</h3>
+		                    <p><c:out value="${rt.mnMmIntroduce}"/></p>
+		                </div>    
+	                    
 	                </a> 
 	            </div> 
            	</c:forEach> 

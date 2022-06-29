@@ -171,7 +171,8 @@
 									</c:choose>
 								</tbody>
 							</table>
-							<nav aria-label="Page navigation example" style="margin-top:20px;">
+							
+							<!-- <nav aria-label="Page navigation example" style="margin-top:20px;">
 								<ul class="pagination" style="justify-content: center;">
 									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
 									<li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -179,7 +180,7 @@
 									<li class="page-item"><a class="page-link" href="#">3</a></li>
 									<li class="page-item"><a class="page-link" href="#">Next</a></li>
 								</ul>
-							</nav>
+							</nav> -->
 						</div>
 					</div>
 				</div>

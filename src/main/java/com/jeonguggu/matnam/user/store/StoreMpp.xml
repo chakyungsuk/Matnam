@@ -34,7 +34,29 @@
              <if test="swLat != '' and swLat != '' ">
               	AND mnrtX BETWEEN #{swLat} AND #{neLat}
               </if>
-              <!-- order by rand() limit 10; -->
+               <!-- limit 10; -->
+	</select>
+	<select id="selectRoad" resultMap="resultMapObj">
+		SELECT
+			a.mnrtSeq
+			,a.mnrtName
+		    ,a.mnrtAddressFull
+		    ,a.mnrtAvg
+            ,a.mnrtX
+            ,a.mnrtY
+            ,a.mnrtTimeStart
+		    ,a.mnrtTimeEnd
+		    ,a.mnrtBreakTimeStart
+		    ,a.mnrtBreakTimeEnd
+            ,b.mncdName
+            ,d.originalName
+            ,d.uuidName
+            ,d.path
+		FROM matnam.matnamRestaurant a
+        	left join matnam.matnamCode b on b.mncdSeq = a.mnrtFoodCateCd
+         	left join matnam.matnamCode c on c.mncdSeq = a.mnrtHolidayCd
+            left join matnam.matnamUploaded d on d.typeCd = 148 and a.mnrtSeq = d.pseq
+		;
 	</select>
 	<!-- <select id="selectListStore" resultMap="resultMapObj">
 		SELECT
@@ -81,6 +103,10 @@
 		    ,a.mnrtAvg
             ,b.mncdName as mnrtFoodCate
             ,c.mncdName as mnrtHoliday
+			,(select path from matnam.matnamUploaded where 1=1 and typeCd = 148 and pseq = a.mnrtSeq and defaultNy = 1) as mnrtLogoPath
+			,(select uuidName from matnam.matnamUploaded where 1=1 and typeCd = 148 and pseq = a.mnrtSeq and defaultNy = 1) as mnrtLogoUuidName
+            ,(select path from matnam.matnamUploaded where 1=1 and typeCd = 149 and pseq = a.mnrtSeq and defaultNy = 1) as path
+            ,(select uuidName from matnam.matnamUploaded where 1=1 and typeCd = 149 and pseq = a.mnrtSeq and defaultNy = 1) as uuidName
 		FROM matnam.matnamRestaurant a
         	left join matnam.matnamCode b on b.mncdSeq = a.mnrtFoodCateCd
          	left join matnam.matnamCode c on c.mncdSeq = a.mnrtHolidayCd
@@ -135,7 +161,7 @@
 			avg(mnrvScore)
 		from matnam.matnamReview
 		where 1=1
-			and mnrtSeq = 1;
+			and mnrtSeq = #{mnrtSeq};
 	
 	</select>
 	
@@ -150,6 +176,12 @@
          <if test="swLat != '' and swLat != '' ">
            	AND mnrtX BETWEEN #{swLat} AND #{neLat};
          </if>
+	</select>
+	
+	<select id="selectRoadCount" resultType="Integer">
+		SELECT 
+			count(*)
+		from matnam.matnamRestaurant ;
 	</select>
 	
 	

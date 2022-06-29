@@ -115,24 +115,24 @@
 		                    <label>비밀번호</label>
 		                    <input type="password" class="form-control" id="mnMmPassword" name="lastname_order" placeholder="비밀번호" value="guest1">
 		                </div>
-		                <div class="form-check">
+		                <!-- <div class="form-check">
 							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 							<label class="form-check-label" for="flexCheckDefault">
 								로그인 상태 유지
 							</label>
-						</div>
+						</div> -->
 						<div style="text-align: center; padding:10px; "> 
 		                	<button type="submit" class="btn_1" id="btnLogin" style="width:200px;">로그인</button>
 		                </div>
 		                <div style="text-align: center; padding:10px;">
-		                	<button class="btn btn-light" style="width:200px;"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
+		                	<button type="button" class="btn btn-light" style="width:200px;" onClick="alert('준비중입니다.');"><img src="/resources/user/image/naverLoginBtn.png" style="width:140px;"></button>
 		                </div> 
 		                <div class="row justify-content-center" style="margin-top:10px;">  
 		                	<div class="col-auto">
-			                	<a href="" class="login_text" style="color: black;">아이디 찾기</a>
+			                	<a href="void(0);" class="login_text" style="color: black;" onClick="alert('준비중입니다.'); return false;" >아이디 찾기</a>
 		                	</div>
 		                	<div class="login_search col-auto"> 
-		                		<a href="" class="login_text" style="color: black;">비밀번호 찾기</a>
+		                		<a href="void(0);" class="login_text" style="color: black;" onClick="alert('준비중입니다.'); return false;">비밀번호 찾기</a>
 		                	</div>
 		                	<div class="login_search col-auto">
 		                		<a href="userForm" class="login_text" style="color: black;">회원가입</a>

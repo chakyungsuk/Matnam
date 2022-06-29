@@ -3,8 +3,58 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-
+<!DOCTYPE html>
+<html>
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
+    <meta name="description" content="">
+    <meta name="author" content="Ansonika">
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="/resources/user/css/animate.min.css" rel="stylesheet">
+    <link href="/resources/user/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/user/css/menu.css" rel="stylesheet">
+    <link href="/resources/user/css/style.css" rel="stylesheet">
+    <link href="/resources/user/css/responsive.css" rel="stylesheet">
+    <link href="/resources/user/css/elegant_font/elegant_font.min.css" rel="stylesheet">
+    <link href="/resources/user/css/fontello/css/fontello.min.css" rel="stylesheet">
+    <link href="/resources/user/css/magnific-popup.css" rel="stylesheet">
+    <link href="/resources/user/css/pop_up.css" rel="stylesheet">
+    
+    <!-- Radio and check inputs -->
+    <link href="/resources/user/css/skins/square/grey.css" rel="stylesheet">
+    <link href="/resources/user/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="/resources/user/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" >
+    
+    <!-- glightbox css -->
+    <link rel="stylesheet" href="/resources/chat/dist/assets/libs/glightbox/css/glightbox.min.css">
+
+    <!-- One of the following themes -->
+    <link rel="stylesheet" href="/resources/chat/dist/assets/libs/@simonwep/pickr/themes/nano.min.css" /> <!-- 'classic' theme -->
+
+    <!-- swiper css -->
+    <link rel="stylesheet" href="/resources/chat/dist/assets/libs/swiper/swiper-bundle.min.css">
+
+    <!-- Icons Css -->
+    <link href="/resources/chat/dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/resources/chat/dist/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="/resources/user/css/custom.css" rel="stylesheet">
 	<style>
 	  .star {
 	    position: relative;
@@ -35,14 +85,21 @@
 
 
 <!-- Header -->
-<%@include file="../include/top.jsp" %>
+<%@include file="/WEB-INF/views/user/include/top.jsp" %>
 <!-- Header -->   
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="<c:out value="${rtStore.path}"/><c:out value="${rtStore.uuidName}"/>" data-natural-width="1400" data-natural-height="470">
         <div id="subheader">
             <div id="sub_content">
-                <div id="thumb"><img src="/resources/user/image/store/himnandaLogo.png" alt=""></div>
+           		<c:choose>
+           			<c:when test="${empty rtStore.mnrtLogoPath }">
+                		<div id="thumb"><img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt="" ></div>
+                	</c:when>
+                	<c:otherwise>
+                		<div id="thumb"><img src="<c:out value="${rtStore.mnrtLogoPath}"/><c:out value="${rtStore.mnrtLogoUuidName}"/>" alt=""></div>
+                	</c:otherwise>
+                </c:choose>
                 <div class="rating"> 
                 	<span class="star">
 						★★★★★
@@ -107,7 +164,7 @@
 	                            </div>
 	                        </div>
 	                     </h3>
-	                                <img src="/resources/user/image/store/himnandaLogo.png" alt="">
+	                                <img src="<c:out value="${rtStore.path}"/><c:out value="${rtStore.uuidName}"/>" alt="" width="100%">
 	   
 	                    <p class="add_bottom_30">
 	                        <c:out value="${rtStore.mnrtText}"/>
@@ -124,25 +181,23 @@
 	    	                </c:when>
 	    	                <c:otherwise>
 		    	                <c:forEach items="${rtReview}" var="item" varStatus="status">
-		    	                	<div>
+		    	                	<%-- <div>
 		                        		<img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="width:150px; height:150px;" alt="">
-	                        		</div>
+	                        		</div> --%>
 		    	                	<hr/>
 			                        <small>-<fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd"/>-</small>
-			                        <h4> <c:out value="${item.mnMmName}"/></h4>
-			                        <img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="width:150px; height:150px;" alt="">
+			                        <h4 style="margin:15px 0px 0px 15px; font-weight:900; font-size:larger;"><c:out value="${item.mnMmName}"/></h4>
+			                       <%--  <img src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>" style="width:150px; height:150px;" alt=""> --%>
 			                        <span class="star">
 										★★★★★
 										<span style="width:${item.mnrvScore}0%;">★★★★★</span>
 									</span>
-			                        <p>
-			                       
-			                            	<c:out value="${item.mnrvText }"/>
+			                        <p style="margin-top:10px;">			                       
+			                           	<c:out value="${item.mnrvText }"/>
 			                        </p>
 			                        <div class="row">
 			                            <div class="col-md-3">
-			                                <div class="rating">
-			                                    
+			                                <div class="rating">			                                    
 					                            <c:choose>
 					                            	<c:when test="${sessSeq eq item.mnMmSeq}">
 						                            	<a href="/user/storeReviewDele?mnrtSeq=<c:out value="${item.mnrtSeq}"/>&mnMmSeq=<c:out value="${item.mnMmSeq}"/>&mnrvSeq=<c:out value="${item.mnrvSeq}"/>">
@@ -155,7 +210,6 @@
 			                                </div>
 			                            </div>
 			                        </div><!-- End row -->
-			                        <br>
 		                        </c:forEach>
 	                        </c:otherwise>
 	                       </c:choose>
@@ -182,19 +236,24 @@
     <!-- End Content =============================================== -->
 
 	<!-- Footer -->
-	<%@include file="../include/footer.jsp" %>
+	<%@include file="/WEB-INF/views/user/include/footer.jsp" %>
 	<!-- Footer -->
  
     
 <!-- COMMON SCRIPTS -->
-<script src="${pageContext.request.contextPath}/resources/user/js/jquery-3.6.0.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/user/js/common_scripts_min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/user/js/functions.js"></script>
-<!-- <script src="assets/validate.js"></script> -->
+<script src="/resources/user/js/jquery-3.6.0.min.js"></script>
+<script src="/resources/user/js/common_scripts_min.js"></script>
+<script src="/resources/user/js/functions.js"></script>
+<script src="/resources/user/assets/validate.js"></script>
+<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+<script src="/resources/common/js/validation.js"></script>
+<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- SPECIFIC SCRIPTS -->
-<script src="${pageContext.request.contextPath}/resources/user/js/infobox.js"></script>
-<script src="${pageContext.request.contextPath}/resources/user/js/ion.rangeSlider.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="/resources/user/js/map.js"></script>
+<script src="/resources/user/js/infobox.js"></script>
+<script src="/resources/user/js/ion.rangeSlider.js"></script>
 
 <script>
 	const drawStar = (target) => {
@@ -253,9 +312,6 @@
         });
     });
     
-    document.querySelector('#ex-in').addEventListener('input',e=>{
-        document.querySelector('#ex-out').innerHTML= e.target.value;
-    });
 });
     
     

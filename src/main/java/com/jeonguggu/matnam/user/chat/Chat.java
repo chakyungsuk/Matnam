@@ -38,6 +38,9 @@ public class Chat {
 // 	프로필사진
 	private String uuidName;
 	private String path;
+	private String pseq;
+	private Integer defaultNy;
+	private Integer typecd;
 	
 //	----------------------------------------
 
@@ -187,7 +190,24 @@ public class Chat {
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
+	public String getPseq() {
+		return pseq;
+	}
+	public void setPseq(String pseq) {
+		this.pseq = pseq;
+	}
+	public Integer getDefaultNy() {
+		return defaultNy;
+	}
+	public void setDefaultNy(Integer defaultNy) {
+		this.defaultNy = defaultNy;
+	}
+	public Integer getTypecd() {
+		return typecd;
+	}
+	public void setTypecd(Integer typecd) {
+		this.typecd = typecd;
+	}
 	
 	
 }

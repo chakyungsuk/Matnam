@@ -96,15 +96,6 @@
 <!-- Header -->
 <%@include file="../include/top.jsp"%>
 <!-- Header -->
-	<!-- SubHeader =============================================== -->
-<!-- 	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="/resources/user/image/subheader/buddySub.jpg" data-natural-width="1400" data-natural-height="350">
-	    <div id="subheader">
-	        <div id="sub_content">
-	            <h1></h1>
-	        </div>End sub_content
-	    </div>End subheader
-	</section>End section -->
-	<!-- End SubHeader ============================================ -->
 
    <div id="position" style="background-color:#78CFCF; height:60px">
         <div class="container">
@@ -140,12 +131,13 @@
 				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="지도 닫기" data-text-original="지도 검색">지도 검색</a>
 			</p> -->
 			<div id="filters_col">
-				<button type="button" class="btn btn-outline-primary" onclick="searchMap(); checkMarker();" id="clickMpp" name="clickMpp">지도 검색</button>
+			
 				<div class="collapse show" id="collapseFilters">
 					<div class="filter_type">
 						<h6>주소</h6>
 						<div class="mb-3">
-  						<input type="text" class="form-control" id="formGroupExampleInput" placeholder="주소를 이용해 음식점을 검색해보세요!." onkeyup="enterkey()">
+  							<input type="text" class="form-control" id="formGroupExampleInput" placeholder="주소를 이용해 음식점을 검색해보세요!." onkeyup="enterkey()">
+  							<button type="button" class="btn btn-success btn-lg" onclick="searchMap(); checkMarker();" id="clickMpp" name="clickMpp" style="margin:15px; width:200px">지도검색</button>
 						</div>
                     	<!-- <h6>카테고리</h6>
                         <ul>
@@ -239,18 +231,13 @@
 <script src="${pageContext.request.contextPath}/resources/user/js/infobox.js"></script>
 <script src="${pageContext.request.contextPath}/resources/user/js/ion.rangeSlider.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f63a1dcbbb1e9abb694eaf03908b395c&libraries=LIBRARY"></script>
 <script>
-	function enterkey() {
-		if (window.event.keyCode == 13) {
-			searchMap(); 
-			checkMarker();
-	    }
-	}
-	
+
 	var number = null;
 	var markerArr = new Array();
 	var overlayArr = new Array();
-
+	
 	// KaKao Map S
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	mapOption = { 
@@ -259,6 +246,170 @@
 	};
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	
+
+	$(document).ready(function(){
+		$.ajax({
+			async:true,
+			cache:false,
+			type:"GET",
+			url:"storeRoad",
+			data:{},
+			success:function(response){
+				
+				if(response.rt == "success"){
+					
+					if(response.sum == 0 ){
+						var listHtml = "";
+						
+						listHtml += '<div>검색된 음식점이없습니다!!!</div>'
+						
+						$("#listHtml").empty();
+						$("#listHtml").append(listHtml);
+						
+					}else{
+					
+						var listHtml = "";
+						var startTime = "";
+						var endTime = "";
+						var startBreakTime = "";
+						var endBreakTime = "";
+					
+						for(var i in response.list){
+							
+							startTime = response.list[i].mnrtTimeStart;
+							endTime = response.list[i].mnrtTimeEnd;
+							startBreakTime = response.list[i].mnrtBreakTimeStart;
+							endBreakTime = response.list[i].mnrtBreakTimeEnd;
+							
+							
+						 	listHtml += '<div class="strip_list wow fadeIn" data-wow-delay="0.1s">';
+							listHtml += '<div class="ribbon_1">';
+							listHtml += 'Popular';
+							listHtml +=	'</div>';
+							listHtml += '<div class="row">'; 
+							listHtml += '<div class="col-md-9">';
+							listHtml += '<div class="desc">';
+							listHtml += '<div class="thumb_strip">';
+							if(response.list[i].path != null){
+								listHtml += '<img src="' + response.list[i].path + response.list[i].uuidName  + '" alt=""></a>';
+							}else{
+								listHtml += '<img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" alt=""></a>';
+							}
+							listHtml += '</div>';
+							listHtml +='<h3>' + nullToEmpty(response.list[i].mnrtName) + '</h3>';
+							listHtml +='<div class="type">';
+							listHtml += nullToEmpty(response.list[i].mncdName);
+							listHtml +='</div>';
+							listHtml +='<div class="location">';
+							listHtml += nullToEmpty(response.list[i].mnrtAddressFull);
+							listHtml += '<br><span class="opening">영업시간:' + startTime + '~' + endTime;
+							listHtml += '</span><br>브레이크타임:' + startBreakTime + '~' + endBreakTime;
+							listHtml +='</div>';
+							listHtml +='</div>';
+							listHtml +='</div>';
+							listHtml +='<div class="col-md-3">';
+							listHtml +='<div class="go_to">';
+							listHtml +='<div>';
+							listHtml +='<a class="btn_1"  href="/user/storeDetail?mnrtSeq=' + nullToEmpty(response.list[i].mnrtSeq) + '">바로가기</a>'; 
+							listHtml +='</div>';
+							listHtml +='</div>'; 
+							listHtml +='</div>'; 
+							listHtml +='</div>'; 
+							listHtml +='</div>'; 
+							
+							
+							/* 마커생성 S */ 
+							var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
+							var marker = new kakao.maps.Marker({ position: markerPosition });
+							markerArr[i] = marker;
+							/* marker.setMap(null);  */  
+							marker.setMap(map);
+							/* 마커생성 E*/
+							
+							// 커스텀 오버레이에 표시할 컨텐츠 입니다
+							// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
+							// 별도의 이벤트 메소드를 제공하지 않습니다 
+							
+							if (response.list[i].path != null){
+								
+								var content = '<div class="wrap">' + 
+								            '    <div class="info">' + 
+								            '        <div class="title">' + 
+								                        response.list[i].mnrtName  + 
+								            '            <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
+								            '        </div>' + 
+								            '        <div class="body">' + 
+								            '            <div class="img">' +
+								            '                <img src="' + response.list[i].path + response.list[i].uuidName  + '" width="73" height="70">' +
+								            '           </div>' + 
+								            '            <div class="desc">' + 
+								            '                <div class="ellipsis">' + response.list[i].mnrtAddressFull + '</div>' + 
+								            '                <div><a href="/user/storeDetail?mnrtSeq=' +response.list[i].mnrtSeq + '" target="_blank" class="link">상세정보</a></div>' + 
+								            '                <div><a href="https://map.kakao.com/link/to/' 
+																+ response.list[i].mnrtAddressFull + ',' + response.list[i].mnrtX + ',' +  response.list[i].mnrtY + '"' 
+																+  'class="link" target="_blank">길찾기</a></div>' + 
+								            '            </div>' + 
+								            '        </div>' + 
+								            '    </div>' +    
+								            '</div>';
+							}else{
+								
+								var content = '<div class="wrap">' + 
+					            '    <div class="info">' + 
+					            '        <div class="title">' + 
+					                        response.list[i].mnrtName  + 
+					            '            <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
+					            '        </div>' + 
+					            '        <div class="body">' + 
+					            '            <div class="img">' +
+					            '                <img src="/resources/user/image/apple-touch-icon-114x114-precomposed.png" width="73" height="70">' +
+					            '           </div>' + 
+					            '            <div class="desc">' + 
+					            '                <div class="ellipsis">' + response.list[i].mnrtAddressFull + '</div>' + 
+					            '                <div><a href="/user/storeDetail?mnrtSeq=' +response.list[i].mnrtSeq + '" target="_blank" class="link">상세정보</a></div>' + 
+					            '                <div><a href="https://map.kakao.com/link/to/' 
+													+ response.list[i].mnrtAddressFull + ',' + response.list[i].mnrtX + ',' +  response.list[i].mnrtY + '"' 
+													+  'class="link" target="_blank">길찾기</a></div>' + 
+					            '            </div>' + 
+					            '        </div>' + 
+					            '    </div>' +    
+					            '</div>';
+								
+							}
+							            
+					         // 마커 위에 커스텀오버레이를 표시합니다
+					        	// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+					        	var overlay = new kakao.maps.CustomOverlay({
+					        	    content: content,
+					        	    map: map,
+					        	    position: marker.getPosition()       
+					        	});
+					         	overlayArr[i] = overlay;
+					        	
+					      		// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+					        	kakao.maps.event.addListener(marker, 'click',  makeOverListener(i));
+							}
+						$("#listHtml").empty();
+						$("#listHtml").append(listHtml);
+					}
+					
+				}	
+			},
+			error:function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	});
+	function enterkey() {
+		if (window.event.keyCode == 13) {
+			searchMap(); 
+			checkMarker();
+	    }
+	}
+	
+
+	
 	
 	
 	/* 검색후 마커찍는 함수 S */
@@ -278,7 +429,7 @@
 				
 		        var level = map.getLevel();
 		        
-		        map.setLevel(level - 4);
+		        map.setLevel(level - 2);
 		        // 결과값으로 받은 위치를 마커로 표시합니다
 		        var marker = new kakao.maps.Marker({
 		            map: map,
@@ -302,7 +453,7 @@
 		
 	}
 	/* 검색후 마커 있을시 없애는 함수  */
-	
+	/* 
 	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
 	function makeOverListener(map, marker, infowindow) {
    		return function() {
@@ -316,7 +467,7 @@
 	        infowindow.close();
 	    };
 	}
-	
+	 */
 	
 	kakao.maps.event.addListener(map, 'bounds_changed', function() { 
 		
@@ -324,6 +475,17 @@
 	    var neLng = this.getBounds().getNorthEast().getLng();
 	    var swLat = this.getBounds().getSouthWest().getLat();
 	    var swLng = this.getBounds().getSouthWest().getLng();
+	    
+	    for(var i in overlayArr.length){
+			overlayArr[i].setMap(null); 
+		}
+	    /* for(var i in markerArr.length){
+	    	markerArr[i].setMap(null);  
+		} */
+		/* clusterer.clear(); */
+	    
+	    markerArr= [];
+		overlayArr = [];
 	    
 		$.ajax({
 				async:true,
@@ -399,7 +561,7 @@
 								var markerPosition  = new kakao.maps.LatLng(response.list[i].mnrtX, response.list[i].mnrtY); 
 								var marker = new kakao.maps.Marker({ position: markerPosition });
 								markerArr[i] = marker;
-								marker.setMap(null);   
+								/* marker.setMap(null);    */
 								marker.setMap(map);
 								/* 마커생성 E*/
 								
@@ -478,8 +640,8 @@
 			});
 		});
 	// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-	function closeOverlay(number) {
-	    overlayArr[number].setMap(null);     
+	function closeOverlay(i) {
+	    overlayArr[i].setMap(null);     
 	}
 	function makeOverListener(i) {
 	    return function() {

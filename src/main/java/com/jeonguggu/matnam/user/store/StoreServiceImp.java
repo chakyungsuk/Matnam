@@ -14,6 +14,16 @@ public class StoreServiceImp implements StoreService {
 
 	
 	@Override
+	public int selectRoadCount(StoreVo vo) throws Exception {
+		return dao.selectRoadCount(vo);
+	}
+
+	@Override
+	public List<Store> selectRoad(StoreVo vo) throws Exception {
+		return dao.selectRoad(vo);
+	}
+
+	@Override
 	public List<Store> selectListStore(StoreVo vo) throws Exception {
 		return dao.selectListStore(vo);
 	}
