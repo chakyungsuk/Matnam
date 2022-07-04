@@ -12,7 +12,6 @@
 			a.mnrtSeq
 			,a.mnrtName
 		    ,a.mnrtAddressFull
-		    ,a.mnrtAvg
             ,a.mnrtX
             ,a.mnrtY
             ,a.mnrtTimeStart
@@ -41,7 +40,6 @@
 			a.mnrtSeq
 			,a.mnrtName
 		    ,a.mnrtAddressFull
-		    ,a.mnrtAvg
             ,a.mnrtX
             ,a.mnrtY
             ,a.mnrtTimeStart
@@ -100,7 +98,6 @@
 		    ,a.mnrtHolidayCd
 		    ,a.mnrtText
 		    ,a.mnrtNumber
-		    ,a.mnrtAvg
             ,b.mncdName as mnrtFoodCate
             ,c.mncdName as mnrtHoliday
 			,(select path from matnam.matnamUploaded where 1=1 and typeCd = 148 and pseq = a.mnrtSeq and defaultNy = 1) as mnrtLogoPath
