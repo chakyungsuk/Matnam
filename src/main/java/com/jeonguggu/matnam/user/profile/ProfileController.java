@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.jeonguggu.matnam.common.util.ScriptUtils;
 
 /**
  * Handles requests for the application home page.
@@ -102,9 +105,15 @@ public class ProfileController {
 	}
 	
 	@RequestMapping(value = "/user/userInst")
-	public String userInst(Profile dto) throws Exception {
+	public String userInst( HttpServletResponse response, Profile dto, ProfileVo vo) throws Exception {
 		
-		service.insert(dto);
+		vo.setMnMmId(dto.getMnMmId());
+		
+		if (service.checkId(vo) == 0) {
+			service.insert(dto);
+		} else {
+			ScriptUtils.alertAndMovePage(response, "잘못된 접근입니다.", "/user/loginForm");
+		}
 		
 		return "redirect:/user/loginForm";
 	}

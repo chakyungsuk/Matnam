@@ -13,7 +13,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class MemberController {
 	
-	private static final String MemberVo = null;
 	@Autowired
 	MemberServiceImpl service;
 	
