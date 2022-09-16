@@ -432,6 +432,12 @@
 					equalTo: "#mnMmPassword"
 				},
 				mnMmName: "required",
+				mnMmDob_Year: "required",
+				mnMmDob_Month_Cd: "required",
+				mnMmDob_Day: "required",
+				mnMmGenderCd: "required",
+				mnmtTasteCdArray: "required",
+				mnmaAddress2: "required",
 				mnmpNumber: {
 					required: true,
 					digits: true
@@ -494,6 +500,12 @@
 			}
 		} );
 	} );
+	
+	jQuery.extend(jQuery.validator.messages, {
+	    required: "필수항목입니다.",
+	});
+	
+	
 	
 </script>
 </body>
